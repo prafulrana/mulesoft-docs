@@ -1,4 +1,4 @@
-= To Grant Permission to Access Environments
+= Grant Permission to Access an environment
 :imagesdir: ./_images
 
 A permission called API Manager Environment Administrator gives users full access to API Manager operations inside environments. API Manager environment administrator only relates to actions inside of API Manager.

@@ -1,4 +1,4 @@
-= API Analytics
+= Reviewing Analytics concepts
 :keywords: analytics
 
 API Analytics can provide insight into how your APIs are being used and how they are performing. From API Manager, you can access the Analytics dashboard, create a custom dashboard, create and manage charts, and create reports. From API Manager, you can get following types of analytics:
