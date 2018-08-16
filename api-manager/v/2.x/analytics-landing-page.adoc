@@ -1,0 +1,9 @@
+= Analytics
+:keywords: analytics
+
+// Analytics
+*** link:/api-manager/v/2.x/analytics-concept[Reviewing Analytics concepts]
+*** link:/api-manager/v/2.x/viewing-api-analytics[Reviewing Analytics usage]
+*** link:/api-manager/v/2.x/analytics-chart[Reviewing API Manager Analytics charts usage]
+*** link:/api-manager/v/2.x/analytics-event-api[Reviewing Analytics Event API]
+*** link:/api-manager/v/2.x/analytics-event-forward[Reviewing Analytics Event Forwarding]
