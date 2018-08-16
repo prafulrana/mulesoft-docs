@@ -1,5 +1,5 @@
 = Runtime
-:keywords: mule, runtime, gateway, policy, gatekeeper, autodiscovery, auto-discovery
+:keywords: mule, runtime, gateway, policy, gatekeeper, autodiscovery, auto-discovery, analytics
 
 *** link:/api-manager/v/2.x/api-gateway-capabilities-mule4[Reviewing API Gateway capabilities]
 *** link:/api-manager/v/2.x/gatekeeper[Reviewing API Gateway Gatekeeper Enhanced Security Reference]
