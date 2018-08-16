@@ -1,4 +1,4 @@
-= To Find the API ID of an API
+= Determining API Instance ID on API Manager
 :imagesdir: ./_images
 
 API Manager generates the `apiId` of new APIs managed by API Manager for use with Mule 4. The API ID is displayed on the API instance dashboard if you select Mule 4 Runtime in the configuration of an API instance.

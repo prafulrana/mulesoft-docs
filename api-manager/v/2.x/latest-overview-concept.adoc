@@ -1,4 +1,4 @@
-= About API Manager 2.x
+= Reviewing API Manager concepts
 :keywords: api, manager, raml
 :imagesdir: ./_images
 

@@ -1,0 +1,20 @@
+= Policies
+:keywords: policy, custom, ootb, offline
+
+// Policies
+*** link:/api-manager/v/2.x/policies-4-concept[Policies]
+*** link:/api-manager/v/2.x/policies-whats-new-concept[Reviewing policies concepts]
+*** link:/api-manager/v/2.x/basic-policy-tasks-index[Reviewing policies basic tasks]
+*** link:/api-manager/v/2.x/disable-edit-remove-task[Disabling, Editing, or Removing a Policy]
+*** link:/api-manager/v/2.x/re-order-policies-task[Re-ordering Policies]
+*** link:/api-manager/v/2.x/using-policies[Applying a Policy]
+*** link:/api-manager/v/2.x/tutorial-manage-an-api[Applying a Policy and SLA Tier]
+*** link:/api-manager/v/2.x/resource-level-policies-about[Reviewing Resource Level Policies]
+*** link:/api-manager/v/2.x/resource-level-policy-reference[Reviewing Resource Level Policy concepts]
+*** link:/api-manager/v/2.x/prepare-raml-task[Reviewing Traits & policies concepts of RAML based APIs]
++
+// Policies: OOTB
+*** link:/api-manager/v/2.x/policies-ootb-landing-page[Provided Policies]
++
+// Policies: Custom
+*** link:/api-manager/v/2.x/policies-custom-landing-page[Custom Policies]

@@ -1,125 +1,23 @@
 // TOC File
-
 * link:/api-manager/v/2.x/index[API Manager]
-** link:/api-manager/v/2.x/api-gateway-capabilities-mule4[API Gateway capabilities (Mule 4)]
-
-** link:/api-manager/v/2.x/latest-overview-concept[About API Manager 2.x]
-*** link:/api-manager/v/2.x/latest-tasks[Basic API Management Tasks]
-**** link:/api-manager/v/2.x/manage-exchange-api-task[To Manage an API from Exchange]
-**** link:/api-manager/v/2.x/import-api-task[To Import an API Instance]
-**** link:/api-manager/v/2.x/classify-api-task[To Classify an API]
-**** link:/api-manager/v/2.x/switch-environment-task[To Switch the Environment]
-**** link:/api-manager/v/2.x/promote-api-task[To Promote the API to another Environment]
-**** link:/api-manager/v/2.x/export-api-latest-task[To Export an API Instance]
-**** link:/api-manager/v/2.x/create-instance-task[To Create an API Instance]
-**** link:/api-manager/v/2.x/deprecate-api-latest-task[To Deprecate an API Instance]
-**** link:/api-manager/v/2.x/delete-api-task[To Delete Management of an API Version ]
-**** link:/api-manager/v/2.x/configure-api-task[To Configure an API Endpoint]
-**** link:/api-manager/v/2.x/manage-client-apps-latest-task[To Manage Contracts]
-**** link:/api-manager/v/2.x/remove-client-app-latest-task[To Remove a Contract]
-**** link:/api-manager/v/2.x/access-client-app-id-task[To Access the Client ID and Client Secret of a Client App]
-*** link:/api-manager/v/2.x/environments-concept[About Environments]
-**** link:/api-manager/v/2.x/environment-permission-task[To Grant Permission to Access Environments]
-**** link:/api-manager/v/2.x/find-api-id-task[To Find the API ID of an API]
-
-*** link:/api-manager/v/2.x/manage-versions-instances-concept[About Managing API Versions and Instances]
-*** link:/api-manager/v/2.x/api-auto-discovery-new-concept[About API Autodiscovery]
-**** link:/api-manager/v/2.x/configure-autodiscovery-4-task[Configuring API Autodiscovery in a Mule 4 Application]
-**** link:/api-manager/v/2.x/configure-autodiscovery-3-task[Configuring API Autodiscovery in a Mule 3 Application]
-
-*** link:/api-manager/v/2.x/proxy-latest-concept[About Deploying Mule Runtime Proxies]
-**** link:/api-manager/v/2.x/wsdl-raml-http-proxy-reference[Mule 4 Proxy Error and Request Handling]
-**** link:/api-manager/v/2.x/proxy-advantages[Mule 4 Proxy Advantages]
-*** link:/api-manager/v/2.x/proxy-deploy-cloudhub-latest-task[To Deploy a Proxy to CloudHub]
-*** link:/api-manager/v/2.x/proxy-deploy-hybrid-latest-task[To Deploy a Proxy to Hybrid]
-*** link:/api-manager/v/2.x/download-proxy-task[To Download a Proxy]
-
-
-** link:/api-manager/v/2.x/policies-4-concept[About Policies]
-*** link:/api-manager/v/2.x/policies-whats-new-concept[What's New in Policy Management]
-*** link:/api-manager/v/2.x/policy-scope-size-concept[About Policy Packaging, Scope, and Size]
-*** link:/api-manager/v/2.x/cors-mule4[About CORS on Mule Runtime 4.x]
-*** link:/api-manager/v/2.x/oauth2-policies-new[About OAuth 2 Policies]
-**** link:/api-manager/v/2.x/oauth-policy-implementation-concept[About OAuth 2 Policy Implementation]
-*** link:/api-manager/v/2.x/mule4-policy-reference[Mule Runtime 4.x Policy Reference]
-
-** link:/api-manager/v/2.x/using-policies[About Using Policies]
-*** link:/api-manager/v/2.x/basic-policy-tasks-index[Basic Policy Tasks]
-**** link:/api-manager/v/2.x/tutorial-manage-an-api[To Apply a Policy and SLA Tier]
-**** link:/api-manager/v/2.x/prepare-raml-task[To Prepare RAML for Policies]
-**** link:/api-manager/v/2.x/delete-sla-tier-task[To Delete an SLA Tier]
-**** link:/api-manager/v/2.x/re-order-policies-task[To Re-order Policies]
-**** link:/api-manager/v/2.x/disable-edit-remove-task[To Disable, Edit, or Remove a Policy]
-**** link:/api-manager/v/2.x/offline-policy-task[To Apply an Offline Policy]
-**** link:/api-manager/v/2.x/offline-remove-task[To Remove an Offline Policy]
-**** link:/api-manager/v/2.x/upload-policy-exchange-task[To Upload a Policy to Exchange]
-*** link:/api-manager/v/2.x/resource-level-policies-about[About Resource Level Policies]
-*** link:/api-manager/v/2.x/resource-level-policy-reference[Resource Level Policy Reference]
-*** link:/api-manager/v/2.x/available-policies[About Provided Policies]
-**** link:/api-manager/v/2.x/cors-policy[To Apply and Edit a CORS Policy]
-**** link:/api-manager/v/2.x/client-id-based-policies[Client ID-Based Policies Reference]
-**** link:/api-manager/v/2.x/basic-authentication-concept[About Basic Authentication and LDAP Policies]
-***** link:/api-manager/v/2.x/basic-authentication-simple-concept[Basic Authentication: Simple (Mule 4)]
-***** link:/api-manager/v/2.x/basic-authentication-ldap-concept[Basic Authentication: LDAP (Mule 4)]
-***** link:/api-manager/v/2.x/http-basic-authentication-policy[HTTP Basic Authentication Policy]
-***** link:/api-manager/v/2.x/ldap-security-manager[LDAP Security Manager Policy]
-**** link:/api-manager/v/2.x/header-inject-remove-task[To Apply Header Injection and Removal]
-**** link:/api-manager/v/2.x/http-caching-policy[HTTP Caching Policy]
-**** link:/api-manager/v/2.x/ip-blacklist[To Apply IP Blacklist]
-**** link:/api-manager/v/2.x/ip-whitelist[To Apply IP Whitelist]
-**** link:/api-manager/v/2.x/json-xml-threat-policy[About JSON and XML Threat Protection]
-***** link:/api-manager/v/2.x/apply-configure-json-threat-task[To Apply JSON Threat Protection]
-***** link:/api-manager/v/2.x/apply-configure-xml-threat-task[To Apply XML Threat Protection]
-**** link:/api-manager/v/2.x/external-oauth-2.0-token-validation-policy[OAuth 2.0 Access Token Policies]
-***** link:/api-manager/v/2.x/openam-oauth-token-enforcement-policy[About OpenID Connect, OpenAM, or PingFederate OAuth Token Enforcement Policies]
-***** link:/api-manager/v/2.x/apply-oauth-token-policy-task[To Apply an OAuth 2.0 Token Validation Policy]
-***** link:/api-manager/v/2.x/configure-oauth-proxy-task[To Configure the Proxy Connection to an OAuth Provider]
-**** link:/api-manager/v/2.x/aes-oauth-faq[Building a Mule OAuth Provider Tasks]
-***** link:/api-manager/v/2.x/oauth-build-provider-prerequisites-about[Mule OAuth Provider Prerequisites]
-***** link:/api-manager/v/2.x/building-an-external-oauth-2.0-provider-application[To Build a Mule OAuth 2.0 Provider]
-***** link:/api-manager/v/2.x/to-test-local-provider[To Test the Local Provider]
-***** link:/api-manager/v/2.x/to-deploy-provider[To Deploy the Provider]
-***** link:/api-manager/v/2.x/to-test-remote-provider[To Test the Remote Provider]
-***** link:/api-manager/v/2.x/to-configure-provider-multiple-workers[To Configure Multiple Workers]
-***** link:/api-manager/v/2.x/to-use-authentication[To Use a Mule Provider for OAuth 2.0 Authentication]
-***** link:/api-manager/v/2.x/oauth-dance-about[About the OAuth Dance]
-***** link:/api-manager/v/2.x/about-configure-api-for-oauth[About OAuth Policy Prerequisites]
-***** link:/api-manager/v/2.x/oauth-service-provider-reference[OAuth 2.0 Service Provider Reference]
-***** link:/api-manager/v/2.x/oauth-grant-types-about[About OAuth Grant Types]
-***** link:/api-manager/v/2.x/oauth-persist-obj-store-about[About Storing OAuth Tokens]
-***** link:/api-manager/v/2.x/oauth2-provider-configuration[Mule OAuth 2.0 Provider Configuration Reference]
-**** link:/api-manager/v/2.x/message-logging-policy[Message Logging Policy]
-**** link:/api-manager/v/2.x/spike-control-reference[Spike Control Policy Reference]
-**** link:/api-manager/v/2.x/throttling-rate-limit-concept[About Throttling and Rate Limiting]
-***** link:/api-manager/v/2.x/rate-limiting-and-throttling-sla-based-policies[Rate Limiting and Throttling - SLA-Based]
-***** link:/api-manager/v/2.x/configure-rate-limiting-task[To Apply Rate Limiting 1.0.0 or 1.1.0]
-***** link:/api-manager/v/2.x/rate-limit-1.2.0-task[To Apply Rate Limiting 1.2.0]
-***** link:/api-manager/v/2.x/rate-limiting-and-throttling[Rate Limiting and Throttling Reference]
-*** link:/api-manager/v/2.x/cors-reference[CORS Reference]
-*** link:/api-manager/v/2.x/defining-sla-tiers[SLA Tiers Reference]
-
-** link:/api-manager/v/2.x/custom-policy-index-latest[About Custom Policies]
-*** link:/api-manager/v/2.x/add-remove-headers-concept[Custom Policy Examples]
-**** link:/api-manager/v/2.x/add-remove-headers-latest-task[Add/Remove Headers]
-**** link:/api-manager/v/2.x/add-remove-headers[Testing Add and Remove Request Header Policies]
-*** link:/api-manager/v/2.x/http-policy-transform[HTTP Policy Transform Extension]
-*** link:/api-manager/v/2.x/caching-in-a-custom-policy-mule-4[Caching in a Custom Policy for Mule 4]
-*** link:/api-manager/v/2.x/develop-custom-policies-reference[Custom Policy Development Reference]
-*** link:/api-manager/v/2.x/custom-policy-4-reference[Custom Policy General Reference]
-
-** link:/api-manager/v/2.x/using-api-alerts[About API Alerts]
-*** link:/api-manager/v/2.x/add-api-alert-task[To Add an API Alert]
-*** link:/api-manager/v/2.x/test-alert-task[To Test an API Alert]
-*** link:/api-manager/v/2.x/view-delete-alerts-task[To View and Delete API Alerts]
-*** link:/api-manager/v/2.x/edit-enable-disable-alerts-task[To Edit, Enable, or Disable API Alerts]
-
-** link:/api-manager/v/2.x/gatekeeper[Gatekeeper Enhanced Security Reference]
-*** link:/api-manager/v/2.x/gatekeeper-task[To Enable Gatekeeper]
-
-
-** link:/api-manager/v/2.x/analytics-concept[Analytics]
-*** link:/api-manager/v/2.x/viewing-api-analytics[Viewing Analytics]
-*** link:/api-manager/v/2.x/analytics-event-api[Analytics Event API]
-*** link:/api-manager/v/2.x/analytics-chart[Chart in API Manager]
-
-*** link:/api-manager/v/2.x/analytics-event-forward[About Event Forwarding]
++
+// API Manager general
+** link:/api-manager/v/2.x/api-instance-landing-page[API Instance]
++
+// Analytics
+** link:/api-manager/v/2.x/analytics-landing-page[Analytics]
++
+// Policies
+** link:/api-manager/v/2.x/policies-landing-page[Policies]
++
+// API Proxy
+** link:/api-manager/v/2.x/api-proxy-landing-page[API Proxy]
++
+// Mule oAuth 2.0 provider
+** link:/api-manager/v/2.x/mule-oauth-provider-landing-page[Mule oAuth 2.0 Provider]
++
+// Alerts
+** link:/api-manager/v/2.x/alerts-landing-page[Alerts]
++
+// Runtime
+** link:/api-manager/v/2.x/runtime-agw-landing-page[Runtime]

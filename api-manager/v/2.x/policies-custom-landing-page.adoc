@@ -1,0 +1,16 @@
+= Custom Policies
+:keywords: policy, custom, offline
+
+**** link:/api-manager/v/2.x/custom-policy-index-latest[Reviewing Custom Policies concepts]
+**** link:/api-manager/v/2.x/policy-scope-size-concept[Packaging Custom Policy]
+**** link:/api-manager/v/2.x/develop-custom-policies-reference[Reviewing Custom Policy Development Reference]
+**** link:/api-manager/v/2.x/custom-policy-4-reference[Reviewing Custom Policy General Reference]
+**** link:/api-manager/v/2.x/http-policy-transform[Reviewing HTTP Policy Transform Extension]
+**** link:/api-manager/v/2.x/upload-policy-exchange-task[Uploading a Policy to Exchange]
+**** link:/api-manager/v/2.x/add-remove-headers-concept[Adding/Removing headers example]
+***** link:/api-manager/v/2.x/add-remove-headers-latest-task[Adding/Removing Headers]
+***** link:/api-manager/v/2.x/add-remove-headers[Testing removing headers Custom Policy example]
+**** link:/api-manager/v/2.x/caching-in-a-custom-policy-mule-4[Removing HTTP Caching Custom Policy example]
+
+// Policies: Offline
+*** link:/api-manager/v/2.x/policies-custom-offline-landing-page[Offline Custom Policies]
