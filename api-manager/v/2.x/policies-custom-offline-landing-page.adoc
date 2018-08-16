@@ -1,0 +1,5 @@
+= Offline Custom Policies
+:keywords: policy, custom, offline
+
+*** link:/api-manager/v/2.x/offline-policy-task[Applying Offline Custom Policies]
+*** link:/api-manager/v/2.x/offline-remove-task[Removing Offline Custom Policies]
