@@ -122,34 +122,35 @@ These actions can also apply to non-clustered applications.
 
 == Clustering and Networking
 
-===Single Data-center Clustering
+=== Single Data-center Clustering
 
 To ensure reliable connectivity between cluster nodes, all nodes of a cluster should be located on the same LAN. Implementing a cluster with nodes across geographically separated locations, such as different data centers that are connected through a VPN, is possible but not recommended.
-+
-+Ensuring that all cluster nodes reside on the same LAN is the best practice to lower the possibility of network interruptions and unintended consequences, such as duplicated messages.
-+
-+=== Distributed Data-center Clustering
-+
-+Linking cluster nodes through a WAN network introduces many possible points of failure, such as external routers and firewalls, which can prevent proper synchronization between cluster nodes. This not only affects performance but also requires you to plan for possible side effects in your app. For example, when two cluster nodes reconnect after getting cut off by a failed network link, the ensuing synchronization process can cause messages to be processed twice, which creates duplicates that must be handled in your application logic.
-+
-+Note that it is possible to use nodes of a cluster located in different data centers and not necessarly located on the same LAN, but some restrictions apply.       
-+
-+To prevent this behavior, it is necessary to enable the Quorum Protocol. This protocol is used to allow one set of nodes to continue processing data while other sets do nothing with the shared data until they reconnect. Basically, when a disconnection occurs, only the portion with the most nodes will continue to function. For instance, assume two data centers, one with three nodes and another with two nodes. If a connectivity problem occurs in the data center with two nodes, then the data center with three nodes will continue to function, and the second data center will not. If the three-noded data center goes offline, none of your nodes will function. To prevent this outage, you must create the cluster in at least three data centers with the same number of nodes. It is unlikely for two data centers to crash, so if just one data center goes offline, the cluster will always be functional.
-+
-+IMPORTANT: A cluster partition that does not have enough nodes to function will continue reacting to external system calls, but all operations over the object stores will fail, preventing data generation.
-+
-+.Limitations
-+* Quorum is only supported in Object Store-related operations. 
-+* Distributed locking is not supported, which affects:
-+  - File/FTP transport polling for files concurrent
-+  - Idempotent Redelivery Policy component
-+  - Idempotent Message Filter component
-+* In-memory messaging is not suported, which affects:
-+  - VM transport
-+  - SEDA queues
-+* The Quorum feature can only be configured manually. 
 
-// TODO: DOC MISSING from 4.1: See link:creating-and-managing-a-cluster-manually[Creating and managing a cluster manually]
+Ensuring that all cluster nodes reside on the same LAN is the best practice to lower the possibility of network interruptions and unintended consequences, such as duplicated messages.
+
+=== Distributed Data-center Clustering
+
+Linking cluster nodes through a WAN network introduces many possible points of failure, such as external routers and firewalls, which can prevent proper synchronization between cluster nodes. This not only affects performance but also requires you to plan for possible side effects in your app. For example, when two cluster nodes reconnect after getting cut off by a failed network link, the ensuing synchronization process can cause messages to be processed twice, which creates duplicates that must be handled in your application logic.
+
+Note that it is possible to use nodes of a cluster located in different data centers and not necessarily located on the same LAN, but some restrictions apply.
+
+To prevent this behavior, it is necessary to enable the Quorum Protocol. This protocol is used to allow one set of nodes to continue processing data while other sets do nothing with the shared data until they reconnect. Basically, when a disconnection occurs, only the portion with the most nodes will continue to function. For instance, assume two data centers, one with three nodes and another with two nodes. If a connectivity problem occurs in the data center with two nodes, then the data center with three nodes will continue to function, and the second data center will not. If the three-node data center goes offline, none of your nodes will function. To prevent this outage, you must create the cluster in at least three data centers with the same number of nodes. It is unlikely for two data centers to crash, so if just one data center goes offline, the cluster will always be functional.
+
+IMPORTANT: A cluster partition that does not have enough nodes to function will continue reacting to external system calls, but all operations over the object stores will fail, preventing data generation.
+
+.Limitations
+
+* Quorum is only supported in Object Store-related operations.
+* Distributed locking is not supported, which affects:
+  - File/FTP transport polling for files concurrent
+  - Idempotent Redelivery Policy component
+  - Idempotent Message Filter component
+* In-memory messaging is not suported, which affects:
+  - VM transport
+  - SEDA queues
+* The Quorum feature can only be configured manually.
+
+link:creating-and-managing-a-cluster-manually[Creating and Managing a Cluster Manually]
 
 
 == Clustering and Load Balancing
@@ -163,7 +164,6 @@ There are also many hardware load balancers that can route both TCP and HTTP(S) 
 
 == Clustering for High Performance
 
-[NOTE]
 Note that high performance is implemented differently on link:/runtime-manager[CloudHub] and link:/runtime-manager/deploying-to-pcf[Pivotal Cloud Foundry], so this section applies only for link:/runtime-manager/deploying-to-your-own-servers[on-premises deployments].
 
 If high performance is your primary goal (rather than reliability), you can configure a Mule cluster or an individual application for maximum performance using a *performance profile*. By implementing the performance profile for specific applications within a cluster, you can maximize the scalability of your deployments while deploying applications with different performance and reliability requirements in the same cluster. By implementing the performance profile at the container level, you apply it to all applications within that container. Application-level configuration overrides container-level configuration.
@@ -210,8 +210,7 @@ Remember that application-level configuration overrides container-level configur
 [WARNING]
 In cases of high load with endpoints that do not support load balancing, applying the performance profile may degrade performance. If you are using a File-based transport with an asynchronous processing strategy, JMS topics, multicasting, or HTTP connectors without a load balancer, the high volume of messages entering a single node can cause bottlenecks, and thus it can be better for performance to turn off the performance profile for these applications.
 
-//TODO: UPDATE /mule-user-guide/v/3.9/evaluating-mule-high-availability-clusters-demo/creating-and-managing-a-cluster-manually?
-You can also choose to define a minimum number of machines required in a cluster for it to remain in an operational state. This grants you a consistency improvement. Find more information in our link:/mule-user-guide/v/3.9/evaluating-mule-high-availability-clusters-demo/creating-and-managing-a-cluster-manually#quorum-management[quorum management section].
+You can also choose to define a minimum number of machines required in a cluster for it to remain in an operational state. This grants you a consistency improvement. See  link:creating-and-managing-a-cluster-manually#quorum-management[Quorum Management].
 
 
 == HA Cluster Demo
