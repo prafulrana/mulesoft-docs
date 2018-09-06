@@ -110,6 +110,9 @@ All three basic types of transports are supported in clusters in different ways,
 *** When writing to JDBC, Mule can generate unique keys.
 *** Writing e-mail is effectively listener-based rather than resource-based.
 
+// TODO: PLG, OK TO hide or remove "Clustering and Reliable Applications" until we update it and incorporate reliability-patterns into the doc set?
+////
+HIDING SECTION FOR NOW:
 == Clustering and Reliable Applications
 
 High-reliability applications (ones that have zero tolerance for message loss) not only require the underlying Mule to be reliable, but that reliability needs to extend to individual connections. link:reliability-patterns[Reliability Patterns] give you the tools to build fully reliable applications in your clusters.
@@ -119,6 +122,7 @@ Current Mule documentation provides link:reliability-patterns[code examples] tha
 If your application uses transactional transports, such as JMS, VM, and JDBC, use transactions. Mule's built-in support for transactional transports enables reliable messaging for applications that use these transports.
 
 These actions can also apply to non-clustered applications.
+////
 
 == Clustering and Networking
 
@@ -212,11 +216,13 @@ In cases of high load with endpoints that do not support load balancing, applyin
 
 You can also choose to define a minimum number of machines required in a cluster for it to remain in an operational state. This grants you a consistency improvement. See  link:creating-and-managing-a-cluster-manually#quorum-management[Quorum Management].
 
-
+////
+TODO: PLG, ok to HIDE or remove HA Cluster Demo UNTIL evaluating-mule-high-availability-clusters-demo is added to the 4.1 doc set, assuming that happens
 == HA Cluster Demo
 
 //TODO: UPDATE /mule-user-guide/v/3.9/evaluating-mule-high-availability-clusters-demo?
 To evaluate Mule's HA clustering capabilities first-hand, continue on to the link:/mule-user-guide/v/3.9/evaluating-mule-high-availability-clusters-demo[Mule HA Demo]. Designed to help new users evaluate the capabilities of Mule High Availability Clusters, the Mule HA Demo Bundle teaches you how to use the Mule Management Console to create a cluster of Mule runtimes, then deploy an application to run on the cluster. Further, this demo simulates two processing scenarios that illustrate the cluster’s ability to automatically balance normal processing load, and its ability to reliably remain active in a failover situation.
+////
 
 == Best Practices
 
@@ -224,9 +230,11 @@ There are a number of recommended practices related to clustering. These include
 
 * As much as possible, organize your application into a series of steps where each step moves the message from one transactional store to another.
 +
-//TODO: UPDATE /mule-user-guide/v/3.9/reliability-patterns?
-+
+////
+TODO: PLG, OK to hide or remove the next bullet until we UPDATE /mule-user-guide/v/3.9/reliability-patterns and incorporate into the doc 4.1 docs
 * If your application processes messages from a non-transactional transport, use a link:/mule-user-guide/v/3.9/reliability-patterns[reliability pattern] to move them to a transactional store such as a VM or JMS store.
+////
++
 * Use transactions to process messages from a transactional transport. This ensures that if an error is encountered, the message reprocesses.
 * Use distributed stores such as those used with the VM or JMS transport – these stores are available to an entire cluster. This is preferable to the non-distributed stores used with transports such as File, FTP, and JDBC – these stores are read by a single node at a time.
 * Use the VM transport to get optimal performance. Use the JMS transport for applications where data needs to be saved after the entire cluster exits.
@@ -243,7 +251,11 @@ There are a number of recommended practices related to clustering. These include
 * You must keep the following ports open in order to set up a Mule cluster: port 5701 and port 54327.
 * Because new cluster member discovery is performed using multicast, you need to enable the multicast IP: 224.2.2.3
 * To serve TCP requests, some load balancing across a Mule cluster is needed. See <<Clustering and Load Balancing>> for more information about third-party load balancers that you can use. You can also load balance the processing within a cluster by separating your flows into a series of steps and connecting each step with a transport such as VM. This cluster enables each step, allowing Mule to better balance the load across nodes.
++
+////
+TODO: PLG, OK TO REMOVE this bullet? Or how to update it for 4.1. endpoint-configuration-reference is no longer part of 4.1 docs
 * If your link:endpoint-configuration-reference[custom message source] does not use a message receiver to define node polling. Then you must configure your message source to implement a `ClusterizableMessageSource` interface. `ClusterizableMessageSource` dictates that only one application node inside a cluster contains the active (that is, started) instance of the message source; this is the ACTIVE node. If the active node falters, the `ClusterizableMessageSource` selects a new active node, then starts the message source in that node.
+////
 
 == See Also
 
