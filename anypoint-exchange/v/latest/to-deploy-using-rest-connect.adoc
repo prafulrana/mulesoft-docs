@@ -2,7 +2,19 @@
 :keywords: faq, rest connect, connect, rest
 :imagesdir: ./_images
 
-REST Connect quickly converts a RAML 1.0 API specification to a connector, which you can use in a Mule application in the Design Center feature of Anypoint Platform and in Anypoint Studio.
+REST Connect quickly converts a RAML 1.0 API specification to a connector, which you can use in a Mule application in the Design Center feature of Anypoint Platform and in Anypoint Studio. 
+
+When a user clicks the Publish to Exchange button, a REST API asset is created in Anypoint Exchange.
+
+image:rest-connect-publish-to-exchange.png[Publish to Exchange Button]
+
+== Accessing Generated Connectors
+
+After publishing an API Spec from Design Center > API Designer, a REST API asset appears in Anypoint Exchange. Mule 3 and Mule 4 connectors are also created for the RAML specification and listed on the REST API asset as a link.
+
+In Exchange, you can download the Mule 3 or Mule 4 connector from the Download menu:
+
+image:ex-rest-connect-download.png[Download the connector]
 
 == RAML Specification Support
 
@@ -318,3 +330,9 @@ image:rest-connect-auth-callback-url.png[Authorization Callback URL field]
 +
 . You are ready to retrieve an access token from GitHub. In this case, go to `+http://githubapp-smky.cloudhub.io/authorize+` in a browser, your case would be `+http://my-app.cloudhub.io/authorize+` - replace my-app.cloudhub.io with the one you get with Copy link. When you reach this URL, your browser asks you to log into GitHub.
 . When your access token is issued properly, you can get issues related to Salesforce from GitHub by using `+http://my-app.cloudhub.io/getIssues+` - my-app.cloudhub.io should be replaced with the one you get with `Copy link`.
+
+== See Also
+
+* https://forums.mulesoft.com[MuleSoft Forum]
+* https://support.mulesoft.com[Contact MuleSoft Support]
+

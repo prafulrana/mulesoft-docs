@@ -1,10 +1,10 @@
-= To Download and Install Anypoint Studio 7.1
+= To Install Anypoint Studio 7.1
 
-To download and install Aynpoint Studio 7.1, follow the instructions based on your operative system:
+You can only download the latest version of Anypoint Studio. These instructions are covered only if you already have the corresponding ZIP file for an older version:
 
-* link:/anypoint-studio/v/7.1/to-download-and-install-studio-wx[To Download and Install Anypoint Studio 7.1 (Windows)]
-* link:/anypoint-studio/v/7.1/to-download-and-install-studio-ox[To Download and Install Anypoint Studio 7.1 (OSx)]
-* link:/anypoint-studio/v/7.1/to-download-and-install-studio-lx[To Download and Install Anypoint Studio 7.1 (Linux)]
+* link:/anypoint-studio/v/7.1/to-download-and-install-studio-wx[To Install Anypoint Studio 7.1 (Windows)]
+* link:/anypoint-studio/v/7.1/to-download-and-install-studio-ox[To Install Anypoint Studio 7.1 (OSx)]
+* link:/anypoint-studio/v/7.1/to-download-and-install-studio-lx[To Install Anypoint Studio 7.1 (Linux)]
 
 [NOTE]
-Anypoint Studio 7.x only supports Mule 4.x projects since the structure of the project, export format, XML and scripting language are different. 
+Anypoint Studio 7.x only supports Mule 4.x projects since the structure of the project, export format, XML and scripting language are different.

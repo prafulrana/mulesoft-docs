@@ -127,7 +127,7 @@ image:keyValuePair.png[keyValuePair]
 
 ==== Properties
 
-As Mule message processors cannot add, remove or act upon *inbound properties*, none have changed.
+As Mule message processors cannot add, remove, or act upon *inbound properties*, none has changed.
 
 image:inbound2.png[inbound2]
 

@@ -17,7 +17,7 @@ This release contains no changes to existing functionality.
 
 == Fixed Issues
 
-This release contains now issues fixes.
+This release contains no issues fixes.
 
 == Known Limitations and Workarounds
 
