@@ -161,7 +161,7 @@ image:kafka-producer-studio-config.png[Producer Studio Configuration]
 == Use Case: Studio
 
 Kafka connector can be used for either consuming messages from a partitcular topic and feed the flow with those messages or produce a message into a topic.
-In studio this is how it looks like:
+In studio this is what you'll see:
 
 Consumer:
 
