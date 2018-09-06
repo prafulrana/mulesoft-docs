@@ -4,8 +4,7 @@
 
 REST Connect quickly converts a RAML 1.0 API specification to a connector, which you can use in a Mule application in the Design Center feature of Anypoint Platform and in Anypoint Studio. 
 
-When a user clicks the Publish to Exchange button, REST Connect converts the RAML specification into 
-a REST API asset in Anypoint Exchange.
+When a user clicks the Publish to Exchange button, a REST API asset is created in Anypoint Exchange.
 
 image:rest-connect-publish-to-exchange.png[Publish to Exchange Button]
 
