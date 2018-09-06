@@ -12,6 +12,10 @@ image:rest-connect-publish-to-exchange.png[Publish to Exchange Button]
 
 After publishing an API Spec from Design Center > API Designer, a REST API asset appears in Anypoint Exchange. Mule 3 and Mule 4 connectors are also created for the RAML specification and listed on the REST API asset as a link.
 
+In Exchange, you can download the Mule 3 or Mule 4 connector from the Download menu:
+
+image:ex-rest-connect-download.png[Download the connector]
+
 == RAML Specification Support
 
 REST Connect supports RAML v1.0. If you publish a RAML v0.8 API Specification, you may receive an alert email. To have an auto-generated connector, convert your API specification to RAML v1.0.
