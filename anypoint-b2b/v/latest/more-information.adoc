@@ -2,7 +2,7 @@
 
 NOTE: Current Anypoint Partner Manager solutions will continue to be supported in accordance with the https://www.mulesoft.com/legal/support-maintenance-terms[Product Support and Maintenance Terms] but will not be available for new customers or upgrades. Contact your MuleSoft representative for more information on MuleSoft's B2B solutions.
 
-== About link:/anypoint-b2b/partner-configuration[configuring trading partners]
+== Configuring Trading Partners
 
 ** link:/anypoint-b2b/partners[Partners]
 *** link:/anypoint-b2b/company-information[Company Information]
@@ -23,7 +23,7 @@ NOTE: Current Anypoint Partner Manager solutions will continue to be supported i
 *** link:/anypoint-b2b/partner-conversations[Partner Conversations]
 
 
-== About link:/anypoint-b2b/anypoint-partner-manager[Anypoint Partner Manager]
+== About Anypoint Partner Manager
 
 * link:/anypoint-b2b/partner-configuration[Partner Configuration]
 * link:/anypoint-b2b/transaction-monitoring[Transaction Monitoring]
