@@ -1,29 +1,30 @@
 = DataWeave Flatfile Schemas
 :keywords: b2b, edi, schema, dataweave, yaml, language, reference
 
-DataWeave allows you to process several different types of data. For most of these types, you can import a schema that describes the input structure in order to have access to valuable metadata at design time.
+DataWeave can process several different types of data. For most of these types, you can import a schema that describes the input structure in order to have access to valuable metadata at design time.
 
-DataWeave uses a YAML format called FFD (for Flat File Definition) to represent flat file schemas. The FFD format is very flexible to support a range of use cases, but is based around the concepts of elements, composites, segments, groups, and structures.
+DataWeave uses a YAML format called FFD (for Flat File Definition) to represent flat file schemas. The FFD format is flexible enough to support a range of use cases, but is based around the concepts of elements, composites, segments, groups, and structures.
 
 Schemas must be written in Flat File Schema Language, and by convention use a `.ffs` extension. This language is very similar to EDI Schema Language (ESL), which is also accepted by Anypoint Studio.
 
-On DataWeave, you can bind your input or your output to a flat file schema through a property.
+In DataWeave, you can bind your input or output to a flat file schema through a property.
 
 Note that if you intend to use a simple fixed-width format, you can set up your data type directly through the Transform component using the `Fixed Width` type. Creating an instance of this type in Studio will automatically generate a matching schema definition.
 
 == Types of Components in a Schema
 
-Here are the different types of components that make up a flat file schema, going from the most elementary to the more complex. Elements and Segments are always required, while composites, groups and structures might be needed depending on the <<Top-level structure of an FFD Document, top level structure of your document>>.
+Here are the different types of components that make up a flat file schema, going from the most elementary to the more complex. Elements and Segments are always required, while Composites, Groups, and Structures might be needed depending on the <<top_level_structure, top-level structure of your document>>.
 
 * Element - An element is a basic data item, which has an associated type and fixed width, along with formatting options for how the data value is read and written.
 * Composite - (Optional) A group of elements. It can also include other child composites.
-* Segment - A line of data, or record, made up of any number of elements and/or composites which may be repeated.
+* Segment - A line of data, or record, made up of any number of elements and/or composites that might be repeated.
 * Group - (Optional) Several segments grouped together. It can also include other child groups.
 * Structure - A hierarchical organization of segments, which requires that the segments have unique identifier codes as part of their data.
 
+[[top_level_structure]]
 == Top-level structure of an FFD Document
 
-The top-level definition in an FFD document starts with the form of the schema. In this case it must always be "FLATFILE", "COPYBOOK", or "FIXEDWIDTH". The differences between these forms are minor, and mostly relate to how they are handled in Studio. The rest depends on the form of definitions present in the file, with the following alternatives:
+The top-level definition in an FFD document starts with the form of the schema. In this case it must always be "FLATFILE", "COPYBOOK", or "FIXEDWIDTH". The differences between these forms are minor and mostly relate to how they are handled in Studio. The rest depends on the form of definitions present in the file, with the following alternatives:
 
 * Single segment - Segment information directly at the top level (including a `values` key giving the element and/or composite details of the segment).
 
@@ -37,7 +38,7 @@ If you are only working with one type of record, you only need to have a segment
 
 image::dataweave-flat-file-schemas-22788.png[]
 
-Here's a simple schema with only one segment:
+This is a simple schema with only one segment:
 
 [source,yaml, linenums]
 ----
@@ -51,7 +52,7 @@ values:
 - { name: 'File Creation Time', type: Time, length: 4 }
 ----
 
-The example above simply defines a list of elements within a single segment, it has no composites to group them into.
+The example above simply defines a list of elements within a single segment. It has no composites to group them into.
 
 Here is another example:
 
@@ -73,13 +74,13 @@ Note that simplified forms are only for convenience. You can use the `segments` 
 
 === Multiple Segments
 
-If you're working with multiple types of records in the same transform, you need to use a structure definition that controls how these different records are combined.
+If you are working with multiple types of records in the same transformation, you need to use a structure definition that controls how these different records are combined.
 
 image::dataweave-flat-file-schemas-680c6.png[]
 
-In most cases you'll need to define a way to distinguish between the different types of records. This is done by identifying `tagValue` fields as part of the record definitions. The parser will check the content of these fields of each record to identify the record type, then see how it fits into the defined structure.
+In most cases, you need to define a way to distinguish between the different types of records. You do this by identifying `tagValue` fields as part of the record definitions. The parser will check the content of the fields of each record to identify the record type, then see how it fits into the defined structure.
 
-Here's an example of a complete structure schema with several component record types:
+This is an example of a complete structure schema with several component record types:
 
 [source,yaml, linenums]
 ----
@@ -101,7 +102,7 @@ segments:
   ...
 ----
 
-Note that this example is not complete. It needs to define each of the referenced segments at the end. See <<Referenced vs in-lined Definitions>> to understand how these segments are being referenced in this example.
+Note that this example is not complete. It needs to define each of the referenced segments at the end. See <<referenced_vs_inlined_defs, Referenced versus Inlined Definitions>> to understand how these segments are being referenced in this example.
 
 === Multiple Structures
 
@@ -109,7 +110,7 @@ If you have multiple structures or segment definitions in an FFD, when you apply
 
 image::dataweave-flat-file-schemas-4e1eb.png[]
 
-Here's what the top-level structure of a schema with multiple structures might look like:
+A top-level structure of a schema with multiple structures might look like this:
 
 [source,yaml, linenums]
 ----
@@ -144,13 +145,13 @@ segments:
   ...
 ----
 
-The above defines two different structures, the `BatchReq` structure and the `BatchRsp` structure. Each of these structures uses a particular sequence of segments and groups of segments. The group `Batch` is repeated in both structures. A Batch group is composed of a single BCH line, multiple TDR lines and a single BCF line.
+The example defines two different structures, the `BatchReq` structure and the `BatchRsp` structure. Each of these structures uses a particular sequence of segments and groups of segments. The group `Batch` is repeated in both structures. A Batch group is composed of a single BCH line, multiple TDR lines, and a single BCF line.
 
-Note that this example is not complete. It needs to define each of the referenced segments at the end. See <<Referenced vs in-lined Definitions>> to understand how these segments are being referenced in this example.
+Note that this example is not complete. It needs to define each of the referenced segments at the end. See <<referenced_vs_inlined_defs, Referenced versus Inlined Definitions>> to understand how these segments are referenced in this example.
 
 == Element Definitions
 
-Element definitions are the basic building blocks of application data, consisting of basic key-value pairs for standard characteristics. Flat file schemas generally use in-line element definitions, where each element is defined at the point it's used within a segment or composite structure, but you can also define elements separately and reference them as needed. Here are several element definitions defined for use by reference:
+Element definitions are the basic building blocks of application data, consisting of basic key-value pairs for standard characteristics. Flat file schemas generally use inline element definitions, where each element is defined at the point it is used within a segment or composite structure, but you can also define elements separately and reference them as needed. Here are several element definitions defined for use by reference:
 
 [source,yaml, linenums]
 ----
@@ -161,38 +162,38 @@ Element definitions are the basic building blocks of application data, consistin
   - { id: 'BatchTransAmount', name: 'Batch Transaction Amount', type: Integer, format: { justify: zeroes }, length: 10 }
 ----
 
-The supplied `id` value is used as the `idRef` value when referencing one of these definitions as part of a segment or composite. Note that if you're defining elements inline within a segment definition (as opposed to defining them at the end of the document and referencing them), the `id` field is not required.
+The supplied `id` value is used as the `idRef` value when referencing one of these definitions as part of a segment or composite. Note that if you are defining elements inline within a segment definition (as opposed to defining them at the end of the document and referencing them), the `id` field is not required.
 
-Element definitions may have the following attributes, classified by Form as applying to inline definitions, referenced definitions (as in the above example), or references to definitions:
+Element definitions might have the following attributes, classified by Form as applying to inline definitions, referenced definitions (as in the above example), or references to definitions:
 
 .Attributes
 [%header,cols="3*"]
 |===
 |Name |Description |Form
-|`count` |Number of occurences (optional, default is `1`) |Inline or reference
+|`count` |Number of occurrences (optional, default is `1`) |Inline or reference
 |`id` |Element identifier |Referenced definition
 |`idRef` |Element identifier |Reference
-|`name` |Element name (optional) |all
+|`name` |Element name (optional) |All
 |`type` |Value type code, as listed below |Inline, or referenced definition
-|`format` |type-specific formatting information |Inline, or referenced definition
+|`format` |Type-specific formatting information |Inline, or referenced definition
 |`length` |Number of character positions for value |Inline, or referenced definition
-|`tagValue` |Value for this element used to identify a segment (see <<Full Example Schema, the full schema example>>) |Inline, or referenced definition
+|`tagValue` |Value for this element used to identify a segment (see <<full_schema_ex, the Full Schema Example>>) |Inline, or referenced definition
 |===
 
-The allowed types for defining an element are the following:
+The allowed types for defining an element are:
 
 .Types
 [%header%autowidth.spread]
 |===
 |Name |Description
 |Boolean |Boolean value
-|Date |Unzoned date value with year, month, and day components (which may not all be shown in text form)
-|DateTime |Unzoned date/time value with year, month, day, hour, minute, second, and millisecond components (which may not all be shown in text form)
-|Decimal |Decimal number value, which may or may not include an explicit decimal point in text form
+|Date |Unzoned date value with year, month, and day components (which might not all be shown in text form)
+|DateTime |Unzoned date/time value with year, month, day, hour, minute, second, and millisecond components (which might not all be shown in text form)
+|Decimal |Decimal number value, which might or might not include an explicit decimal point in text form
 |Integer |Integer number value
 |Packed |Packed decimal representation of a decimal number value
 |String |String value
-|Time |Unzoned time value with hour, minute, second, and millisecond components (which may not all be shown in text form)
+|Time |Unzoned time value with hour, minute, second, and millisecond components (which might not all be shown in text form)
 |Zoned |Zoned decimal (Cobol format)
 |===
 
@@ -201,7 +202,7 @@ Binary values not in Mule 4.1
 |Binary |Binary value (length is the number of bytes used, 2, 4, or 8)
 ////
 
-Value types support a range of format options that affect the text form of the values. Here are the main options, along with the types they apply to:
+Value types support a range of format options that affect the text form of the values. These are the main options, along with the types to which they apply:
 
 .Format Options
 [%header%autowidth.spread]
@@ -209,24 +210,24 @@ Value types support a range of format options that affect the text form of the v
 |Key |Description |Applies to
 |implicit |Implicit number of decimal digits (used for fixed-point values with no decimal in text form) |Decimal, Packed, Zoned
 |justify |Justification in field (LEFT, RIGHT, NONE, or ZEROES, the last only for numbers) |All except Packed
-|pattern |For numeric values, the java.text.DecimalFormat pattern for parsing and writing; for date/time values, the java.time.format.DateTimeFormatter pattern |Date, DateTime, Decimal, Integer, Time
+|pattern |For numeric values, the `java.text.DecimalFormat` pattern for parsing and writing. For date/time values, the `java.time.format.DateTimeFormatter` pattern. |Date, DateTime, Decimal, Integer, Time
 |sign |Sign usage for numeric values (UNSIGNED, NEGATIVE_ONLY, OPTIONAL, ALWAYS_LEFT, ALWAYS_RIGHT) |Decimal, Integer, Zoned
-|signed |Signed vs unsigned flag |Packed
+|signed |Signed versus unsigned flag |Packed
 |===
 
 ////
 Binary values not in Mule 4.1
 |digits |Number of digits allowed |Binary
 |justify |Justification in field (LEFT, RIGHT, NONE, or ZEROES, the last only for numbers) |All except Binary and Packed
-|signed |Signed vs unsigned flag |Binary, Packed
+|signed |Signed versus unsigned flag |Binary, Packed
 ////
 
 
 == Composite Definitions
 
-Composites serve to reference a list of elements that are typically presented together. For example, `firstName` and `lastName` could be bundled together into a single composite because they are likely to be referred to as a group. Grouping elements into a composite also allows the list to be repeated.
+Composites serve to reference a list of elements that are typically presented together. For example, `firstName` and `lastName` can be bundled together into a single composite because they are likely to be referred to as a group. Grouping elements into a composite also allows the list to be repeated.
 
-Composite definitions are very similar to segment definitions, composed of some key-value pairs for standard characteristics along with lists of values. Composites may include both references to elements or to other nested composites and inlined definitions. Here's a sample of a composite definition:
+Composite definitions are very similar to segment definitions, composed of some key-value pairs for standard characteristics along with lists of values. Composites might include both references to elements or other nested composites and inlined definitions. This is a example of a composite definition:
 
 [source,yaml, linenums]
 ----
@@ -237,16 +238,16 @@ Composite definitions are very similar to segment definitions, composed of some 
    - { name: 'File Creation Time', type: Time, length: 4 }
 ----
 
-Composite definitions may have the following attributes:
+Composite definitions might have the following attributes:
 
 [%header%autowidth.spread]
 |===
 |Name |Description |Form
-|`controlVal` |Value from containing level giving actual number of occurrences (only used with `count` != 1) |Inline definition, or on <<Referenced vs in-lined Definitions, reference>>
-|`count` |Number (or maximum number, if `controlVal` is used) of occurences (optional, default is `1`) |Inline definition, or on <<Referenced vs in-lined Definitions, reference>>
-|`id` |Composite identifier for references |<<Referenced vs in-lined Definitions, Referenced definition>>
-|`name` |Composite name (optional) |Inline or <<Referenced vs in-lined Definitions, referenced definition>>
-|`values` |List of elements and composites within the composite |Inline or <<Referenced vs in-lined Definitions, referenced definition>>
+|`controlVal` |Value from containing level giving actual number of occurrences (only used with `count` != 1) |Inline definition, or on <<referenced_vs_inlined_defs, reference>>
+|`count` |Number (or maximum number, if `controlVal` is used) of occurrences (optional, default is `1`) |Inline definition, or on <<referenced_vs_inlined_defs, reference>>
+|`id` |Composite identifier for references |<<referenced_vs_inlined_defs, Referenced definition>>
+|`name` |Composite name (optional) |Inline or <<referenced_vs_inlined_defs, referenced definition>>
+|`values` |List of elements and composites within the composite |Inline or <<referenced_vs_inlined_defs, referenced definition>>
 |===
 
 The values list takes the same form as the values list in a segment definition.
@@ -254,9 +255,9 @@ The values list takes the same form as the values list in a segment definition.
 
 == Segment Definitions
 
-A segment describes a type of record in your data. They are mainly composed of either references or direct definitions of elements and composites, together with some key-value pairs that describe the segment. In a mildly complex schema, you may have a structure that contains two different segments, where one of these describes the fields that go in the single header of a bill of materials (such as date and person), while the other segment describes the recurring fields that go into each of the actual items in the bill of materials.
+A segment describes a type of record in your data. Segments are mainly composed of references or direct definitions of elements and composites, together with some key-value pairs that describe the segment. In a somewhat complex schema, you might have a structure that contains two different segments, where one of these describes the fields that go in the single header of a bill of materials (such as date and person), while the other segment describes the recurring fields that go into each of the actual items in the bill of materials.
 
-Here's a sample segment definition that includes one simple element and a composite with two elements within:
+This is a sample segment definition that includes one simple element and a composite with two elements within:
 
 [source,yaml, linenums]
 ----
@@ -271,14 +272,14 @@ Here's a sample segment definition that includes one simple element and a compos
       - { name: 'File Creation Time', type: Time, length: 4 }
 ----
 
-Segment definitions may include the following attributes:
+Segment definitions might include the following attributes:
 
 [%header%autowidth.spread]
 |===
 |Section |Description
-|`id` |Segment identifier (unused for inline definitions, required for <<Referenced vs in-lined Definitions, referenced definitions>>)
+|`id` |Segment identifier (unused for inline definitions, required for <<referenced_vs_inlined_defs, referenced definitions>>)
 |`name` |Segment name (optional)
-|`values` |List of elements and composites within the segment (either inlined, or <<Referenced vs in-lined Definitions, references>>)
+|`values` |List of elements and composites within the segment (either inlined, or <<referenced_vs_inlined_defs, references>>)
 |===
 
 
@@ -308,7 +309,7 @@ segments:
   ...
 ----
 
-This example includes references to two segments at the top level (`RQH` and `RQF`), as well as a group definition `Batch` that includes references to other segments (`BCH`, `TDR` and `BCF`). Note that for this structure to work, each of the <<Segment Definition, referenced segments>> needs to be defined below. See <<Referenced vs in-lined Definitions>> to understand how segments are being referenced in this example.
+This example includes references to two segments at the top level (`RQH` and `RQF`), as well as a group definition `Batch` that includes references to other segments (`BCH`, `TDR` and `BCF`). Note that for this structure to work, each of the <<Segment Definition, referenced segments>> needs to be defined below. See <<referenced_vs_inlined_defs, Referenced versus Inlined Definitions>> to understand how segments are being referenced in this example.
 
 A structure definition can contain the following attributes:
 
@@ -336,8 +337,8 @@ A group definition may have the following attributes:
 |`items` |List of segments (and potentially nested groups) making up the group
 |===
 
-
-== Referenced vs In-lined Definitions
+[[referenced_vs_inlined_defs]]
+== Referenced versus Inlined Definitions
 
 Besides the choice of top-level form, you also have choices when it comes to representing the components of a structure, segment, or composite. You can define the component segments, composites, and elements inline, at the point of use, or you can define them in a table and reference them from anywhere. Inlining definitions is simpler and more compact, but the table form allows definitions to be reused. Table form examples must include an `id` value and each reference to that definition uses an `idRef`. Here's an example that shows how this applies to the segments making up a structure:
 
@@ -408,6 +409,7 @@ segments:
   - { name: 'Unique File Identifier', type: String, length: 10 }
 ----
 
+[[full_schema_ex]]
 == Full Example Schema
 
 [source,yaml, linenums]
