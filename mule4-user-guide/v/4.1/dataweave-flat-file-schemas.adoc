@@ -252,7 +252,7 @@ Composite definitions might have the following attributes:
 
 The values list takes the same form as the values list in a segment definition.
 
-
+[[segment_definitions]]
 == Segment Definitions
 
 A segment describes a type of record in your data. Segments are mainly composed of references or direct definitions of elements and composites, together with some key-value pairs that describe the segment. In a somewhat complex schema, you might have a structure that contains two different segments, where one of these describes the fields that go in the single header of a bill of materials (such as date and person), while the other segment describes the recurring fields that go into each of the actual items in the bill of materials.
@@ -283,6 +283,7 @@ Segment definitions might include the following attributes:
 |===
 
 
+[[structure_definitions]]
 == Structure Definitions
 
 Structure definitions are composed of a list of references to segments and group definitions, as well as a set of key-value pairs for standard characteristics. Segments may be further organized into groups consisting of a potentially repeated sequence of segments.
@@ -309,7 +310,7 @@ segments:
   ...
 ----
 
-This example includes references to two segments at the top level (`RQH` and `RQF`), as well as a group definition `Batch` that includes references to other segments (`BCH`, `TDR` and `BCF`). Note that for this structure to work, each of the <<Segment Definition, referenced segments>> needs to be defined below. See <<referenced_vs_inlined_defs, Referenced versus Inlined Definitions>> to understand how segments are being referenced in this example.
+This example includes references to two segments at the top level (`RQH` and `RQF`), as well as a group definition `Batch` that includes references to other segments (`BCH`, `TDR` and `BCF`). Note that for this structure to work, each of the <<segment_definitions, referenced segments>> needs to be defined. See <<referenced_vs_inlined_defs, Referenced versus Inlined Definitions>> to understand how segments are referenced in this example.
 
 A structure definition can contain the following attributes:
 
@@ -326,21 +327,21 @@ Each item in a segment list is either a segment reference (or inline definition)
 
 === Group Definitions
 
-A group definition may have the following attributes:
+A group definition can have the following attributes:
 
 [%header%autowidth.spread]
 |===
 |Value| Description
 |`groupId` |The group identifier
-|`usage` |Usage code, which may be M for Mandatory, O for Optional, or U for Unused (optional, defaults to M)
-|`count` |Maximum repetition count value, which may be a number or the special value '>1' meaning any number of repeats (optional, count value of 1 is used if not specified)
+|`usage` |Usage code, which might be `M` for Mandatory, `O` for Optional, or `U` for Unused (optional, defaults to `M`)
+|`count` |Maximum repetition count value, which might be a number or the special value `>1`, meaning any number of repeats (optional, count value of `1` is used if not specified)
 |`items` |List of segments (and potentially nested groups) making up the group
 |===
 
 [[referenced_vs_inlined_defs]]
-== Referenced versus Inlined Definitions
+== Referenced Versus Inlined Definitions
 
-Besides the choice of top-level form, you also have choices when it comes to representing the components of a structure, segment, or composite. You can define the component segments, composites, and elements inline, at the point of use, or you can define them in a table and reference them from anywhere. Inlining definitions is simpler and more compact, but the table form allows definitions to be reused. Table form examples must include an `id` value and each reference to that definition uses an `idRef`. Here's an example that shows how this applies to the segments making up a structure:
+Besides the choice of top-level form, you also have choices when it comes to representing the components of a structure, segment, or composite. You can define the component segments, composites, and elements inline at the point of use, or you can define them in a table and reference them from anywhere. Inlining definitions is simpler and more compact, but the table form allows definitions to be reused. Table form examples must include an `id` value, and each reference to that definition uses an `idRef`. This example shows how this applies to the segments making up a structure:
 
 [source,yaml, linenums]
 ----
@@ -380,7 +381,7 @@ elements:
 
 In the above example, the `BatchReq` structure references segments in the `data` definition section. The segments are each then defined in the `segments` section at the top level of the schema, and these in turn reference elements that are later defined in the `elements` section.
 
-Here's what an in-lined definition of the same structure would look like:
+An inlined definition of the same structure looks like this:
 
 [source,yaml, linenums]
 ----
@@ -474,7 +475,7 @@ segments:
   - { name: 'Unique File Identifier', type: String, length: 10 }
 ----
 
-This example contains a single <<Structure Definitions, structure>> named 'BatchReq' with 5 components <<Segment Definitions, segments>>, using a doubly-nested structure of file and batch data for the segments. Each batch contains repeating detail records. All element definitions are in-lined.
+This example contains a single <<structure_definitions, structure>> named 'BatchReq' with 5 components <<segment_definitions, segments>>, using a doubly-nested structure of file and batch data for the segments. Each batch contains repeating detail records. All element definitions are in-lined.
 
 The `BatchReq` structure definition requires that the data will consist of:
 
@@ -482,11 +483,11 @@ The `BatchReq` structure definition requires that the data will consist of:
 * One or more records that correspond to the segment `BCH`
 * For each `BCH` record, one or more `TDR` records giving details of a particular transaction
 * For each `BCH` record, a `BCF` record following any contained `TDR` records
-* A final single record that corresponds to the segment `RQF`
+* A final, single record that corresponds to the segment `RQF`
 
-For this example every record starts with a three-character Record Type field with a specified `tagValue`. In the case of the batch records the record type is further specified by a Batch Function `tagValue`.
+For this example every record starts with a three-character Record Type field with a specified `tagValue`. In the case of the batch records, the record type is further specified by a Batch Function `tagValue`.
 
-Here's a sample of data matching the example schema:
+This is a sample of data matching the schema example:
 
 [source,text, linenums]
 ----
@@ -513,7 +514,7 @@ The lines in the example match the defined structure as listed below:
 * 9 `BCF` (Batch Footer Record) identified by the "BAT" value in the first three characters combined with the 'T' character in position 10
 * 10 `RQF` (Request File Footer Record) identified by the "RQF" value in the first three characters
 
-`tagValue` fields provide a lot of flexibility. The above example shows using a single `tagValue` for some record types, while adding a second `tagValue` for others, but you can also use completely different fields (or even disjoint sets of fields) for `tagValues`, as long as you provide enough details for the parser to distinguish between the different types of records.
+`tagValue` fields provide a lot of flexibility. The above example shows using a single `tagValue` for some record types, while adding a second `tagValue` for others, but you can also use completely different fields (or even disjoint sets of fields) for a `tagValue`, as long as you provide enough details for the parser to distinguish between the different types of records.
 
 Note that older versions of the documentation showed a different way of distinguishing records based on tag values, using `tagStart` and `tagLength` values for the structure and `tag` values for the segments. This method of distinguishing segments is much more limited than the `tagValue` approach, and is now deprecated.
 
@@ -589,7 +590,5 @@ Note how the HTTP connector includes a `metadata:id` property, this points to th
 ////
 
 == See Also
-
-// * link:https://docs.mulesoft.com/anypoint-studio/v/6/input-output-structure-transformation-studio-task[To Define Input and Output Structure of a Transformation]
 
 link:dataweave-formats#format_flat_file[DataWeave formats]
