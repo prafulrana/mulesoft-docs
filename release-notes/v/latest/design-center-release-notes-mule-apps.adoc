@@ -57,7 +57,7 @@ This release includes the following enhancements and fixes. There were also seve
 The resolved issue was that if a card lacked a configuration, an error would be counted for the card but not for the entire flow.
  
 ** If a card requires a driver, but no driver is selected for it, the count of errors for the card should be incremented by 1. This increment was not occurring. 
-** If a card required another card to follow it, but not subsequent card had yet been added, the error count on the original card was incremented by 1 and the + symbol displayed an error count of 1. Therefore, one error was counted twice. 
+** If a card required another card to follow it, but no subsequent card had yet been added, the error count on the original card was incremented by 1 and the + symbol displayed an error count of 1. Therefore, one error was counted twice. 
 ** When a For Each card is created, it is created with an error count of 1 because the scope requires a card. The resolved issue was that, if a card was moved into the scope, the error went away, as it should have; however, if the added card was removed, the error count on the For Each card was not incremented by 1. 
 
 * Fixes to connectors: 
