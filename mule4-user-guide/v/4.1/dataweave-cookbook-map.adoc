@@ -15,7 +15,7 @@ It uses these DataWeave functions:
 %dw 2.0
 output application/json
 ---
-items: payload.books map (item, index) -> {
+items: payload.books map ((item, index) -> {
       category: "book",
       price: item.price as Number,
       id: index,
@@ -24,7 +24,8 @@ items: payload.books map (item, index) -> {
         author: item.author,
         year: item.year as Number
       }
-}
+   }
+)
 ----
 
 
