@@ -2,6 +2,7 @@
 
 These release notes cover the following versions of these features:
 
+* link:/release-notes/design-center-release-notes-mule-apps#1-5-1[1.5.1]
 * link:/release-notes/design-center-release-notes-mule-apps#1-5-0[1.5.0]
 * link:/release-notes/design-center-release-notes-mule-apps#1-4-7[1.4.7]
 * link:/release-notes/design-center-release-notes-mule-apps#1-4-6[1.4.6]
@@ -22,6 +23,51 @@ These release notes cover the following versions of these features:
 * link:/release-notes/design-center-release-notes-mule-apps#1-0-1[1.0.1]
 * link:/release-notes/design-center-release-notes-mule-apps#1-0[1.0]
 
+== 1.5.1
+
+*September 8, 2018*
+
+This release includes the following enhancements and fixes. There were also several improvements to security.
+
+=== Enhancements
+
+* The new Visual Function Editor lets you drag and drop message objects into the function fields.
+* Automapping (Beta) is now available when a source card and a destination card are placed around a Transform card.
+* You can zoom out of the canvas to a limit of 17% magnification.
+* You can now design Mule apps on 720p monitors.
+* The tool for designing Mule apps now uses Mule Runtime 4.1.3.
+
+
+=== Fixes
+
+* It was possible for cards to overlap the name of the current flow, which appears in the top-left corner of the canvas. 
+* Open Try cards overlapped other cards within the Try scope. 
+* If you selected text in a function field, after an interval of 5 to 10 seconds, the text would be deselected automatically. 
+* If you pressed Shift+Option+up while your cursor was on a line in a function field, the field duplicated the line. This problem occurred only on systems running macOS. 
+* At rare times, If you clicked the Run button, the status message would change from “Ready to run” to “Starting application” and then return to “Ready to run”, never reaching the state “Running”. 
+* The checkboxes in the Type card for Try scopes were misaligned 
+* It was possible to change to a deprecated version of a connector.
+* If you dragged the log panel to its full height, the text on the Expand Logs button on the right side of the top bar of the panel did not change to Collapse Logs. Also, you had to click the button twice for the panel to collapse. 
+* Fixes to error counts:
++
+** The number of errors that are in a flow are always indicated in two locations:
+*** For an entire flow, the number of errors appears next to the name of the flow in the sidebar.
+*** For each card, the number of errors appears on the top-right corner of the card.
++
+The resolved issue was that if a card lacked a configuration, an error would be counted for the card but not for the entire flow.
+ 
+** If a card requires a driver, but no driver is selected for it, the count of errors for the card should be incremented by 1. This increment was not occurring. 
+** If a card required another card to follow it, but not subsequent card had yet been added, the error count on the original card was incremented by 1 and the + symbol displayed an error count of 1. Therefore, one error was counted twice. 
+** When a For Each card is created, it is created with an error count of 1 because the scope requires a card. The resolved issue was that, if a card was moved into the scope, the error went away, as it should have; however, if the added card was removed, the error count on the For Each card was not incremented by 1. 
+
+* Fixes to connectors: 
+** Under certain conditions, the Microsoft ServiceBus Anypoint Connector would log this error message:
++
+`ERROR 20:34:47   Could not serialize object of type: 'class org.mule.modules.microsoftservicebus.extension.api.entity.AmqpMessage' to JSON. Error: StackOverflowError:`
+
+* Fixes to support for DataWeave:
+** Support for the Infix notation did not work. 
+** It was not possible to create a custom type from a payload.
 
 == 1.5.0
 
