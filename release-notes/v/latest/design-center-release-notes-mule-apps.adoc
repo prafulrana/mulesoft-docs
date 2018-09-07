@@ -31,7 +31,7 @@ This release includes the following enhancements and fixes. There were also seve
 
 === Enhancements
 
-* The new Visual Function Editor lets you drag and drop message objects into the function fields.
+* The new Visual Function Editor lets you drag and drop message objects into function fields.
 * Automapping (Beta) is now available when a source card and a destination card are placed around a Transform card.
 * You can zoom out of the canvas to a limit of 17% magnification.
 * You can now design Mule apps on 720p monitors.
