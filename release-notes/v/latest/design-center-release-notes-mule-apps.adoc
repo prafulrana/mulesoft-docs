@@ -44,7 +44,7 @@ This release includes the following enhancements and fixes. There were also seve
 * Open Try cards overlapped other cards within the Try scope. 
 * If you selected text in a function field, after an interval of 5 to 10 seconds, the text would be deselected automatically. 
 * If you pressed Shift+Option+up while your cursor was on a line in a function field, the field duplicated the line. This problem occurred only on systems running macOS. 
-* At rare times, If you clicked the Run button, the status message would change from “Ready to run” to “Starting application” and then return to “Ready to run”, never reaching the state “Running”. 
+* At rare times, if you clicked the Run button, the status message would change from “Ready to run” to “Starting application” and then return to “Ready to run”, never reaching the state “Running”. 
 * The checkboxes in the Type card for Try scopes were misaligned 
 * It was possible to change to a deprecated version of a connector.
 * If you dragged the log panel to its full height, the text on the Expand Logs button on the right side of the top bar of the panel did not change to Collapse Logs. Also, you had to click the button twice for the panel to collapse. 
