@@ -1,0 +1,33 @@
+= Runtime Manager Agent 1.11.0 Release Notes
+1
+_September 10, 2018_
+
+This document describes new features and enhancements, known limitations, issues, and fixes in Anypoint Runtime Manager Agent, version 1.11.0.
+
+== New Features and Enhancements
+
+This release contains no new features or enhancements:
+
+== Changes in This Release
+
+This release contains no changes to existing functionality.
+
+== Fixed Issues
+
+This release contains the following issues fixes:
+
+* Displays the correct VM Vendor installed in the Mule Runtime in Runtime Manager
+* Returns the correct status response and message when trying to deploy an application with errors.
+* Upgrade version of several dependency libraries.
+
+== Known Limitations and Workarounds
+
+There are no known limitations or workarounds in this release.
+
+== Upgrade Requirements
+
+There are no upgrade requirements for this release.
+
+== Compatibility Notes
+
+There are no compatibility notes for this release.
