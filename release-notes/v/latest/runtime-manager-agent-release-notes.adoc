@@ -5,6 +5,7 @@ _Enterprise Edition_
 
 The link:/runtime-manager/runtime-manager-agent[The Runtime Manager Agent] is a plugin extension for a Mule runtime which exposes the Mule API. Using the Runtime Manager Agent, you can monitor and control your Mule ESB servers by calling APIs from external systems, and/or have Mule publish its own data to external systems.
 
+* link:/release-notes/runtime-manager-agent-1.11.0-release-notes[Runtime Manager Agent 1.11.0 Release Notes]
 * link:/release-notes/runtime-manager-agent-1.10.0-release-notes[Runtime Manager Agent 1.10.0 Release Notes]
 * link:/release-notes/runtime-manager-agent-1.9.5-release-notes[Runtime Manager Agent 1.9.5 Release Notes]
 * link:/release-notes/runtime-manager-agent-1.9.4-release-notes[Runtime Manager Agent 1.9.4 Release Notes]
