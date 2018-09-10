@@ -62,7 +62,7 @@ Though not recommended for production environments, you have the option of insta
 To use the SAP Connector or other premium connectors, you must first acquire, then install a product license. mailto:info@mulesoft.com[Contact MuleSoft] to acquire a license for one of the above products. 
 
 [TIP]
-The link:https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/[MuleSoft Enterprise Maven customer repository] allows you to access Mule Enterprise modules, connectors, and other components not included in the trial or community versions. See link:/mule4-user-guide/v/4.1/mmp-concep[About the Mule Maven Plugin] for details.
+The link:https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/[MuleSoft Enterprise Maven customer repository] allows you to access Mule Enterprise modules, connectors, and other components not included in the trial or community versions. See link:/mule4-user-guide/v/4.1/mmp-concept[About the Mule Maven Plugin] for details.
 
 == See Also
 
