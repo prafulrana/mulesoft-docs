@@ -6,8 +6,6 @@ _Premium_
 
 The Mule Runtime supports the AS2 protocol through the AS2 Connector. The AS2 connector enables trading partners transmit and receive AS2 messages with EDI-X12, EDIFACT, XML or binary payloads.
 
-MuleSoft maintains this connector under the link:/mule-user-guide/v/4.0/anypoint-connectors#connector-categories[_Premium_] support policy, therefore it requires a separate license. Contact mailto:sales@mulesoft.com[MuleSoft] to evaluate or use this connector in production.
-
 This connector leverages the AS2 protocol, allowing Mule applications to:
 
 * Send messages, signed or unsigned, over HTTP or HTTPS, following the AS2 protocol.
@@ -20,8 +18,10 @@ For hardware and software requirements, see the Connector Release Notes.
 [[install]]
 == How to Install
 
-You can install the connector in Anypoint Studio using the instructions in
-link:/anypoint-exchange/ex2-studio[To Add Exchange Assets to Studio].
+. In Anypoint Studio, click the Exchange icon in the Studio task bar.
+. Click Login in Anypoint Exchange and supply your Anypoint Platform username and password.
+. Search for the connector and click Install.
+. Follow the prompts to install the connector.
 
 [NOTE]
 This connector requires http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html[Java Cryptography Extension (JCE)] installed on your Java runtime.
@@ -127,5 +127,5 @@ image:as2-use-case-2-flow.png[AS2 Use Case 2 flow]
 
 == See Also
 
-* Access the link:/release-notes/AS2-connector-release-notes[AS2 Connector Release Notes]
+* Access the link:/release-notes/as2-connector-release-notes[AS2 Connector Release Notes]
 * See https://forums.mulesoft.com/search.html?q=AS2+connector[MuleSoft Forum for this connector]
