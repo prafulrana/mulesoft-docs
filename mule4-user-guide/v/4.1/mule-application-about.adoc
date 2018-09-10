@@ -5,7 +5,16 @@ You typically create Mule apps to perform system integrations. Mule apps are con
 The main building blocks of Mule apps are connectors, components, and modules that provide connectivity to external servers, handle data transformations, and route and process Mule events.
 
 Components::
-Components execute business logic on the messages that flow through your apps.
+Components execute business logic on the messages that flow through your apps. Here is a sampling of the features that they let you add to your apps:
++
+* Asynchronous processing of parts of a flow or subflow
+* Batch processing of messages
+* Caching and reusing frequently requested data
+* Initiating subflows
+* Logging
+* Setting payloads
+* Transforming messages with the DataWeave language
+* Creating Try scopes in your flows, so that you can catch and respond to errors
 +
 For more information about components, see "About Components", which is linked to from the *See Also* section at the end of this page.
 
