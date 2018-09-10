@@ -15,8 +15,7 @@ The migration process is a multi-part procedure, where you:
 . Remove uses of Compatibility module components.
 . Run any migrated MUnit tests.
 
-These steps are detailed in link:migration-tool-procedure[Migrating to Mule 4].
-However, before proceeding with a migration, it is important to review the rest of this topic, which describes the <<migration_tool>>, the <<compatibility_module>>, and <<whats_migrated>>.
+These steps are detailed in link:migration-tool-procedure[Performing a Migration to Mule 4]. However, before proceeding with a migration, it is important to review the rest of this topic, which describes the <<migration_tool>>, the <<compatibility_module>>, and <<whats_migrated>>.
 
 [[migration_tool]]
 == Mule Migration Tool
@@ -72,7 +71,7 @@ the <<migration_report, Migration report>>.
 
 
 [[whats_migrated]]
-== What is Migrated?
+== What Is Migrated?
 
 * <<supported_migrations>>
 * <<unsupported_migrations>>
