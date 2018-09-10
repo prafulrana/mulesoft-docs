@@ -1,5 +1,5 @@
 = Runtime Manager Agent 1.11.0 Release Notes
-1
+
 _September 10, 2018_
 
 This document describes new features and enhancements, known limitations, issues, and fixes in Anypoint Runtime Manager Agent, version 1.11.0.
