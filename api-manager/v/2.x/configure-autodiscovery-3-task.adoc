@@ -17,6 +17,13 @@ image::api-name-version-autodiscovery.png[align=center]
 API Manager exposes the API Name and version that you generated in the tasks above. +
 These API Name and Version are required by the Autodiscovery element to identify the API to which you want to pair your application.
 
+== Configuring API Manager
+
+This step is necessary to instruct API Manager to use your deployed Mule application as the API proxy itself.
+
+. For Managing type, select Basic Endpoint.
+. Add the Implementation URI that points to the deployed Mule application.
+
 
 == Configuring Anypoint Platform Organization Credentials in Mule Runtime
 
@@ -57,6 +64,18 @@ wrapper.java.additional.<n>=-Danypoint.platform.client_secret=XXXXXXXX
 ----
 +
 In these arguments you can pass both organization, or environment credentials.
+
+==== Runtime Manager for your Deployed Application.
+
+. Navigate to Runtime Manager in Anypoint Platform.
+. Access the Properties section of the deployed application. If the application is being deployed for the first time, the Properties section will appear during the deployment configuration.
+. In the Properties section, add the following properties:
++
+[source,linenums]
+----
+anypoint.platform.client_id=XXXXXXXX
+anypoint.platform.client_secret=XXXXXXXX
+----
 
 ==== Anypoint Studio 6
 
