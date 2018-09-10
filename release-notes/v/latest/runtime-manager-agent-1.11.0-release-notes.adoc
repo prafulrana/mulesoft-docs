@@ -14,7 +14,7 @@ This release contains no changes to existing functionality.
 
 == Fixed Issues
 
-This release contains the following issues fixes:
+This release contains the following issue fixes:
 
 * Displays the correct VM Vendor installed in the Mule Runtime in Runtime Manager
 * Returns the correct status response and message when trying to deploy an application with errors.
