@@ -3,7 +3,7 @@
 
 This policy provides a way to store HTTP responses from an API implementation or an API proxy for later reuse. This policy avoids performing multiple calls to the backend when the response of a service does not change often and to optimize against computationally expensive processing. This policy uses the concept of a cache which stores data so future requests for that data can be served faster.
 
-*Note:* Values persisted in Object Store v2 appear as binary, not in plain text.
+*Note:* This policy is applicable to Mule 4.x and above only; hence you can see it for API Manager instances that have the checkbox 'Check this box if you are managing this API in Mule 4 or above' checked under API instance setting page. Values persisted in Object Store v2 appear as binary, not in plain text.
 
 == What this Policy Stores
 
