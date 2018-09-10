@@ -43,8 +43,11 @@ image:os-use-object-store-v2.png[Click Use Object Store V2 in the Runtime Manage
 * The Object Store Connector works for both Object Store version 1 and 2. 
 * OSv2 enforces a maximum data persistence of 30 days from time of creation.
 * Free accounts are rate limited to 10 transactions per second per application. To go beyond the base 10 TPS rate limit, contact your MuleSoft account team.
-* OSv2 overrides the `_defaultUserObjectStore` object store. In the Object Store connector, you must set the 
-Object Store Reference field to `_defaultUserObjectStore` for data to be stored in OSv2. 
+* In Mule 4, OSv2 overrides the `_defaultPersistentObjectStore` object store. No further configuration is required.
+If the connector or component that you are using uses that object store, then you have access to OSv2.
++
+In Mule 3, OSv2 overrides the `_defaultUserObjectStore` object store. In the Mule 3 Object Store connector, 
+you must set the Object Store Reference field to `_defaultUserObjectStore` for data to be stored in OSv2. 
 
 == See Also
 
