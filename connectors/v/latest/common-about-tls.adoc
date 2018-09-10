@@ -12,8 +12,3 @@ In XML, you configure the tls:context child element of the listener-config.
 == See Also
 
 * link:/connectors/common-workflow-conf-tls[Workflow: Configuring TLS]
-* link:/connectors/common-tls-conf-reference[TLS Configuration Reference]
-
-
-
-

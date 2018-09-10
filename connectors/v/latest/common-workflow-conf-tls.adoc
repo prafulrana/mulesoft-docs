@@ -9,5 +9,3 @@ This workflow describes how to configure TLS to secure data on the server-side u
 == See Also
 
 * link:/connectors/common-about-tls[About TLS]
-* link:/connectors/common-tls-conf-reference[TLS Configuration Reference]
-
