@@ -1,7 +1,7 @@
 = Installing an Enterprise License
 :keywords: mule, studio, enterprise, ee, premium features, paid features, purchase, license, licensed
 
-MuleSoft makes available trial versions of its Enterprise Edition runtime for the purpose of evaluation. Though perfect for exploring the myriad uses of Mule, Anypoint Studio, and Mule Management Console, the trial license for Enterprise limits usage of the runtime. Complete the following steps to acquire and install an *Enterprise license*, then begin using Mule runtime in a production environment. 
+MuleSoft makes available trial versions of its Enterprise Edition runtime for the purpose of evaluation. Though perfect for exploring the myriad uses of Mule, Anypoint Studio, the trial license for Enterprise limits usage of the runtime. Complete the following steps to acquire and install an *Enterprise license*, then begin using Mule runtime in a production environment. 
 
 . mailto:info@mulesoft.com[Contact MuleSoft] to acquire an *Enterprise license* in the form of a `license.lic` file.
 . Before installing, it's recommended to remove the previous License from your `$MULE_HOME` directory. To do so, navigate to `$MULE_HOME/conf/` and delete the existing `muleLicenseKey.lic` file.
@@ -51,7 +51,7 @@ Sometimes the license installation fails and it might be necessary to manually d
 
 Though not recommended for production environments, you have the option of installing an Enterprise license on the embedded Mule Server that comes bundled with Mule with Studio.
 
-. Download and install Mule with Mule Management Console and Enterprise Edition runtime.
+. Download and install Mule Enterprise Edition runtime.
 . mailto:info@mulesoft.com[Contact MuleSoft] to acquire an *Enterprise Edition license* in the form of a `license.lic` file.
 . Complete the steps outlined above to install the new license on your Mule standalone runtime.
 . From the `$MULE_HOME/conf` directory, copy the new license file that Mule stored:   `muleLicenseKey.lic`
@@ -59,13 +59,12 @@ Though not recommended for production environments, you have the option of insta
 
 == Install Product Licenses
 
-To use the SAP Connector and High Availability Clustering, you must first acquire, then install a product license. mailto:info@mulesoft.com[Contact MuleSoft] to acquire a license for one of the above products. 
+To use the SAP Connector or other premium connectors, you must first acquire, then install a product license. mailto:info@mulesoft.com[Contact MuleSoft] to acquire a license for one of the above products. 
 
 [TIP]
-The link:https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/[MuleSoft Enterprise Maven customer repository] allows you to access Mule Enterprise modules, connectors, and other components not included in the trial or community versions. See link:/mule-user-guide/v/3.9/configuring-maven-to-work-with-mule-esb[Configuring Maven to Work with Mule] for details.
+The link:https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/[MuleSoft Enterprise Maven customer repository] allows you to access Mule Enterprise modules, connectors, and other components not included in the trial or community versions. See link:/mule4-user-guide/v/4.1/mmp-concep[About the Mule Maven Plugin] for details.
 
 == See Also
 
-* Get started learning the link:/mule-user-guide/v/3.9/mule-concepts[Key Concepts].
-* Learn more about the link:/mule-management-console/v/3.7[Mule Management Console].
-* link:/anypoint-studio/v/6/installing-extensions[Extend Mule] with plugins, modules, runtimes and connectors.
+* Get started learning the link:/mule4-user-guide/v/4.1/mule-application-about[Mule Application Concepts].
+* Browse the list of available link:/connectors[connectors and modules for Mule 4].
