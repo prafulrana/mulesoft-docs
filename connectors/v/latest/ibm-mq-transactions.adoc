@@ -1,4 +1,4 @@
-= Handling Transactions in JMS
+= Handling Transactions in IBM MQ
 :keywords: jms, ibm mq, mq, xa, connector, transactions, transactional
 
 Transactional connections in IBM MQ allow you to execute a series of operations

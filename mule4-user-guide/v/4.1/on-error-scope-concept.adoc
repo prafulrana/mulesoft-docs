@@ -9,20 +9,6 @@ the outcome of it's owner (the flow or try scope where the error handler is defi
 [%header%autowidth.spread,cols='a,a']
 |===
 |On Error Scope |Description
-// | Default Error Handling
-// | Defined and implicitly applied by default to handle all messaging errors that are not handled by any On Error scopes. This is equivalent to an On Error Propagate with no child components for handling errors.
-//
-// | On Error Continue
-// | If an error occurs within the Try scope, any other components in the scope are skipped, and execution continues immediately after the scope ends. +
-// If a transaction is being handled, it’s committed.
-//
-// image:error-handling-f7bf0.png[]
-
-// COMBAK: On-Error retry not availabel for Beta
-// | On Error Retry
-// | If an error occurs within the Try scope, the entire scope is attempted again. +
-// There can only be one On Error Retry scope in each Error Handler.
-
 | On Error Propagate
 | Executes but propagates the error to the next level up, breaking the owner's execution. +
 If a transaction is being handled, it’s rolled back.

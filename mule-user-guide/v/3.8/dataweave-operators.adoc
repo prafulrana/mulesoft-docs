@@ -824,7 +824,7 @@ Instead of searching for a literal substring, you can also match it against a re
 %dw 1.0
 %output application/json
 ---
-ContainsString: payload.root.mystring contains /s[t|p]ring/`
+ContainsString: payload.root.mystring contains /s[t|p]ring/
 ----
 
 

@@ -15,11 +15,10 @@ Transforms the specified binary into the base64 string representation
 import * from dw::core::Binaries
 output application/json
 ---
- toBase64(fromBase64(12463730))
- ----
+toBase64(fromBase64(12463730))
+----
 
- .Output
- ----
- 12463730
- ----
-
+.Output
+----
+12463730
+----

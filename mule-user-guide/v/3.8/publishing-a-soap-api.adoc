@@ -52,7 +52,7 @@ image::publishing-a-soap-api-7a05b.png[publishing-a-soap-api-7a05b]
 * *JAX-WS*: Converts the payload into a POJO. You can access attributes in the POJO in your flow. Use it under the following conditions:
 ** You are comfortable working with Java objects.
 ** You need to construct POJO or JSON outputs.
-** You are using Community runtime and can't employ DataMapper.
+** You are using Community runtime and can't employ Dataweave.
 ** You want to present the WSDL through a Code-first approach (the proxy service uses only WSDL-first).
 
 image::publishing-a-soap-api-15690.png[publishing-a-soap-api-15690]

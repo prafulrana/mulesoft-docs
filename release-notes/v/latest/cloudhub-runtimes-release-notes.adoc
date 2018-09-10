@@ -3,6 +3,11 @@
 
 These are the release notes for patches which are made to the Mule runtimes on CloudHub. In addition to these release notes, see the link:/release-notes/cloudhub-release-notes[CloudHub release notes] and complete link:/runtime-manager/cloudhub[CloudHub] documentation.
 
+== August 23, 2018
+
+All 3.8.x, 3.9.x and 4.1.x Runtimes:
+
+* A kernel-level patch to the operating system against the SegmentSmack vulnerability (CVE-2018-5390)
 
 == August 14, 2018
 

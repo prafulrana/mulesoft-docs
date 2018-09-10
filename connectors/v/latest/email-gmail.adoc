@@ -25,8 +25,8 @@ You can also enable Less Secure Apps from here:
 Required parameters:
 
 * Gmail IMAP server address: `imap.gmail.com`
-* Gmail IMAP username: Your full Gmail address (for example, +`user@gmail.com`+).
-* Gmail IMAP password: Your Gmail password.
+* Gmail username: Your full Gmail address (for example, +`user@gmail.com`+).
+* Gmail password: Your Gmail password.
 * Gmail IMAP port (SSL): `993`
 
 [source, xml, linenums]
@@ -46,10 +46,10 @@ Required parameters:
 
 Required parameters:
 
-* Gmail IMAP server address: `imap.gmail.com`
-* Gmail IMAP username: Your full Gmail address (for example, +`user@gmail.com`+).
-* Gmail IMAP password: Your Gmail password.
-* Gmail IMAP port (SSL): `995`
+* Gmail POP server address: `pop.gmail.com`
+* Gmail username: Your full Gmail address (for example, +`user@gmail.com`+).
+* Gmail password: Your Gmail password.
+* Gmail POP port (SSL): `995`
 
 [source, xml, linenums]
 ----
@@ -69,8 +69,8 @@ Required parameters:
 Required parameters:
 
 * Gmail SMTP server address: `smtp.gmail.com`
-* Gmail SMTP username: Your full Gmail address (for example, +`user@gmail.com`+).
-* Gmail SMTP password: Your Gmail password.
+* Gmail username: Your full Gmail address (for example, +`user@gmail.com`+).
+* Gmail password: Your Gmail password.
 * Gmail SMTP port (SSL): `465`
 
 [source, xml, linenums]

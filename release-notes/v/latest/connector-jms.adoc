@@ -1,6 +1,33 @@
 = JMS Connector Release Notes for Mule 4
 :keywords: mule, JMS, connector, release notes
 
+== 1.3.0
+
+*August 29, 2018*
+
+=== New Features and Enhancements
+
+* JMS is Non-Blocking for Publish, Consume, and Publish-Consume Operations, improving
+the scalability of Mule Applications.
+* Support for XA Transactions. The connector can participate of multi-resource
+transactions, like DB, IBM MQ, and other XA compatible connectors.
+* ActiveMQ SSL Configuration Support. ActiveMQ Connections can be configured with
+SSL/TLS Configuration for secure connections.
+* JMS Listener. Can now configure how to propagate the Correlation ID
+on the JMS Listener Response.
+
+=== Fixed Issues
+
+* JMS Publish consume operation throws a JmsIllegalBodyException when returning a ManagedCursorStreamProvider as payload (https://www.mulesoft.org/jira/browse/MULE-14852[MULE-14852])
+* Support JMS Non-Blocking API (https://www.mulesoft.org/jira/browse/MULE-14875[MULE-14875])
+* JMS throws ClassCastException when receiving a message (https://www.mulesoft.org/jira/browse/MULE-15431[MULE-15431])
+* Add support for SSL on JMS Connector (https://www.mulesoft.org/jira/browse/MULE-12341[MULE-12341])
+* Implement human-readable toString() implementations (https://www.mulesoft.org/jira/browse/MULE-15477[MULE-15477])
+* JmsHeaders is not Serializable but JmsAttributes is (https://www.mulesoft.org/jira/browse/MULE-15455[MULE-15455])
+* XA: NPE on JmsListener#onError after flow stop (https://www.mulesoft.org/jira/browse/MULE-15488[MULE-15488])
+* JMS: Cannot configure sendCorrelationId in a listener, for sending a response (https://www.mulesoft.org/jira/browse/MULE-15502[MULE-15502])
+
+
 == 1.2.3
 
 *August 7, 2018*

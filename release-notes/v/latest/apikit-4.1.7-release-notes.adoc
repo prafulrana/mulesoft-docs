@@ -1,0 +1,27 @@
+= APIkit Mule4-1.1.7 Release Notes
+
+== What's New
+
+There are no new features in this version. There are just a few enhancements and bug fixes.
+
+== Compatibility
+
+* Mule Runtime 4.1.2 and later
+* Anypoint Studio 7.2.0 and later
+* Java Parser RAML 1.0 v1.0.20
+* Java Parser RAML 0.8 v0.8.22
+* API Console 4.2.0
+
+== Fixed in the Release
+
+* APIKit validations don't display the field.
+* APIkit not using example from raml.
+* SE-8909: Content type not allowed in flow mapping for APIKit.
+* SE-8900: skipNullOn="everywhere" causing issues java.nio.charset.IllegalCharsetNameException on Windows
+* 'content-type' is not accepted as valid flow-mapping attribute.
+* Metadata for Attributes communicates everything as nullable.
+* NPE in APIKit Metadata when no RAML is specified.
+
+== Enhancements in this release
+
+* Scaffolder duplicates flows if there are in a different xml where the api router lives

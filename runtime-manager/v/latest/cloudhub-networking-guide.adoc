@@ -93,20 +93,18 @@ Depending on what region you deploy your application in, the DNS record and the 
 [%header,cols="2*a"]
 |===
 |DNS Record |Regions
-|myapp.cloudhub.io | US West (Oregon), US West (N. California), US East (N. Virginia)
-
-All other regions
-
-|myapp.ca.cloudhub.io | Canada (Central)
-|myapp.eu.cloudhub.io | Europe
-|myapp.br.cloudhub.io | South America (Sao Paulo)
-|myapp.au.cloudhub.io | Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo)
-|myapp.eu.cloudhub.io | EU (Ireland), EU (Frankfurt)
-|myapp.uk.cloudhub.io | EU (London)
-|myapp.au.cloudhub.io |
-Singapore
-
-Australia
+|myapp.us-e1.cloudhub.io | US East (N. Virginia)
+|myapp.us-e2.cloudhub.io | US East (Ohio)
+|myapp.us-w1.cloudhub.io | US West (N. California), 
+|myapp.us-w2.cloudhub.io | US West (Oregon)
+|myapp.ca-c1.cloudhub.io | Canada (Central)
+|myapp.br-s1.cloudhub.io | South America (Sao Paulo)
+|myapp.sg-s1.cloudhub.io | Asia Pacific (Singapore)
+|myapp.au-s1.cloudhub.io | Asia Pacific (Sydney)
+|myapp.jp-e1.cloudhub.io | Asia Pacific (Tokyo)
+|myapp.ir-e1.cloudhub.io | EU (Ireland)
+|myapp.de-c1.cloudhub.io | EU (Frankfurt)
+|myapp.uk-e1.cloudhub.io | EU (London)
 
 |===
 

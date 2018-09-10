@@ -185,6 +185,40 @@ values:
 
 After importing the copybook, you can use the `schemaPath` property to reference the associated flat file through the `output` directive. For example: `output application/flatfile  schemaPath="src/main/resources/schemas/mailing-record.ffd"`
 
+=== Supported Copybook Features
+
+Not all copybook features are supported by the Cobol Copybook format in DataWeave. In general, the format supports most common usages and simple patterns, including:
+
+* USAGE of DISPLAY, BINARY (COMP), and PACKED-DECIMAL (COMP-3)
+* PICTURE clauses for numeric values consisting only of:
+** '9' - One or more numeric character positions
+** 'S' - One optional sign character position, leading or trailing
+** 'V' - One optional decimal point
+** 'P' - One or more decimal scaling positions
+* PICTURE clauses for alphanumeric values consisting only of 'X' character positions
+* Repetition counts for '9', 'P', and 'X' characters in PICTURE clauses (as in `9(5)` for a 5-digit numeric value)
+
+Unsupported features include:
+
+* Alphanumeric-edited PICTURE clauses
+* Numeric-edited PICTURE clauses with insertion or replacement
+* Special level-numbers:
+** Level 66 - Alternate name for field or group
+** Level 77 - Independent data item
+** Level 88 - Condition names (equivalent to an enumeration of values)
+* USAGE of COMP-1, COMP-2, or COMP-5
+* REDEFINES clause (used to provide different views of the same portion of record data)
+
+=== Common Copybook Import Issues
+
+The most common issue with copybook imports is a failure to follow the Cobol standard for input line regions. The copybook import parsing ignores the contents of columns 1-6 of each line, and ignores all lines with an '*' (asterisk) in column 7. It also ignores everything beyond column 72 in each line. This means that all your actual data definitions need to be within columns 8 through 72 of input lines.
+
+Tabs in the input are not expanded because there is no defined standard for tab positions. Each tab character is treated as a single space character when counting copybook input columns.
+
+Indentation is ignored when processing the copybook, with only level-numbers treated as significant. This is not normally a problem, but it means that copybooks might be accepted for import even though they are not accepted by Cobol compilers.
+
+Both warnings and errors might be reported as a result of a copybook import. Warnings generally tell of unsupported or unrecognized feature, which might or might not be significant. Errors are notifications of a problem that means the generated schema (if any) will not be a completely accurate representation of the copybook. You should review any warnings or errors reported and decide on the appropriate handling, which might be simply accepting the schema as generated, modifying the input copybook, or modifying the generated schema.
+
 === Reader Properties (for Cobol Copybook)
 
 When defining an input of type Copybook, there are a few optional parameters you can add in the XML definition of your Mule project to customize how the data is parsed.

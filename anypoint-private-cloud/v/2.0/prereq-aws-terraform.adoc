@@ -56,20 +56,12 @@ ssh -i 'anypoint.pem' ec2-user@18.221.155.87
 | AWS_SECRET_ACCESS_KEY | Specifies the AWS access key Terraform uses to connect to your AWS account.
 | AWS_KEY_NAME | Specifies the AWS SSH key. Do not include the .pem extension.
 | AWS_REGION | Specifies the AWS region where Terraform creates the cluster. For example: `us-east-2`
-| CLOUD_PROVIDER | Must be `aws`
-| CLUSTER_TYPE | Must be `pce`
-| TELEKUBE_CLUSTER_NAME |
-| TELEKUBE_NODE_PROFILE_COUNT_node | Specifies the number of nodes in your cluster. Possible values are `2`, and `3`.
-| TELEKUBE_NODE_PROFILE_INSTANCE_TYPE_node=m4.4xlarge
-| TELEKUBE_NODE_PROFILES | Must be set to `node`.
-| TF_VAR_high_performance_disks | Must be set to true
 |===
 
 You can also include the following set of optional environment variables: 
 
 [%header%autowidth.spread]
 |===
-| TF_VAR_ami_name=<AMI_ID> | Enables you to specify the version of RedHat or CentOS AMI. If you do not set this variable, the provisioner uses the folowing AMI by default: `RHEL-7.4_HVM_GA-20170808-x86_64-2-Hourly2-GP2`.
 | TF_VAR_ssh_user=<SSH_USER> | Specifies the ssh user. For example: `ec2-user`, `centos`, etc)
 | TF_VAR_monitoring=<true or false> | If true it will create basic instance alarms in Cloudwatch.
 | TF_VAR_use_bastion=<true or false> | If true it will create a small instance (using an ASG) in a public subnet as a jumpbox and associate a public IP address, and launch the cluster instances in the private subnets.

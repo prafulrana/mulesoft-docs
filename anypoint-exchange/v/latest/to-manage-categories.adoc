@@ -9,6 +9,9 @@ and `Integration API` is applied to assets of type REST API, SOAP API, and HTTP 
 
 image:ex-categories-api-type.png[Settings Category for API Type]
 
+*Note:* You must have one or more categories defined in the Settings page for the Add Category prompt 
+to appear on your organization's assets.
+
 == To Create a Category
 
 . In Anypoint Exchange, click Login and log into your organization.
@@ -45,12 +48,10 @@ The following search terms return all assets marked as both System APIs and Sale
 
 == To Change or Delete a Category
 
-After you apply a category to an asset, to change or delete a category from the 
-Settings menu, you need to open every asset you applied the category to and delete the category from the asset. 
-
-After deleting the category you want to change or delete from all assets that you applied the category to, you can return to the Settings menu and change or delete the category.
+Categories can be deleted at the individual asset level which only removes the category from that asset. 
+Categories can also be deleted at the global level in Settings, but doing so removes the category from all assets.
 
 == See Also
 
-* https://forums.mulesoft.com[MuleSoft Forum].
-* https://support.mulesoft.com[Contact MuleSoft Support].
+* https://forums.mulesoft.com[MuleSoft Forum]
+* https://support.mulesoft.com[Contact MuleSoft Support]
