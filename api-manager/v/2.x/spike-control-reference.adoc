@@ -1,4 +1,4 @@
-= Spike Control Policy Reference
+= Reviewing Spike Control Policy concepts
 :imagesdir: ./_images
 
 In Mule Runtime 4.1.0 and later, the Spike Control Policy is provided for smoothing API traffic. The policy ensures that within any given period of time, no more than the maximum configured requests are processed.

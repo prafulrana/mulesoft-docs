@@ -1,4 +1,4 @@
-= To Apply IP Whitelist
+= Reviewing IP Whitelist Policy
 :keywords: IP, whitelist, validation, policy
 
 The IP Whitelist policy allows a list or range of IP addresses to access and interact with a configured API endpoint.

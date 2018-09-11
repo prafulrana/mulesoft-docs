@@ -1,6 +1,10 @@
 = About Mule 3 Proxies
 
-This file is obsolete.
+This file is obsolete
+
+== See Also
+
+* link:/api-manager/v/2.x/api-proxy-landing-page[API Proxy]
 
 ////
 API Manager automatically generates the proxy app when you configure the API as an endpoint with a proxy and includes an Autodiscovery element in the app. Mule locks the API until all policies have been applied. The client app (consumer) calls the proxy which forwards the call to the API. After you deploy the app, Mule Runtime 3.x and earlier calls API Manager using the environment client ID and secret to get the policies for the API.

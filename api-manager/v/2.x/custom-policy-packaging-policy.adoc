@@ -1,4 +1,4 @@
-= Packaging the policy
+= Packaging a Custom Policy
 
 You can use the Mule Maven Plugin to package your custom policy into a deployable JAR file that you can later apply to an API.
 

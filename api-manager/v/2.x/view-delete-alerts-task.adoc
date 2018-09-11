@@ -1,4 +1,4 @@
-= To View and Delete API Alerts
+= Viewing and Deleting API Alerts
 :imagesdir: ./_images
 
 In the Organization Administrators role for the master organization, you can view a list of alerts. 

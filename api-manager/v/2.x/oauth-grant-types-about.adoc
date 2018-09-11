@@ -1,4 +1,4 @@
-= About OAuth Grant Types
+= Reviewing OAuth 2.0 Grant Types
 
 OAuth provides the following grant types that the client can use to validate itself when it requests for a token. 
 

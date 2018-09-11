@@ -1,4 +1,4 @@
-= To Import an API Instance
+= Creating an API instance by importing on API Manager
 
 You can develop an API for and export it from API Manager for future use or for sharing. The exported API can be imported using this procedure. To perform this task, you need to have a ZIP file on your file system containing an API object exported from API Manager.
 

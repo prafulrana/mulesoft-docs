@@ -1,4 +1,4 @@
-= Mule OAuth 2.0 Provider Configuration Reference
+= Reviewing Mule OAuth 2.0 Provider Configuration concepts
 
 The example of building an Mule OAuth 2.0 external provider covered configuring endpoint paths in the provider. This section covers more details and discusses configuring scopes in the provider. Also discussed is the option of applying CORS to the provider and exposing other endpoints.
 

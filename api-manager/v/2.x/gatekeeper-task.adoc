@@ -1,4 +1,4 @@
-= To Enable Gatekeeper
+= Enabling API Gateway Gatekeeper
 
 By default, Gatekeeper is enabled to enhance security. If you disabled Gatekeeper, you can enable it as described in this procedure. Add and set the `anypoint.platform.gatekeeper` property to `flexible` or `strict` in the Mule `wrapper.conf` file to enable Gatekeeper. For example:
 

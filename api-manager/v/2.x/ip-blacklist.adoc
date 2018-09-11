@@ -1,4 +1,4 @@
-= To Apply IP Blacklist
+= Reviewing IP Blacklist Policy
 :keywords: IP, blacklist, validation, policy
 
 The IP blacklist policy can control whether a list or range of IP addresses can access and interact with a configured API endpoint. You use one of the following options to blacklist addresses for your API:

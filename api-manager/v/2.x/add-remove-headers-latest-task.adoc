@@ -1,4 +1,4 @@
-= To Add or Remove Header Policies
+= Adding/Removing Headers Custom Policy
 
 If you have configured custom policies in Anypoint Platform, the process is basically the same for add or remove header policies. The following steps show how to set up and apply the policies in Anypoint Platform.
 
@@ -20,7 +20,7 @@ Custom Policies appears listing custom policies, if there are any, that are avai
 The policy, add request header policy in this example, appears on the Custom Policies page.
 image:gw-custom-pol-list.png[gw-custom-pol-list]
 
-== Applying the Add Request/Response Header Policies
+== Applying the Add Request/Response Header Custom Policies
 
 Continuing with example of the add request header policy, follow steps in this procedure to apply either of the following policies:
 
@@ -53,7 +53,7 @@ For example, include the following expression to substitute the name of the user
 +
 The policy you applied moves from the Available Policies list to the Applied Policies list.
 
-== Applying the Remove Request/Response Header Policies
+== Applying the Remove Request/Response Header Custom Policies
 
 Perform the steps in this procedure to apply either of the following policies:
 

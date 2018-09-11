@@ -1,4 +1,4 @@
-= Mule 4 Proxy Error and Request Handling
+= Handling API Proxy status codes
 
 In Mule 4, WSDL, RAML, HTTP, and HTTPS proxies handle errors and requests as described in the following tables. Mule 4 returns different error codes, depending on the proxy type, or no error code in response to problematic requests. This table shows whether or not Mule returns a 504, 400, or 404 error code when your WSDL, RAML, HTTP, and HTTPS proxy receives a problematic request.
 

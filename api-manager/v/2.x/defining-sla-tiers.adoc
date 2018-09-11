@@ -1,4 +1,4 @@
-= SLA Tiers Reference
+= Reviewing SLA Tiers concepts on API Manager
 :keywords: sla, policy, deprecate, delete, define, edit
 
 A Service Level Access (SLA) tier is a category of user access that you define for an API. The tier definition combined with an SLA-based policy determines whether access to the API at a certain level requires your approval. The tier definition also can limit the number of requests an application can make to the API. To enforce SLA tiers, you need to apply a rate-limiting or throttling policy that is SLA-based.
