@@ -9,7 +9,6 @@ Components execute business logic on the messages that flow through your apps. H
 +
 * Asynchronous processing of parts of a flow or subflow
 * Batch processing of messages
-* Caching and reusing frequently requested data
 * Initiating subflows
 * Logging
 * Setting payloads
@@ -19,14 +18,14 @@ Components execute business logic on the messages that flow through your apps. H
 For example, the Choice router is a component that dynamically routes messages through a flow according to a set of DataWeave expressions that evaluate message content. Each expression is associated with a different routing option. The effect is to add conditional processing to a flow, similar to an `if`/`then`/`else` code block in most programming languages.
 
 Connectors::
-Connectors also execute business logic on messages, but in addition they facilitate integration of MuleSoft applications with any external resource, such as third-party APIs or standard integration protocols. They enable connectivity to SaaS and on-premises applications, systems, and services.
+Connectors facilitate integration of MuleSoft applications with any external resource, such as third-party APIs or standard integration protocols. They enable connectivity to SaaS and on-premises applications, systems, and services.
 +
 For example, the Salesforce Connector lets you connect to the Salesforce platform APIs. This connector exposes methods for accessing Salesforce, including working with the Salesforce Apex classes. This connector works with the Salesforce SOAP API, REST API, Bulk API, and Streaming API, depending on the operation you configure. Each API call uses an XML request and response over an HTTPS connection. All required request headers, error handling, and HTTPS connection configurations are built into the connector.
 
 Modules::
 Modules process messages, but they do not execute any business logic as they do so. Instead, they add flexibility to your apps by allowing you to aggregate values, compress data, use Java features, use extra features for processing JSON, and more. Modules are similar to components, but the features they offer are more at the level of traditional application coding.
 +
-For example, the Scripting module can execute custom logic written in a scripting language. Supported scripting languages are Groovy, JavaScript, Python, and Ruby.
+For example, the Scripting module provides a component that can execute custom logic written in a scripting language. Supported scripting languages are Groovy, JavaScript, Python, and Ruby.
 
 
 Mule apps are defined in an XML document that specifies dependencies needed to run the app. Though it is possible to write the XML by hand, you can use the graphical user interfaces in Design Center or Anypoint Studio. As you use these GUIs to structure and define the behavior of your Mule app, the underlying XML is provided for you. In Studio, the XML is also available for viewing and editing.
