@@ -133,5 +133,5 @@ to do things like modifying HTTP Requests and Responses, Logging, Caching, Throt
 
 == See Also
 **** link:/api-manager/v/2.x/custom-policy-packaging-policy[Packaging a Custom Policy]
-**** link:/api-manager/v/2.x/custom-policy-uploading-to-exchange[Uploading to Exchange]
-**** link:/api-manager/v/2.x/custom-policy-4-reference[Reviewing Custom Policy General Reference]
+**** link:/api-manager/v/2.x/custom-policy-uploading-to-exchange[Uploading a Custom Policy to Exchange]
+**** link:/api-manager/v/2.x/custom-policy-4-reference[Reviewing Custom Policy concepts]

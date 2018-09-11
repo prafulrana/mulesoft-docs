@@ -89,6 +89,6 @@ For an `<http:request />` from AI to an HTTP endpoint EP, the order is:
 == See Also
 
 * link:/api-manager/v/2.x/rate-limiting-and-throttling[Reviewing Rate Limiting and Throttling Policies concepts]
-* link:/api-manager/v/2.x/tutorial-manage-an-api[To Apply a Resource-Level Policy and SLA Tier]
-* link:/api-manager/v/2.x/delete-sla-tier-task[To Delete an SLA Tier]
+* link:/api-manager/v/2.x/tutorial-manage-an-api[Applying a Policy and SLA Tier]
+* link:/api-manager/v/2.x/delete-sla-tier-task[Removing SLA Tiers on API Manager]
 

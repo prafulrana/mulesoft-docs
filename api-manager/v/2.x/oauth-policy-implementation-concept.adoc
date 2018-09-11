@@ -78,7 +78,7 @@ To retrieve the UID, use:
 
 == See Also
 
-* link:/api-manager/v/2.x/oauth2-policies-new[About OAuth 2 Policies]
-* link:/api-manager/v/2.x/apply-oauth-token-policy-task[To Configure the Proxy Connection to an External OAuth Provider]
-* link:/api-manager/v/2.x/client-id-based-policies[Client ID-Based Policies]
+* link:/api-manager/v/2.x/oauth2-policies-new[Reviewing OAuth 2 Policies concept]
+* link:/api-manager/v/2.x/apply-oauth-token-policy-task[Applying an OAuth 2.0 Token Validation Policy]
+* link:/api-manager/v/2.x/client-id-based-policies[Reviewing Client ID-Based Policies concepts]
 

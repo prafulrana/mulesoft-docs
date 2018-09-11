@@ -4,5 +4,5 @@ To remove an offline policy, you need to delete the JSON file you created in the
 
 == See Also
 
-* link:/api-manager/v/2.x/offline-policy-task[To Apply an Offline Policy]
+* link:/api-manager/v/2.x/offline-policy-task[Applying Offline Custom Policies]
 

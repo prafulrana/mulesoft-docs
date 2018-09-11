@@ -33,5 +33,5 @@ After saving API Configurations, Deployment Configuration appears.
 
 * link:/runtime-manager/servers-create[To register a server in Runtime Manager (Hybrid)]
 * link:/runtime-manager/building-an-https-service#services-under-api-manager-proxies[To Build HTTPS Services]
-* link:/api-manager/v/2.x/manage-exchange-api-task[To Manage an API from Exchange]
-* link:/api-manager/v/2.x/import-api-task[To Import an API Instance]
+* link:/api-manager/v/2.x/manage-exchange-api-task[Creating an API instance by importing from Exchange]
+* link:/api-manager/v/2.x/import-api-task[Creating an API instance by importing on API Manager]

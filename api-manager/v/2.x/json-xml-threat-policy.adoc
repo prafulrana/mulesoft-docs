@@ -21,8 +21,8 @@ Any request that violates the configured limits causes a Bad Request error.
 
 == See Also
 
-***** link:/api-manager/v/2.x/apply-configure-json-threat-task[To Configure and Apply JSON Threat Protection]
-***** link:/api-manager/v/2.x/apply-configure-xml-threat-task[To Configure and Apply XML Threat Protection]
+***** link:/api-manager/v/2.x/apply-configure-json-threat-task[Applying JSON Threat Protection Policy]
+***** link:/api-manager/v/2.x/apply-configure-xml-threat-task[Applying XML Threat Protection Policy]
 
 
 

@@ -19,6 +19,6 @@ Now, you're ready to deploy an auto-generated proxy.
 
 == See Also
 
-* link:/api-manager/v/2.x/https-reference[To Configure an HTTPS Endpoint]
-* link:/api-manager/v/2.x/proxy-deploy-cloudhub-latest-task[To Deploy a Proxy to CloudHub]
-* link:/api-manager/v/2.x/proxy-deploy-hybrid-latest-task[To Deploy a Proxy to Hybrid]
+* link:/api-manager/v/2.x/https-reference[Configuring an HTTPS Endpoint]
+* link:/api-manager/v/2.x/proxy-deploy-cloudhub-latest-task[Deploying an API Proxy to CloudHub]
+* link:/api-manager/v/2.x/proxy-deploy-hybrid-latest-task[Deploying an API Proxy to Hybrid]

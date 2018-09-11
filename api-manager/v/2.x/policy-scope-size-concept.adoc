@@ -57,5 +57,6 @@ The size of a policy varies based on its dependencies. The first time Mule Runti
 
 == See Also
 
-* link:/api-manager/v/2.x/add-remove-headers-latest-task[Add Request/Response Headers, Remove Request/Response Headers]
-* link:/api-manager/v/2.x/policies-4-concept[About Policies]
+* link:/api-manager/v/2.x/policies-landing-page[Policies]
+* link:/api-manager/v/2.x/add-remove-headers-latest-task[Adding/Removing Headers Custom Policy]
+
