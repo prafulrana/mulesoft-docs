@@ -1,4 +1,4 @@
-= To Apply Rate Limiting 1.0.0 or 1.1.0
+= Applying Rate Limiting Policy v1.0.0 or v1.1.0
 
 . In API Manager > API Administration, click a version number for an API.
 . Click Policies > Apply New Policy.

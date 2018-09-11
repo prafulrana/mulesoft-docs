@@ -1,4 +1,4 @@
-= To Apply and Edit a CORS Policy
+= Reviewing CORS Policy
 :keywords: apis, api, cors, policy, headers, group
 
 Cross-origins HTTP requests (CORS) let you request a resource from a different domain. This policy lets you share APIs across domains.

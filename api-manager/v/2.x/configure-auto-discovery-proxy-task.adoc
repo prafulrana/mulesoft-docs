@@ -1,6 +1,10 @@
-= To Deploy the Mule 4 Proxy to Hybrid
+= Deploying Mule 4 Proxy to Hybrid
 
 This file is obsolete
+
+== See Also
+
+* link:/api-manager/v/2.x/api-proxy-landing-page[API Proxy]
 
 ////
 

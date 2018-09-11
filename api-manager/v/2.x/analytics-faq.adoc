@@ -1,4 +1,4 @@
-= Analytics FAQ
+= Reviewing Analytics FAQ
 :keywords: analytics, faq
 
 == Why does "No API requests for this time period" display?

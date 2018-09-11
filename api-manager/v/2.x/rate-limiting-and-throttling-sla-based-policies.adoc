@@ -1,4 +1,4 @@
-= Rate Limiting and Throttling - SLA-Based Policies
+= Reviewing Rate Limiting and Throttling - SLA-Based Policies concepts
 :imagesdir: ./_images
 
 The Rate Limiting and Throttling policies, which are based on a service level access (SLA) are client ID-based policies that use the client ID as a reference to impose limits on the number of requests that each application can make within a period of time. To use these policies, create at least one SLA tier to define request limits as described in the tutorial. Require users to register an application through the Exchange portal to engage API users. The registration process grants the user a client ID and a client Secret.

@@ -1,4 +1,4 @@
-= Getting started
+= Getting started with Custom Policies development
 
 Custom Policies are policies that anyone can develope and apply to their APIs, with the intention of extending existing
 functionality or defining new ones.

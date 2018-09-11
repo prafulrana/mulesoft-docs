@@ -1,4 +1,4 @@
-= Analytics Event API 
+= Reviewing Analytics Event API
 :keywords: analytics, api, reports
 
 API Manager gathers analytics data for each API you manage.  You can create charts that query and display event data. Using the Analytics Event API you can create reports that query raw event data and expose it through an API endpoint. Reports and charts you create present data by environment.

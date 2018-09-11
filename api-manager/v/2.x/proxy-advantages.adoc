@@ -1,4 +1,4 @@
-= Mule 4 Proxy Advantages
+= Reviewing API Proxy concepts
 
 The benefits of using proxy applications for APIs in Mule 4.0 Runtime are important to understand for successful and efficient deployments. In Mule 4, WSDL, RAML, HTTP, and HTTPS proxies provide the benefits as described in this table.
 

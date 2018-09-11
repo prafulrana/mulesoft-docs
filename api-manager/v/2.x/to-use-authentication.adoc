@@ -1,4 +1,4 @@
-= To Use a Mule Provider for OAuth 2.0 Authentication
+= Authenticating using the Mule OAuth 2.0 Provider
 :keywords: oauth, raml, token, validation, policy
 
 You need to obtain the access token before attempting to send requests to the API protected by the OAuth 2.0 Access Token Enforcement Using External Provider policy. Include the token in all requests sent to the API using a query parameter or an authorization header as shown in the Postman example in the next procedure. The following table summarizes this usage:

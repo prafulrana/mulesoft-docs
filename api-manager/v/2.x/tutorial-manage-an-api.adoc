@@ -1,4 +1,4 @@
-= To Apply a Policy and SLA Tier 
+= Applying a Policy and SLA Tier
 
 In this procedure you configure and apply a policy to an API. Optionally, you can set up SLA tiers.  This procedure describes how to configure and apply a policy, for example, the Rate Limiting SLA-based policy. 
 

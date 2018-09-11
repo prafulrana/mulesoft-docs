@@ -1,4 +1,4 @@
-= About OAuth Policy Prerequisites
+= Reviewing OAuth 2.0 Policy Prerequisites
 :keywords: oauth, raml, token, validation, policy
 
 Prerequisites for using an OAuth 2.0 policy are:

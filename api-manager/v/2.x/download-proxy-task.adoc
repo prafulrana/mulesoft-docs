@@ -1,4 +1,4 @@
-= To Download a Proxy
+= Downloading an API Proxy
 
 You use a proxy to manage your API without having to change its implementation and to prevent attacks on the server. Mule Runtime is the server that hosts a Mule proxy application.
 

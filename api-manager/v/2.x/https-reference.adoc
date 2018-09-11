@@ -1,4 +1,4 @@
-= To Configure an HTTPS Endpoint
+= Configuring an HTTPS Endpoint
 
 When deploying to the CloudHub, you can perform an automatic deployment only if you use an HTTP listener that doesn't enable HTTPS. To use HTTPS with the client app on CloudHub, you need to build an HTTPS service.
 

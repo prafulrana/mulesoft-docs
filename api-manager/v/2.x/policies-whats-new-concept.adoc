@@ -1,5 +1,12 @@
 = What's New in Policy Management
 
+This file is obsolete
+
+== See Also
+
+* link:/api-manager/v/2.x/policies-landing-page[Policies]
+
+////
 In Mule 4, classloader isolation exists between the application, the runtime and the connectors, and policies. 
 
 Other changes to policies are:
@@ -27,3 +34,4 @@ If you upgrade APIs from the Jul 2017 to Nov 2017, the security manager setup in
 
 * link:/getting-started/api-lifecycle-overview[About Availability of the November Release]
 * link:/api-manager/v/2.x/policy-scope-size-concept[About Policy Packaging, Scope, and Size]
+////

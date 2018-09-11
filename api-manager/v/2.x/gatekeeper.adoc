@@ -1,4 +1,4 @@
-= Gatekeeper Enhanced Security Reference
+= Reviewing API Gateway Gatekeeper Enhanced Security Reference
 
 When you deploy an application, there could be a window of time during which the APIs exposed by the application are accessible, but the policies specified for those APIs are not yet applied so unwelcome traffic may reach the APIs.GateKeeper prevents this situation by blocking the API until all policies have been retrieved and applied without errors. During this period, the API returns a 503 status. 
 

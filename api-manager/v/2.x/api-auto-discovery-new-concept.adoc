@@ -1,4 +1,4 @@
-= About API Autodiscovery
+= Reviewing API Gateway API Autodiscovery concepts
 
 API Autodiscovery allows API Manager to manage an API that represents the HTTP endpoints of a Mule application. +
 Essentially, it's the mechanism that links an HTTP resource, to its API definition in API Manager.

@@ -1,4 +1,4 @@
-= To Promote the API to Another Environment
+= Promoting an API instance to another Environment on API Manager
 
 A tight integration of Anypoint Platform components extends the use of environments to API management. In this procedure, you change the environment of an API.
 
