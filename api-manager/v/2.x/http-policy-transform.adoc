@@ -40,6 +40,7 @@ A DataWeave expression that resolves to the Map of headers to be added to presen
 +
 *Example*
 +
+[source,xml,linenums]
 ----
 <http-transform:add-headers outputType="response">
     <http-transform:headers>#[
@@ -64,6 +65,7 @@ A Data-Weave expression that resolves to an Array of header names to be removed.
 +
 *Example*
 +
+[source,xml,linenums]
 ----
 <http-transform:remove-headers>
     <http-transform:headers>#[['FirstHeader', 'SecondHeader']]</http-transform:headers>
@@ -87,6 +89,7 @@ policy prevents the flow from being executed; thus, there is no HTTP response in
 +
 *Example*
 +
+[source,xml,linenums]
 ----
 <http-transform:set-response statusCode="203" reasonPhrase="policyReasonPhrase">
     <http-transform:body>#['policyPayload']</http-transform:body>
@@ -118,6 +121,7 @@ This operation sets a complete HTTP request that the HTTP Requester executes.
 +
 *Example*
 +
+[source,xml,linenums]
 ----
 <http-transform:set-requester-request requestPath="/backend/policy/{policyUriParam}">
     <http-transform:body>#['policyPayload']</http-transform:body>
