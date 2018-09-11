@@ -1,4 +1,12 @@
-= To Avoid Same-Origin Restrictions
+= Avoiding Same-Origin Restrictions
+
+This file is obsolete
+
+== See Also
+
+* link:/api-manager/v/2.x/api-instance-landing-page[API Instance]
+
+////
 
 // This is a dummy page that avoids a 404.
 
@@ -22,4 +30,4 @@ Make sure you understand the potential security implications of changing browser
 
 Enable the option to access data sources across domains. In some versions of IE, this option is in Internet Properties > Security tab > Custom Level in Security Level for this Zone > Miscellaneous > Enable Access to Data Sources Across Domains.
 
-
+////

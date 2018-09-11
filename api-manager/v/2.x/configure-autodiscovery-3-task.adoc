@@ -1,4 +1,4 @@
-= Configuring API Autodiscovery in a Mule 3 Application
+= Configuring API Gateway API Autodiscovery in a Mule 3 Application
 
 To configure API Autodiscovery in your Mule 3.x application, you must meet the following requirements:
 

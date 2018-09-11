@@ -1,4 +1,4 @@
-= To Apply Rate Limiting 1.2.0
+= Applying Rate Limiting Policy v1.2.0
 :imagesdir: ./_images
 
 Rate Limiting 1.2.0 includes the capabilities in Rate Limiting 1.0.0 and 1.1.0 plus  the capability to apply a quota by a key-sensitive identifier. This policy is available since Mule 4.1.0

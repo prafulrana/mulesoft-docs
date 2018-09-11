@@ -1,4 +1,4 @@
-= Mule OAuth 2.0 Service Provider Reference
+= Reviewing OAuth 2.0 Service Provider concepts
 
 Mule provides two elements that enable you to configure a service provider capable of completing the tasks listed above.
 

@@ -1,4 +1,4 @@
-= About OAuth 2 Policy Implementation
+= Reviewing OAuth 2 Policy Implementation
 :imagesdir: ./_images
 
 This following diagram shows how the OAuth 2 policy works with an existing OpenAM or PingFederate authorization server, or OpenID Connect Token Introspection endpoint, to protect access to your API version.

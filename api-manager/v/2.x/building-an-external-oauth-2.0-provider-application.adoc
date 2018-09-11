@@ -1,4 +1,4 @@
-= To Build a Mule OAuth 2 Provider
+= Building the Mule OAuth 2.0 Provider
 :keywords: oauth
 
 :meta-audience: Developer

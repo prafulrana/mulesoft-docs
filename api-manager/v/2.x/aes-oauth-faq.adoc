@@ -1,4 +1,4 @@
-= Building a Mule OAuth Provider Tasks
+= Reviewing Mule OAuth Provider concepts
 :meta-audience: Developer
 :meta-job-phase: Implement
 :meta-job:

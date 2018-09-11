@@ -1,4 +1,4 @@
-= About Basic Authentication and LDAP Policies
+= Reviewing Basic Authentication concepts
 
 * link:/api-manager/v/2.x/basic-authentication-simple-concept[Basic Authentication: Simple (Mule 4.x)]
 * link:/api-manager/v/2.x/basic-authentication-ldap-concept[Basic Authentication: LDAP (Mule 4.x)]

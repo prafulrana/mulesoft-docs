@@ -1,4 +1,4 @@
-= About CORS on Mule Runtime 4.x
+= Reviewing CORS Policy on Mule 4
 
 CORS complies with Cross-Origin Resource Sharing W3C Recommendation 16 January 2014. From API Manager, you can apply CORS as a policy using the configuration steps described in links below.
 

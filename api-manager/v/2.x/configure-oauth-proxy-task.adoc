@@ -1,4 +1,4 @@
-= To Configure the Proxy Connection to an External OAuth Provider
+= Configuring the Proxy Connection to an OAuth Provider
 
 In Mule 3.8.x, you optionally enable or disable the proxy network connection between the API and External Authentication Provider by setting the following parameter:
 

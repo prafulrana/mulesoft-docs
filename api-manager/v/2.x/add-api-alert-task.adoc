@@ -1,4 +1,4 @@
-= To Add an API Alert
+= Adding an API Alert
 
 . In API Manager 2.x, in API Administration, select an API instance, and on the API instance dashboard, select Alerts.
 . Click Add Alert and set the alert options:

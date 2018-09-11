@@ -1,4 +1,4 @@
-= About Mule OAuth 2.0 Provider Prerequisites 
+= Reviewing Mule OAuth 2.0 Provider Prerequisites
 
 You need one of the following installations to build a Mule OAuth provider:
 

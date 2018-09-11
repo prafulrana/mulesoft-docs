@@ -1,4 +1,4 @@
-= Testing Add and Remove Request Header Policies
+= Testing Adding/Removing headers Custom Policy example
 
 To test the execution of policies, follow the steps in this section to apply a policy and use curl, for example `curl` `+http://localhost:8081 -vvv+` to test the policies.
 

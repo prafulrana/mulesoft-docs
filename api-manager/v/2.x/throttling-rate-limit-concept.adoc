@@ -1,4 +1,4 @@
-= About Throttling and Rate Limiting Policies
+= Reviewing Throttling and Rate Limiting concepts
 :imagesdir: ./_images
 
 The Rate Limiting policy limits the number of requests an API accepts within a window of time. The API rejects requests that exceed the limit. You can configure multiple limits with window sizes ranging from milliseconds to years. 
