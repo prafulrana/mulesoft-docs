@@ -1,4 +1,4 @@
-= To Apply XML Threat Protection
+= Applying XML Threat Protection Policy
 
 . Click the instance number of an API.
 +

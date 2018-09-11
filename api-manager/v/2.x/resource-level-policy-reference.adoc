@@ -1,4 +1,4 @@
-= Resource Level Policy Reference
+= Reviewing Resource Level Policy concepts
 
 This reference covers applying policies to resources and methods using an example API. The simulation of the example API appears as follows: 
 

@@ -1,6 +1,10 @@
 = To Download and Unzip a Mule 4 Proxy 
 
-This file is no longer used. 
+This file is obsolete
+
+== See Also
+
+* link:/api-manager/v/2.x/api-proxy-landing-page[API Proxy]
 
 ////
 
@@ -21,9 +25,3 @@ After setting up the API, you perform these steps to prepare the Mule 4 proxy fo
 
 Now, you are ready to configure a Mule 4 proxy.
 ////
-
-
-== See Also
-
-* link:/api-manager/v/2.x/configure-auto-discovery-proxy-task[To Configure a Mule 4 Proxy]
-* link:/api-manager/v/2.x/setup-api-task[To Set Up the API]

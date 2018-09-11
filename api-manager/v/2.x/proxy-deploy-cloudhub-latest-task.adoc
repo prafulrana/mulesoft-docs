@@ -1,4 +1,4 @@
-= To Deploy a Proxy to CloudHub
+= Deploying an API Proxy to CloudHub
 
 In API Manager, follow this procedure to deploy a proxy to CloudHub if you use Mule 3.8 Runtime, API Gateway 2.1 or later, or Mule 4.x. 
 

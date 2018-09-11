@@ -1,4 +1,4 @@
-= To Delete Management of an API Version
+= Removing an API instance on API Manager
 
 The procedure removes the capability to manage an API Version from API Manager. If the API resides in Exchange or on the file system as a ZIP, it isn't deleted from Exchange or the file system.
 

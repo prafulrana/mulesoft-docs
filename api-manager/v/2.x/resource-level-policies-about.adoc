@@ -1,4 +1,4 @@
-= About Resource Level Policies
+= Reviewing Resource Level Policies
 :imagesdir: ./_images
 
 Resource level policy support includes RAML and HTTP APIs. A policy applied at a resource level affects all methods, or selected methods, within the resource. 

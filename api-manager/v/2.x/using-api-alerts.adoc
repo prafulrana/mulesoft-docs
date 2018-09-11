@@ -1,4 +1,4 @@
-= About API Alerts 
+= Reviewing Alerts concepts
 :keywords: alerts,api, api alerts
 
 An API alert is an alarm that flags one of the following problems: 

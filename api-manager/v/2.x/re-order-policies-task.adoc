@@ -1,4 +1,4 @@
-= To Re-order Policies
+= Re-ordering Policies
 
 In Mule Runtime 4.x, which policies run first is configurable with the exception of CORS. CORS has the highest precedence. This procedure describes how to re-order policies provided by Anypoint Platform. 
 

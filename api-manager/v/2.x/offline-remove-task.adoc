@@ -1,4 +1,4 @@
-= To Remove an Offline Policy
+= Removing Offline Custom Policies
 
 To remove an offline policy, you need to delete the JSON file you created in the offline-policies directory. Deleting the automatically created folder in the policies directory does _not_ remove the offline policy. 
 

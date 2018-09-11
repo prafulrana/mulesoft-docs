@@ -1,4 +1,4 @@
-= About Managing API Versions and Instances
+= Reviewing API Versions and Instances concepts on API Manager
 
 After you create an API in Design Center for example, you set a version name and publish it to Exchange. In this release, the version resides in Exchange, not API Manager. You then set up API Manager to manage the version. 
 
@@ -6,7 +6,7 @@ image::environment2.png[]
 
 == API Instance Management in API Manager
 
-In API Manager, you also create, import, and deprecate API instances.
+In API Manager, you may also create, import, and deprecate API instances.
 
 On the API administration dashboard, you expand the API version name to display the instances if there are any:
 
@@ -18,7 +18,7 @@ In addition to API instance management in API Manager, you can perform other API
 
 == API Version Management in Exchange
 
-In Exchange you add, delete, and deprecate API versions, which are called Exchange assets. An API version in Exchange can have its own RAML file, API Portal, and URL. For more information about API version management in Exchange, see "Anypoint Exchange" documentation.
+In Exchange you may add, delete, and deprecate API versions, which are called Exchange assets. An API version in Exchange can have its own RAML file, API Portal, and URL. For more information about API version management in Exchange, see "Anypoint Exchange" documentation.
 
 == See Also
 

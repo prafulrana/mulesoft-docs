@@ -1,4 +1,4 @@
-= About the OAuth Dance
+= Reviewing OAuth 2.0 Dance concepts
 
 The authentication process performed by the Mule OAuth 2.0 provider, API, and client application conforms to RFC 6749. This process is called the OAuth Dance.
 

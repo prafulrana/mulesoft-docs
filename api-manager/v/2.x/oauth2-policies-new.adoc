@@ -1,4 +1,4 @@
-= About OAuth 2 Policies
+= Reviewing OAuth 2 Policies concept
 
 // this repeats some info from external-oauth-2.0-token-validation-policy, but we need an opener page
 

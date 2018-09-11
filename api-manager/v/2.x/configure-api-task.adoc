@@ -1,4 +1,4 @@
-= To Configure an API Endpoint
+= Configuring an API instance Endpoint on API Manager
 
 You can set up one of the following types of endpoint management:
 

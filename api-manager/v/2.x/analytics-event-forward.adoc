@@ -1,4 +1,4 @@
-= About Event Forwarding
+= Reviewing Analytics Event Forwarding
 
 Sometimes you need to forward the Anypoint API Analytics events to a third-party system. An example of this could be integrating with ELK or other analytics system. 
 

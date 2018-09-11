@@ -1,4 +1,4 @@
-= About Using Policies 
+= Applying a Policy
 :keywords: policy, endpoint
 
 A policy extends the functionality of an API and enforces certain capabilities such as security. A policy can control access and traffic. For example, a policy can generally control authentication, access, allotted consumption, and service level access (SLA). You can apply policies to these types of APIs:

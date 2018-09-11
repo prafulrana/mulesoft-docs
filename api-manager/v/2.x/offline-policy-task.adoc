@@ -1,4 +1,4 @@
-= To Apply an Offline Policy
+= Applying Offline Custom Policies
 
 An offline policy is applied directly to the runtime, not applied through API Manager. This procedure describes how to apply an offline policy to an API. You create a file in the offline-policies directory. Mule detects the presence of the file and starts applying the policy. Mule generates JSON and XML policy files in a new directory in `%MULE_HOME%/policies`.
 

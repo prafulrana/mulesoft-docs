@@ -1,4 +1,4 @@
-= Basic Policy Tasks
+= Reviewing policies basic tasks
 
 *** link:/api-manager/v/2.x/tutorial-manage-an-api[To Apply a Policy and SLA Tier]
 *** link:/api-manager/v/2.x/prepare-raml-task[To Prepare RAML for Policies]

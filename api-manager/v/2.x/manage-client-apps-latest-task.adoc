@@ -1,4 +1,4 @@
-= To Manage Contracts
+= Managing API instance Contracts on API Manager
 
 In Exchange, you can make information about APIs you develop in Anypoint Platform publicly available for applications that want to consume the API. You can limit access to certain users. 
 

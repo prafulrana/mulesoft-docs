@@ -1,4 +1,4 @@
-= Uploading the policy to Exchange
+= Uploading a Custom Policy to Exchange
 
 Custom policies need to be published to Exchange so users can obtain and apply them to APIs. API Manager lists custom policies published as assets of the Organization.
 
