@@ -4,11 +4,11 @@
 The Consume operation in the IBM MQ connector provides the ability to consume a
 message at any given time of the flow, from any given Destination.
 
-== Consuming A Message
+== Consuming a Message
 
 The syntax to consume a message from a queue is:
 
-[source, xml, linenums]
+[source, xml]
 ----
 <ibm-mq:consume config-ref="IBM_MQ_config" destination="#[vars.destination]"/>
 ----
@@ -23,7 +23,7 @@ following structure:
 Once received, the message is immediately acknowledged by default. If you
 want to control the ACK of the message after some processing, then set `ackMode`
 to `MANUAL`. 
-For more information regarding a Message ACK, see link:ibm-mq-ack[Handling Message Acknowledgement].
+For more information regarding a Message ACK, see link:ibm-mq-ack[Handling Message Acknowledgment].
 
 == Waiting for a Message
 
@@ -45,7 +45,9 @@ faster than the others, we can do:
 
 [source, xml, linenums]
 ----
-<ibm-mq:consume config-ref="IBM_MQ_config" destination="openTickets" selector="JMSPriority=8"/>
+<ibm-mq:consume config-ref="IBM_MQ_config" 
+destination="openTickets" 
+selector="JMSPriority=8"/>
 ----
 
 When a selector is configured, only the Messages matching it will be received,
@@ -61,12 +63,12 @@ In such cases, you can force that content type to a particular value by using
 the `contentType` parameter.
 
 The same process works for encoding. By default, the connector assumes that
-the Mule Runtime’s default encoding matches the one in the message if no other
+the Mule runtime’s default encoding matches the one in the message if no other
 information is provided. You can set this by using the `encoding` parameter.
 
 WARNING: This MIME type propagation only works when the IBM MQ Target Client is selected as `JMS_COMPLIANT`.
 
-== Consuming A Message Using Topic Subscriptions
+== Consuming a Message Using Topic Subscriptions
 
 Consuming messages from a topic destination is very similar to consuming them
 from a queue, but with the extra functionality of being able to use topic
@@ -102,7 +104,7 @@ This metadata has three parts that map all the information available in a JMS me
 * Headers
 * Properties
 
-See link:ibm-mq-documentation[JMS Reference] for details regarding the attributes structure.
+See link:ibm-mq-xml-ref[JMS Reference] for details regarding the attributes structure.
 
 == See Also
 

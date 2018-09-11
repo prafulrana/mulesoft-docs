@@ -13,7 +13,7 @@ The following table lists the recommended limits on the number of deployments an
 | Component | Recommended Limit
 | Maximum number of deployments | 1000
 | Maximum deployments per target | 200
-| Maximum deployment size | 200
+| Maximum deployment size | 200 MB
 | Maximum number of servers | 500
 | Maximum number of servers per server group | 20
 | Maximum servers per cluster | 8

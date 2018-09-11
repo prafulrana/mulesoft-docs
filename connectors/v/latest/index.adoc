@@ -108,4 +108,5 @@ link:/connectors/sap-successfactors-connector[SAP SuccessFactors]
 
 == See Also
 
-link:/connectors/mule4-user-guide/v/4.1/about-components[About Mule Components]
+* https://forums.mulesoft.com[MuleSoft Forum]
+* https://support.mulesoft.com[Contact MuleSoft Support]
