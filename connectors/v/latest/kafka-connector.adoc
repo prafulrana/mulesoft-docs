@@ -24,8 +24,8 @@ the Dependency Snippets in Anypoint Exchange.
 * Connection configuration - You can choose from the following types of connections for both the consumer and producer:
 ** Basic - Gives you the flexibility of settings whatever property you need from properties accepted by Kafka.
 ** SSL - Use this configuration when one or more brokers requires an SSL connection.
-** Kerberos - Use this configuration when one or more brokers requires a Kerberos with plaintext connection.
-** Kerberos SSL - Use this configuration when one or more brokers requires a Kerberos with SSL connection.
+** Kerberos - Use this configuration when one or more brokers requires Kerberos with a plain text connection.
+** Kerberos SSL - Use this configuration when one or more brokers requires Kerberos with an SSL connection.
 * Consumer trigger - Use for Partition offsets where you have to provide a list of Offsets instead of a MEL that evaluates to a map.
 * Consumer trigger - The message produced has the following attributes associated: topic, key, partition, offset.
 
@@ -57,7 +57,7 @@ image:kafka-ssl-dc-config.png[SSL DC Configuration]
 ** Principal - Kerberos principal
 ** Keytab - Path to keytab file associated with "principal".
 ** Service Name - The Kerberos principal name that Kafka Broker runs as.
-** Additional JAAS Properties - Additional parperties as key->value that you need to set on "sasl.jaas.config" and that you usually include in JAAS configuration file.
+** Additional JAAS Properties - Additional properties as key->value that you need to set on "sasl.jaas.config" and that you usually include in JAAS configuration file.
 +
 image:kafka-kerberos-dc-config.png[Kerberos DC Configuration]
 +
@@ -133,7 +133,7 @@ image:kafka-ssl-studio-config.png[SSL Configuration]
 ** Principal - Kerberos principal
 ** Keytab - Path to keytab file associated with "principal".
 ** Service Name - The Kerberos principal name that Kafka Broker runs as.
-** Additional JAAS Properties - Additional parperties as key->value that you need to set on "sasl.jaas.config" and that you usually include in JAAS configuration file.
+** Additional JAAS Properties - Additional properties as key->value that you need to set on "sasl.jaas.config" and that you usually include in JAAS configuration file.
 +
 image:kafka-kerberos-studio-config.png[Kerberos Configuration]
 +
@@ -158,10 +158,11 @@ image:kafka-consumer-studio-config.png[Consumer Studio Configuration]
 +
 image:kafka-producer-studio-config.png[Producer Studio Configuration]
 
-== Use Case: Studio
+== Use Case: Consuming a Topic
 
-Kafka connector can be used for either consuming messages from a partitcular topic and feed the flow with those messages or produce a message into a topic.
-In studio this is how it looks like:
+Kafka connector can be used for consuming messages from a particular topic and feeding the flow with those messages, or producing a message into a topic.
+
+In Studio this is what you see:
 
 Consumer:
 
@@ -171,9 +172,9 @@ Producer:
 
 image:kafka-producer-studio-flow.png[Producer on canvas]
 
-== Use Case: XML
+=== Use Case: XML
 
-[source, xml]
+[source, xml,linenums]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -195,35 +196,34 @@ http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
 http://www.mulesoft.org/schema/mule/kafka 
 http://www.mulesoft.org/schema/mule/kafka/current/mule-kafka.xsd">
     <configuration-properties file="mule-app.properties"></configuration-properties>
-    <http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="DOC_ID" >
+    <http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config"  >
         <http:listener-connection host="0.0.0.0" port="8081" />
     </http:listener-config>
 
-    <kafka:kafka-consumer-config name="consumer-basic" doc:name="Consumer Basic" doc:id="DOC_ID" >
+    <kafka:kafka-consumer-config name="consumer-basic" doc:name="Consumer Basic" >
     <kafka:basic-kafka-consumer-connection consumerPartitions="${consumer.topic.partitions}" 
     groupId="${consumer.groupId}" bootstrapServers="${config.basic.bootstrapServers}" />
   </kafka:kafka-consumer-config>
-  <kafka:kafka-producer-config name="producer-basic" doc:name="Producer Basic" doc:id="DOC_ID" >
+  <kafka:kafka-producer-config name="producer-basic" doc:name="Producer Basic" >
     <kafka:basic-kafka-producer-connection bootstrapServers="${config.basic.bootstrapServers}" />
   </kafka:kafka-producer-config>
 
-    <flow name="consumer-flow" doc:id="DOC_ID">
+    <flow name="consumer-flow" >
         <kafka:consumer config-ref="consumer-krb-plain" topic="${consumer.topic.name}" 
-        doc:name="Consumer" doc:id="DOC_ID"/>
-        <logger level="INFO" doc:name="Logger" doc:id="DOC_ID" 
+        doc:name="Consumer" />
+        <logger level="INFO" doc:name="Logger"  
         message="#['New message arrived: ' ++ payload ++ &quot;, key:&quot; ++ attributes.key ++ &quot;, partition:&quot; ++ attributes.partition ++ &quot;, offset:&quot; ++ attributes.offset ]"/>
     </flow>
-  <flow name="producer-flow" doc:id="DOC_ID" >
+  <flow name="producer-flow" >
         <http:listener config-ref="HTTP_Listener_config" path="/pushMessage" doc:name="Push message endpoint" doc:id="DOC_ID" />
         <logger level="INFO" doc:name="Logger" doc:id="DOC_ID" 
         message="#[&quot;Message: '&quot; ++ payload.message ++ &quot;' is going to be published to topic: '&quot; ++ payload.topic ++ &quot;'.&quot;]" />
         <kafka:producer config-ref="producer-krb-plain" topic="#[payload.topic]"
                         key="#[now()]"
-                        doc:name="Producer" doc:id="DOC_ID" >
+                        doc:name="Producer" >
             <kafka:message ><![CDATA[#[payload.message]]]></kafka:message>
         </kafka:producer>
-        <set-payload value="Message successfully sent to Kafka topic." doc:name="Push response builder" 
-        doc:id="DOC_ID" />
+        <set-payload value="Message successfully sent to Kafka topic." doc:name="Push response builder" />
     </flow>
 </mule>
 ----

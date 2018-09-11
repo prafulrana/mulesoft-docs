@@ -49,6 +49,7 @@ link:/connectors/x12-edi-connector[X12 EDI]
 link:/connectors/hl7-mllp-connector[HL7 MLLP]
 * link:/connectors/http-connector[HTTP]
 * link:/connectors/ibm-ctg-connector[IBM CTG]
+* link:/connectors/ibm-mq-connector[IBM MQ]
 * link:/connectors/jms-connector[JMS]
 * link:/connectors/kafka-connector[Kafka]
 * link:/connectors/ldap-connector[LDAP]
@@ -107,4 +108,5 @@ link:/connectors/sap-successfactors-connector[SAP SuccessFactors]
 
 == See Also
 
-link:/connectors/mule4-user-guide/v/4.1/about-components[About Mule Components]
+* https://forums.mulesoft.com[MuleSoft Forum]
+* https://support.mulesoft.com[Contact MuleSoft Support]
