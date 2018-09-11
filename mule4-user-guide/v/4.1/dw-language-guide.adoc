@@ -1,0 +1,113 @@
+= DataWeave 2.0 Language Guide
+:keywords: studio, anypoint, transform, transformer, format, aggregate, rename, split, filter convert, xml, json, csv, pojo, java object, metadata, dataweave, data weave, datawave, datamapper, dwl, dfl, dw, output structure, input structure, map, mapping
+ 
+DataWeave expressions are stored in scripts or external files, or written directly in a component or element. They tansform data in a few different ways:
+
+* In the Transform Message component, DataWeave transforms the message payload of a Mule event, which is the container for information processed by Mule Runtime 4 (Mule 4). For example, after a component in your app retrieves data from one system, DataWeave in the Transform Message component modifies and outputs several fields in that data to a new data format, to pass on that data to another system.
+* In many other components, connectors, or modules that support DataWeave, such as a Choice router or Set Payload component, DataWeave expressions transform conditions or values.
+* In a global configuration element, DataWeave expressions transform values stored in that element.
+
+== A Simple Example
+
+This example transforms `application/json` input to `application/xml` output, by defining keys in a JSON object from the message payload input (for example, `payload.title`), and then map the output values to a different structure.
+
+* Use a core DataWeave function on the value of an input field: `upper(payload.author)`.
+
+. Data selectors access fields within an `application/json` input data structure. Notice that the input payload uses mixed case letters in two fields:
++
+.Input Payload
+[source,json,linenums]
+----
+{
+  "title": "Java 8 in Action",
+  "author": "Mario Fusco",
+  "year": 2014
+}
+----
+
+. A DataWeave expression creates an XML data type, `order`, and new fields, and defines the mapping between old and new.
++
+.Transform
+[source, dataweave, linenums]
+----
+%dw 2.0
+output application/xml
+---
+{
+  order: {
+    'type': 'Book',
+    'title': payload.title,
+    'author': upper(payload.author),
+    'year': payload.year
+  }
+}
+----
+
+. The output payload, in XML, delivers data in all caps for the `author` field, delivers a new field, `type`, and delivers the fields and values in an XML data type `order`.
++
+.Output Payload
+[source,xml,linenums]
+----
+<?xml version='1.0' encoding='UTF-8'?>
+<order>
+  <type>Book</type>
+  <title>Java 8 in Action</title>
+  <author>MARIO FUSCO</author>
+  <year>2014</year>
+</order>
+----
+
+== How the Example Works: a Deep Dive
+
+DataWeave manages much of the data type determination in transformations so you don't have to worry about it. For the curious, this is how DataWeave works inside Mule Runtime 4 (Mule 4).
+
+=== Input
+
+Mule 4 has a special object called a `TypedValue`. This class represents a `Pair<Object,DataType> Being DataType = Pair<MimeType,Encoding>`.
+
+All variables and the payload are `TypedValue`. The `TypedValue` can also be present in a more nested places. For example, the List operation in the File connector returns a `List<TypedValue>`, so the payload is `TypedValue<List<TypedValue, DataType>, DataType<Java>>`. This allows DataWeave to list diferent types of files (JSON, XML, CSV, and so on) for DataWeave to read.
+
+=== DataType
+
+DataWeave uses the `DataType` part to determine what reader to use based on the MimeType and how to configure that reader (encoding, reader properties) based on the MimeType properties.
+
+=== Output
+
+DataWeave always outputs a `TypedValue`, and infers the DataType, which determines which writer to use. Or, you can manually specify the DataType in the script with `output`.
+
+If the script that is being executed is assigned to a Message Processing field, the engine provides a hint to DataWeave about the the expected type based on the metadata of that field. For example, if it is a Pojo then DataWeave knows which class to instantiate, and knows that it needs to use the Java Writer, so you don't need to know all the internal details.
+
+When DataWeave cannot determine the `DataType`, it does the following:
+
+* Looks at the script to see which inputs are used. If all inputs are of the compatible or the same `DataType`, DataWeave uses that `DataType`. For example, if in your script, you specify `<set-payload value="\#[payload.foo]/>`, DataWeave examines the `DataType` of the payload. If the payload is JSON, DataWeave uses the JSON writer. If you have more than one input used and they are from different DataTypes an error is thrown. For example, `<set-payload value="#[payload.foo ++ vars.bar]/>` is `vars.bar` of type XML and `payload` of type JSON. Sometimes, especially with XML, you may write an expression on a set payload and it fails because it is an invalid XML structure.
+
+* If no input is being used, the Java writer is used  `<set-payload value="#[{a: true}]/>`, and will output a `java.util.Map` with an entry `("a", true)`.
+
+* For the Logger message processor, DataWeave has a special feature to avoid errors. DataWeave tries to use the logic in the previous list, but if the logic fails because that writer can't emit that DataStructure, then DataWeave uses the writer that can write out any DataStructure.
+
+== More DataWeave Features
+
+You can create simple or complex data manipulation and transformations with these DataWeave features:
+
+* Support for several file input and output formats in addition to XML and JSON. 
+* Functions for manipulating data
+* Selectors for accessing fields in the data structure. 
+* Support for many data types in addition to arrays, key-value pairs, Java objects, strings, and numbers. * Support for type coercion
+* Custom functions, data types, and variables that you create
+
+== DataWeave Examples
+
+* link:dataweave-cookbook[Examples of common extractions and transformations]
+* link:dataweave-language-introduction[Inline DataWeave script for Set Payload]
+* link:logger-component-reference[The `message` attribute in the Logger component]
+* link:for-each-scope-concept[The Set Payload (`<ee:set-payload>`) and Set Variable components in the For Each Scope]
+* link:/connectors/file-write[<file:content> in the File Connector]
+
+== See Also
+
+* link:about-mule-event[About the Mule Event]
+* link:dataweave-formats[Supported Formats]
+* link:dataweave-selectors[DataWeave Selectors]
+* link:dataweave-language-introduction[Add DataWeave to Your Integration]
+* link:about-components[About Components for Mule Apps]
+* link:/connectors/index[Connectors and Modules]

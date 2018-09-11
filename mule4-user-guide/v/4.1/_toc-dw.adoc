@@ -126,4 +126,3 @@
 ***** link:dw-timer-functions-time[time]
 ***** link:dw-timer-functions-tomilliseconds[toMilliseconds]
 ***** link:dw-timer-types[Timer Types]
-

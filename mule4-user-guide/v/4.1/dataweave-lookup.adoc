@@ -1,4 +1,4 @@
-= Using `lookup` To Call External Flows
+= Use `lookup` To Call External Flows
 
 From a DataWeave transform, you can trigger the calling of a different flow in your Mule application, and whatever the flow returns is what the expression returns.
 
@@ -42,7 +42,7 @@ Please note that only the payload returned by the invoked flow will be assigned.
 
 [WARNING]
 ====
-Always keep in mind that a functional language like DataWeave expects the invocation of the `lookup` function to _not_ have side effects.
+A functional language like DataWeave expects the invocation of the `lookup` function to _not_ have side effects.
 As such, the internal workings of the DataWeave engine might cause a `lookup` function to be invoked in parallel with other `lookup`s, or not invoked it at all.
 
 The recommended way to invoke flows is with the Flow Ref (`flow-ref`) component, using the `target` attribute to put the result of the flow in a `var` and then referencing that `var` from within the DataWeave script. 

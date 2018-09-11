@@ -1,105 +1,99 @@
-= DataWeave Cookbook
+= DataWeave Examples
 :keywords: studio, anypoint, transform, transformer, format, aggregate, rename, split, filter convert, xml, json, csv, pojo, java object, metadata, dataweave, data weave, datamapper, dwl, dfl, dw, output structure, input structure, map, mapping
 
-
-
-This section links to examples that demonstrate common data extraction and transformation approaches.
-
-
-[cols="2,5",options="header"]
+[cols="3,5,2",options="header"]
 |===
-|Example | Description
+|Example |Description |DataWeave Function
 
-|link:dataweave-cookbook-extract-data[Extracting Data]
-| Shows common selector expressions for extracting values from a data source, such as a Mule message.
+|link:dataweave-cookbook-extract-data[Extract Data]
+| Shows common selector expressions for extracting values from a data source, such as a Mule message. | 
 
-| link:dataweave-cookbook-perform-basic-transformation[Perform Basic Transformation] | Uses selectors to perform a basic format transformation. It does not use any functions.
+| link:dataweave-cookbook-perform-basic-transformation[Transform a Format] | Selectors transform a format without using functions. | 
 
-| link:dataweave-cookbook-map[Mapping Data]
-| Uses `map` to reorganize fields in a JSON array. It uses `as` to coerce a String into a Number.
+| link:dataweave-cookbook-map[Map Data]
+| Reorganizes fields in a JSON array, and coerce a String into a Number. | `map`, `as`
 
 | link:dataweave-cookbook-map-an-object[Map an Object]
-| Uses `mapObject` to go through the keys and values in each object, and set all the keys to upper case.
+| Set all the keys in an object to upper case. | `mapObject`
 
-| link:dataweave-cookbook-map-object-elements-as-an-array[To Map Object Elements as an Array]
-| Uses the multi-value selector to pick out the keys in an object that are named "book", these are returned as an array. It then uses `map` to iterate through the array this creates.
+| link:dataweave-cookbook-map-object-elements-as-an-array[Map Object Elements as an Array]
+| Pick out the keys in an object that are named "book" and return the keys as an array, then, iterate through the array. | Multi-value selector, `map`
 
-| link:dataweave-cookbook-rename-keys[Renaming Keys]
-| Renames some keys in a JSON object while retaining the names of all other keys in the output. Uses `mapObject`, `if`, `as`, and `and`.
+| link:dataweave-cookbook-rename-keys[Rename Keys]
+| Renames some keys in a JSON object while retaining the names of all other keys in the output. |  `mapObject`, `if`, `as`, and `and`.
 
-| link:dataweave-cookbook-output-a-field-when-present[Outputting a Field When Present]
-| Uses `if` with `map` to determine whether to include a field in the output. You might use it to exclude fields that contain sensitive data.
+| link:dataweave-cookbook-output-a-field-when-present[Conditionally Output a Field]
+| Determine whether to include a field in the output, for example, excluding fields that contain sensitive data. | `map`, `if`
 
 | link:dataweave-cookbook-format-according-to-type[Format According to Type]
-| Uses `mapObject` to apply changes to the keys in an object, depending on the type of their corresponding values. Uses `camelize`, `capitalize`, and `pluralize` depending on the `if` and `else if` statement.
+| Apply changes to the keys in an object, depending on the type of their corresponding values. | `mapObject`, `camelize`, `capitalize`, and `pluralize`, with `if` and `else if`
 
 | link:dataweave-cookbook-regroup-fields[Regroup Fields]
-| Uses `groupBy`, `mapObject`, and `map` to reorganize JSON and XML fields.
+| Reorganize JSON and XML fields. | `groupBy`, `mapObject`, and `map`
 
 | link:dataweave-cookbook-zip-arrays-together[Zip Arrays Together]
-| Uses `zip` to rearrange pairs of similar arrays so that they form a series of touples with the matching values from each.
+| Rearrange pairs of similar arrays so that they form a series of touples with the matching values from each. | `zip`
 
 | link:dataweave-cookbook-pick-top-elements[Pick Top Elements]
-| Uses `groupBy` and `map` to sort a list of candidates according to their score at a test, then it splits the array to select only the top candidates.
+| Sort a list of candidates according to their score at a test, then it splits the array to select only the top candidates. | `groupBy` and `map`
 
 
-| link:dataweave-cookbook-change-value-of-a-field[Changing the Value of a Field]
-| Masks sensitive data by changing values of some keys to asterisks (`\****``). Uses `mapObject`, `if`, and `else`.
+| link:dataweave-cookbook-change-value-of-a-field[Change the Value of a Field]
+| Masks sensitive data by changing values of some keys to asterisks (`\****``). |  `mapObject`, `if`, and `else`
 
 
-| link:dataweave-cookbook-exclude-field[Excluding Fields from the Output]
-| Shows how to exclude unwanted elements from the output. Uses the `-` (remove) and `mapObject` functions.
+| link:dataweave-cookbook-exclude-field[Exclude Fields from the Output]
+| Shows how to exclude unwanted elements from the output.|  `-` (remove) and `mapObject`
 
 | link:dataweave-cookbook-use-constant-directives[Use Constant Directives]
-| Defines a series of constant strings and numbers in the header, these are used to filter input and to concatenate into URLs. Uses `map`, `if` and `++` to concatenate strings.
-
+| Defines a series of constant strings and numbers in the header, in order to filter input and to concatenate into URLs. | `map`, `if` and `++` 
 
 | link:dataweave-cookbook-define-a-custom-addition-function[Define a Custom Addition Function]
-| Defines a function that obtains totals and subtotals through the `accumulator` function. Also performs additions, subtractions and multiplications of numeric values.
+| Defines a function that obtains totals and subtotals. Also performs additions, subtractions and multiplications of numeric values. |  `accumulator`
 
-| link:dataweave-cookbook-define-function-to-flatten-list[Defining a Function that Flattens Data in a List]
-| Uses `reduce`, `map`, `if`, and `splitBy` to modify and conditionally output fields from a list.
+| link:dataweave-cookbook-define-function-to-flatten-list[Define a Function that Flattens Data in a List]
+| Modify and conditionally output fields from a list. | `reduce`, `map`, `if`, and `splitBy`
 
 
-| link:dataweave-cookbook-output-self-closing-xml-tags[Outputting self-closing XML tags]
-| Uses `inlineCloseOn="empty"` to close empty tags (for example, `<element2/>`).
+| link:dataweave-cookbook-output-self-closing-xml-tags[Output Self-Closing XML Tags]
+| Close empty tags such as `<element2/>`. | `inlineCloseOn="empty"`
 
-| link:dataweave-cookbook-insert-attribute[Inserting an Attribute into an XML Tag]
-| Uses the `@(key:value)` syntax to create an XML attribute.
+| link:dataweave-cookbook-insert-attribute[Insert an Attribute into an XML Tag]
+| Create an XML attribute. | `@(key:value)`
 
 
 | link:dataweave-cookbook-remove-certain-xml-attributes[Remove Certain XML Attributes]
-| Defines a function that recursively checks an element and all of its children for a specific XML attribute and removes it with `-`. It also uses `mapObject`, `if` and `is` (to match types).
+| Defines a function that recursively checks an element and all of its children for a specific XML attribute and removes it |  `-`, `mapObject`, `if`, and `is` to match types.
 
 
 | link:dataweave-cookbook-include-xml-namespaces[Include XML Namespaces]
-| Defines multiple XML namespaces and references these in each tag.
+| Defines multiple XML namespaces and references these in each tag. | 
 
 
 | link:dataweave-cookbook-reference-multiple-inputs[Reference Multiple Inputs]
-| References data on the payload, a message attribute and a variable. It then processes these through `map`, `filter` and multiplications.
+| References data in the payload, a message attribute and a variable, and processes them. | `map`, `filter` and multiplications. 
 
 | link:dataweave-cookbook-merge-multiple-payloads[Merge Multiple Payloads]
-| Reference data that arrives in multiple separate payloads from one single Mule event. Filters the output based on a unique identifier. Uses `map`, `using`, `as`, and `filter` functions.
+| Reference data that arrives in multiple separate payloads from one single Mule event. Filters the output based on a unique identifier. | `map`, `using`, `as`, and `filter`
 
 
-| link:dataweave-cookbook-use-constant-directives[Using Constant Directives]
+| link:dataweave-cookbook-use-constant-directives[Use Constant Directives]
 | Defines a `var` in the DataWeave header that builds URLs from constant directives using `++` to concatenate strings.
 
-| link:dataweave-cookbook-parse-dates[Parsing Dates]
-| Defines a function that normalizes conflicting date formats into a single, common format. Uses `mapObject`, `replace` and `as` to coerce a data type.
+| link:dataweave-cookbook-parse-dates[Parse Dates]
+| Defines a function that normalizes conflicting date formats into a single, common format. |  `mapObject`, `replace`, and `as` to coerce a data type.
 
-| link:dataweave-cookbook-add-and-subtract-time[Adding and Subtracting Dates]
-| Performs multiple math operations combining different types related to date and time.
+| link:dataweave-cookbook-add-and-subtract-time[Add and Subtract Dates]
+| Performs multiple math operations combining different types related to date and time. | 
 
 | link:dataweave-cookbook-conditional-list-reduction-via-function[Conditionally Reduce a List Via a Function]
-| Defines a function that reduces a list of elements into one field. It then calls this function only when a certain field has values. Uses `map`, `reduce`, `splitBy`, `if` and `++` to append to an array.
+| Defines a function that reduces a list of elements into one field, then calls the function only when a certain field has values. | `map`, `reduce`, `splitBy`, `if`, and `++` to append to an array.
 
 | link:dataweave-cookbook-map-based-on-an-external-definition[Dynamic Mapping Based On a Definition]
-| Transforms the payload according to definitions sent in a variable. It defines a function that applies the logic defined in the variable, using `map` and `default`.
+| Transforms the payload according to definitions sent in a variable, then defines a function that applies the logic defined in the variable | `map` and `default`
 
 |  link:dataweave-cookbook-pass-functions-as-arguments[Passing Functions as Arguments]
-| Defines a function that expects to receive two inputs: a function to apply and an element to apply it on. The function is also recursively applied to the element's children. It uses `mapObject` `lower` `is` `if/else`.
+| Defines a function that expects to receive two inputs: a function to apply and an element to apply it on. The function is also recursively applied to the element's children. | `mapObject` `lower` `is` `if/else`
 
 
 |===
@@ -124,6 +118,6 @@ THESE DON'T WORK
 * To step through basic DataWeave use cases and exercises in actual Mule applications, see the link:dataweave-quickstart[DataWeave Quickstart Guide].
 ////
 * link:dataweave[DataWeave Language]
-* link:dataweave-language-introduction[DataWeave Language Introduction]
+* link:dataweave-language-introduction[Add DataWeave to Your Integration]
 * link:dw-functions[DataWeave Functions]
 * link:mule-concepts[Mule Concepts]

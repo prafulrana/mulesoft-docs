@@ -1,4 +1,4 @@
-= DataWeave Variables for Mule Runtime
+= DataWeave Variables
 
 DataWeave expressions accept variables that can retrieve values from a variety of Mule Runtime objects. Commonly used variables include `attributes`, `payload`, and `vars`, the main parts of the Mule event.
 
@@ -127,17 +127,3 @@ a|
 * Fields: No fields.
 * Example: `&#35;[vars.myVar]` returns the value of `myVar`.
 |===
-
-////
-_TODO_: For MIGRATION guide?
-* message.`flowVars` and message.`sessionVars` not in Mule4 -> Yes, best not mention them
-* apps.registry supported anymore? -> Yes. It's `app.registry`
-* these message fields: -> I would not document them other than explaining they are only for compatibility
-`id`
-`rootId`
-`inboundProperties`
-`inboundAttachments`
-`outboundProperties`
-`outboundAttachments`
-* server: `server.dateTime` removed from Mule 4? -> Yes, DW provides date methods already
-////

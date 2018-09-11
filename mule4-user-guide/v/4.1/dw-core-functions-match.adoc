@@ -11,7 +11,7 @@ the entire matching expression, followed by all of the capture groups that match
 the provided regex.
 
 It can be applied to the result of any evaluated expression and can return
-any evaluated expression. See link:dataweave-pattern-matching[Pattern Matching in DataWeave].
+any evaluated expression. See link:dataweave-pattern-matching[Match Patterns].
 
 .Transform
 [source,DataWeave, linenums]

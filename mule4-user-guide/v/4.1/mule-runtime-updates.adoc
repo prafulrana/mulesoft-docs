@@ -194,6 +194,6 @@ While similar to DevKit in many respects, it features many improvements:
 
 * link:about-mule-event[About the Mule Event]
 * link:dataweave[About DataWeave]
-* link:migration-dataweave[Migrating from DataWeave version 1 to 2]
+* link:migration-dataweave[Migrating from DataWeave 1.0 to 2.0]
 * link:about-components[About Components]
 * link:try-scope-concept[About Try Scope]

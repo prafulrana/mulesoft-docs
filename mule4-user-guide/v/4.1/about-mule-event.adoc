@@ -1,4 +1,4 @@
-= About Mule Event
+= About the Mule Event
 
 A Mule event contains the core information processed by the runtime. It travels through components inside your Mule app following the configured application logic.
 

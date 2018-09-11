@@ -1,13 +1,13 @@
-= DataWeave Types
+= DataWeave Data Types
 :keywords: studio, anypoint, esb, transform, transformer, format, aggregate, rename, split, filter convert, xml, json, csv, pojo, java object, metadata, dataweave, data weave, datamapper, dwl, dfl, dw, output structure, input structure, map, mapping
 
-DataWeave functions operate on data of many types, including arrays, Booleans, objects, dates, and times. The types that DataWeave provide are bundled into modules that also contain the related functions. 
+DataWeave functions operate on many data types, including arrays, Booleans, objects, dates, and times. The types that DataWeave provide are bundled into modules that also contain the most closely related functions. 
 
-Types in the `dw::Core` module (Core types) are available without having to import the Core module. Other modules need to be imported for their functions and types to be available.
+Data types in the `dw::Core` module (Core types) are available without having to import the Core module. Other modules need to be imported for their functions and types to be available.
 
 This topic provides an introduction to some DataWeave types, and descriptions of common patterns, including:
 
-* Conditional elements that use `if` expressions for <<conditional_elements_array, arrays>> and <<conditional_elements_object, objects>>.
+* Conditional elements that use `if` expressions for <<conditional_elements_array, arrays>> and <<conditional_elements_object, objects>>
 * <<string_interpolation>>
 * <<date_decomposition>> for accessing different parts of a date
 * <<date_format_change>>
@@ -585,8 +585,3 @@ You can find complete data type documentation in the Module reference pages:
 * link:dw-url-types[URL Types (dw::core::URL)]
 * link:dw-diff-types[Diff Types (dw::core::Diff)]
 * link:dw-timer-types[Timer Types (dw::core::Timer)]
-
-
-link:dataweave-language-introduction[DataWeave Language Introduction]
-
-https://www.anypoint.mulesoft.com/exchange/?search=dataweave[Anypoint Exchange (List of Projects that use DataWeave)]

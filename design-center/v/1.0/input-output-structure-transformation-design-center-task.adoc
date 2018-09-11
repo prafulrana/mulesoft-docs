@@ -138,5 +138,5 @@ These properties are written on the `output` directive of your DataWeave code.
 == See Also
 
 * link:/mule4-user-guide/v/4.1/dataweave[DataWeave Language]
-* link:/mule4-user-guide/v/4.1/dataweave-types[DataWeave Types]
+* link:/mule4-user-guide/v/4.1/dataweave-types[DataWeave Data Types]
 * link:/mule4-user-guide/v/4.1/dataweave-formats[DataWeave Formats]

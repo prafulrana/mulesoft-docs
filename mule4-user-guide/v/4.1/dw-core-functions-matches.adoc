@@ -26,5 +26,5 @@ b: "admin123" matches /(\d+)/
 ----
 
 For use cases where you need to output or conditionally process the matched
-value, see link:dataweave-pattern-matching[Pattern Matching in DataWeave].
+value, see link:dataweave-pattern-matching[Match Patterns].
 

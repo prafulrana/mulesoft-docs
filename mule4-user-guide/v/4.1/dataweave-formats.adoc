@@ -1251,4 +1251,4 @@ Note that in the DataWeave `write` function, you can also pass the property as a
 
 link:/anypoint-studio/v/7.1/transform-message-component-concept-studio[About the Transform Message Component]
 
-link:dataweave-flat-file-schemas[Flat File Schemas]
+link:dataweave-flat-file-schemas[Processing Data with Flat File Schemas (FFS)]

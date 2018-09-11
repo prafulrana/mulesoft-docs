@@ -1,21 +1,16 @@
-= External Functions Available In DataWeave
+= Mule Functions
 :keywords: lookup, properties, functions
 
-In addition to the built-in DataWeave functions, Mule Runtime and some modules, connectors, and components for Mule apps provide functions that you can use in DataWeave scripts. The functions are specific to the module, connector, and components.
+The `p`, `lookup`, and `causedBy` functions are always available in Mule 4 Runtime, although they are not part of the Core component.
+You'll use these basic functions often in DataWeave expressions and scripts.
 
-== Mule Runtime Functions
-
-These functions are always available since they are injected by the Mule Runtime.
-
-=== Accessing Properties (p Function)
+== Accessing Properties (p Function)
 
 The `p` function provides access to properties, whether these are:
 
 * Mule property placeholders
 * System properties
 * Environment properties
-
-You can read more on configuring properties and how they are handled link:configuring-properties[here].
 
 The following example will log the value of the property `some.property`.
 
@@ -27,18 +22,16 @@ The following example will log the value of the property `some.property`.
 </flow>
 ----
 
-=== Executing a Flow (lookup Function)
+== Executing a Flow (lookup Function)
 
-The `lookup` function allows for executing a flow within your app and retrieves the
+The `lookup` function executes a flow within your app and retrieves the
 resulting payload, taking the flow's name and an input payload as parameters.
 
 The specified flow is executed using the current attributes, variables, and
 error. It only replaces the payload for the first parameter, which must be a Java
 type.
 
-Learn more about `lookup` link:dataweave-lookup[here].
-
-=== Matching Errors by Types (causedBy Function)
+== Matching Errors by Types (causedBy Function)
 
 The `causedBy` function matches an error by its type, like an error handler
 does. This is useful when matching by a super type is required but specific sub-type
@@ -71,12 +64,8 @@ and `HTTP:FORBIDDEN` errors.
 
 Notice that the error parameter is used both explicitly and implicitly.
 
-== Connector and Component Functions
-
-When using connectors and components in a Mule app, you can inject functions. Unlike the Runtime functions, these functions require a namespace, which usually matches the component name.
-
-For example, in an app using Batch you can use the following expression: `#[Batch::isSuccessfulRecord()]`. 
-
 == See Also
 
-link:dw-functions[DataWeave Core Functions]
+* link:dw-functions[DataWeave Core Functions]
+* link:configuring-properties[Configuring Properties]
+* link:dataweave-lookup[Call External Flows with `lookup`]

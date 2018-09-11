@@ -79,6 +79,6 @@ For a detailed reference of what properties can be set in the Writer Configurati
 * link:/anypoint-studio/v/7.2/workflow-create-mapping-ui-studio[Workflow: Create a Mapping]
 * link:/anypoint-studio/v/7.2/transform-message-component-concept-studio[About Transform Message Component]
 * link:/mule4-user-guide/v/4.1/dataweave[DataWeave Language]
-* link:/mule4-user-guide/v/4.1/dataweave-types[DataWeave Types]
+* link:/mule4-user-guide/v/4.1/dataweave-types[DataWeave Data Types]
 * link:/mule4-user-guide/v/4.1/dataweave-formats[DataWeave Formats]
 * link:/mule4-user-guide/v/4.1/transform-dataweave-xml-reference[DataWeave XML reference]

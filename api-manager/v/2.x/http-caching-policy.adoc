@@ -40,7 +40,7 @@ The cache works as a dictionary where each response stored in the cache is assoc
 
 For example: `#[attributes.headers['key']]`
 
-For information on DataWeave variables, see link:/mule4-user-guide/v/4.1/dataweave-variables-context[DataWeave Variables for Mule Runtime] and link:/mule4-user-guide/v/4.1/about-mule-message[Mule Message Structure].
+For the DataWeave variables reference, see link:/mule4-user-guide/v/4.1/dataweave-variables-context[DataWeave Variables.
 
 If the evaluation of the expression results in an error due to missing parameters or any other cause, this policy is not applied and passes the request to the next receptor in the policy chain.
 
@@ -161,7 +161,7 @@ This field holds a DataWeave expression that evaluates the response and returns 
 If the request matches the expression, the expression returns True and the policy stores the request in the cache.
 If the request takes any other value, the expression returns False and the cache won’t store the request.
 
-For information on DataWeave variables, see link:/mule4-user-guide/v/4.1/dataweave-variables-context[DataWeave Variables for Mule Runtime] and link:/mule4-user-guide/v/4.1/about-mule-message[Mule Message Structure].
+For the DataWeave variables reference, see link:/mule4-user-guide/v/4.1/dataweave-variables-context[DataWeave Variables].
 
 This parameter is optional and its default value is:
 
@@ -178,7 +178,7 @@ This field holds a DataWeave expression that evaluates the response and returns 
 If the response matches the expression, the expression returns True and the policy stores the response in the cache. +
 If the response takes any other value, the expression returns False and the cache won’t store the response.
 
-For information on DataWeave variables, see link:/mule4-user-guide/v/4.1/dataweave-variables-context[DataWeave Variables for Mule Runtime] and link:/mule4-user-guide/v/4.1/about-mule-message[Mule Message Structure].
+For the DataWeave variables reference, see link:/mule4-user-guide/v/4.1/dataweave-variables-context[DataWeave Variable].
 
 This parameter is optional and its default value is:
 
@@ -227,6 +227,7 @@ No, only the header name.
 == See Also
 
 * link:/api-manager/v/2.x/caching-in-a-custom-policy-mule-4[Caching in a Custom Policy for Mule 4]
+* link:/mule4-user-guide/v/4.1/about-mule-message[Mule Message Structure]
 * link:/object-store/[Object Store backend documentation]
 * https://forums.mulesoft.com[MuleSoft Forum]
 * https://support.mulesoft.com[Contact MuleSoft Support]

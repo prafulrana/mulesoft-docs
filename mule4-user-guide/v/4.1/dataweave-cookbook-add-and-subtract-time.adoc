@@ -78,4 +78,4 @@ var numberOfDays = 3
 
 * link:dataweave-selectors[DataWeave Selectors]
 
-* link:dataweave-cookbook[DataWeave Cookbook]
+* link:dataweave-cookbook[DataWeave Examples]

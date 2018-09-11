@@ -1,0 +1,62 @@
+= Define a Custom Function
+
+Define your own DataWeave functions (custom functions) using the `fun` declaration in the header of a DataWeave script. For example, this a simple DataWeave function accepts a single String argument that outputs `"HELLO"`:
+
+[source,DataWeave, linenums]
+----
+%dw 2.0
+output application/json
+fun toUpper(aString) = upper(aString)
+---
+toUpper("hello")
+----
+
+The argument to a DataWeave function can be any DataWeave expression. This function also outputs `"HELLO"`:
+
+[source,DataWeave, linenums]
+----
+%dw 2.0
+output application/json
+fun toUpper(aString) = upper(aString)
+---
+toUpper("h" ++ "el" ++ lower("LO") )
+----
+
+To test the type of the argument passed into your function, you can link:dataweave-pattern-matching[match patterns] with the built-in `match` operation.
+
+.Example: Function that Uses Pattern Matching
+[source,DataWeave, linenums]
+----
+%dw 2.0
+output application/json
+fun toUpper(aString)
+= aString match {
+  case is String -> upper(aString)
+  else -> null
+}
+---
+toUpper("h" ++ "el" ++ lower("LO") )
+----
+
+This example creates a function that reformats a numeric string into a common phone number format:
+
+.Example: toPhoneFormat() Function
+[source,DataWeave, linenums]
+----
+%dw 2.0
+output application/json
+fun toPhoneFormat(str: String) =
+    "(" ++ str[0 to 2] ++ ") " ++ str[3 to 5] ++ "-" ++ str[6 to 9]
+---
+toPhoneFormat("1234567890")
+----
+
+.Output of toPhoneFormat("1234567890")
+----
+"(123) 456-7890"
+----
+
+== See Also
+
+* link:dataweave-create-module[Creating Custom Modules and Mappings]
+* link:dw-functions[DataWeave Function Reference]
