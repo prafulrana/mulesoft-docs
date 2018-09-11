@@ -25,10 +25,9 @@ You can use DataWeave expressions to set a value. For example:
 `“#[attributes.requestPath]”`
 
 To overwrite the value of a header, remove it before injecting the header.
- 
+
 
 == Applying Header Removal Policy
-
 
 To apply this policy to an API, specify the header names as regular expressions, separated by commas.
 

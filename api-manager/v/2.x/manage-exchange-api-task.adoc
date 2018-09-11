@@ -46,10 +46,3 @@ The API appears in the API administration dashboard.
 image::manage-exchange-end-task.png[]
 
 When you save, the deployment options appear.
-
-== See Also
-
-* link:/api-manager/v/2.x/workflow-download-configure-4-proxy[Workflow: Downloading and Configuring a Mule 4 Proxy]
-* link:/api-manager/v/1.x/api-gateway-domain[API Gateway Domain]
-* link:/api-manager/v/2.x/proxy-deploy-cloudhub-latest-task[To Deploy a Proxy to CloudHub]
-* link:/api-manager/v/2.x/proxy-deploy-hybrid-latest-task[To Deploy a Proxy to Hybrid]

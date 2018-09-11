@@ -60,4 +60,4 @@ To deprecate and delete a tier, first create a new tier and notify application o
 
 * link:/anypoint-exchange/to-request-access[To Request Access to an API]
 * link:/anypoint-exchange/about-portals[Exchange portals] 
-* link:/api-manager/v/2.x/rate-limiting-and-throttling-sla-based-policies[Rate-limiting and throttling policies]
+* link:/api-manager/v/2.x/rate-limiting-and-throttling-sla-based-policies[Reviewing Rate Limiting and Throttling - SLA-Based Policies concepts]

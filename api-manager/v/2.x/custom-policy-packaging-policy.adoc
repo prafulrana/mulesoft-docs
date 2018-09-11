@@ -27,5 +27,5 @@ It will also verify that all the necessary files were provided for the packaging
 
 == See Also
 **** link:/api-manager/v/2.x/custom-policy-getting-started[Getting started with custom policies development]
-**** link:/api-manager/v/2.x/custom-policy-uploading-to-exchange[Uploading to Exchange]
-**** link:/api-manager/v/2.x/custom-policy-4-reference[Reviewing Custom Policy General Reference]
+**** link:/api-manager/v/2.x/custom-policy-uploading-to-exchange[Uploading a Custom Policy to Exchange]
+**** link:/api-manager/v/2.x/custom-policy-4-reference[Reviewing Custom Policy concepts]

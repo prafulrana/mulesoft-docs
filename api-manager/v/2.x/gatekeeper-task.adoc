@@ -11,4 +11,4 @@ By default, Gatekeeper is enabled to enhance security. If you disabled Gatekeepe
 
 == See Also
 
-* link:/api-manager/v/2.x/gatekeeper[Gatekeeper Enhanced Security Reference]
+* link:/api-manager/v/2.x/gatekeeper[Reviewing API Gateway Gatekeeper Enhanced Security Reference]

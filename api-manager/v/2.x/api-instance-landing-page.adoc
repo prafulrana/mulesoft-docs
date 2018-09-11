@@ -1,6 +1,8 @@
 = API Instance
 :keywords: api, instance, manager
 
+The procedures in this section cover basic life cycle management, excluding policy and proxy management, in Anypoint Platform using API Manager 2.x.
+
 ** link:/api-manager/v/2.x/latest-overview-concept[Reviewing API Manager concepts]
 ** link:/api-manager/v/2.x/environments-concept[Reviewing environment concepts]
 ** link:/api-manager/v/2.x/switch-environment-task[Switching environments]

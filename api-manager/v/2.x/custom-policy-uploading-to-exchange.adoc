@@ -34,5 +34,5 @@ The custom policy is now available for you to apply to APIs that belong to the s
 
 == See Also
 **** link:/api-manager/v/2.x/custom-policy-packaging-policy[Packaging a Custom Policy]
-**** link:/api-manager/v/2.x/custom-policy-uploading-to-exchange[Uploading to Exchange]
-**** link:/api-manager/v/2.x/custom-policy-4-reference[Reviewing Custom Policy General Reference]
+**** link:/api-manager/v/2.x/custom-policy-uploading-to-exchange[Uploading a Custom Policy to Exchange]
+**** link:/api-manager/v/2.x/custom-policy-4-reference[Reviewing Custom Policy concepts]

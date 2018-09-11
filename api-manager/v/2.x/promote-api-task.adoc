@@ -23,6 +23,6 @@ For existing applications that need to subscribe to a promoted API, you need to 
 
 == See Also
 
-* link:/api-manager/v/2.x/environment-permission-task[Setting permissions]
+* link:/api-manager/v/2.x/environment-permission-task[Granting Permission to Access an environment]
 * link:/access-management/environments[Environments]
-* link:/api-manager/v/2.x/create-instance-task[To Create an API Instance]
+* link:/api-manager/v/2.x/create-instance-task[Creating an API instance on API Manager]

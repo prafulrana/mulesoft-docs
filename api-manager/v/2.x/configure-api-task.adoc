@@ -40,4 +40,4 @@ Now, you are ready to configure deployment.
 
 == See Also
 
-* link:/api-manager/v/2.x/create-instance-task[To Create an API Instance]
+* link:/api-manager/v/2.x/create-instance-task[Creating an API instance on API Manager]

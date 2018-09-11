@@ -22,8 +22,8 @@ In Exchange you may add, delete, and deprecate API versions, which are called Ex
 
 == See Also
 
-* link:/api-manager/v/2.x/latest-tasks[About Basic API Management Tasks]
-* link:/api-manager/v/2.x/environment-permission-task[Setting permissions]
+* link:/api-manager/v/2.x/api-instance-landing-page[API Instance]
+* link:/api-manager/v/2.x/environment-permission-task[Granting Permission to Access an environment]
 * link:/anypoint-exchange[Anypoint Exchange documentation]
 * link:/anypoint-exchange/to-create-an-asset[To Create an Asset]
 * link:/anypoint-exchange/to-delete-asset[To Delete an Asset] (also describes deprecating an asset)

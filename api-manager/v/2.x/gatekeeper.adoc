@@ -2,7 +2,7 @@
 
 When you deploy an application, there could be a window of time during which the APIs exposed by the application are accessible, but the policies specified for those APIs are not yet applied so unwelcome traffic may reach the APIs.GateKeeper prevents this situation by blocking the API until all policies have been retrieved and applied without errors. During this period, the API returns a 503 status. 
 
-== How Gatekeeper Works
+== Reviewing how Gatekeeper Works
 
 After Mule Runtime detects you deployed an application for the first time, and the exposed API is running, all tracked listeners (flows having Autodiscovery set up) are stopped. Gatekeeper blocks the API and returns a 503 (Service Unavailable) status code until the following conditions are met:
 
@@ -16,7 +16,7 @@ To enable or disable GateKeeper functionality, you can configure the following p
 
 Property name: `anypoint.platform.gatekeeper`
 
-== Security Levels
+== Reviewing Security Levels
 
 You can configure security levels to enable or disable Gatekeeper functionality. In the Mule `wrapper.conf` file configure the gatekeeper property as shown in the following example:
 
@@ -38,7 +38,7 @@ You can configure security levels to enable or disable Gatekeeper functionality.
 ** `strict`
 ** `flexible`
 
-=== Security Level Definitions
+=== Reviewing Security Level Definitions
 
 The following security levels are defined for Gatekeeper.
 
@@ -83,4 +83,4 @@ By default, Mule releases are configured as follows:
 
 == See Also
 
-* link:/api-manager/v/2.x/gatekeeper-task[To Enable Gatekeeper]
+* link:/api-manager/v/2.x/gatekeeper-task[Enabling API Gateway Gatekeeper]
