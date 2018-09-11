@@ -1,5 +1,0 @@
-= Custom Policies
-
-* link:/api-manager/v/2.x/http-policy-transform[HTTP Policy Transform Extension Reference]
-* link:/api-manager/v/2.x/develop-custom-policies-reference[Custom Policy Development Reference]
-* link:/api-manager/v/2.x/custom-policy-4-reference[Custom Policy General Reference]

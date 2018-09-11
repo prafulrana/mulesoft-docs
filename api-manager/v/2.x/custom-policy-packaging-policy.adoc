@@ -1,0 +1,31 @@
+= Packaging the policy
+
+You can use the Mule Maven Plugin to package your custom policy into a deployable JAR file that you can later apply to an API.
+
+. Make sure you added the Mule Maven Plugin to your pom.xml file. This is done automatically by custom policy's Archetype
++
+[source,bash,linenums]
+----
+<plugin>
+    <groupId>org.mule.tools.maven</groupId>
+    <artifactId>mule-maven-plugin</artifactId>
+    <version>${mule.maven.plugin.version}</version>
+    <extensions>true</extensions>
+</plugin>
+----
++
+. From the command line in your project's folder, run the install phase:
++
+[source,bash,linenums]
+----
+> mvn clean install
+----
+
+The packager then packages your application and creates the deployable JAR file into the target directory within your project's folder.
+
+It will also verify that all the necessary files were provided for the packaging, and that the information provided in the mule-artifact and in the policy yaml are valid.
+
+== See Also
+**** link:/api-manager/v/2.x/custom-policy-getting-started[Getting started with custom policies development]
+**** link:/api-manager/v/2.x/custom-policy-uploading-to-exchange[Uploading to Exchange]
+**** link:/api-manager/v/2.x/custom-policy-4-reference[Reviewing Custom Policy General Reference]
