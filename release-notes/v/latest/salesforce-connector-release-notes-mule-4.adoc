@@ -5,6 +5,38 @@
 
 _Select_
 
+== 9.3.2
+*August 30, 2018*
+[%header%autowidth.spread]
+|===
+|Application/Service |Version
+|Mule Runtime |Mule Enterprise Edition 4.1.1 and later
+|Anypoint Studio |Only works with Studio 7.1.0 and later
+|Salesforce |v37.0, v38.0, v39.0, v40.0, v41.0
+|===
+
+=== Fixed in this Release
+
+* Getting NullPointerException while retrieving input metadata when describing reference type objects:
+
+```
+org.mule.runtime.api.metadata.MetadataResolvingException: Unable to resolve metadata for: Account
+Caused by: java.lang.NullPointerException: Request headers cannot be null.
+```
+
+The problem was solved by reimplementing the metadata parsing for reference type objects.
+
+* The customer was getting intermittently the below exception:
+
+```
+[UnexpectedErrorFault [ApiFault  exceptionCode='INVALID_SESSION_ID'
+ exceptionMessage='Invalid Session ID found in SessionHeader: Illegal Session. Session not found, missing session hash: <hash>
+This error usually occurs after a session expires or a user logs out. '
+```
+
+The problem was solved by adding missing error handling for reconnection due to invalid session.
+
+
 == 9.3.1
 
 *August 1, 2018*
