@@ -9,7 +9,7 @@ Classloader isolation exists between the application, the runtime and the connec
 
 Policies are non-blocking. You can order all policies except CORS which takes precedence over all other policies.
 
-= Policy Management and Mule 4
+== Policy Management and Mule 4
 
 In Mule 4, classloader isolation exists between application, runtime, connectors and policies.
 
@@ -52,6 +52,5 @@ If you upgrade APIs from the Jul 2017 to Nov 2017, the security manager setup in
 == See Also
 
 // Link to non-blocking in Mule 4
-
 * link:/getting-started/api-lifecycle-overview[About Availability of the November Release]
-* link:/api-manager/v/2.x/policy-scope-size-concept[About Policy Packaging, Scope, and Size]
+* link:/api-manager/v/2.x/policy-scope-size-concept[Reviewing Policy Packaging, Scope, and Size concepts]

@@ -59,7 +59,7 @@ All user information enriched by the policy has the "X-AGW-" prefix.
 
 == See Also
 
-* link:/api-manager/v/2.x/aes-oauth-faq[To Build a Mule OAuth 2 Provider]
+* link:/api-manager/v/2.x/mule-oauth-provider-landing-page[Mule oAuth 2.0 Provider]
 * link:/access-management/managing-api-clients[Setting up OpenAM, PingFederate, or OpenID Connect]
-* link:/api-manager/v/2.x/client-id-based-policies[Client ID-Based Policies]
-* link:/api-manager/v/2.x/oauth-policy-implementation-concept[About OAuth 2 Policy Implementation]
+* link:/api-manager/v/2.x/client-id-based-policies[Reviewing Client ID-Based Policies concepts]
+* link:/api-manager/v/2.x/oauth-policy-implementation-concept[Reviewing OAuth 2 Policy Implementation]

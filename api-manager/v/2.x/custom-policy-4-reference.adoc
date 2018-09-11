@@ -644,11 +644,11 @@ In Mule 4, you don’t need to configure the pointcut. This information is provi
 
 == Advanced topics
 **** link:/api-manager/v/2.x/http-policy-transform[Reviewing HTTP Policy Transform Extension]
-**** link:/api-manager/v/2.x/add-remove-headers-concept[Adding/Removing headers example]
-***** link:/api-manager/v/2.x/add-remove-headers-latest-task[Adding/Removing Headers]
-***** link:/api-manager/v/2.x/add-remove-headers[Testing removing headers Custom Policy example]
+**** link:/api-manager/v/2.x/add-remove-headers-latest-task[Adding/Removing Headers Custom Policy]
+**** link:/api-manager/v/2.x/add-remove-headers-concept[Adding/Removing headers Custom Policy example]
+**** link:/api-manager/v/2.x/add-remove-headers[Testing removing headers Custom Policy example]
 **** link:/api-manager/v/2.x/caching-in-a-custom-policy-mule-4[Removing HTTP Caching Custom Policy example]
 
 == See also
 **** link:/api-manager/v/2.x/custom-policy-packaging-policy[Packaging a Custom Policy]
-**** link:/api-manager/v/2.x/custom-policy-uploading-to-exchange[Uploading to Exchange]
+**** link:/api-manager/v/2.x/custom-policy-uploading-to-exchange[Uploading a Custom Policy to Exchange]

@@ -9,7 +9,6 @@
 *** link:/api-manager/v/2.x/client-id-based-policies[Reviewing Client ID-Based Policies concepts]
 *** link:/api-manager/v/2.x/http-basic-authentication-policy[Reviewing HTTP Basic Authentication Policy]
 *** link:/api-manager/v/2.x/ldap-security-manager[Reviewing LDAP Security Manager Policy]
-*** link:/api-manager/v/2.x/basic-authentication-concept[Reviewing Basic Authentication concepts]
 *** link:/api-manager/v/2.x/basic-authentication-simple-concept[Reviewing Basic Authentication: Simple Policy (Mule 4)]
 *** link:/api-manager/v/2.x/basic-authentication-ldap-concept[Reviewing Basic Authentication: LDAP Policy (Mule 4)]
 *** link:/api-manager/v/2.x/ip-blacklist[Reviewing IP Blacklist Policy]

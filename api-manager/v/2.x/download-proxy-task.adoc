@@ -17,6 +17,6 @@ The proxy downloads.
 
 == See Also
 
-* link:/api-manager/v/2.x/environment-permission-task[Setting permissions]
-* link:/api-manager/v/2.x/create-instance-task[To Create an API Instance]
-* link:/api-manager/v/2.x/api-auto-discovery-new-concept[About Autodiscovery]
+* link:/api-manager/v/2.x/environment-permission-task[Granting Permission to Access an environment]
+* link:/api-manager/v/2.x/create-instance-task[Creating an API instance on API Manager]
+* link:/api-manager/v/2.x/api-auto-discovery-new-concept[Reviewing API Gateway API Autodiscovery concepts]

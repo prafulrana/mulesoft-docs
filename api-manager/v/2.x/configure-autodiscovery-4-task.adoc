@@ -1,4 +1,4 @@
-= onfiguring API Gateway API Autodiscovery in a Mule 4 Application
+= Configuring API Gateway API Autodiscovery in a Mule 4 Application
 
 To configure API Autodiscovery in your Mule 4.x application, you must meet the following requirements:
 
@@ -138,4 +138,4 @@ In Mule 4, the API is identified by the API Id and a reference to a Flow where t
 
 == See Also
 
-* link:/api-manager/v/2.x/api-auto-discovery-new-concept[About API Autodiscovery]
+* link:/api-manager/v/2.x/api-auto-discovery-new-concept[Reviewing API Gateway API Autodiscovery concepts]

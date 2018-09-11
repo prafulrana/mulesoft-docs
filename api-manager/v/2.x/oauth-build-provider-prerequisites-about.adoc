@@ -17,4 +17,8 @@ Use the following software:
 
 The Mule OAuth provider can run on any application server that is in the same organization as your OAuth-protected API. For example, you can run the Mule provider on premises using a Tomcat server or in the cloud using CloudHub. 
 
-To test the provider, you need tools that support `curl`. 
+To test the provider, you need tools that support `curl`.
+
+= See also
+
+* link:/api-manager/v/2.x/mule-oauth-provider-landing-page[Mule oAuth 2.0 Provider]

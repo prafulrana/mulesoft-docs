@@ -111,4 +111,4 @@ After the element is defined in the application, and the runtime is configured  
 
 == See Also
 
-* link:/api-manager/v/2.x/api-auto-discovery-new-concept[About API Autodiscovery]
+* link:/api-manager/v/2.x/api-auto-discovery-new-concept[Reviewing API Gateway API Autodiscovery concepts]

@@ -5,7 +5,6 @@ Overall, API Gateway allows you to add a dedicated orchestration layer on top of
 
 image::APIgateway.png[align=center]
 
-
 // To configure Mule 4 Runtime, see link:/mule4-user-guide/v/4.1/runtime-installation-task[Downloading and Starting Mule] and link:/mule4-user-guide/v/4.1/installing-an-enterprise-license[Installing an Enterprise License].
 
 If you want to apply policies and generate analytics info, you must use either:
@@ -121,4 +120,4 @@ This defines a resource-level pointcut for your API. In this example, the policy
 
 == See Also
 
-* link:api-auto-discovery-new-concept[About API Autodiscovery].
+* link:api-auto-discovery-new-concept[Reviewing API Gateway API Autodiscovery concepts].

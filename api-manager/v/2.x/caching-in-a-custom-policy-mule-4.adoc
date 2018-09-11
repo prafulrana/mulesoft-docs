@@ -79,7 +79,7 @@ available to policies running in other instances under the same environment.
 *Caution:* Enabling the global sharing OSv2 mode makes that object store used by 
 the application or any other policy also shared across all your organization's APIs.  
 
-== Full Example of a Policy Caching with an Object Store
+== Reviewing full example of a Policy Caching with an Object Store
 
 This example shows a policy that adds a header to an incoming HTTP Request with a 
 value retrieved from an external system and cached in the Mule Object Store.

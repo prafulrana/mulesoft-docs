@@ -39,6 +39,6 @@ After meeting these prerequisites, you are ready to build the provider.
 
 == See Also
 
-* link:/api-manager/v/2.x/aes-oauth-faq#about-oauth-provider-models[external OAuth 2.0 provider]
-* link:/api-manager/v/2.x/building-an-external-oauth-2.0-provider-application[Build an external OAuth 2.0 provider].
+* link:/api-manager/v/2.x/aes-oauth-faq[Reviewing Mule OAuth Provider concepts]
+* link:/api-manager/v/2.x/building-an-external-oauth-2.0-provider-application[Building the Mule OAuth 2.0 Provider].
 * link:https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md#oauth-20[RAML securitySchemes]

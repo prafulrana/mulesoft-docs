@@ -23,11 +23,8 @@ You are an Anypoint Platform organization administrator or have permission to cr
 
 == See Also
 
-
+* link:/api-manager/v/2.x/mule-oauth-provider-landing-page[Mule oAuth 2.0 Provider]
 * link:/mule-user-guide/v/3.8/authentication-in-http-requests[the Mule 3.x HTTP Requester connector]
 * link:/connectors/http-documentation[the Mule 4.x HTTP Requester connector]
-* link:/api-manager/v/2.x/aes-oauth-faq[OAuth 2.0 provider]
-* link:/api-manager/v/2.x/openam-oauth-token-enforcement-policy[OpenAM OAuth Token Enforcement]
-* link:/api-manager/v/2.x/openam-oauth-token-enforcement-policy[OpenID Connect OAuth Token Enforcement]
-* link:/api-manager/v/2.x/openam-oauth-token-enforcement-policy[PingFederate OAuth Token Enforcement]
+* link:/api-manager/v/2.x/openam-oauth-token-enforcement-policy[Reviewing OpenID Connect, OpenAM, or PingFederate OAuth Token Enforcement Policies concepts]
 * link:/access-management/managing-api-clients[About Client Management for federated users and OpenID Connect introspection endpoint]
