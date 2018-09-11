@@ -1,4 +1,4 @@
-= To Apply JSON Threat Protection
+= Applying JSON Threat Protection Policy
 
 . Click the instance number of an API.
 +

@@ -1,4 +1,4 @@
-= To Access the Developer Portal
+= Accessing the Developer Portal
 
 API portals listed on an organization's developer portal that are public, or to which you have been granted Portals Viewer access, are visible to you. From the public Anypoint Platform Developer portal, you can access Anypoint Platform APIs to automate Anypoint Platform activities.
 

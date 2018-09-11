@@ -1,4 +1,4 @@
-= To Manage an API from Exchange
+= Creating an API instance by importing from Exchange
 
 You need to have access to an API in your organization's Exchange to perform this procedure. For example, in Design Center create an API and publish it to Exchange. After setting up the API to manage it from Exchange, the API version, status, and other information appears in API Manager. With this set up, you can configure and manage the API.
 

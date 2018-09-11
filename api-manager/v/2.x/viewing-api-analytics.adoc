@@ -1,4 +1,4 @@
-= Viewing API Analytics
+= Reviewing Analytics usage
 :keywords: analytics, dashboard
 
 After logging into Anypoint Platform, navigate to API Manager, and on the Administration page, click Analytics to open the dashboard.  From the dashboard, you can navigate to the analytics about your APIs gathered by Anypoint Platform.

@@ -1,6 +1,10 @@
-= To Configure Multiple Workers
+= Configuring Multiple Workers
 
-This file is obsolete.
+This file is obsolete
+
+== See Also
+
+* link:/api-manager/v/2.x/mule-oauth-provider-landing-page[Mule oAuth 2.0 Provider]
 
 ////
 In a CloudHub multi-worker environment, you need to ensure that all workers can validate the OAuth token issued to a particular worker. You also configure the idempotent filter to stop duplication of the token on those workers. The token store by default uses an in-memory object store that is not shared between the workers in a Cloudhub deployment. A reference to the `_defaultUserObjectStore` implements the object store provided by CloudHub such that all workers share this object store.

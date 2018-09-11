@@ -1,4 +1,4 @@
-= Basic Authentication: Simple (Mule 4)
+= Reviewing Basic Authentication: Simple Policy (Mule 4)
 
 The Simple authentication policy protects the API by requiring username and password when calling apps make a request. This policy is available only to an API you are managing in Mule 4 or later.
 

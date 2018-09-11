@@ -1,6 +1,10 @@
 = Regenerate the JAR
 
-This file is obsolete.
+This file is obsolete
+
+== See Also
+
+* link:/api-manager/v/2.x/api-proxy-landing-page[API Proxy]
 
 ////
 

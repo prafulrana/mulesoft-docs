@@ -1,4 +1,4 @@
-= To Test an Alert
+= Testing an API Alert
 
 This procedure describes how to test a request count alert. This procedure requires the following preparation:
 

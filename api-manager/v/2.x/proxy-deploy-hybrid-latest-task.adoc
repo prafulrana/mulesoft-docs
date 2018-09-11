@@ -1,4 +1,4 @@
-= To Deploy a Proxy to Hybrid
+= Deploying an API Proxy to Hybrid
 
 In API Manager, follow this procedure to deploy a proxy to hybrid if you use Mule Runtime 3.8 or later, API Gateway 2.x or later, or Mule 4.x. 
 

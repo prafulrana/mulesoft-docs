@@ -1,6 +1,13 @@
 = Reviewing Analytics concepts
 :keywords: analytics
 
+This file is obsolete
+
+== See Also
+
+* link:/api-manager/v/2.x/analytics-landing-page[Analytics]
+
+////
 API Analytics can provide insight into how your APIs are being used and how they are performing. From API Manager, you can access the Analytics dashboard, create a custom dashboard, create and manage charts, and create reports. From API Manager, you can get following types of analytics:
 
 * API viewing analytics
@@ -19,3 +26,4 @@ You can view data from a policy perspective in the Analytics dashboard, Analytic
 *** link:/api-manager/v/2.x/analytics-chart[Chart in API Manager]
 *** link:/api-manager/v/2.x/analytics-event-forward[About Event Forwarding]
 
+////
