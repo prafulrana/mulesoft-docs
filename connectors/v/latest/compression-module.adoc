@@ -52,16 +52,13 @@ When used in an operations, declares that the content should be compressed with 
 ----
 
 
-1) The InputStream to be compressed, defaulting to _#[payload]_.
-2) Compressor strategy to be used.
+<1> The InputStream to be compressed, defaulting to _#[payload]_.
+
+<2> Compressor strategy to be used.
 
 ==== Compression Errors
 
 If an error occur while compressing the content a `COMPRESSION:COULD_NOT_COMPRESS` error will be thrown.
-
-
-
-
 
 
 
@@ -104,8 +101,8 @@ When used in an operations, declares that the content should be decompressed wit
 ----
 
 
-1) The InputStream to be decompressed, defaulting to _#[payload]_.
-2) Decompressor strategy to be used.
+<1> The InputStream to be decompressed, defaulting to _#[payload]_.
+<2> Decompressor strategy to be used.
 
 ==== Decompression Errors
 
@@ -159,8 +156,8 @@ Receives a map declaring the entries to be compressed and their values, then, ea
 </compression:archive>
 ----
 
-1) A DataWeave script defining each name of the entry to be compressed as key, and the content of that entry as value.
-2) The archiver strategy to be used.
+<1> A DataWeave script defining each name of the entry to be compressed as key, and the content of that entry as value.
+<2> The archiver strategy to be used.
 
 The resulting archive will contain *three entries* one named "summary.pdf" at root level and another two called "result_001.pdf", "result_002.pdf" inside a directory called "details":
 
@@ -215,8 +212,8 @@ When used in an operations, declares that the content should be extracted with t
 ----
 
 
-1) The compressed content to be extracted, defaulting to `#[payload]`.
-2) The entries of this archive will be returned as an object and each of them will be accessible by it's name. E.g. if an archive with three entries with the following structure is decompressed:
+<1> The compressed content to be extracted, defaulting to `#[payload]`.
+<2> The entries of this archive will be returned as an object and each of them will be accessible by it's name. E.g. if an archive with three entries with the following structure is decompressed:
 
 [source]
 ----
