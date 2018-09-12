@@ -1,20 +1,17 @@
-= About Deployment and Server Scaling Recommendations
+= About Hard Limits on Scaling Deployments and Servers
 
-This topic describes recommendations on scaling the number of deployments and servers you have in a hybrid deployment scenario.
+To ensure platform stability and performance, Anypoint Platform has set the following hard limits on the number of deployments and servers that you can have in a hybrid deployment scenario. These hard limits apply to individual environments in a business group.
 
-To ensure platform stability and performance, Anypoint Platform has the following recommended limits on the number of deployments and servers. These recommendations are specific to an environment in a business group. 
+If you need to create additional deployments or servers beyond these hard limits, you can use different accounts, environments, or business groups. If you need to exceed the hard limits within the same environment, contact your customer success representative.
 
-If you need to create additional deployments or servers beyond these recommended limits, you can use different accounts, environments or business groups. If you need to exceed the recommended limits within the same environment, contact your customer success representative.
-
-The following table lists the recommended limits on the number of deployments and servers:
-
+.Maximums for the deployments and servers per environment in a business group
 [%header%autowidth.spread]
 |===
-| Component | Recommended Limit
-| Maximum number of deployments | 1000
-| Maximum deployments per target | 200
-| Maximum deployment size | 200 MB
-| Maximum number of servers | 500
-| Maximum number of servers per server group | 20
-| Maximum servers per cluster | 8
+| Component | Hard Limit
+| Deployments | 1000
+| Deployments per target | 200
+| Deployment size | 200 MB
+| Servers | 500
+| Servers per server group | 20
+| Servers per cluster | 8
 |===
