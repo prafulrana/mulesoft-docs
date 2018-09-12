@@ -6,7 +6,8 @@ You can use this connector in Anypoint Studio by adding it as a dependency in yo
 
 . Open your Mule project in Anypoint Studio.
 . Add the connector as a dependency in the pom.xml file:
-[source, linenums]
++
+[source,xml,linenums]
 ----
 <dependency>
   <groupId>org.mule.connectors</groupId>
@@ -169,7 +170,8 @@ xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
 	xmlns="http://www.mulesoft.org/schema/mule/core" 
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core 
+	http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http 
 http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/ee/core 
@@ -181,7 +183,9 @@ http://www.mulesoft.org/schema/mule/workday/current/mule-workday.xsd">
 	</http:listener-config>
 	<configuration-properties file="mule-app.properties"/>
 	<workday:config name="Workday_Config" doc:name="Workday Config" >
-		<workday:basic-connection username="${workday.username}" password="${workday.password}" tenantName="${workday.tenantName}" hostName="${workday.hostName}">
+		<workday:basic-connection username="${workday.username}" 
+		password="${workday.password}" tenantName="${workday.tenantName}" 
+		hostName="${workday.hostName}">
 			<workday:transport >
 				<workday:default-http-message-dispatcher-provider />
 			</workday:transport>
@@ -192,7 +196,8 @@ http://www.mulesoft.org/schema/mule/workday/current/mule-workday.xsd">
 		<parse-template location="form.html" doc:name="Parse Template"  />
 	</flow>
 	<flow name="create-position" >
-		<http:listener config-ref="HTTP_Listener_config" path="/create-position" doc:name="/create-position" />
+		<http:listener config-ref="HTTP_Listener_config" path="/create-position" 
+		doc:name="/create-position" />
 		<logger level="INFO" doc:name="Logger" />
 		<ee:transform doc:name="Transform Message" >
 			<ee:message >
@@ -314,4 +319,5 @@ ns ns0 urn:com.workday/bsvc
 
 == See Also
 
-* https://www.mulesoft.com/legal/versioning-back-support-policy#anypoint-connectors[Select Connector Support Policy]
+* https://forums.mulesoft.com[MuleSoft Forum]
+* https://support.mulesoft.com[Contact MuleSoft Support]
