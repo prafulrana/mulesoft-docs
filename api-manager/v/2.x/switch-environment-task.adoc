@@ -16,5 +16,5 @@ image::environment2.png[]
 == See Also
 
 * link:/access-management/environments[Environments]
-* link:/api-manager/v/2.x/classify-api-task[To Classify an API]
+* link:/api-manager/v/2.x/classify-api-task[Classifying an API instance into an Environment on API Manager]
 

@@ -17,5 +17,5 @@ image::apply-order.png[]
 
 == See Also
 
-link:/api-manager/v/2.x/offline-policy-task[To Apply an Offline Policy]
-link:/api-manager/v/2.x/cors-mule4[About CORS on Mule Runtime 4.x]
+link:/api-manager/v/2.x/offline-policy-task[Applying Offline Custom Policies]
+link:/api-manager/v/2.x/cors-mule4[Reviewing CORS Policy on Mule 4]

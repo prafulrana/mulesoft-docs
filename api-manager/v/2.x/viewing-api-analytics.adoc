@@ -179,5 +179,5 @@ The data you download reflects filtering options you selected. However, if you a
 
 == See Also
 
-* link:/api-manager/v/2.x/analytics-event-api[Analytics Event API]
+* link:/api-manager/v/2.x/analytics-event-api[Reviewing Analytics Event API]
 

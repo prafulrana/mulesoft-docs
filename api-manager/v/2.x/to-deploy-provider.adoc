@@ -39,4 +39,4 @@ CloudHub requires these credentials. The credentials you entered in Anypoint Stu
 
 == Next
 
-link:/api-manager/v/2.x/to-test-remote-provider[Test the remote provider].
+link:/api-manager/v/2.x/to-test-remote-provider[Testing a Remote Mule OAuth 2.0 Provider].

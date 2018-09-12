@@ -82,7 +82,6 @@ The guidelines for rate limiting and throttling in a cluster applies to rate lim
 
 == See Also
 
-* link:/api-manager/v/2.x/rate-limiting-and-throttling#rate-limiting-and-throttling-in-a-mule-cluster[Guidelines for rate limiting and throttling in a cluster]
-* link:/api-manager/v/2.x/client-id-based-policies[Client ID-based policies]
-* link:/api-manager/v/2.x/tutorial-manage-an-api[To Apply a Policy and SLA Tier]
-* link:/api-manager/v/2.x/tutorial-manage-an-api#adding-an-sla-tier[Create an SLA tier]
+* link:/api-manager/v/2.x/rate-limiting-and-throttling[Reviewing Rate Limiting and Throttling Policies concepts]
+* link:/api-manager/v/2.x/client-id-based-policies[Reviewing Client ID-Based Policies concepts]
+* link:/api-manager/v/2.x/tutorial-manage-an-api[Applying a Policy and SLA Tier]

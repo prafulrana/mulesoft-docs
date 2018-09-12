@@ -62,4 +62,4 @@ Finally, you can apply the rate limiting policy again to specific methods and re
 
 == See Also
 
-* link:/api-manager/v/2.x/tutorial-manage-an-api[To Apply Policies and SLA Tiers]
+* link:/api-manager/v/2.x/tutorial-manage-an-api[Applying a Policy and SLA Tier]

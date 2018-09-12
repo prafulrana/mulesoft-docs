@@ -17,5 +17,5 @@ This procedure describes how to test a request count alert. This procedure requi
 
 == See Also
 
-* link:/api-manager/v/2.x/add-api-alert-task[To Add an API Alert]
+* link:/api-manager/v/2.x/add-api-alert-task[Adding an API Alert]
 * link:/design-center/v/1.0/design-create-publish-api-specs[Create and Publish an API Specification or API Fragment]
