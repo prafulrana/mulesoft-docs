@@ -136,7 +136,7 @@ This alert is currently not available on the link:/runtime-manager/deployment-st
 image::alerts-on-runtime-manager-51033.png[]
 
 +
-You must provide the number of mule messages that triggers the alert.
+You must provide the number of mule messages since the application was started that triggers the alert.
 
 +
 [NOTE]
