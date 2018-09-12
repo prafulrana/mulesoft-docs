@@ -22,8 +22,8 @@ In Mule Runtime 3.8.0 and later, you can enhance security through policies by us
 
 == See Also
 
-* link:/api-manager/v/2.x/client-id-based-policies[Client ID-Based Policies Reference]
-* link:/api-manager/v/2.x/gatekeeper[Gatekeeper Enhanced Security Reference]
+* link:/api-manager/v/2.x/client-id-based-policies[Reviewing Client ID-Based Policies concepts]
+* link:/api-manager/v/2.x/gatekeeper[Reviewing API Gateway Gatekeeper Enhanced Security Reference]
 * link:/anypoint-exchange/about-sharing-assets[About Sharing Assets, including an API]
 * link:/anypoint-exchange/to-request-access[To Request Access to an API]
 

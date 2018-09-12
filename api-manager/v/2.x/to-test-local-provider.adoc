@@ -47,4 +47,4 @@ In the Studio console, the AUTH SUCCESSFUL message appears.
 
 == Next
 
-link:/api-manager/v/2.x/to-deploy-provider[Deploy the OAuth 2.0 provider].
+link:/api-manager/v/2.x/to-deploy-provider[Deploying the Mule OAuth 2.0 Provider].
