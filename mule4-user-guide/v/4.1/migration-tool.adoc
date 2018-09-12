@@ -93,7 +93,7 @@ The Mule Migration tool supports the following migrations:
 * DataWeave component to `ee:transform` (DataWeave 1.0 to DataWeave 2.0)
 * Connectors: HTTP, Database, Web Service Consumer, ObjectStore
 * Modules: Validations, Scripting (DSL only, no migration of the script itself)
-* Transports: HTTP, JMS, File, VM (request-reply not supported)
+* Transports: HTTP, JMS, File, VM
 * Components: Cache, Batch, For Each, Choice, Scatter-Gather, Poll
 * Error Handling, Transactional scope
 * Properties and secure properties
