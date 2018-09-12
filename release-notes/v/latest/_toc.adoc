@@ -202,6 +202,7 @@
 *** link:anypoint-platform-pcf-1.5.0[Anypoint Platform for PCF Beta 1.5.0 Release Notes]
 
 ** link:anypoint-studio[Anypoint Studio Release Notes]
+*** link:/release-notes/anypoint-studio-7.2-with-4.1-runtime-update-site-2-release-notes[Anypoint Studio 7.2 with Mule Runtime 4.1.3 Update Site 2 Release Notes]
 *** link:/release-notes/anypoint-studio-7.2-with-4.1-runtime-update-site-1-release-notes[Anypoint Studio 7.2 with Mule Runtime 4.1.3 Update Site 1 Release Notes]
 *** link:/release-notes/anypoint-studio-7.2-with-4.1-runtime-release-notes[Anypoint Studio 7.2 with Mule Runtime 4.1.3 Release Notes]
 *** link:anypoint-studio-7.1-with-4.1-runtime-update-site-4-release-notes[Anypoint Studio 7.1 with Mule Runtime 4.1.2 Update Site 4 Release Notes]

@@ -1,0 +1,209 @@
+= Anypoint Studio 7.2 with Mule Runtime 4.1.3 Update Site 2 Release Notes
+
+*September 11, 2018* +
+*Build ID: 201809111517*
+
+xref:migration[Skip to Migration Guide]
+
+== Compatibility
+
+[cols="30a,70a"]
+|===
+| Product | Version
+| *Mule Runtime*
+| Version: 4.1.3
+
+|*Anypoint Studio*
+|Version: 7.2.2 +
+Build Id: 201809111517
+
+|*Maven*
+|Version: 3.3.9
+
+|*DataWeave* +
+|Version: 2.1.4
+
+|*MUnit* +
+|Version: 2.1.4 (munit-studio-plugin)
+
+|*Eclipse* +
+|Version: 4.7.2
+
+|===
+
+Projects created or updated with Studio 7.2.0 are not compatible with 7.1.x due to some improvements with the management of the mule-artifcat.json file. The content of the file was reduced and part of the content used to be required by Studio 7.1.x. +
+To fix this issue you only need to update Studio to the latest 7.2.x version available. See link:/anypoint-studio/v/7.2/update-workspace[Updating Workspaces] for more information.
+
+Workspaces created using Anypoint Studio 6.x or below are not compatible with Anypoint Studio 7 workspaces.
+
+== What's New
+
+This version of Anypoint Studio presents:
+
+* Bug Fixes.
+* Enhancements to the Choice component.
+
+
+== Hardware Requirements
+
+* For most use cases, Anypoint Studio with the 4.1.3 Runtime does not change hardware or software requirements from the previous Studio 7  versions.
+* MuleSoft recommends a minimum of 4GB of free RAM available on a developer workstation. As applications become complex, consider adding more RAM.
+
+* 4GB of free memory available.
+* 2GHz CPU.
+* 10GB free hard drive space.
+
+== Software Requirements
+
+[cols="30a,70a"]
+|===
+| Software | Version
+|Java Environments
+| * Oracle JDK 1.8.0
+
+This version of Studio is not compatible with Java 9 or Java 10. +
+If you are having issues installing Studio, follow link:anypoint-studio/v/7.2/faq-jdk-requirement[this guide] to reconfigure your Java installation.
+
+|Operating Systems |* MacOS 10.12.0 +
+* Windows (32- and 64-bit) Windows 7, Windows 8, Windows 10 +
+* RHEL 7.0 +
+* Ubuntu 15.04 or later
+|Suggested Web Browsers by Platform. +
+_Studio will always use the OS default web browser_ | * Windows: +
+** Microsoft Edge 25.0  +
+** Internet Explorer 11 +
+* Linux +
+** Mozilla Firefox 51.0.1  +
+* OS X +
+** Safari 10.1
+| Maven
+| Studio comes with Maven 3.3.9 bundled, but you can externally use the versions: 3.3.3 or your own  3.3.9
+|===
+
+[NOTE]
+--
+If you are running McAfee VirusScan on your Windows OS, Eclipse-based Anypoint Studio may experience negative performance impacts. McAfee has suggested the following remedy link:https://kc.mcafee.com/corporate/index?page=content&id=KB58727[options].
+--
+
+For first time installment, refer to link:/release-notes/anypoint-studio-7.2-with-4.1-runtime-release-notes[Studio 7.2 release notes] for instructions and known issues.
+
+== Known Issues
+
+* Studio 7.2.2 only supports Mule 4.x projects. Due to the structure of projects, export format, xml and scripting language differences, we do not offer backwards compatibility with Mule 3.x runtimes.
+* Some existing features in Studio 6.x are not yet supported in Studio 7: Custom Policies, API Sync, Anypoint Private Cloud.
+* Anypoint Studio uses your configured default browser to display web content such as Exchange and the Runtime Manager UI when deploying an application to Anypoint Platform. If your default internet browser does not display this content correctly, you can configure Anypoint Studio to use a Mozilla/XULRunner runtime environment as the underlying renderer for the Web UI. +
+Follow the link:/anypoint-studio/v/7.1/faq-default-browser-config[FAQ: Troubleshooting Issues with Your Default OS Browser] for more details.
+* Copybook import fails with no message.
+* Copybook import file not copied to project.
+* Mule modules needs to provide icons, today many of the modules have the generic icon.
+* Running application "Pom.xml" is not updated when changing dependencies.
+* Debugger: payload shown while debugging is partial but there is no way to view the rest of the payload
+* Mule plugins with snapshot versions should always be regenerated.
+* Datasense/Runtime not working correctly through proxy on connectors using TCP/IP or connectors which don’t yet support it.
+* When importing a project with a runtime that is not installed in Studio there is no notification to the User.
+* Define Metadata - selected schema file does not exist when I have an example JSON set for the metadata type.
+
+== Bug Fixes
+
+* Copybook import fails with no message.
+* Using Drag and drop interface creates DW code to create Salesforce "Account".
+* Service and port information is not refreshed on changes (SOAPKit).
+* Upgrade jquery to 3.0.0 in Studio 7.
+* Error mapping added in wrong place inside a Scripting > Execute tag.
+* [SE] When exporting a project with maven errors, it fails.
+* responseTimeout should not be in typeahead for <http:request-config/> element.
+* Can't get to the response and output sections if http request has attributes.
+* Editor not opening after parsing failure.
+* Runtime instance is leaked when doing remote debugging.
+* When using a literal string mixed with an expression inside content of parse template mp, validation fails..
+* autocomplete not helping entirely on choice in-line editing.
+* [SE] Optional Dependencies added to project.
+* [SE] Add support for security settings on Mule Maven Client.
+* Error thrown when opening HTTP Request global config.
+* win10: Text areas are too small to code in it.
+* Inconsistent RAML Editor validations.
+* Extract to.. not working inside a Scatter-Gather for Scopes.
+* [SE] HTTP Request Connector cannot click on "+" for new configuration.
+* UI doesn't respond when adding a global element while propagation is being executed.
+* DW Editor is leaking resources.
+* WSC doesn't fill drop downs of WSDL file.
+* Debugger logs when navigating through a structure.
+* Cannot save application while metadata propagation is running.
+* When trying to access autocompletion menu at set Payload value, nothing happens.
+* DW validations in text areas are stronger than needed.
+* Unable to drag and drop components.
+* DW Preview fails if the scripts uses the correlationId reference.
+* Refresh Metadata is not using properties edited from the form so propagation is not showing updated values.
+* Editing a config reference is not refreshing the propagation view.
+* Metadata Cache is invalidated when users click on "Apply Changes" no matter if properties were not modified.
+* Update spring bundled dependencies.
+* Update RAML editor mule-common dependency to fix security vulnerabilities.
+* NPE when open a text editor and close it.
+* Connector's config element is created on invalid order.
+* Studio 7.2.0 cannot import COBOL copybooks.
+* MEL expression's support should be available only when compatibility module is there.
+* Invalid error is shown when configuring JMS Connector.
+* Studio does not import RAML API subfolders when importing an API from a zip archive (7.x).
+* [SE] NullPointerException in Studio 7 when validating configuration file.
+* Unclear error after creating a JMS Connector. Fails if the project is deployed..
+* [SE] Studio debugger is not showing large payload.
+* Mapping generator creates invalid DW transformations.
+* Studio incorrectly adds the error-mapping element for HTTP requester.
+* When configurating Fixed Width, it throws an error..
+* win10: 'Metada > Create new type' dialog too small.
+* Metadata related window/dialogue sizing issues on windows.
+* Cannot import and export AGW HTTP Proxy.
+* HTTP Request features missing from editor.
+* Custom metadata from RAML doesn't consider field nullability.
+* Studio 7.2 IBM MQ connector global config does not add child element to consumer element.
+* Not able to add metadata type based on LocalFileAttributes to catalog.
+* Transform UI is not deleting defined metadata after removing target script mapping.
+* Writing a Java class, user can reference any class from the Mule Runtime classpath container.
+* Parameters missing in unreleased java module operations..
+* Studio - Transform message - csv to Map- dialog appears with 2/3 errors.
+* Valid MEL - Wrong Output.
+* Not able to create a MUnit test.
+* Hard to edit expressions in the Data Weave editor of the debug view.
+* Invalid output type "output applicaton/java" gets generated by HTTP Request component for HTTP query params.
+* Get the correct version based on muleVersion to start tooling client.
+* Unintuitive DataSense errors.
+* Propagation resolution when moving through the metadata key combo.
+* Scheduling frequency duplication with triggers.
+* Debugger edit dialog should not show values of objects that are not primitive types.
+* Update core editors when updating studio.
+* Propagation is not showing error marker in some cases.
+* Debugger doesn't support editing variables.
+* Invalid config state used to resolve metadata keys.
+* Error thrown when exploding the tree in the DW Expressions Evaluator pop up.
+* When selecting more than one error, ANY is marked instead.
+* When starting Studio, it may hang.
+* When adding Scripting > Execute, a pop up error is thrown.
+* Cannot create an MUnit test.
+* When editing global element metadata tree shows any as metadata.
+* Error handling - on error propagate: type APIKIT:NOT_FOUND is displayed twice (and selected) and doesn't show the validation handler.
+* (WT-11.1 / WT-12.3.6) When dragging a conector from the pallette search, a double drag is generated.
+* When opening Studio in a machine without maven, an error is thrown..
+* When adding a JDBC dependency, the "pick a Maven dependency".
+* NPE when doing autocompletion in the XML.
+* When copying and paste a when component, an error is thrown.
+* Windows 10 / NPE when moving a Transform Message between error handlers.
+* When saving a configuration with globals without name, an error is thrown..
+
+== Enhancements
+
+* Replace Exception Breakpoints for Error Breakpoints.
+* Cannot add operation by clicking in the palette and then click in the canvas.
+* Default Null safe types are persisted even when not needed.
+* Populate values fetched with value providers when only one option is available..
+* Improve experience when generating Custom Types from Examples that may containt Union Types.
+* Errors retrieved by the propagation service should be shown at the right component.
+* Avoid invalidating metadata cache when is not necessary.
+* Pre-fill the http listener config with 0.0.0.0 and 8081 (or a button to do so).
+* Reduce the time it takes to render Mule Properties and Global editor.
+* Make studio deal with duplicated doc:id components when copy pasting a chunk of xml.
+* When opening an element's editor, expand the Datasense tree to reveal the first meaningful item.
+
+== Support
+
+* link:http://forums.mulesoft.com/[MuleSoft’s Forum].
+* link:http://www.mulesoft.com/support-login[MuleSoft’s Customer Portal].
