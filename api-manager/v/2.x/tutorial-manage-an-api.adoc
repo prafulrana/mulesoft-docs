@@ -87,10 +87,10 @@ If you have a RAML spec attached to your API, click Preview Resource Matching to
 
 == See Also
 
-* link:/api-manager/v/2.x/prepare-raml-task[Links to RAML snippets]
+* link:/api-manager/v/2.x/prepare-raml-task[Reviewing Traits & policies concepts of RAML based APIs]
 * link:/api-manager/v/2.x/resource-level-policies-about[About Resource Level Policies]
-* link:/api-manager/v/2.x/rate-limiting-and-throttling-sla-based-policies[Rate Limiting and Throttling - SLA-Based Policies]
-* link:/api-manager/v/2.x/rate-limiting-and-throttling[Rate Limiting and Throttling Reference]
-* link:/api-manager/v/2.x/delete-sla-tier-task[To Delete an SLA Tier ]
+* link:/api-manager/v/2.x/rate-limiting-and-throttling-sla-based-policies[Reviewing Rate Limiting and Throttling - SLA-Based Policies concepts]
+* link:/api-manager/v/2.x/rate-limiting-and-throttling[Reviewing Rate Limiting and Throttling Policies concepts]
+* link:/api-manager/v/2.x/delete-sla-tier-task[Removing SLA Tiers on API Manager]
 
 

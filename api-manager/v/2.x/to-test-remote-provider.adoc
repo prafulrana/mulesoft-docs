@@ -17,4 +17,4 @@ The output includes the access token and the expiration time in seconds:
 
 == Next
 
-link:/api-manager/v/2.x/to-use-authentication[Use authentication to protect an API].
+link:/api-manager/v/2.x/to-use-authentication[Authenticating using the Mule OAuth 2.0 Provider].
