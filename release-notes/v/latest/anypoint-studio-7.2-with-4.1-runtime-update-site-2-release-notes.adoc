@@ -31,7 +31,7 @@ Build Id: 201809111517
 
 |===
 
-Projects created or updated with Studio 7.2.0 are not compatible with 7.1.x due to some improvements with the management of the mule-artifcat.json file. The content of the file was reduced and part of the content used to be required by Studio 7.1.x. +
+Projects created or updated with Studio 7.2.x are not compatible with 7.1.x due to some improvements with the management of the mule-artifcat.json file. The content of the file was reduced and part of the content used to be required by Studio 7.1.x. +
 To fix this issue you only need to update Studio to the latest 7.2.x version available. See link:/anypoint-studio/v/7.2/update-workspace[Updating Workspaces] for more information.
 
 Workspaces created using Anypoint Studio 6.x or below are not compatible with Anypoint Studio 7 workspaces.
@@ -84,8 +84,6 @@ _Studio will always use the OS default web browser_ | * Windows: +
 --
 If you are running McAfee VirusScan on your Windows OS, Eclipse-based Anypoint Studio may experience negative performance impacts. McAfee has suggested the following remedy link:https://kc.mcafee.com/corporate/index?page=content&id=KB58727[options].
 --
-
-For first time installment, refer to link:/release-notes/anypoint-studio-7.2-with-4.1-runtime-release-notes[Studio 7.2 release notes] for instructions and known issues.
 
 == Known Issues
 
@@ -194,7 +192,7 @@ Follow the link:/anypoint-studio/v/7.1/faq-default-browser-config[FAQ: Troublesh
 * Replace Exception Breakpoints for Error Breakpoints.
 * Cannot add operation by clicking in the palette and then click in the canvas.
 * Default Null safe types are persisted even when not needed.
-* Populate values fetched with value providers when only one option is available..
+* Populate values fetched with value providers when only one option is available.
 * Improve experience when generating Custom Types from Examples that may containt Union Types.
 * Errors retrieved by the propagation service should be shown at the right component.
 * Avoid invalidating metadata cache when is not necessary.
