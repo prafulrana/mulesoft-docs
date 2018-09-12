@@ -9,4 +9,3 @@
 *** link:/api-manager/v/1.x/disable-edit-remove-task[To Disable, Edit, or Remove a Policy]
 *** link:/api-manager/v/1.x/reorder-policies-task[To Re-order Policies]
 *** link:/api-manager/v/1.x/tutorial-manage-consuming-applications[To Manage API Access Requests]
-*** link:/api-manager/v/1.x/configure-policy-polling-task[To Configure Policy Polling Time]

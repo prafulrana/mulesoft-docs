@@ -1,7 +1,7 @@
-// Contacts/SMEs: Esteban Wasinger, Ana Felisatti, Mariano Gonzalez
 = Preparing for a Migration to Mule 4
+// Contacts/SMEs: Esteban Wasinger, Ana Felisatti, Mariano Gonzalez
 
-Mule 4 introduces many changes, so plan accordingly before attempting to migrate from Mule 3. 
+Mule 4 introduces many changes, so plan accordingly before attempting to migrate from Mule 3.
 
 [[when_to_start]]
 == When to Start Using Mule 4
@@ -41,11 +41,11 @@ Next, you need to make sure your deployment environment is ready. Depending on w
 |Hybrid Deployment
 |You must install the standalone version of Mule 4 your servers.
 
-|Private Cloud Edition
-|You must be running PCE 1.7.1 or later to use Mule 4 with Runtime Manager. A future version will support Mule 4 via API Manager. You must also install the standalone version of Mule 4 on your servers.
+|Anypoint Platform Private Cloud Edition (PCE)
+| PCE does not currently support Mule 4.
 
-|PCF
-|PCF support is in development.
+|Anypoint Platform for Pivotal Cloud Foundry (PCF)
+| PCF does not support Mule 4.
 |===
 
 // TODO link to instructions about installing standalone Mule 4

@@ -3,7 +3,7 @@
 // ./gradle/consolidate-publish-repo.sh -q
 ext {
   assetsRepoBranchName = 'prod-tag'
-  assetsRepoCommit = '0184baa714456477c7026670a2af9f1ce721179f'
+  assetsRepoCommit = 'f6d0db6f4dbf02804af4476a831c7b16961d5d90'
   publishCommitMessage = project.hasProperty('buildTag') ? project.property('buildTag') : 'publish changes'
   publishRepoBranchName = 'master'
   publishRepoUri = 'git@github.com:mulesoft/mulesoft-docs-build-output.git'

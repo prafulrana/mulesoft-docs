@@ -14,11 +14,11 @@ A matcher does not receive parameters; rather, it's a parameter itself that you 
 | nullValue() | Checks that the expression is null | #[MunitTools::nullValue()]
 | notNullValue() | Checks that the expression is null | #[MunitTools::notNullValue()]
 | equalTo(Object) | Checks that the expression is equal to a specific value | #[MunitTools::equalTo(0)] +
-#[MunitTools::equalTo(‘example’)]
+#[MunitTools::equalTo('example')]
 | not(Matcher) | Checks if the provided matcher is not successful | #[MunitTools::not(MunitTools::equalTo(0))]
-| withMediaType(String) | Checks that the expression’s media type is the one specified | #[MunitTools::withMediaType(‘text/xml’)]
-| withEncoding(String) | Checks that the expression’s encoding is the one specified | #[MunitTools::withEncoding(‘UTF-8’)]
-| both(Matcher, Matcher) | Checks that both provided matchers are successful | #[MunitTools::both(MunitTools::notNullValue(),MunitTools::equalTo(‘example’))]
+| withMediaType(String) | Checks that the expression’s media type is the one specified | #[MunitTools::withMediaType('text/xml')]
+| withEncoding(String) | Checks that the expression’s encoding is the one specified | #[MunitTools::withEncoding('UTF-8')]
+| both(Matcher, Matcher) | Checks that both provided matchers are successful | #[MunitTools::both(MunitTools::notNullValue(),MunitTools::equalTo('example'))]
 | either(Matcher,Matcher) | Checks that at least one of the matchers is successful | #[MunitTools::either(MunitTools::nullValue(),MunitTools::equalTo(0))]
 |===
 

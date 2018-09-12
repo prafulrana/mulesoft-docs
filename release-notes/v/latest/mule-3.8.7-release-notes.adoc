@@ -1,6 +1,6 @@
-// Product_Name Version number/date Release Notes
 = Mule Runtime 3.8.7 Release Notes
 :keywords: mule, 3.8.7, runtime, release notes
+// Product_Name Version number/date Release Notes
 
 *May 28, 2018*
 
@@ -107,7 +107,7 @@ N/A
 | SE-7459 | DataWeave: Add `com.mulesoft.dw.noNoncopybookMissingValuesDefault`.
 | SE-7556 | API Gateway is returning `invalid_api` errors.
 | SE-7618 | DataWeave: DataWeave failed to parse XML attribute.
-| SE-7772 | Applications with auto-discovery and client ID enforcement policy were not creating a database when redeployed in clustered environment.
+| SE-7772 | Applications with Autodiscovery and client ID enforcement policy were not creating a database when redeployed in clustered environment.
 | SE-7776 | DataWeave: Excel was not able to do random access.
 | SE-7803 | DataWeave: Add support for surrogated chars in UTF-8.
 | SE-7871 | DataWeave: We should never pop up Scala values to the Java writer.

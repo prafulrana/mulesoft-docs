@@ -31,50 +31,6 @@ Build Id: 201712182117
 
 |===
 
-=== Modules bundled with Studio:
-
-[cols="30a,70a"]
-|===
-| Module | Version
-| *APIkit*
-| Version:  1.0.1
-
-|*HTTP*  +
-*Sockets* +
-*WSC* +
-*JMS* +
-*FTP* +
-*File* +
-*Email* +
-*Database* +
-*VM* +
-*Objectstore* +
-*Validation* +
-*OAuth* +
-*Spring* +
-*Scripting*
-|Version: 1.0.0
-
-
-| *MUnit Runner* +
-*MUnit Tools*
-| Version: 2.0.0
-
-|*Salesforce Connector* +
-*Workday Connector*
-|Version:  9.0.0
-
-|*NetSuite Conncetor* +
-|Version:  8.0.0
-
-|*ServiceNow Connector* +
-|Version: 6.0.0
-
-|*SAP Connector* +
-|Version: 4.0.0
-
-
-|===
 
 == What's New
 

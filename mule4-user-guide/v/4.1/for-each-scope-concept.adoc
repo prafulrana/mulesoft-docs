@@ -30,9 +30,21 @@ You can also split an array in batches. Potentially, batches produce quicker pro
 
 If one of the elements in a collection throws an exception, the For Each scope stops processing that collection and invokes the error handler.
 
-
 == Examples
 
+There are several example projects in Anypoint Exchange that you can open in Anypoint Studio to learn more about how to use the For Each scope:
+
+* _Authenticating Salesforce using OAuth2_
+* _Import contacts into Microsoft Dynamics CRM_
+* _Importing a CSV file into mongoDB_
+* _Importing an Email Attachment using the IMAP Connector_
+* _Importing Email Attachments using the POP3 Connector_
+* _Querying a Database and Attaching Results to an Email_
+
+To download and open an example project while you are in Anypoint Studio, click the Exchange icon in the upper-left corner. Then, in the window that opens, log into Anypoint Exchange and search on the name of the project.
+
+
+////
 === Iterate a JSON Array
 
 [source,xml,linenums]
@@ -68,6 +80,8 @@ include::_sources/for-each-scope-concept_4.xml[]
 ----
 
 Within the For Each, the example creates an `aggregation` variable that concatenates the name in reverse. Then that variable can be accessed outside the For Each scope.
+
+////
 
 ////
 EDGE CASE? OUT IN 4.0, PER DAN F. IF THERE'S A REQUEST TO RESTORE IT, WE MIGHT RESTORE IT

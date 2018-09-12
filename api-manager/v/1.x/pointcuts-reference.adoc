@@ -1,8 +1,11 @@
 = Pointcuts Reference
 
-A custom policy must contain a pointcut declaration. Pointcuts control the scope of a policy application and they use regular expressions to indicate what flows in the application are affected by a policy.
+Pointcuts point a policy to the resource where it should be applied. +
+For example, if you are enforcing a policy in API Manager, this policy uses pointcuts to determine the endpoints of your Mule application to which it should apply.
 
-If you're applying your policy to APIs that are deployed in Anypoint Platform, then set your pointcut to the default properties `apiName` and `apiVersion`. This action guarantees that your policy is applied to only the API that you're activating the policy. This is what your pointcut should look like:
+A custom policy must contain a pointcut declaration. Pointcuts can use a literal string to indicate which resources in the application are affected by a policy. Pointctus can also take regular expressions if you need to apply a policy to a broader set of resources.
+
+If you are applying your policy to APIs that are deployed in Anypoint Platform, set your pointcut to the default properties `apiName` and `apiVersion`. This action guarantees that your policy is applied only to the API for which you are activating the policy. This is what your pointcut should look like:
 
 [source,xml,linenums]
 ----
@@ -11,15 +14,17 @@ If you're applying your policy to APIs that are deployed in Anypoint Platform, t
 </pointcut>
 ----
 
+Note that this is only necessary if you are using Mule 3.x.
+
 Setting your pointcut to a broad regular expression such as `regex=”.*”` may have undesirable effects.
 
-Applying this policy to a single API through the platform, might actually affect other APIs you're deploying as well.
+Applying this policy to a single API through the platform might affect other APIs you are deploying.
 
-If you're using your policies in an on-site deployment, then you might want to modify the pointcut to apply your policy to multiple APIs simultaneously.
+If you are using your policies in an on-site deployment, you might want to modify the pointcut to apply your policy to multiple APIs simultaneously.
 
-== Enabling Resource Level Policies
+== Enabling Resource-Level Policies
 
-If your API runs on Mule 3.8.4 and later, use the following code to include resource level policies:
+If your API runs on Mule 3.8.4 or later versions of Mule 3.x, use the following code to include resource-level policies:
 
 [source,xml,linenums]
 ----
@@ -37,7 +42,7 @@ If your API runs on Mule 3.8.4 and later, use the following code to include reso
 {{/pointcutData.length}}
 ----
 
-Also, include the following property in the YAML: `resourceLevelSupported: true`
+Also include the following property in the YAML: `resourceLevelSupported: true`
 
 == Customizing a Pointcut
 
@@ -47,7 +52,7 @@ In a pointcut you can reference the following kinds of elements:
 * Apps
 * Resources
 
-If several elements are specified inside a single pointcut, then they are implemented as if you were using an AND expression.
+If several elements are specified inside a single pointcut, they are implemented as if you were using an AND expression.
 
 [source,xml,linenums]
 ----

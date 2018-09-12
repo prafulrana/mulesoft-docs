@@ -1,7 +1,7 @@
-// Contacts/SMEs: Mariano Gonzales,
 = Migration Patterns
+// Contacts/SMEs: Mariano Gonzales,
 
-Migration patterns typically pertain to changes from Mule 3 to Mule 4 that affect more than one component, connector, or module. 
+Migration patterns typically pertain to changes from Mule 3 to Mule 4 that affect more than one component, connector, or module.
 
 == See Also
 

@@ -1,6 +1,6 @@
-// Product_Name Version number/date Release Notes
 = Mule Runtime 3.9.1 Release Notes
 :keywords: mule, 3.9.1, runtime, release notes
+// Product_Name Version number/date Release Notes
 
 *April 23, 2018*
 

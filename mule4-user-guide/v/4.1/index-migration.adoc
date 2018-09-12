@@ -1,5 +1,5 @@
-// author: Dan D
 = Mule 4 for Mule 3 Users
+// author: Dan D
 
 Mule 4 improvements make it easier to learn, develop, and manage than Mule 3. For an overview of these capabilities, you should read link:mule-runtime-updates[What's New in Mule 4].
 

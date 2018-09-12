@@ -28,37 +28,6 @@ Build Id: 201707230157
 
 |===
 
-=== Modules bundled with Studio:
-
-[cols="30a,70a"]
-|===
-| Module | Version
-| *APIkit*
-| Version:  1.0.0 BETA.4
-
-|*HTTP* +
-*Sockets* +
-*JMS* +
-*Validations* +
-*File* +
-*WSC* +
-*FTP* +
-*Oauth* +
-*Email* +
-*Database*
-|Version: 0.8.0-BETA.3
-
-|*Salesforce Connector* +
-*Workday Connector*
-|Version:  9.0.0-BETA.3
-
-|*NetSuite Conncetor* +
-|Version:  8.0.0-BETA.3
-
-|*ServiceNow Connector* +
-|Version: 6.0.0-BETA.3
-|===
-
 == What's New
 
 * Improved palette which enables users to more quickly discover what they’re looking for by searching directly for operations and saving favorites

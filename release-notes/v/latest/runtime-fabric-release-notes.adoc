@@ -1,0 +1,13 @@
+= Anypoint Runtime Fabric Release Notes
+:keywords: release notes, runtime fabric, runtimefabric, fabric, rtf
+
+In addition to these release notes, see the complete link:/anypoint-runtime-fabric/v/1.0[Anypoint Runtime Fabric] documentation.
+
+== 1.0.1 - August 13, 2018
+
+This release marks the general availability of Anypoint Runtime Fabric.
+
+* Support for the following Mule runtime and API gateway versions:
+** Mule 4.1.2
+** Mule 3.9.1
+** Mule 3.8.7

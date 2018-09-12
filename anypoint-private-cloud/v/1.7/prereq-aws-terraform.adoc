@@ -51,7 +51,7 @@ These environment variables define the credentials for Terraform to connect to y
 . From the archive folder run the following command:
 +
 ----
-make create-cluster
+terraform apply -state test-vpc.tfstate -var 'cluster_name=test-vpc' -var 'nodes=3' -var 'instance_type=m4.2xlarge' -var 'key_pair=key_name' -var 'access_key=XXXXX' -var 'secret_key=XXXXX' -var 'region=us-west-2' -var 'role_tag_value=anypoint' -var-file=prod.tfvars
 ----
 +
 This script displays the Terraform plan that outlines all of the resources to be created in your AWS environment.

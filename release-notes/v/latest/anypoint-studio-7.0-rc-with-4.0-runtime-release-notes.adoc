@@ -28,50 +28,6 @@ Build Id: 201710021630
 
 |===
 
-=== Modules bundled with Studio:
-
-[cols="30a,70a"]
-|===
-| Module | Version
-| *APIkit*
-| Version:  1.0.0-RC
-
-|*HTTP*  +
-*Sockets* +
-*WSC* +
-*JMS* +
-*FTP* +
-*File* +
-*Email* +
-*Database* +
-*VM* +
-*Objectstore* +
-*Validation* +
-*OAuth* +
-*Spring* +
-*Scripting*
-|Version: 0.9.0
-
-
-| *MUnit Runner* +
-*MUnit Tools*
-| Version: 2.0.0-RC
-
-|*Salesforce Connector* +
-*Workday Connector*
-|Version:  9.0.0-RC
-
-|*NetSuite Conncetor* +
-|Version:  8.0.0-RC
-
-|*ServiceNow Connector* +
-|Version: 6.0.0-RC
-
-|*SAP* +
-|Version: 4.0.0-RC
-
-|===
-
 == What's New
 
 * Improved palette which enables users to more quickly discover what they’re looking for by searching directly for operations and saving favorites.

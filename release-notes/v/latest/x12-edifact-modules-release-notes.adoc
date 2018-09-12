@@ -1,9 +1,28 @@
 = X12 and EDIFACT Modules Release Notes
 :keywords: b2b, x12, edifact, release notes
 
-*January 2018*
+*August 2018*
 
 _Premium_
+
+== 1.3.2
+
+*August 3, 2018*
+
+This release adds support for HIPAA X222A1 and X224A2 837 transaction sets.
+
+=== Compatibility
+
+X12 EDI Connector v1.3.2 is compatible with the following:
+
+[%header,cols="30a,70a"]
+|===
+|Application/Service |Version
+|Mule Runtime |Mule 3.6.0 and later
+|X12 |003010, 003020, 003030, 003040, 003050, 003060, 003070, 004010, 004020, 004030, 004040, 004050, 004060, 005010, 005020, 005030, 005040, 005050, and 006020
+|HIPAA |005010X212, 005010X214B3, 005010X217, 005010X218, 005010X220A1, 005010X221A1, 005010X222A1, 005010X222A2, 005010X223A2, 005010X223A3, 005010X224A2, 005010X224A3, and 005010X279A1
+|===
+
 
 == 1.3.1
 

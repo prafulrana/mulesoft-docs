@@ -1,8 +1,6 @@
 = API Manager Release Notes
 :keywords: release notes, apis, anypoint platform for apis, anypoint platform
 
-*June 2018*
-
 API Manager release notes include information about changes, new features, improvements, and resolved issues in releases of API Manager.
 
 *Note:* Only API Manager 2.x can manage Mule 4 APIs.
@@ -14,6 +12,23 @@ Anypoint Platform supports the following browsers:
 * Firefox (latest version)
 * Chrome (latest version)
 * Internet Explorer 11 and newer
+
+== 2.2.5
+
+*August 30, 2018*
+
+This release provides this new feature:
+
+* User-defined ports for CloudHub deployments
+* Added "Manage Runtime Fabric" proxy link
+* Auto populate implementation URI from Exchange
+* Support for Analytics chart to every granular permission
+
+=== Fixed in This Release
+
+* Bug when users couldn't add tags
+* Bug when users with custom roles weren't receiving email notifications for API access 
+
 
 == 2.2.4
 
@@ -82,19 +97,19 @@ This release of API Manager includes new and enhanced features for accounts that
 
 === Key Changes and Enhancements
 
-* A tight integration of Anypoint Platform components extends the link:/api-manager/environments-concept[use of environments] to API management. 
+* A tight integration of Anypoint Platform components extends the link:/api-manager/environments-concept[use of environments] to API management.
 * API permissions are now environment-based.
 * You can now link:/api-manager/create-instance-task[create multiple instances] of an API.
 * APIs in Exchange can be link:/api-manager/manage-exchange-api-task[managed from API Manager].
 * There are two new APIs for managing APIs:
-** API Manager API v1.0 to manage API. 
+** API Manager API v1.0 to manage API.
 ** API Manager proxy API v1.0 to manage deployment of API proxies through API Manager.
 * Support for Mule 4 Early Access. Mule 4-related changes to API Manager are:
 ** Classloader isolation exists between the application, the runtime and the connectors, and policies.
 ** This release of Mule 4 link:/api-manager/policy-scope-size-concept[changes the packaging, size, and scope] of a policy.
 ** All policies are non-blocking.
 ** All policies except CORS, which is executed first, can be ordered.
-* link:/api-manager/develop-custom-policies-reference[Custom policy development] has changed. 
+* link:/api-manager/develop-custom-policies-reference[Custom policy development] has changed.
 * Header propagation no longer occurs by default and needs to be configured.
 * Resource level policy support, which was restricted to RAML-based APIs, is extended to any HTTP API.
 
@@ -102,8 +117,8 @@ This release of API Manager includes new and enhanced features for accounts that
 
 * API Manager link:/api-manager/latest-overview-concept[does not support auto-generation and deployment of proxies].
 * The Throttling policy is not supported in this Mule release.
-* Mule 4 replaces the security manager policies with two HTTP Basic Authentication policies: 
-** A combination of HTTP Basic Authentication and Simple Security Manager 
+* Mule 4 replaces the security manager policies with two HTTP Basic Authentication policies:
+** A combination of HTTP Basic Authentication and Simple Security Manager
 ** A combination of HTTP Basic Authentication and LDAP Security Manager
 +
 The policy protects an API by expecting and validating a user name and password.
@@ -145,9 +160,9 @@ Custom policies require changes to enable Resource Level granularity. For more i
 
 === Layout Changes
 
-This release includes layout changes to improve the user experience and align the UX with the rest of the platform. 
+This release includes layout changes to improve the user experience and align the UX with the rest of the platform.
 
-=== Display OAuth Grant Types 
+=== Display OAuth Grant Types
 
 Now, the OAuth Grant Types of the application are shown on the application detail page and for the API Owner at the time of approving an access request.
 
@@ -234,7 +249,7 @@ This release includes bug fixes and a security improvement related to Regular ex
 
 * In previous releases, all apps appeared in the Developer Portal to users in the Organizational Administrator role. Now, users in this role see only their own apps.
 * An incomplete URL of an app deployed to CloudHub appeared on the API Version details page. The URL now includes the AWS region of deployment.
-* The error message associated with a URI conflict during auto-discovery API deployment has been improved and now returns the appropriate HTTP error code.
+* The error message associated with a URI conflict during Autodiscovery API deployment has been improved and now returns the appropriate HTTP error code.
 * Mule Runtime 3.8.1 now supports the configuration of scopes for the OpenAM token enforcement policy.
 * The Anypoint Platform UI indicated the 3.8.0 version of Mule. Now, the UI indicates 3.8.x.
 * The Client ID Enforcement policy problem that occurred during migration from API Gateway 2.2.0 or earlier to Mule 3.8.1 has been resolved.
@@ -452,7 +467,7 @@ The July 2014 version of the Anypoint Platform for APIs offers the following new
 
 * Single-sign on and all-new shared user interface across the platform.
 * Self-sign up for Anypoint Platform organizations.
-* link:/api-manager/configuring-an-api-gateway[New API Gateway distribution] with enhanced API auto-discovery, including auto-discovery for APIkit projects, and improved HTTP transport performance using an NIO-based transport.
+* link:/api-manager/configuring-an-api-gateway[New API Gateway distribution] with enhanced API Autodiscovery, including Autodiscovery for APIkit projects, and improved HTTP transport performance using an NIO-based transport.
 * link:/api-manager/setting-up-an-api-proxy[Automatic proxy generation] for API endpoints defined by HTTP, WSDL, and RAML.
 * link:/access-management/roles[Fine grained permissions and role-based access] support from an administrative dashboard, as well as in-context permissions for API versions.
 * link:/api-manager/browsing-and-accessing-apis[Streamlined application registration and management] for application developers.
@@ -498,7 +513,3 @@ If you have an existing Anypoint Platform for APIs account on a previous version
 
 * link:https://developer.mulesoft.com/anypoint-platform[Mule Community Edition]
 * link:https://www.mulesoft.com/platform/studio[Anypoint Studio]
-
-
-
-

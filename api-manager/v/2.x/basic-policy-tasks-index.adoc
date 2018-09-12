@@ -8,4 +8,3 @@
 *** link:/api-manager/v/2.x/offline-remove-task[To Remove an Offline Policy]
 *** link:/api-manager/v/2.x/upload-policy-exchange-task[To Upload a Policy to Exchange]
 *** link:/api-manager/v/2.x/re-order-policies-task[To Re-Order Policies]
-*** link:/api-manager/v/2.x/configure-policy-polling-task[To Configure Policy Polling Time]

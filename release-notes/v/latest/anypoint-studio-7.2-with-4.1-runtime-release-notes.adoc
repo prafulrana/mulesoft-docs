@@ -1,0 +1,151 @@
+= Anypoint Studio 7.2 with Mule Runtime 4.1.3 Release Notes
+
+*July 31, 2018* +
+*Build ID: 201807311324*
+
+xref:migration[Skip to Migration Guide]
+
+== Compatibility
+
+[cols="30a,70a"]
+|===
+| Product | Version
+| *Mule Runtime*
+| Version: 4.1.3
+
+|*Anypoint Studio*
+|Version: 7.2.0 +
+Build Id: 201807311324
+
+|*Maven*
+|Version: 3.3.9
+
+|*DataWeave* +
+|Version: 2.1.4
+
+|*MUnit* +
+|Version: 2.1.4 (munit-studio-plugin)
+
+|*Eclipse* +
+|Version: 4.7.2
+
+|===
+
+
+== What's New
+
+This version of Anypoint Studio introduces:
+
+* Usability Improvements to manage Module’s dependencies
+* New DataWeave autocompletion and coding suggestions everywhere
+
+It also adds general performance improvements and bug fixes.
+
+== Hardware Requirements
+
+* For most use cases, Anypoint Studio with the 4.1.3 Runtime does not change hardware or software requirements from the previous Studio 7  versions.
+* MuleSoft recommends a minimum of 4GB of free RAM available on a developer workstation. As applications become complex, consider adding more RAM.
+
+* 4GB of free memory available.
+* 2GHz CPU.
+* 10GB free hard drive space.
+
+== Software Requirements
+
+[cols="30a,70a"]
+|===
+| Software | Version
+|Java Environments
+| * Oracle JDK 1.8.0
+|Operating Systems |* MacOS 10.12.0 +
+* Windows (32- and 64-bit) Windows 7, Windows 8, Windows 10 +
+* RHEL 7.0 +
+* Ubuntu 15.04 or later
+|Suggested Web Browsers by Platform. +
+_Studio will always use the OS default web browser_ | * Windows: +
+** Microsoft Edge 25.0  +
+** Internet Explorer 11 +
+* Linux +
+** Mozilla Firefox 51.0.1  +
+* OS X +
+** Safari 10.1
+| Maven
+| Studio comes with Maven 3.3.9 bundled, but you can externally use the versions: 3.3.3 or your own  3.3.9
+|===
+
+[NOTE]
+--
+If you are running McAfee VirusScan on your Windows OS, Eclipse-based Anypoint Studio may experience negative performance impacts. McAfee has suggested the following remedy link:https://kc.mcafee.com/corporate/index?page=content&id=KB58727[options].
+--
+
+[[migration]]
+== Migration Guide
+
+Studio 7.1 only supports Mule 4.x projects. The structure of the project, export format, XML and scripting language are different. +
+Users must migrate Mule 3 projects to Mule 4 manually, before they can be used in Studio 7.
+
+=== Workspace Compatibility
+
+Projects created or updated with Studio 7.2.0 are not compatible with 7.1.x due to some improvements with the management of the mule-artifcat.json file. The content of the file was reduced and part of that content used to be required by Studio 7.1.x. +
+To fix this issue you only need to update Studio to the latest 7.2.x version available. See link:/anypoint-studio/v/7.2/update-workspace[Updating Workspaces] for more information.
+
+Workspaces created using Anypoint Studio 6.x or below are not compatible with Anypoint Studio 7 workspaces.
+
+== JIRA Ticket List for Anypoint Studio
+
+=== Known Issues
+
+* Some existing features in Studio 6.x are not yet supported in Studio 7.1: Custom Policies, API Sync, Anypoint Private Cloud.
+* Anypoint Studio uses your configured default browser to display web content such as Exchange and the Runtime Manager UI when deploying an application to Anypoint Platform. If your default internet browser does not display this content correctly, you can configure Anypoint Studio to use a Mozilla/XULRunner runtime environment as the underlying renderer for the Web UI. +
+Follow the link:/anypoint-studio/v/7.1/faq-default-browser-config[FAQ: Troubleshooting Issues with Your Default OS Browser] for more details.
+* Copybook import fails with no message.
+* Copybook import file not copied to project.
+* Mule modules needs to provide icons, today many of the modules have the generic icon.
+* Running application "pom.xml" is not updated when changing dependencies.
+* Debugger: payload shown while debugging is partial but there is no way to view the rest of the payload.
+* Mule plugins with snapshot versions should always be regenerated.
+* Datasense/Runtime not working correctly through proxy on connectors using TCP/IP or connectors which don’t yet support it.
+* When importing a project with a runtime that is not installed in Studio there is no notification to the user.
+* Using the "Validate" option in your Mule configuration files is not supported. +
+In your Package Explorer view, when right-clicking your Mule configuration file and selecting *Validate*, Studio runs a non-supported validation inherited from Eclipse. It is not recommended to use this feature. +
+You can choose to disable these validators:
++
+** *At Workspace level*: By clicking *Preferences*, *Validation*, and disabling "Manual" and "Build" checkbox for *XML Schema Validator* and *XML Validator*.
+** *At Project level*: By righ-clicking on your project in your Package Explorer View, select *Properties*, *Validation*, and disabling "Manual" and "Build" checkbox for *XML Schema Validator* and *XML Validator*.
+
+=== Enhancement Requests
+
+* STUDIO-8586 - DynamicTables should handle xml serialization in CustomEditor
+* STUDIO-8763 - Maven: use proxy settings configured in the settings.xml
+* STUDIO-9233 - Exchange login from inside the Studio browser is not preserved in Authentication Preferences
+* STUDIO-10156 - DEV- Define experience when opening old projects in Studio 7
+* STUDIO-10227 - Use maven coordinates information in the Maven Dependency Widget
+* STUDIO-10506 - As a Studio developer I want to have metrics of how users interact with the palette
+* STUDIO-10581 - Global Error Handler Reference
+* STUDIO-10583 - Can't select multiple error types in Error Mapping
+* STUDIO-10782 - Improve ApiKit console look & feel
+* STUDIO-10873 - Same doc:id used when copy/paste an event processor
+* STUDIO-10966 - Search in palette with multiple strings
+
+=== Epics
+
+* STUDIO-10845 - Studio Instrumentation Improvements
+
+=== Tasks
+
+* STUDIO-10412 - Integrate Apikit for SOAP for Studio 7.
+* STUDIO-10518 - Remove Mule-Commons library from Studio 7 codebase.
+* STUDIO-10519 - Remove default modules added to new projects (sockets, http).
+* STUDIO-10766 - Spike for AMF.
+* STUDIO-10843 - Match existing event/user properties in Amplitude.
+* STUDIO-10844 - Add user ID track when sending events to Amplitude.
+* STUDIO-10884 - Refactor code to not hardocde settings.xml path in our build.
+* STUDIO-10894 - Add validation when trying to open Studio with a Java version higher than 8.
+* STUDIO-10925 - Add metric for studio crash events.
+* STUDIO-10969 - Check to see how the SAP connector works in Studio 6.
+* STUDIO-11026 - Send to amplitud metrics the organizationId property when deploy to cloudHub.
+
+== Support
+
+* link:http://forums.mulesoft.com/[MuleSoft’s Forum].
+* link:http://www.mulesoft.com/support-login[MuleSoft’s Customer Portal].

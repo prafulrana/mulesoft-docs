@@ -1,4 +1,4 @@
-= API Functional Monitoring in Anypoint Monitor
+= API Functional Monitoring in Anypoint Monitoring
 
 You can monitor APIs in the *Functional Monitoring* section of Anypoint Monitoring, which you can access from the home page of Anypoint Platform.
 

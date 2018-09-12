@@ -1,8 +1,5 @@
 = Aggregators Module
 :keywords: aggregators, connector
-:toc:
-:toc-title:
-
 
 The Aggregators module contains different types of aggregators capable of storing values and releasing them all together based on the configuration specified. An Aggregator is a component used to collect those values until a condition is met, then execute a processor’s chain with the list of aggregated elements as the payload.
 
@@ -12,5 +9,5 @@ An Aggregator is a pass-through router, meaning that the same message that is pr
 
 == See Also
 
-* link:aggregators-documentation[Aggregators Module Documentation Reference]
+* link:aggregators-module-reference[Aggregators Module Reference]
 * link:aggregator-examples[Aggregator Examples]

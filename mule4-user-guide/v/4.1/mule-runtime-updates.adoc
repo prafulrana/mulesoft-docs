@@ -24,7 +24,7 @@ DataWeave 2.0 also features many improvements:
 * Language simplifications. Everything is now a function.
 * DataWeave scripts can now be packaged and reused, via the new imports and modules features.
 * Support for multi-line comments.
-* Support for calling static Java functions directly from DataWeave.
+* Support for calling static Java methods directly from DataWeave.
 
 For details, see the links to <<see_also, DataWeave documentation>>.
 

@@ -3,9 +3,9 @@
 Secure properties can encrypt properties and store the encrypted text in secure properties files.
 
 == Adding the Secure Configuration Properties Module
-The Secure Configuration Properties module ships with Studio 7.
+The Mule Secure Configuration Property Extension module is available from link:https://anypoint.mulesoft.com/exchange/com.mulesoft.modules/mule-secure-configuration-property-module/[Exchange].
 
-You can configure secure properties file through the Secure Configuration Properties module (`<secure-properties:config>`), for example:
+You can configure a secure properties file with this module (`<secure-properties:config>`), for example:
 
 .Example: Secure Configuration Properties with Default Values
 [source,xml, linenums]
@@ -141,7 +141,7 @@ This way, the value of the property `env` determines which file to use to load t
 <secure-properties:config key="${runtime.property}" file="${env}-properties.yaml" name="test"/>
 ----
 
-This way, the default value for the `env` property will be `"dev"`, which can still be overriden with a system or environment property. 
+This way, the default value for the `env` property will be `"dev"`, which can still be overriden with a system or environment property. Please note that this is *required* for metadata resolution in Anypoint Studio. If you do not define devault values for the properties that are passed through the command line you will receive an error while creating application model for all message processors that depend on them.
 
 === Working with More than One Configuration File
 

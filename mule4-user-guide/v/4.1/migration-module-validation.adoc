@@ -1,5 +1,5 @@
-// sme: MG, author: ndinu
 = Migrating the Validation Module
+// sme: MG, author: ndinu
 
 // Explain generally how and why things changed between Mule 3 and Mule 4.
 The Validation Module in Mule 4 is very similar to the one in Mule 3. The most

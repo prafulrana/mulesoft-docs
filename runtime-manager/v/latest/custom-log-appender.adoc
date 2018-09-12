@@ -69,21 +69,21 @@ remote debugging purposes by MuleSoft staff.
         </Log4J2CloudhubLogAppender>
     </Appenders>
     <Loggers>
-        <Root level="INFO">
+        <AsyncRoot level="INFO">
             <AppenderRef ref="FILE"/>
             <AppenderRef ref="CLOUDHUB"/>
-        </Root>
-        <Logger name="com.gigaspaces" level="ERROR"/>
-        <Logger name="com.j_spaces" level="ERROR"/>
-        <Logger name="com.sun.jini" level="ERROR"/>
-        <Logger name="net.jini" level="ERROR"/>
-        <Logger name="org.apache" level="WARN"/>
-        <Logger name="org.apache.cxf" level="WARN"/>
-        <Logger name="org.springframework.beans.factory" level="WARN"/>
-        <Logger name="org.mule" level="INFO"/>
-        <Logger name="com.mulesoft" level="INFO"/>
-        <Logger name="org.jetel" level="WARN"/>
-        <Logger name="Tracking" level="WARN"/>
+        </AsyncRoot>
+        <AsyncLogger name="com.gigaspaces" level="ERROR"/>
+        <AsyncLogger name="com.j_spaces" level="ERROR"/>
+        <AsyncLogger name="com.sun.jini" level="ERROR"/>
+        <AsyncLogger name="net.jini" level="ERROR"/>
+        <AsyncLogger name="org.apache" level="WARN"/>
+        <AsyncLogger name="org.apache.cxf" level="WARN"/>
+        <AsyncLogger name="org.springframework.beans.factory" level="WARN"/>
+        <AsyncLogger name="org.mule" level="INFO"/>
+        <AsyncLogger name="com.mulesoft" level="INFO"/>
+        <AsyncLogger name="org.jetel" level="WARN"/>
+        <AsyncLogger name="Tracking" level="WARN"/>
     </Loggers>
 </Configuration>
 ----

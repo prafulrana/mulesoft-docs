@@ -1,5 +1,26 @@
 = Database Connector Release Notes for Mule 4
 
+== 1.4.0
+
+*August 7, 2018*
+
+=== Minimum Mule Version
+
+Mule 4.1.0
+
+=== New Features and Enhancements
+
+* Now in Generic Connections, the username and password can be configured outside the
+JDBC URL for improved security and support for multitenancy.
+* Improved New Row trigger, now hints with the available tables to retrieve rows.
+* Support for PostgreSQL type casting.
+
+=== Fixed Issues
+
+* DB On New Row listener should provide a hint to available tables. https://www.mulesoft.org/jira/browse/MULE-15310[(MULE-15310)]
+* DB Connector uses deprecated DriverClass when using new MySQL Drivers. https://www.mulesoft.org/jira/browse/MULE-15218[(MULE-15218)]
+* DB Connector doesn't support PostgreSQL type casting. https://www.mulesoft.org/jira/browse/MULE-15101[(MULE-15101)]
+
 == 1.3.4
 
 *June 29, 2018*

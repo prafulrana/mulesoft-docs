@@ -1,5 +1,5 @@
-// sme: MG, author: sduke?
 = Migrating the Batch Module
+// sme: MG, author: sduke?
 
 // Explain generally how and why things changed between Mule 3 and Mule 4.
 The Batch module was introduced to handle Extract Transform Load (ETL) functionality.
@@ -173,7 +173,7 @@ In Mule 4, Batch can automatically determine that the payload is a JSON array an
 ----
 <flow name="useTheForceBatch">
   <http:listener path="/forceWielders" config-ref="forceListener" />
-  <batch:job name="forceJob">
+  <batch:job jobName="forceJob">
     ....
   </batch:job>
 </flow>

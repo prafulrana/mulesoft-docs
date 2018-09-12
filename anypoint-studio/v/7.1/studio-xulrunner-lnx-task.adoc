@@ -15,5 +15,5 @@ XULRunner binaries are located in the folder where you extracted the XULRunner p
 
 == See Also
 
-* link:/anypoint-studio/v/7.1/studio-xulrunner-lnx-task[To Configure XULRunner as Studio's Default Layout Engine (Linux)]
+* link:/anypoint-studio/v/7.1/jdk-requirement-lnx-worflow[To Configure Java JDK (Linux)]
 * link:/anypoint-studio/v/7.1/studio-configure-vm-task-lnx[To Configure Studio's Default VM (Linux)]

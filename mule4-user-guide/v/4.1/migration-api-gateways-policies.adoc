@@ -1,5 +1,5 @@
-// authors: Federico Balbi and Nahuel Dalla Vecchia (assigned by Eva)
 = Migrating API Policies
+// authors: Federico Balbi and Nahuel Dalla Vecchia (assigned by Eva)
 
 // Explain generally how and why things changed between Mule 3 and Mule 4.
 In Mule 4, policies underwent major changes. A full explanation of them is available in link:https://docs.mulesoft.com/api-manager/custom-policy-4-reference[Custom Policy General Reference (Nov 2017)]
@@ -99,7 +99,7 @@ to the same organization where the JAR was uploaded.
 
 link:migration-api-gateways[Migrating API Gateways]
 
-link:migration-api-gateways-autodiscovery[Migrating API Gateways: Auto-Discovery]
+link:migration-api-gateways-autodiscovery[Migrating API Gateways: Autodiscovery]
 
 link:migration-api-gateways-runtime-config[Migrating API Gateways: Mule Runtime Configuration]
 

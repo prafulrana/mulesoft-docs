@@ -1,6 +1,6 @@
 = To Deploy a Mule Application to CloudHub (Anypoint Studio)
 
-== Prerequesites
+== Prerequisites
 
 To successfully deploy your Mule application to CloudHub, consider the following requirements:
 

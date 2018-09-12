@@ -1,5 +1,5 @@
-[[_output_metadata]]
 = Output Metadata
+[[_output_metadata]]
 //TODO: 1.1. ONLY, NO 1.0 VERSION?
 
 Output metadata is the type resolution for the result of a component. Each component can provide either static or dynamic metadata for the payload and attributes,

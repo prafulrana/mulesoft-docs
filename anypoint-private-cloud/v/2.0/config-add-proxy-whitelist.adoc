@@ -1,0 +1,60 @@
+= Add Whitelist Addresses for API Platform Proxies
+
+This topic describes how to add whitelist addresses for API Platform Proxies in Anypoint Platform Private Cloud Edition. By default, proxy requests are enabled to the domain name where the platform is running.
+
+To add whitelist addresses:
+
+. Login to Ops Center, the click then select Configuration.
+. Select the `api-platform-web-config` config map from the drop-down list.
+. Locate the `features` object in the local.js tab:
++
+----
+features: {
+    alerts:             false,
+    analytics:          false,
+    cloudHubDeployment: false,
+    hybridDeployment:   true,
+    segmentio:          false,
+    proxyWhitelist:     true
+  }
+----
+
+. Ensure that the `proxyWhitelist` property is set to `true`.
+. Locate the `proxyWhitelist` object in the same tab.
++
+----
+proxyWhitelist: {
+    allowLocalhost: false,
+    allowPlatformHost: true,
+    rules: []
+  }
+----
++
+The `proxyWhitelist` object contains the following properties:
++
+[cols="2*a"]
+|===
+| allowLocalhost | Enables proxy requests to be made to the `localhost` address.
+| allowPlatformHost | Enables proxy requests to be made to the same domain where the platform is hosted.
+| rules | Defines an array containing regular expressions to create matching rules.
+|===
+
+. Update the `rules` array as necessary. The following example shows how to define regular expressions to allow requests to be made to the `*.somewhere.com/*` and `*.somewhereelse.com/*` domains, where * can be any part of a DNS name or URL:
++
+----
+proxyWhitelist: {
+    allowLocalhost: false,
+    allowPlatformHost: true,
+    rules: [
+        /.*\.somewhere\.com/,
+        /.*\.somewhereelse\.com/
+    ]
+  }
+----
+
+. Click Apply to save changes to the `api-platform-web-config` config map.
+. Recreate the pod to ensure each node in the cluster uses the most current configuration:
++
+----
+kubectl delete pod -l microservice=api-platform-web
+----

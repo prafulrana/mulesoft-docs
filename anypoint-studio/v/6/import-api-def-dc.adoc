@@ -35,4 +35,3 @@ APIKit generates the Flow based on the API definition imported from Design Cente
 
 * link:/getting-started/implement-and-test[To Implement and Test an API].
 * link:/apikit/[About APIKit].
-

@@ -1,10 +1,35 @@
 = X12 EDI Connector Release Notes
 
-*March 2018*
+*August 2018*
 
 _Premium_
 
-== 2.0.0 
+link:/connectors/x12-edi-connector[X12 EDI Connector Guide]
+
+== 2.0.1
+
+*August 3, 2018*
+
+This release adds support for HIPAA X222A1 and X224A2 837 transaction sets.
+
+=== Compatibility
+
+X12 EDI Connector v2.0.0 is compatible with the following:
+
+[%header,cols="30a,70a"]
+|===
+|Application/Service |Version
+|Mule Runtime |4.1.0 and later
+|Anypoint Studio |7.1.0 and later
+|X12 |003010, 003020, 003030, 003040, 003050, 003060, 003070, 004010, 004020, 004030, 004040, 004050, 004060, 005010, 005020, 005030, 005040, 005050, and 006020
+|HIPAA |005010X212, 005010X214B3, 005010X217, 005010X218, 005010X220A1, 005010X221A1, 005010X222A1, 005010X222A2, 005010X223A2, 005010X223A3, 005010X224A2, 005010X224A3, and 005010X279A1
+|===
+
+=== Known Issues
+
+Anypoint Studio 7.x may require more memory than allowed by the default settings to support X12 and HIPAA schema definitions. See the link:/connectors/x12-edi-connector[X12 EDI Connector Guide] for details on changing the Studio memory settings.
+
+== 2.0.0
 
 *March 23, 2018*
 
@@ -22,11 +47,6 @@ X12 EDI Connector v2.0.0 is compatible with the following:
 |X12 |003010, 003020, 003030, 003040, 003050, 003060, 003070, 004010, 004020, 004030, 004040, 004050, 004060, 005010, 005020, 005030, 005040, 005050, and 006020
 |HIPAA |005010X212, 005010X214B3, 005010X217, 005010X218, 005010X220A1, 005010X221A1, 005010X222A2, 005010X223A2, 005010X223A3, 005010X224A3, and 005010X279A1
 |===
-
-=== Known Issues
-
-Anypoint Studio may require more memory than allowed by the default settings to support X12 and HIPAA schema definitions. 
-See the link:/connectors/x12-edi-connector[X12 EDI Connector Guide] for details on changing the Studio memory settings.
 
 == See Also
 

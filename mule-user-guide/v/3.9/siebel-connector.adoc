@@ -50,7 +50,7 @@ This connector requires Mule Runtime to work.
 |Siebel | v8.1
 |===
 
-The Siebel v3.x connector is built and tested using Oracle Siebel 8.1 and IP2016.7. Because the Java Data Bean interface is generic, the Siebel v3.x connector works with Siebel versions 7.7, 7.8, and 8.0. However, the compatibility of the connector with any other version beside 8.1 and IP2016.7 has not been tested. The connector is not compatible with Siebel v7.5 and below.
+The Siebel v3.x connector is built and tested using Oracle Siebel 8.1 and IP2016.17. Because the Java Data Bean interface is generic, the Siebel v3.x connector works with Siebel versions 7.7, 7.8, and 8.0. However, the compatibility of the connector with any other version beside 8.1 and IP2016.17 has not been tested. The connector is not compatible with Siebel v7.5 and below.
 
 
 == To Install this Connector

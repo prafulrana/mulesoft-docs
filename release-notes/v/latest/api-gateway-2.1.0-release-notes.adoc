@@ -13,7 +13,7 @@ MuleSoft is pleased to announce the 2.1.0 release of the API Gateway runtime. Th
 
 * AGW-185: Implement policies support for connectors.
 * AGW-249: Put a limit (anypoint.platform.analytics_batch_size) on the analytics events batch events count.
-* AGW-412: On link:/api-manager/api-auto-discovery[API Auto-Discovery], add a flag to allow the possibility to disable API creation.
+* AGW-412: On link:/api-manager/api-auto-discovery[API Autodiscovery], add a flag to allow the possibility to disable API creation.
 * AGW-421: Add a unique key to the Analytics event data
 * AGW-434: link:/api-manager/defining-sla-tiers[Layered Policies]
 * AGW-496: Ability to configure CORS on an link:/api-manager/oauth2-provider-configuration#applying-cors[External OAuth 2.0 Provider Application]

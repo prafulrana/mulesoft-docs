@@ -8,7 +8,7 @@ The API version details page for the vending API appears.
 +
 . In the Status section click Configure Endpoint.
 +
-The Configure endpoint dialog shows that the auto-discovery process deployed the API to a basic endpoint. The implementation URI shows the URL of the endpoint, which contains your local IP address.
+The Configure endpoint dialog shows that the Autodiscovery process deployed the API to a basic endpoint. The implementation URI shows the URL of the endpoint, which contains your local IP address.
 +
 image::apikit-tutorial-d664e.png[apikit-tutorial-d664e]
 +

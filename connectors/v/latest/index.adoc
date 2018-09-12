@@ -1,6 +1,5 @@
 = Connectors and Modules (for Mule 4)
 
-// TODO: DESCRIPTION WOULD BE NICE :)
 Modules are extensions to the Mule runtime that you can use when building a Mule app. Connectors are modules that have a direct connection to an external server, such a database or FTP server. Other extensions, such as the XML and Validation modules do not. You can add these extensions, along with Mule components, to flows in your Mule apps to build connected apps.
 
 [IMPORTANT]
@@ -8,6 +7,106 @@ Modules are extensions to the Mule runtime that you can use when building a Mule
 For connectors that are compliant with Mule 3, see link:/mule-user-guide/v/3.9/anypoint-connectors[Anypoint Connectors (for Mule 3)].
 ====
 
+== Most Popular Connectors
+
+* link:/connectors/salesforce-connector[Salesforce]
+* link:/connectors/sap-connector[SAP]
+* link:/connectors/servicenow-connector[ServiceNow]
+* link:/connectors/workday-connector[Workday]
+* link:/connectors/netsuite-about[NetSuite]
+* link:/connectors/mongodb-connector[MongoDB]
+* link:/connectors/amazon-s3-connector[Amazon S3],
+link:/connectors/amazon-sqs-connector[Amazon SQS],
+link:/connectors/amazon-sns-connector[Amazon SNS]
+* link:/connectors/sharepoint-connector[Microsoft SharePoint],
+link:/connectors/ms-dynamics-crm-connector[Microsoft Dynamics CRM]
+* link:/connectors/ldap-connector[LDAP]
+
+== Mule 4 Connectors
+
+* link:/connectors/amazon-dynamodb-connector[Amazon DynamoDB],
+link:/connectors/amazon-ec2-connector[EC2],
+link:/connectors/amazon-rds-connector[RDS],
+link:/connectors/amazon-s3-connector[S3],
+link:/connectors/amazon-sns-connector[SNS],
+link:/connectors/amazon-sqs-connector[SQS]
+* link:/connectors/amqp-connector[AMQP]
+* link:/connectors/anypoint-mq-connector[Anypoint MQ]
+* link:/connectors/bmc-remedy-connector[BMC Remedy]
+* link:/connectors/box-connector[Box]
+* link:/connectors/cassandra-connector[Cassandra]
+* link:/connectors/cloudhub-connector[CloudHub]
+* link:/connectors/db-connector-index[Database]
+* link:/connectors/edifact-edi-connector[EDIFACT EDI],
+link:/connectors/tradacoms-edi-connector[TRADACOMS EDI],
+link:/connectors/x12-edi-connector[X12 EDI]
+* link:/connectors/email-connector[Email]
+* link:/connectors/file-connector[File]
+* link:/connectors/ftp-connector[FTP]
+* link:/connectors/ftps-connector[FTPS]
+* link:/connectors/hdfs-connector[HDFS (Hadoop)]
+* link:/connectors/hl7-connector[HL7 EDI],
+link:/connectors/hl7-mllp-connector[HL7 MLLP]
+* link:/connectors/http-connector[HTTP]
+* link:/connectors/ibm-ctg-connector[IBM CTG]
+* link:/connectors/ibm-mq-connector[IBM MQ]
+* link:/connectors/jms-connector[JMS]
+* link:/connectors/kafka-connector[Kafka]
+* link:/connectors/ldap-connector[LDAP]
+* link:/connectors/marketo-connector[Marketo]
+* link:/connectors/microsoft-dotnet-connector[Microsoft .NET],
+link:/connectors/microsoft-dynamics-365-connector[Microsoft Dynamics 365],
+link:/connectors/microsoft-365-ops-connector[Microsoft Dynamics 365 Operations],
+link:/connectors/ms-dynamics-ax-connector[Microsoft Dynamics AX],
+link:/connectors/ms-dynamics-crm-connector[Microsoft Dynamics CRM],
+link:/connectors/ms-dynamics-gp-connector[Microsoft Dynamics GP],
+link:/connectors/ms-dynamics-nav-connector[Microsoft Dynamics NAV],
+link:/connectors/msmq-connector[Microsoft MSMQ],
+link:/connectors/microsoft-powershell-connector[Microsoft Powershell],
+link:/connectors/ms-service-bus-connector[Microsoft Service Bus],
+link:/connectors/sharepoint-connector[Microsoft SharePoint]
+* link:/connectors/mongodb-connector[MongoDB]
+* link:/connectors/neo4j-connector[Neo4J]
+* link:/connectors/netsuite-about[NetSuite],
+link:/connectors/netsuite-openair-connector[NetSuite OpenAir]
+* link:/connectors/object-store-connector[Object Store]
+* link:/connectors/oracle-ebs-122-connector[Oracle EBS 12.2],
+link:/connectors/oracle-ebs-connector[Oracle EBS 12.1],
+link:/connectors/peoplesoft-connector[Oracle PeopleSoft],
+link:/connectors/siebel-connector[Oracle Siebel]
+* link:/connectors/redis-connector[Redis]
+* link:/connectors/rosettanet-connector[RosettaNet]
+* link:/connectors/salesforce-connector[Salesforce],
+link:/connectors/salesforce-analytics-connector[Salesforce Analytics],
+link:/connectors/salesforce-composite-connector[Salesforce Composite],
+link:/connectors/salesforce-mktg-connector[Salesforce Marketing]
+* link:/connectors/sap-connector[SAP],
+link:/connectors/sap-concur-connector[SAP Concur],
+link:/connectors/sap-successfactors-connector[SAP SuccessFactors]
+* link:/connectors/servicenow-connector[ServiceNow]
+* link:/connectors/sftp-connector[SFTP]
+* link:/connectors/sockets-documentation[Sockets]
+* link:/connectors/twilio-connector[Twilio]
+* link:/connectors/vm-connector[VM]
+* link:/connectors/web-service-consumer[Web Service Consumer]
+* link:/connectors/workday-connector[Workday]
+
+* link:/connectors/zuora-connector[Zuora]
+
+== Mule 4 Modules
+
+* link:/connectors/aggregators-module[Aggregators]
+* link:/connectors/compression-module[Compression]
+* link:/connectors/java-module[Java]
+* link:/connectors/json-module[JSON]
+* link:/connectors/oauth-documentation[OAuth]
+* link:/connectors/oauth2-provider-documentation-reference[OAuth2 Provider]
+* link:/connectors/scripting-module[Scripting]
+* link:/connectors/spring-module[Spring]
+* link:/connectors/validation-connector[Validation]
+* link:/connectors/xml-module[XML]
+
 == See Also
 
-link:/mule4-user-guide/v/4.1/about-components[About Mule Components]
+* https://forums.mulesoft.com[MuleSoft Forum]
+* https://support.mulesoft.com[Contact MuleSoft Support]

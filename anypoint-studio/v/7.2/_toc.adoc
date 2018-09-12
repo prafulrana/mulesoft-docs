@@ -1,0 +1,78 @@
+
+* link:/anypoint-studio/v/7.2/index[About Anypoint Studio]
+
+** link:/anypoint-studio/v/7.2/to-download-and-install-studio[To Download and Install Anypoint Studio 7.2]
+*** link:/anypoint-studio/v/7.2/to-download-and-install-studio-wx[To Download and Install Anypoint Studio 7.2 (Windows)]
+*** link:/anypoint-studio/v/7.2/to-download-and-install-studio-ox[To Download and Install Anypoint Studio 7.2 (OSx)]
+*** link:/anypoint-studio/v/7.2/to-download-and-install-studio-lx[To Download and Install Anypoint Studio 7.2 (Linux)]
+** link:/anypoint-studio/v/7.2/faq-default-browser-config[FAQ: Troubleshooting Issues with Your Default OS Browser]
+*** link:/anypoint-studio/v/7.2/studio-xulrunner-wx-task[To Configure XULRunner as Studio's Default Layout Engine (Windows)]
+*** link:/anypoint-studio/v/7.2/studio-xulrunner-lnx-task[To Configure XULRunner as Studio's Default Layout Engine (Linux)]
+*** link:/anypoint-studio/v/7.2/studio-xulrunner-unx-task[To Configure XULRunner as Studio's Default Layout Engine (Mac OSx)]
+
+** link:/anypoint-studio/v/7.2/faq-jdk-requirement[About Anypoint Studio JDK Requirement]
+*** link:/anypoint-studio/v/7.2/jdk-requirement-wx-workflow[To Configure Java JDK (Windows)]
+*** link:/anypoint-studio/v/7.2/studio-configure-vm-task-wx[To Configure Studio's Default VM (Windows)]
+*** link:/anypoint-studio/v/7.2/jdk-requirement-lnx-worflow[To Configure Java JDK (Linux)]
+*** link:/anypoint-studio/v/7.2/jdk-requirement-xos-worflow[To Configure Java JDK (Mac OSx)]
+*** link:/anypoint-studio/v/7.2/studio-configure-vm-task-unx[To Configure Studio's Default VM (Mac OSx)]
+*** link:/anypoint-studio/v/7.2/studio-configure-vm-task-lnx[To Configure Studio's Default VM (Linux)]
+
+** link:/anypoint-studio/v/7.2/update-workspace[Updating Workspaces]
+
+** link:/anypoint-studio/v/7.2/studio-update-sites[About Anypoint Studio Update Sites]
+
+** link:/anypoint-studio/v/7.2/set-credentials-in-studio-to[To Configure Anypoint Platform Credentials (Anypoint Studio)]
+
+** link:/anypoint-studio/v/7.2/proxy-settings-task[To Configure Proxy Settings (Anypoint Studio)]
+*** link:/anypoint-studio/v/7.2/proxy-settings-reference[Proxy Settings Reference (Anypoint Studio)]
+
+** link:/anypoint-studio/v/7.2/add-modules-in-studio-to[To Add Modules to Your Project (Anypoint Studio)]
+*** link:/anypoint-studio/v/7.2/add-custom-modules-in-studio-to[To Add Custom Modules to Your Project (Anypoint Studio)]
+
+** link:/anypoint-studio/v/7.2/add-view-to-perspective[To Add a New View to Your Current Perspective]
+
+** link:/anypoint-studio/v/7.2/metadata-editor-concept[About the Metadata Editor]
+*** link:/anypoint-studio/v/7.2/access-metadata-editor-task[To Access the Metadata Editor]
+*** link:/anypoint-studio/v/7.2/create-metadata-class-task[To Create Metadata Class]
+
+** link:/anypoint-studio/v/7.2/domain-support-concept[About Domain Support (Anypoint Studio)]
+*** link:/anypoint-studio/v/7.2/domain-studio-tasks[To Design Mule Domains (Anypoint Studio)]
+
+** link:/anypoint-studio/v/7.2/maven-preferences-reference[Maven Preferences Reference]
+
+** link:/anypoint-studio/v/7.2/export-to-exchange-task[To Publish a Project to Exchange]
+
+** link:/anypoint-studio/v/7.2/deploy-mule-application-task[To Deploy a Mule Application to CloudHub (Anypoint Studio)]
+
+** link:/anypoint-studio/v/7.2/visual-debugger-concept[About Anypoint Studio Visual Debugger]
+*** link:/anypoint-studio/v/7.2/mule-debugger-view-reference[Mule Debugger View Reference]
+*** link:/anypoint-studio/v/7.2/to-run-debug-mode[To Run the Project in Debug Mode]
+*** link:/anypoint-studio/v/7.2/to-start-server-debug-mode[To Start the Mule Server In Debug Mode]
+*** link:/anypoint-studio/v/7.2/to-set-breakpoints[To Set Breakpoints]
+*** link:/anypoint-studio/v/7.2/to-set-conditional-breakpoints[To Set Conditional Breakpoints]
+*** link:/anypoint-studio/v/7.2/to-set-expression-watches[To Set Mule Expression Watches]
+*** link:/anypoint-studio/v/7.2/to-set-error-breakpoints[To Set Error Breakpoints]
+*** link:/anypoint-studio/v/7.2/to-evaluate-breakpoint-using-expression[To Evaluate a Breakpoint Using an Expression]
+*** link:/anypoint-studio/v/7.2/debugger-perspective-concept[About the Mule Debugger Perspective]
+*** link:/anypoint-studio/v/7.2/breakpoint-view-reference[Breakpoints View Reference]
+*** link:/anypoint-studio/v/7.2/breakpoints-concepts[About Breakpoints]
+*** link:/anypoint-studio/v/7.2/mule-watches-view-reference[DataWeave Expression Watches View Reference]
+
+** link:/anypoint-studio/v/7.2/datasense-concept[About DataSense]
+*** link:/anypoint-studio/v/7.2/datasense-perceptive-flow-design-concept[About Perceptive Flow Design]
+*** link:/anypoint-studio/v/7.2/datasense-explorer[About DataSense Explorer]
+
+** link:/anypoint-studio/v/7.2/import-export-packages[Importing and Exporting Projects]
+*** link:/anypoint-studio/v/7.2/import-project-exchange[To Import a Mule Project from Exchange] 
+** link:/anypoint-studio/v/7.2/import-api-def-dc[To Import an API Definition from Design Center]
+
+** link:/anypoint-studio/v/7.2/transform-message-component-concept-studio[About Transform Message Component]
+*** link:/anypoint-studio/v/7.2/workflow-create-mapping-ui-studio[Workflow: Create a Mapping]
+**** link:/anypoint-studio/v/7.2/input-output-structure-transformation-studio-task[To Define Input and Output Structure of a Transformation]
+**** link:/anypoint-studio/v/7.2/graphically-construct-mapping-studio-task[To Graphically Construct a Mapping]
+**** link:/anypoint-studio/v/7.2/preview-transformation-output-studio-task[To Preview the Output of a Transformation]
+*** link:/anypoint-studio/v/7.2/tips-transform-message-ui-studio[Tips on the Transform Message UI]
+*** link:/anypoint-studio/v/7.2/change-target-output-transformation-studio-task[To Change the Target Output of a Transformation]
+*** link:/anypoint-studio/v/7.2/add-another-output-transform-studio-task[To Add Another Output Target]
+*** link:/anypoint-studio/v/7.2/move-transformations-separate-file-studio-task[To Move Transformations to Separate Files]

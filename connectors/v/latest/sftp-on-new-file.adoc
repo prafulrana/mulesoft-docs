@@ -1,6 +1,6 @@
+include::common-on-new-file.adoc[]
 //= To Trigger a Flow When a New File is Created or Modified
 //INCLUDED IN file-on-new-file, ftp-on-new-file, sftp-on-new-file,
-include::common-on-new-file.adoc[]
 
 .Example: SFTP Listener (On New File Trigger)
 [source,xml, linenums]

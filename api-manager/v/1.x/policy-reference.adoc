@@ -24,7 +24,7 @@ An unavailable Apply indicates one of the following conditions:
 == Ordering Policies
 You can set the order of execution of policies if you are using one of the following releases:
 
-* Studio 6.0 or later for creation, deployed to Anypoint Platform with auto-discovery
+* Studio 6.0 or later for creation, deployed to Anypoint Platform with Autodiscovery
 * Mule 3.8 unified runtime or later
 * API Gateway Runtime 2.2.0 or later
 

@@ -1,13 +1,34 @@
 = Amazon S3 Connector Release Notes
 :keywords: release notes, amazon s3, s3, connector
 
-*February 2018*
+*August 2018*
 
 _Select_
 
 The Anypoint Amazon S3 Connector provides connectivity to the the Amazon S3 API, enabling you to interface with Amazon S3 to store objects, download and use data with other AWS services, and build applications that call for internet storage. Instant access to the Amazon S3 API enables seamless integrations between Amazon S3 and other databases, CMS applications such as Drupal, and CRM applications such as Salesforce.
 
 Starting with v.4.0.0, the S3 Connector is licensed commercially with Anypoint Platform as with other Select connectors.  Prior versions remain freely available to the community.
+
+== 5.2.0
+
+*August 16, 2018*
+
+=== Compatibility
+
+The Amazon S3 connector is compatible with:
+
+[%header%autowidth.spread]
+|===
+|Application/Service|Version
+|Mule Runtime|4.1.0 and later
+|AWS SDK for Java	|1.11.79
+|===
+
+=== Features
+
+* *Triggers* - You can now start a flow with the Amazon S3 Connector every time an object of a specific type is created, updated, or deleted.
+
+
 
 == 5.1.1
 

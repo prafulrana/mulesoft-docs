@@ -1,15 +1,12 @@
 = To Set Error Breakpoints
 
-To set the *error* parameter for the application:
+To set the *error* parameter for the application, click the errors button.
 
-* Click the errors button image:to-set-error-breakpoints-55f71.png[error-breakpoint-icon] in the Breakpoints View.
-+
-This parameter causes any Event Processor in the application to become a breakpoint if it throws an error. +
-In such a case, Studio stops flow execution at the event processor which threw the error, then displays the message in the Mule Debugger View.
-+
-Additionally, Studio displays the error throwing Event Processor surrounded by a red, dotted-line square.
+image:to-set-error-breakpoints-55f71.png[error-breakpoint-icon] in the Mule Breakpoints view.
 
+This parameter causes any Event Processor in the application to become a breakpoint if it throws an error. In such a case, Studio stops flow execution at the event processor which threw the error, then displays the message in the Mule Debugger View.
 
+Additionally, Studio identifies the error with a red, dotted-line square in the processor that failed during execution.
 
 == See Also
 

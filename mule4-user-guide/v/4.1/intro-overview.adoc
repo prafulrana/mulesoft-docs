@@ -6,10 +6,10 @@ Conceptually, you can think of Mule 4 as an evolution of Mule 3. Many of the cor
 
 This overview takes you through the high-level changes in Mule 4 so that you can quickly learn the basics. It covers these topics:
 
-* Mule Message - the Mule Message structure has evolved to make it easier to work with properties and to provide more consistency across connectors.
-* Expression language - the Mule Expression Language has been replaced with the DataWeave language so that you work with data and learn Mule more easily.
-* Connectors - the approach to connectivity was unified in Mule 4. Mule 3 transports were replaced with new operation-oriented connectors that are easier to use, have better out-of-the-box defaults, and provide new advanced capabilities.
-* Error Handling - easier and more powerful error handling with a new Try scope.
-* DataWeave - DataWeave includes minor changes to simplify the syntax and make it easier to learn.
-* Studio 7 - features a simplified palette, improved Maven integration, and many other usability improvements.
-* Runtime engine - the internal execution engine has been updated with a new self-tuning and non-blocking reactive engine. This allows for better performance and scalability out-of-the-box.
+* link:intro-mule-message[Mule Message] - the Mule Message structure has evolved to make it easier to work with properties and to provide more consistency across connectors.
+* link:intro-expressions[Expression language] - the Mule Expression Language has been replaced with the DataWeave language so that you work with data and learn Mule more easily.
+* link:intro-connectors[Connectors] - the approach to connectivity was unified in Mule 4. Mule 3 transports were replaced with new operation-oriented connectors that are easier to use, have better out-of-the-box defaults, and provide new advanced capabilities.
+* link:intro-error-handlers[Error Handling] - easier and more powerful error handling with a new Try scope.
+* link:intro-dataweave2[DataWeave] - DataWeave includes minor changes to simplify the syntax and make it easier to learn.
+* link:intro-studio[Studio 7] - features a simplified palette, improved Maven integration, and many other usability improvements.
+* link:intro-engine[Runtime engine] - the internal execution engine has been updated with a new self-tuning and non-blocking reactive engine. This allows for better performance and scalability out-of-the-box.

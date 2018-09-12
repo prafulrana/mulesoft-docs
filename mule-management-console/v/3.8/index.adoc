@@ -1,6 +1,9 @@
 = Mule Management Console
 :keywords: mmc, 3.7
 
+[NOTE]
+https://www.mulesoft.com/legal/versioning-back-support-policy#mule-management-console[Mule Management Console (MMC) was deprecated in December 2015]. For more information, see the link:/release-notes/mmc-migrator-tool[MMC Migrator Tool].
+
 Welcome to the Mule Management Console documentation. Explore the links below and in the sidebar to the left of the page for in-depth user guides, tutorials, and reference materials.
 
 This page provides an overview of Mule Management Console for new and prospective users. Jump to the <<Next Steps>> for links to information about installation, setup, and a walkthrough.

@@ -49,7 +49,7 @@ Once the Mule Deployable Archives (.zip files) are in versions that you're sure 
 [TIP]
 To ensure that you have faster downtime and an easier backup route, we recommend that you initially install your new Mule Runtime on a separate server from where you have your current Mule Runtime installed.
 
-. link:/anypoint-studio/v/6/studio-update-sites[Download] and install the new Mule version (preferably on a different server or virtual machine).
+. Download the new Mule version from the Customer Portal and install it (preferably on a different server or virtual machine).
 . If any of your applications use shared custom libraries, make sure you copy those .jar files to the `<MULE_HOME>/lib/user` directory of the new version.
 +
 [NOTE]

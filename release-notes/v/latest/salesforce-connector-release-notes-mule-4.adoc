@@ -1,9 +1,70 @@
 = Salesforce Connector Release Notes
 :keywords: release notes, salesforce, connector
 
-*June 2018*
+*August 2018*
 
 _Select_
+
+== 9.3.1
+
+*August 1, 2018*
+
+[%header%autowidth.spread]
+|===
+|Application/Service |Version
+|Mule Runtime |Mule Enterprise Edition 4.1.1 and later
+|Anypoint Studio |Only works with Studio 7.1.0 and later
+|Salesforce |v37.0, v38.0, v39.0, v40.0, v41.0, v42.0
+|===
+
+=== Fixed in this Release
+
+*Salesforce connector disconnects and never connects back again*. The issue was fixed by making changes in the Reconnection Strategy.
+
+
+== 9.3.0
+
+*July 26, 2018*
+
+[%header%autowidth.spread]
+|===
+|Application/Service |Version
+|Mule Runtime |Mule Enterprise Edition 4.1.1 and later
+|Anypoint Studio |Only works with Studio 7.1.0 and later
+|Salesforce |v37.0, v38.0, v39.0, v40.0, v41.0, v42.0
+|===
+
+=== Features
+
+* Update the connector to support Salesforce Spring 2018 (API v42)
+
+* Support Bulk API v2
+
+=== Fixed in this Release
+
+* After a time that the connector was not being used, customers got the following error:
++
+[source,code,linenums]
+----
+Root Exception stack trace:
+[UnexpectedErrorFault [ApiFault exceptionCode='INVALID_SESSION_ID'
+exceptionMessage='Invalid Session ID found in SessionHeader: Illegal Session. Session not found, missing session hash: jiVw2Gqdz4jdt5QfJJcVLbEHzg4NFOAPHpWosGrWyUA=
+This error usually occurs after a session expires or a user logs out.'
+----
++
+The problem was solved by reimplementing reconnection strategy for paginating queries.
++
+* The customer couldn't make APEX call without parameters.
++
+The problem was solved by making APEX methods to access the objects without using them as parameters.
++
+* The customer couldn't make APEX call without parameters with array payload.
++
+The problem was solved by treated the lists of parameters separately.
++
+* When using the Salesforce connector inside a batch job that uses the Batch Aggregator with the Upsert operation, the records were not being marked as failed or successful because the result was not being returned as BulkOperationResult.
++
+The problem was solved by adding 4 new operations for create, update, upsert, and delete that return BulkOperationResult.
 
 == 9.2.2
 

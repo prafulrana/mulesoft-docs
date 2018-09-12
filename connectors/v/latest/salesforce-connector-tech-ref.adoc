@@ -184,11 +184,14 @@ specified.+++ |  | {nbsp}
 |======================
 
 ==== Associated Operations
+
 * <<abortJob>> {nbsp}
+* <<abortJobV2>> {nbsp}
 * <<batchInfo>> {nbsp}
 * <<batchInfoList>> {nbsp}
 * <<batchResult>> {nbsp}
 * <<batchResultStream>> {nbsp}
+* <<changeOwnPassword>> {nbsp}
 * <<closeJob>> {nbsp}
 * <<convertLead>> {nbsp}
 * <<create>> {nbsp}
@@ -197,15 +200,22 @@ specified.+++ |  | {nbsp}
 * <<createBatchStream>> {nbsp}
 * <<createBulk>> {nbsp}
 * <<createJob>> {nbsp}
+* <<createJobBulkV2>> {nbsp}
 * <<createMetadata>> {nbsp}
+* <<createMultiple>> {nbsp}
 * <<createSingle>> {nbsp}
 * <<delete>> {nbsp}
+* <<deleteJobV2>> {nbsp}
 * <<deleteMetadata>> {nbsp}
+* <<deleteMultiple>> {nbsp}
 * <<deployMetadata>> {nbsp}
 * <<describeGlobal>> {nbsp}
 * <<describeMetadata>> {nbsp}
 * <<describeSobject>> {nbsp}
 * <<findDuplicates>> {nbsp}
+* <<findDuplicatesByIds>> {nbsp}
+* <<getAllJobsV2>> {nbsp}
+* <<getBulkJobStateBulkV2>> {nbsp}
 * <<getDeleted>> {nbsp}
 * <<getDeletedRange>> {nbsp}
 * <<getServerTimestamp>> {nbsp}
@@ -221,6 +231,7 @@ specified.+++ |  | {nbsp}
 * <<listMetadata>> {nbsp}
 * <<merge>> {nbsp}
 * <<nonPaginatedQuery>> {nbsp}
+* <<publishPlatformEventMessage>> {nbsp}
 * <<publishStreamingChannel>> {nbsp}
 * <<publishTopic>> {nbsp}
 * <<pushGenericEvent>> {nbsp}
@@ -233,17 +244,26 @@ specified.+++ |  | {nbsp}
 * <<resetPassword>> {nbsp}
 * <<retrieve>> {nbsp}
 * <<retrieveMetadata>> {nbsp}
+* <<retrieveRecordFailureBulkV2>> {nbsp}
+* <<retrieveRecordSuccessBulkV2>> {nbsp}
 * <<search>> {nbsp}
 * <<setPassword>> {nbsp}
+* <<unauthorize>> {nbsp}
 * <<update>> {nbsp}
 * <<updateBulk>> {nbsp}
 * <<updateMetadata>> {nbsp}
+* <<updateMultiple>> {nbsp}
 * <<updateSingle>> {nbsp}
 * <<upsert>> {nbsp}
 * <<upsertBulk>> {nbsp}
 * <<upsertMetadata>> {nbsp}
+* <<upsertMultiple>> {nbsp}
 
 ==== Associated Sources
+
+* <<deleted-object>> {nbsp}
+* <<modified-object>> {nbsp}
+* <<new-object>> {nbsp}
 * <<replay-channel>> {nbsp}
 * <<replay-topic>> {nbsp}
 * <<subscribe-channel>> {nbsp}
@@ -276,16 +296,59 @@ The Job ID identifying the Job to be closed.
 | *Type* a| <<JobInfo>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:INVALID_REQUEST_DATA {nbsp}
 * SALESFORCE:INVALID_SESSION {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
+
+[[abortJobV2]]
+=== Abort Job V2
+`<salesforce:abort-job-v2>`
+
++++
+Aborts an ongoing Bulk API V2 Job. <p> This call uses the Bulk API v2.
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Id a| String |  +++The id of the Job.+++ |  | *x*{nbsp}
+| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
+| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| <<BulkJobState>>
+|======================
+
+==== For Configurations
+
+* <<sfdc-config>> {nbsp}
+
+==== Throws
+
+* SALESFORCE:CONNECTIVITY {nbsp}
+* SALESFORCE:UNKNOWN {nbsp}
+* SALESFORCE:INVALID_SESSION {nbsp}
+* SALESFORCE:RETRY_EXHAUSTED {nbsp}
+* SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
+* SALESFORCE:INVALID_REQUEST_DATA {nbsp}
+
+
 
 
 [[batchInfo]]
@@ -321,10 +384,12 @@ The org.mule.extension.salesforce.api.bulk.BatchInfo being monitored
 | *Type* a| <<BatchInfo>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -357,10 +422,12 @@ Get information about all batches in a job.
 | *Type* a| <<BatchInfoList>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -394,9 +461,11 @@ The com.sforce.async.BatchInfo being monitored
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -435,9 +504,11 @@ The custom headers to be associated with this batch request
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -445,9 +516,43 @@ The custom headers to be associated with this batch request
 * SALESFORCE:INVALID_SESSION {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 
+[[changeOwnPassword]]
+=== Change Own Password
+
+`<salesforce:change-own-password>`
+
++++
+Changes the password of the user linked to the connector's configuration.
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Old Password a| String |  +++The old password to be changed.+++ |  | *x*{nbsp}
+| New Password a| String |  +++The new password to be changed.+++ |  | *x*{nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors.+++ |  | {nbsp}
+|======================
+
+
+==== For Configurations
+
+* <<sfdc-config>> {nbsp}
+
+==== Throws
+
+* SALESFORCE:CONNECTIVITY {nbsp}
+* SALESFORCE:UNKNOWN {nbsp}
+* SALESFORCE:INVALID_SESSION {nbsp}
+* SALESFORCE:RETRY_EXHAUSTED {nbsp}
+* SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
+* SALESFORCE:INVALID_REQUEST_DATA {nbsp}
 
 [[closeJob]]
 === Close Job
+
 `+<http://www.mulesoft.org/schema/mule/salesforce:close-job>+`
 
 +++
@@ -471,9 +576,11 @@ The Job ID identifying the Job to be closed.
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -509,9 +616,11 @@ Salesforce Headers <a href="http://www.salesforce.com/us/developer/docs/api/Cont
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -555,10 +664,12 @@ headers to be send with request
 | *Type* a| Array of <<SaveResult>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -598,10 +709,12 @@ Async SObject recursive MAX_DEPTH check
 | *Type* a| <<BatchInfo>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -636,10 +749,12 @@ The query to be executed.
 | *Type* a| <<BatchInfo>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -676,10 +791,12 @@ A stream containing the data. The stream can have a CSV,XML, ZIP_CSV or ZIP_XML 
 | *Type* a| <<BatchInfo>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -717,10 +834,12 @@ Async SObject recursive MAX_DEPTH check
 | *Type* a| <<BatchInfo>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -759,16 +878,77 @@ Async SObject recursive MAX_DEPTH check
 | *Type* a| <<JobInfo>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:INVALID_REQUEST_DATA {nbsp}
 * SALESFORCE:INVALID_SESSION {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
+
+
+[[createJobBulkV2]]
+=== Create Job Bulk V2
+`<salesforce:create-job-bulk-v2>`
+
++++
+Creates a Bulk API v2 job containing the data needs to be inserted, updated, deleted or upserted. <p> This call uses the Bulk API v2.
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Object Type a| String |  +++Type of object to work with.+++ |  | *x*{nbsp}
+| sObjects a| Binary |  +++An array of one or more sObject objects.+++ |  +++#[payload]+++ | {nbsp}
+| Operation a| Enumeration, one of:
+
+** insert
+** update
+** delete
+** upsert |  +++The operation to be executed.+++ |  | *x*{nbsp}
+| Line Ending a| String |  +++The lineEnding of CSV data. The following values are supported: LF and CLRF+++ |  +++LF+++ | {nbsp}
+| Column Delimiter a| String a|  +++The columnDelimiter of CSV data. The following values are supported: 
+
+* BACKQUOTE — Backquote character (`)
+* CARET — Caret character (^)
+* COMMA — Comma character (,) which is the default delimiter
+* PIPE — Pipe character (|)
+* SEMICOLON - Semicolon character (;)
+* TAB - Tab character+++ 
+|  +++COMMA+++ | {nbsp}
+| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
+| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| <<BulkJobState>>
+|======================
+
+==== For Configurations
+
+* <<sfdc-config>> {nbsp}
+
+==== Throws
+
+* SALESFORCE:CONNECTIVITY {nbsp}
+* SALESFORCE:UNKNOWN {nbsp}
+* SALESFORCE:INVALID_SESSION {nbsp}
+* SALESFORCE:RETRY_EXHAUSTED {nbsp}
+* SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
+* SALESFORCE:INVALID_REQUEST_DATA {nbsp}
+
+
 
 
 [[createMetadata]]
@@ -797,16 +977,58 @@ a List of Map&#60;String, Object&#62; representing the metadatas to be created
 | *Type* a| Array of <<SaveResult>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:UNKNOWN {nbsp}
 * SALESFORCE:INVALID_REQUEST_DATA {nbsp}
 * SALESFORCE:INVALID_SESSION {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
+
+[[createMultiple]]
+=== Create Multiple
+`<salesforce:create-multiple>`
+
++++
+Adds one or more new records to your organization's data. <p class="caution"> IMPORTANT: When you map your objects to the input of this message processor keep in mind that they need to match the expected type of the object at Salesforce. </p> <p> Take the CloseDate of an Opportunity as an example, if you set that field to a string of value "2011-12-13" it will be sent to Salesforce as a string and operation will be rejected on the basis that CloseDate is not of the expected type. </p> <p> The proper way to actually map it is to generate a Java Date object, you can do so using Groovy expression evaluator as <i>#[groovy:Date.parse("yyyy-MM-dd", "2011-12-13")]</i>. </p>
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Type a| String |  +++type of record to be added+++ |  | *x*{nbsp}
+| Records a| Array of Object |  +++records to be added to your organization+++ |  +++#[payload]+++ | {nbsp}
+| Headers a| Object |  |  | {nbsp}
+| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
+| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| <<BulkOperationResult>>
+|======================
+
+==== For Configurations.
+* <<sfdc-config>> {nbsp}
+
+==== Throws
+* SALESFORCE:CONNECTIVITY {nbsp}
+* SALESFORCE:UNKNOWN {nbsp}
+* SALESFORCE:INVALID_SESSION {nbsp}
+* SALESFORCE:RETRY_EXHAUSTED {nbsp}
+* SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
+* SALESFORCE:INVALID_REQUEST_DATA {nbsp}
+
 
 
 [[createSingle]]
@@ -844,10 +1066,12 @@ headers to be send with request
 | *Type* a| <<SaveResult>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -882,10 +1106,12 @@ Salesforce Headers <a href="http://www.salesforce.com/us/developer/docs/api/Cont
 | *Type* a| Array of <<DeleteResult>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -893,6 +1119,44 @@ Salesforce Headers <a href="http://www.salesforce.com/us/developer/docs/api/Cont
 * SALESFORCE:INVALID_SESSION {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 
+[deleteJobV2]]
+=== Delete Job V2
+`<salesforce:delete-job-v2>`
+
++++
+Deletes a Bulk API V2 Job. <p> This call uses the Bulk API v2.
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Id a| String |  +++The id of the Job.+++ |  | *x*{nbsp}
+| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
+| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| String
+|======================
+
+==== For Configurations
+
+* <<sfdc-config>> {nbsp}
+
+==== Throws
+
+* SALESFORCE:CONNECTIVITY {nbsp}
+* SALESFORCE:UNKNOWN {nbsp}
+* SALESFORCE:INVALID_SESSION {nbsp}
+* SALESFORCE:RETRY_EXHAUSTED {nbsp}
+* SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
+* SALESFORCE:INVALID_REQUEST_DATA {nbsp}
 
 [[deleteMetadata]]
 === Delete Metadata
@@ -920,16 +1184,55 @@ Full names of the components to delete
 | *Type* a| Array of <<DeleteResult>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:UNKNOWN {nbsp}
 * SALESFORCE:INVALID_REQUEST_DATA {nbsp}
 * SALESFORCE:INVALID_SESSION {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
+
+[[deleteMetadata]]
+=== Delete Metadata
+`<salesforce:delete-metadata>`
+
++++
+Deletes one or more metadata components from your organization, given the object(s) API Name(s)
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Type a| String |  +++The metadata type of the components to delete+++ |  | *x*{nbsp}
+| Full Names a| Array of String |  +++Full names of the components to delete+++ |  +++#[payload]+++ | {nbsp}
+| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
+| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| Array of <<Result>>
+|======================
+
+==== For Configurations.
+* <<sfdc-config>> {nbsp}
+
+==== Throws
+* SALESFORCE:CONNECTIVITY {nbsp}
+* SALESFORCE:UNKNOWN {nbsp}
+* SALESFORCE:INVALID_SESSION {nbsp}
+* SALESFORCE:RETRY_EXHAUSTED {nbsp}
+* SALESFORCE:INVALID_REQUEST_DATA {nbsp}
 
 
 [[deployMetadata]]
@@ -951,10 +1254,12 @@ data needed by this operation
 |======================
 
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:UNKNOWN {nbsp}
@@ -987,10 +1292,12 @@ headers to be send with request
 | *Type* a| <<DescribeGlobalResult>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:UNKNOWN {nbsp}
@@ -1022,10 +1329,12 @@ standard objects, tab sets that define an app, and many other components
 | *Type* a| <<DescribeMetadataResult>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:UNKNOWN {nbsp}
@@ -1061,10 +1370,12 @@ headers to be send with request
 | *Type* a| <<DescribeSObject>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:UNKNOWN {nbsp}
@@ -1103,10 +1414,12 @@ The current connection.
 | *Type* a| <<FindDuplicatesResult>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -1114,6 +1427,129 @@ The current connection.
 * SALESFORCE:INVALID_SESSION {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 
+[[findDuplicatesByIds]]
+=== Find Duplicates By Ids
+`<salesforce:find-duplicates-by-ids>`
+
++++
+Performs rule-based searches for duplicate records. The input is an array of IDs, each of which specifies the records for which to search for duplicates. The output identifies the detected duplicates for each object that supplies the duplicate rules. findDuplicatesByIds() applies the rules to the record IDs to do the search. The output identifies the detected duplicates for each ID.
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| List of object ids used when searching for duplicates a| Array of String |  +++List of id's to find duplicates.+++ |  +++#[payload]+++ | {nbsp}
+| Headers a| Object |  |  | {nbsp}
+| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
+| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| Array of <<FindDuplicatesResult>>
+|======================
+
+==== For Configurations
+
+* <<sfdc-config>> {nbsp}
+
+==== Throws
+
+* SALESFORCE:CONNECTIVITY {nbsp}
+* SALESFORCE:UNKNOWN {nbsp}
+* SALESFORCE:INVALID_SESSION {nbsp}
+* SALESFORCE:RETRY_EXHAUSTED {nbsp}
+* SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
+* SALESFORCE:INVALID_REQUEST_DATA {nbsp}
+
+
+[[getAllJobsV2]]
+=== Get All Jobs V2
+`<salesforce:get-all-jobs-v2>`
+
++++
+Retrieves all Bulk Jobs <p> This call uses the Bulk API v2.
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Concurrency Mode a| Enumeration, one of:
+
+** Parallel
+** Serial |  +++The desired concurrency mode.+++ |  +++Parallel+++ | {nbsp}
+| Is Pk Chunking Enabled a| Boolean |  +++Use the PK Chunking request header to enable automatic primary key (PK) chunking for a bulk query job.+++ |  +++true+++ | {nbsp}
+| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
+| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| Array of <<BulkJobV2Result>>
+|======================
+
+==== For Configurations
+
+* <<sfdc-config>> {nbsp}
+
+==== Throws
+
+* SALESFORCE:CONNECTIVITY {nbsp}
+* SALESFORCE:UNKNOWN {nbsp}
+* SALESFORCE:INVALID_SESSION {nbsp}
+* SALESFORCE:RETRY_EXHAUSTED {nbsp}
+* SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
+* SALESFORCE:INVALID_REQUEST_DATA {nbsp}
+
+
+[[getBulkJobStateBulkV2]]
+=== Get Bulk Job State Bulk V2
+`<salesforce:get-bulk-job-state-bulk-v2>`
+
++++
+Gets the actual state of a V2 Bulk Job. <p> This call uses the Bulk API v2.
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Id a| String |  +++The id of the Job.+++ |  | *x*{nbsp}
+| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
+| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| <<BulkJobState>>
+|======================
+
+==== For Configurations
+
+* <<sfdc-config>> {nbsp}
+
+==== Throws
+
+* SALESFORCE:CONNECTIVITY {nbsp}
+* SALESFORCE:UNKNOWN {nbsp}
+* SALESFORCE:INVALID_SESSION {nbsp}
+* SALESFORCE:RETRY_EXHAUSTED {nbsp}
+* SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
+* SALESFORCE:INVALID_REQUEST_DATA {nbsp}
 
 [[getDeleted]]
 === Get Deleted
@@ -1141,10 +1577,12 @@ The amount of time, counted from now to some point in the past, for which to ret
 | *Type* a| <<GetDeletedResult>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -1183,10 +1621,12 @@ the specified dateTime value (for example, 12:35:15 is interpreted as 12:35:00 U
 | *Type* a| <<GetDeletedResult>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -1217,10 +1657,12 @@ Retrieves the current system timestamp (Coordinated Universal Time (UTC) time zo
 | *Type* a| DateTime
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -1254,9 +1696,11 @@ The current connection.
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -1291,10 +1735,12 @@ The amount of time in minutes, counted from now to some point in the past, to sp
 | *Type* a| <<GetUpdatedResult>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -1337,10 +1783,12 @@ Salesforce Headers <a href="http://www.salesforce.com/us/developer/docs/api/Cont
 | *Type* a| Array of Object
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -1379,10 +1827,12 @@ the specified dateTime value (for example, 12:35:15 is interpreted as 12:35:00 U
 | *Type* a| <<GetUpdatedResult>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -1415,10 +1865,12 @@ The current connection.
 | *Type* a| <<GetUserInfoResult>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -1456,10 +1908,12 @@ Async SObject recursive MAX_DEPTH check
 | *Type* a| <<BatchInfo>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -1495,10 +1949,12 @@ The Apex class and method name that will be invoked using REST
 | *Type* a| Object
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 
@@ -1530,10 +1986,12 @@ XML containing information about the method to be invoked and its parameters. Th
 | *Type* a| Any
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 
@@ -1558,10 +2016,12 @@ XML containing information about the method to be invoked and its parameters. Th
 | *Type* a| <<JobInfo>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -1594,10 +2054,12 @@ The metadata type used as criteria when querying for information
 | *Type* a| Array of <<FileProperties>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:UNKNOWN {nbsp}
@@ -1636,10 +2098,12 @@ headers to be send with request
 | *Type* a| <<MergeResult>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -1678,10 +2142,12 @@ Salesforce Headers <a href="http://www.salesforce.com/us/developer/docs/api/Cont
 | *Type* a| Array of Object
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -1689,6 +2155,42 @@ Salesforce Headers <a href="http://www.salesforce.com/us/developer/docs/api/Cont
 * SALESFORCE:INVALID_SESSION {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 
+[[publishPlatformEventMessage]]
+=== Publish Platform Event Message
+`<salesforce:publish-platform-event-message>`
+
++++
+Adds one new platform event to your organization's data.
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Platform Event name a| String |  +++name of platform event to create+++ |  | *x*{nbsp}
+| Platform Event Message a| Object |  +++PlatformEventMessage to create+++ |  +++#[payload]+++ | {nbsp}
+| Headers a| Object |  |  | {nbsp}
+| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
+| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| Array of <<Result>>
+|======================
+
+==== For Configurations.
+* <<sfdc-config>> {nbsp}
+
+==== Throws
+* SALESFORCE:CONNECTIVITY {nbsp}
+* SALESFORCE:UNKNOWN {nbsp}
+* SALESFORCE:RETRY_EXHAUSTED {nbsp}
+* SALESFORCE:INVALID_REQUEST_DATA {nbsp}
 
 [[publishStreamingChannel]]
 === Publish Streaming Channel
@@ -1718,10 +2220,12 @@ Description of what kinds of records are returned by the query. Limit: 255 chara
 | *Type* a| <<SaveResult>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:UNKNOWN {nbsp}
@@ -1751,10 +2255,12 @@ Description of what kinds of records are returned by the query. Limit: 255 chara
 | *Type* a| <<SaveResult>>
 |======================
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:UNKNOWN {nbsp}
@@ -1784,9 +2290,11 @@ Description of what kinds of records are returned by the query. Limit: 255 chara
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:UNKNOWN {nbsp}
@@ -1828,9 +2336,11 @@ Salesforce Headers <a href="http://www.salesforce.com/us/developer/docs/api/Cont
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -1872,9 +2382,11 @@ Salesforce Headers <a href="http://www.salesforce.com/us/developer/docs/api/Cont
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -1918,9 +2430,11 @@ href="http://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -1960,9 +2474,11 @@ Salesforce Headers <a href="http://www.salesforce.com/us/developer/docs/api/Cont
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -1998,9 +2514,11 @@ List of full names of the components to read
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:UNKNOWN {nbsp}
@@ -2038,9 +2556,11 @@ The current component full name
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:UNKNOWN {nbsp}
@@ -2076,9 +2596,11 @@ The user to reset the password for. If not set, the current user will be used.
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -2116,9 +2638,11 @@ headers to be send with request
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -2160,9 +2684,11 @@ A stream containing a list of components to retrieve that are not in a package.
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:UNKNOWN {nbsp}
@@ -2170,6 +2696,84 @@ A stream containing a list of components to retrieve that are not in a package.
 * SALESFORCE:INVALID_SESSION {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 
+[[retrieveRecordFailureBulkV2]]
+=== Retrieve Record Failure Bulk V2
+`<salesforce:retrieve-record-failure-bulk-v2>`
+
++++
+Gets the status of the failed processed sObjects. <p> This call uses the Bulk API v2.
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Id a| String |  +++The id of the Job.+++ |  | *x*{nbsp}
+| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
+| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| Array of <<JobFailedRecordResults>>
+|======================
+
+==== For Configurations
+
+* <<sfdc-config>> {nbsp}
+
+==== Throws
+
+* SALESFORCE:CONNECTIVITY {nbsp}
+* SALESFORCE:UNKNOWN {nbsp}
+* SALESFORCE:INVALID_SESSION {nbsp}
+* SALESFORCE:RETRY_EXHAUSTED {nbsp}
+* SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
+* SALESFORCE:INVALID_REQUEST_DATA {nbsp}
+
+
+[[retrieveRecordSuccessBulkV2]]
+=== Retrieve Record Success Bulk V2
+`<salesforce:retrieve-record-success-bulk-v2>`
+
++++
+Gets the status of the successfully processed sObjects. <p> This call uses the Bulk API v2.
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Id a| String |  +++The id of the Job.+++ |  | *x*{nbsp}
+| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
+| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| Array of <<JobSuccessfulRecordResult>>
+|======================
+
+==== For Configurations
+
+* <<sfdc-config>> {nbsp}
+
+==== Throws
+
+* SALESFORCE:CONNECTIVITY {nbsp}
+* SALESFORCE:UNKNOWN {nbsp}
+* SALESFORCE:INVALID_SESSION {nbsp}
+* SALESFORCE:RETRY_EXHAUSTED {nbsp}
+* SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
+* SALESFORCE:INVALID_REQUEST_DATA {nbsp}
 
 [[search]]
 === Search
@@ -2201,9 +2805,11 @@ Salesforce Headers <a href="http://www.salesforce.com/us/developer/docs/api/Cont
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -2232,16 +2838,38 @@ The new password for the user.
 |======================
 
 
-==== For Configurations.
+==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:INVALID_REQUEST_DATA {nbsp}
 * SALESFORCE:INVALID_SESSION {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
+
+[[unauthorize]]
+=== Unauthorize
+`<salesforce:unauthorize>`
+
++++
+Deletes all the access token information of a given resource owner id so that it's impossible to execute any operation for that user without doing the authorization dance again
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Resource Owner Id a| String |  +++The id of the resource owner which access should be invalidated+++ |  | {nbsp}
+|======================
+
+
+==== For Configurations.
+* <<sfdc-config>> {nbsp}
 
 
 [[update]]
@@ -2273,9 +2901,11 @@ headers to be send with request
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -2314,9 +2944,11 @@ Async SObject recursive MAX_DEPTH check
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -2352,15 +2984,57 @@ The metadata type of the components updated
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:UNKNOWN {nbsp}
 * SALESFORCE:INVALID_REQUEST_DATA {nbsp}
 * SALESFORCE:INVALID_SESSION {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
+
+[[updateMultiple]]
+=== Update Multiple
+`<salesforce:update-multiple>`
+
++++
+Updates one or more existing records in your organization's data.
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Type a| String |  +++type of record to be updated+++ |  | *x*{nbsp}
+| Records a| Array of Object |  +++records to be added to your organization+++ |  +++#[payload]+++ | {nbsp}
+| Headers a| Object |  |  | {nbsp}
+| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
+| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| <<BulkOperationResult>>
+|======================
+
+==== For Configurations.
+* <<sfdc-config>> {nbsp}
+
+==== Throws
+* SALESFORCE:CONNECTIVITY {nbsp}
+* SALESFORCE:UNKNOWN {nbsp}
+* SALESFORCE:INVALID_SESSION {nbsp}
+* SALESFORCE:RETRY_EXHAUSTED {nbsp}
+* SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
+* SALESFORCE:INVALID_REQUEST_DATA {nbsp}
+
 
 
 [[updateSingle]]
@@ -2392,9 +3066,11 @@ headers to be send with request
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -2436,9 +3112,11 @@ headers to be send with request
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -2481,9 +3159,11 @@ Async SObject recursive MAX_DEPTH check
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
@@ -2519,9 +3199,11 @@ A List of Map&#60;String, Object&#62; representing the metadatas to be upserted
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 ==== Throws
+
 * SALESFORCE:RETRY_EXHAUSTED {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 * SALESFORCE:UNKNOWN {nbsp}
@@ -2529,8 +3211,142 @@ A List of Map&#60;String, Object&#62; representing the metadatas to be upserted
 * SALESFORCE:INVALID_SESSION {nbsp}
 * SALESFORCE:CONNECTIVITY {nbsp}
 
+[[upsertMultiple]]
+=== Upsert Multiple
+`<salesforce:upsert-multiple>`
+
++++
+<a href="http://www.salesforce.com/us/developer/docs/api/Content/sforce_api_calls_upsert.htm">Upserts</a> a homogeneous list of objects: creates new records and updates existing records, using a custom field to determine the presence of existing records. In most cases, prefer { #upsert(String, String, List, Map)} over { #create(String, List, Map)}, to avoid creating unwanted duplicate records.
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| External Id Field Name a| String |  +++Contains the name of the field on this object with the external ID field attribute for custom objects or the idLookup field property for standard objects.+++ |  | *x*{nbsp}
+| Type a| String |  +++type of record to be upserted+++ |  | *x*{nbsp}
+| Records a| Array of Object |  +++records to be added to your organization+++ |  +++#[payload]+++ | {nbsp}
+| Headers a| Object |  |  | {nbsp}
+| Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
+| Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| <<BulkOperationResult>>
+|======================
+
+==== For Configurations.
+* <<sfdc-config>> {nbsp}
+
+==== Throws
+* SALESFORCE:CONNECTIVITY {nbsp}
+* SALESFORCE:UNKNOWN {nbsp}
+* SALESFORCE:INVALID_SESSION {nbsp}
+* SALESFORCE:RETRY_EXHAUSTED {nbsp}
+* SALESFORCE:INVALID_STRUCTURE_FOR_INPUT_DATA {nbsp}
+* SALESFORCE:INVALID_REQUEST_DATA {nbsp}
+
+
 
 == Sources
+[[deleted-object]]
+=== Deleted Object
+`<salesforce:deleted-object>`
+
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Object Type a| String |  |  | *x*{nbsp}
+| Since a| String |  +++Please specify a date in the YYYY-MM-DD hh:mm:ss format (i.e. 2017-03-17 16:30:40). If this field is empty, this operation will retrieve the selected objects from the time the Mule app is started.+++ |  | {nbsp}
+| Primary Node Only a| Boolean |  +++Whether this source should only be executed on the primary node when runnning in Cluster+++ |  | {nbsp}
+| Scheduling Strategy a| <<scheduling-strategy>> |  +++Configures the scheduler that triggers the polling+++ |  | *x*{nbsp}
+| Redelivery Policy a| <<RedeliveryPolicy>> |  +++Defines a policy for processing the redelivery of the same message+++ |  | {nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| Object
+| *Attributes Type* a| Any
+|======================
+
+==== For Configurations
+
+* <<sfdc-config>> {nbsp}
+
+
+
+[[modified-object]]
+=== Modified Object
+`<salesforce:modified-object>`
+
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Object Type a| String |  |  | *x*{nbsp}
+| Since a| String |  +++Please specify a date in the YYYY-MM-DD hh:mm:ss format (i.e. 2017-03-17 16:30:40). If this field is empty, this operation will retrieve the selected objects from the time the Mule app is started.+++ |  | {nbsp}
+| Primary Node Only a| Boolean |  +++Whether this source should only be executed on the primary node when runnning in Cluster+++ |  | {nbsp}
+| Scheduling Strategy a| <<scheduling-strategy>> |  +++Configures the scheduler that triggers the polling+++ |  | *x*{nbsp}
+| Redelivery Policy a| <<RedeliveryPolicy>> |  +++Defines a policy for processing the redelivery of the same message+++ |  | {nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| Object
+| *Attributes Type* a| Any
+|======================
+
+==== For Configurations
+
+* <<sfdc-config>> {nbsp}
+
+
+
+[[new-object]]
+=== New Object
+`<salesforce:new-object>`
+
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Object Type a| String |  |  | *x*{nbsp}
+| Since a| String |  +++Please specify a date in the YYYY-MM-DD hh:mm:ss format (i.e. 2017-03-17 16:30:40). If this field is empty, this operation will retrieve the selected objects from the time the Mule app is started.+++ |  | {nbsp}
+| Primary Node Only a| Boolean |  +++Whether this source should only be executed on the primary node when runnning in Cluster+++ |  | {nbsp}
+| Scheduling Strategy a| <<scheduling-strategy>> |  +++Configures the scheduler that triggers the polling+++ |  | *x*{nbsp}
+| Redelivery Policy a| <<RedeliveryPolicy>> |  +++Defines a policy for processing the redelivery of the same message+++ |  | {nbsp}
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  +++A retry strategy in case of connectivity errors+++ |  | {nbsp}
+|======================
+
+==== Output
+[cols=".^50%,.^50%"]
+|======================
+| *Type* a| Object
+| *Attributes Type* a| Any
+|======================
+
+==== For Configurations
+
+* <<sfdc-config>> {nbsp}
 
 [[replay-channel]]
 === Replay Channel
@@ -2572,6 +3388,7 @@ greater than specified replayId+++ |  | *x*{nbsp}
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 
@@ -2615,6 +3432,7 @@ greater than specified replayId+++ |  | *x*{nbsp}
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 
@@ -2650,6 +3468,7 @@ to an inexistent streaming channel but won't send you notifications after the to
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 
@@ -2685,6 +3504,7 @@ won't send you notifications after the topic is created.
 |======================
 
 ==== For Configurations
+
 * <<sfdc-config>> {nbsp}
 
 
@@ -3291,6 +4111,31 @@ won't send you notifications after the topic is created.
 ** SIMILAR |
 | Name a| String |
 |======================
+
+[[BulkJobV2Result]]
+=== Bulk Job V2 Result
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Api Version a| String |  |  | 
+| Column Delimiter a| String |  |  | 
+| Concurrency Mode a| String |  |  | 
+| Content Type a| String |  |  | 
+| Content Url a| String |  |  | 
+| Created By Id a| String |  |  | 
+| Created Date a| String |  |  | 
+| External Id Field Name a| String |  |  | 
+| Id a| String |  |  | 
+| Job Type a| String |  |  | 
+| Line Ending a| String |  |  | 
+| Object a| String |  |  | 
+| Operation a| String |  |  | 
+| State a| String |  |  | 
+| System Modstamp a| String |  |  | 
+|======================
+
+
 
 [[GetDeletedResult]]
 === Get Deleted Result

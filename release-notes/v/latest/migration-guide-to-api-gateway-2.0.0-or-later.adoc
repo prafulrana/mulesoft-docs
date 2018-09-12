@@ -32,7 +32,7 @@ The tool migrates all your Applications and Domains in your folders in a single 
 
 == Migrating your Proxy or API Gateway App Manually
 
-From API Gateway 2.0.0 or later, the endpoint model is not supported anymore. This means that you can continue to use HTTP Endpoints and connectors (which is not the recommended practise), but you will not be able to manage any policy associated to it, and you won’t obtain any usage statistics. Moreover, with API Gateway 2.0.0 and later, any inbound endpoints that use auto-discovery will cause a parse exception when the application/proxy is deployed to the API Gateway.
+Starting with API Gateway version 2.0.0, the endpoint model is not supported. You can continue to use HTTP Endpoints and connectors (which is not the recommended practise), but you will not be able to manage any policy associated to it, and you won’t obtain any usage statistics. Moreover, with API Gateway 2.0.0 and later, any inbound endpoints that use API Autodiscovery will cause a parse exception when the application/proxy is deployed to the API Gateway.
 
 If you are using an older auto-generated proxy, it is recommended that you use the Anypoint Platform to automatically generate a new one, and then configure the extra functionality that you need, copying the changes you had performed previously on the older proxy.
 

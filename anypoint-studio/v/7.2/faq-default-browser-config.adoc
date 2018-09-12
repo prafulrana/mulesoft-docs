@@ -1,0 +1,12 @@
+= FAQ: Troubleshooting Issues with Your Default OS Browser
+
+Anypoint Studio uses your system's default layout engine to render content in its Web UI. +
+If you are experiencing issues visualizing web content such as the Runtime Manager UI when deploying an application to Anypoint Platform, or Exchange when browsing assets for your project, you need to configure Anypoint Studio to use a Mozilla/XULRunner runtime environment as its underlying renderer for the Web UI.
+
+* link:/anypoint-studio/v/7.2/studio-xulrunner-wx-task[To Configure XULRunner as Studio's Default Layout Engine (Windows)]
+* link:/anypoint-studio/v/7.2/studio-xulrunner-lnx-task[To Configure XULRunner as Studio's Default Layout Engine (Linux)]
+* link:/anypoint-studio/v/7.2/studio-xulrunner-unx-task[To Configure XULRunner as Studio's Default Layout Engine (Mac OSx)]
+
+== See Also
+
+* For more information about this configuration, check the link:https://www.eclipse.org/swt/faq.php#howusemozilla[Eclipse Documentation resource].

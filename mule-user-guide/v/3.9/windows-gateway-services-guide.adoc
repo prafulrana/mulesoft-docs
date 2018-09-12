@@ -83,6 +83,40 @@ This web server uses a self-signed SSL certificate auto-generated during install
 
 image:MMC_Personal_Certs.png[MMC_Personal_Certs]
 
+The following are examples for creating a valid a self-signed certificate to be imported on the Windows Server. The commands you need to execute to generate the certificate with OpenSSL are from OpenSSL bin folder. You also need to copy the certificate `cert_with_san.txt` to your `bin` folder:
+
+`openssl.exe req -x509 -nodes -days 730 -newkey rsa:2048 -keyout newcert.pem -out newcert.pem -config cert_with_san.txt` +
+`openssl.exe pkcs12 -export -out newcert.pfx -in newcert.pem -name "My Cert" -passout pass:mypassword`
+
+You can then register the certificate. Note that using self-signed certificate requires that you 
+ignore SSL warnings and add the certificate to the truststore used by the client application.
+
+The contents of cert_with_san.txt follows. (This is for localhost or 127.0.0.1 usage.)
+
+[source,xml,linenums]
+----
+[req] 
+distinguished_name = req_distinguished_name 
+x509_extensions = v3_req 
+prompt = no 
+[req_distinguished_name] 
+C = US 
+ST = VA 
+L = Somewhere 
+O = MyOrg 
+OU = MyOU 
+CN = Anypoint Gateway
+[v3_req] 
+keyUsage = keyEncipherment, dataEncipherment 
+extendedKeyUsage = serverAuth 
+subjectAltName = @alt_names 
+[alt_names] 
+DNS.1 = localhost
+DNS.2 = 127.0.0.1
+IP.1 = 127.0.0.1
+IP.2 = 127.0.0.1
+----
+
 Because the Windows service relies on `http.sys` for self-hosting the web server, changes in the port number or SSL certificate require reconfiguring Windows. The `Register-SslCert.ps1` PowerShell script in the installation directory handles this task. If the port or certificate changes, run the following command from a link:http://en.wikipedia.org/wiki/Windows_PowerShell[PowerShell] console:
 
 `Register-SslCert.ps1 <certificate-thumbprint> <windows-account> <port>`

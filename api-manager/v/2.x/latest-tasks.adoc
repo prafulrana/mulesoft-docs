@@ -1,6 +1,6 @@
 = Basic API Management Tasks
 
-The procedures in this section cover basic life cycle management, excluding policy and proxy management, in Anypoint Platform using API Manager 2.x. 
+The procedures in this section cover basic life cycle management, excluding policy and proxy management, in Anypoint Platform using API Manager 2.x.
 
 * link:/api-manager/v/2.x/manage-exchange-api-task[To Manage an API from Exchange]
 * link:/api-manager/v/2.x/import-api-task[To Import an API Instance]
@@ -24,7 +24,6 @@ The procedures in this section cover basic life cycle management, excluding poli
 * link:/api-manager/v/2.x/prepare-raml-task[To Prepare RAML for Policies]
 * link:/api-manager/v/2.x/delete-sla-tier-task[To Delete an SLA Tier]
 * link:/api-manager/v/2.x/disable-edit-remove-task[To Disable, Edit, or Remove a Policy]
-* link:/api-manager/v/2.x/configure-policy-polling-task[To Configure Policy Polling Time]
 * link:/api-manager/v/2.x/offline-policy-task[To Apply an Offline Policy]
 * link:/api-manager/v/2.x/offline-remove-task[To Remove an Offline Policy]
 * link:/api-manager/v/2.x/upload-policy-exchange-task[To Upload a Policy to Exchange]

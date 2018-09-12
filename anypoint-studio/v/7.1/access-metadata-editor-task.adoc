@@ -24,13 +24,13 @@ If the previous component in your flow is already defining output metadata, the 
 +
 image::access-metadata-editor-task-b0be6.png[]
 
-When accesing the Metadata Editor from the Transform Message component, you get the option to wrap elements in a collection. +
-This sets the metadata as a list, where each element on the list is an instance of the structure you defined. So for example if you set your metadata as an XML structure, clicking this checkbox will make your metadata a list that contains N instances of that XML structure.
+When you set metadata for a Transform Message component, you can select a checkbox to wrap elements in a collection. Selecting the wrap-elements option sets the metadata as a list, where each element on the list is an instance of the structure you defined. So for example if you set your metadata as an XML structure and click this checkbox, your metadata si expressed as a list that contains N instances of that XML structure.
 
 == To Access the Metadata Editor (Package Explorer View)
 
-. Right click on your project in the package explorer view.
-. Select Mule and then Manage Metadata Types.
+. Select *Window > Show View > Package Explorer* if the package explorer is not already displayed.
+. Right click on a project in the package explorer view.
+. Select *Mule > Manage Metadata Types*.
 
 == See Also
 

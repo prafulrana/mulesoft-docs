@@ -1,0 +1,11 @@
+= Managing Anypoint Private Cloud
+
+The following topics describe how to manage Anypoint Private Cloud after installation and configuration:
+
+*** link:/anypoint-private-cloud/v/2.0/managing-via-the-ops-center[To Manage Anypoint Platform Private Cloud Edition Using Ops Center]
+*** link:/anypoint-private-cloud/v/2.0/backup-and-disaster-recovery[To Configure Backup and Restore]
+*** link:/anypoint-private-cloud/v/2.0/ops-center-update-lic[To Add a Product License Using Ops Center]
+*** link:/anypoint-private-cloud/v/2.0/config-alerts[To Setup Alerts for CPU and Memory Usage]
+*** link:/anypoint-private-cloud/v/2.0/config-add-proxy-whitelist[To Add Whitelist Addresses for API Platform Proxies]
+*** link:/anypoint-private-cloud/v/2.0/demo-ldap-server[To Configure the Demo LDAP Server]
+*** link:/anypoint-private-cloud/v/2.0/ext-analytics-elk[To Analyze Business and API Data using ELK]

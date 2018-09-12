@@ -1,7 +1,5 @@
 = Endpoints
 
-NOTE: Current Anypoint Partner Manager solutions will continue to be supported in accordance with the https://www.mulesoft.com/legal/support-maintenance-terms[Product Support and Maintenance Terms] but will not be available for new customers or upgrades. Contact your MuleSoft representative for more information on MuleSoft's B2B solutions.
-
 An _endpoint_ is the entry point to a service, a process, or a queue or topic destination in service-oriented architecture. In APM, an endpoint defines the protocol, address, and other details specific to an exchange of messages between partners.
 
 

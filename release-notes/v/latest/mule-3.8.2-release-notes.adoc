@@ -86,7 +86,7 @@ Processing after a `synchronous until successful` resulting in a `VoidMuleEvent`
 |AGW-880|All policies are parsed for every deployed application
 |AGW-886|Moving client credentials logic to initialize breaks a fast deployment
 |AGW-911|Issue with `api-platform-gw:api` and `apikit:config`
-|AGW-914|Auto-discovery constantly tries to upload RAML and register source to platform
+|AGW-914|Autodiscovery constantly tries to upload RAML and register source to platform
 |===
 
 == Library Changes

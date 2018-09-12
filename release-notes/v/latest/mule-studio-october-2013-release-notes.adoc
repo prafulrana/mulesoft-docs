@@ -46,7 +46,7 @@ n/a | n/a
 * *DataMapper Runtime Performance Improvement:* Improvements to the DataMapper runtime mean better runtime performance when working with tree-structured data formats such as XML, map, JSON and POJO. Further, the new in-memory cache property enables fast and performant memory caches in order to speed up the task of generating data structures.
 * link:/mule-user-guide/v/3.7/poll-reference[*Simplified Poll Debugging:*] Studio's Visual Debugger now offers the ability to pause and resume polling in debug mode to improve the user experience while testing and debugging with polls. 
 * *Improved Environment Management in CloudHub:* CloudHub administrators can now move applications between environments.
-* *Anypoint Service Registry Service Auto-Discovery:* You can now configure your Mule Studio applications to be automatically registered by the Anypoint agent to your Anypoint Service Registry account. 
+* *Anypoint Service Registry Service Autodiscovery:* You can now configure your Mule Studio applications to be automatically registered by the Anypoint agent to your Anypoint Service Registry account. 
 * *Anypoint Connectors Compatibility:* The majority of connectors available on MuleSoft's http://www.mulesoft.org/connectors[Anypoint Connectors website] are compatible with CloudHub Mule Runtime (October 2013), although not all connectors support DataSense. Refer to the complete list of link:/anypoint-studio/v/5/using-perceptive-flow-design[DataSense-enabled] connectors.
 * *SAP Transport*: version 2.2.0 supports DataSense.
 

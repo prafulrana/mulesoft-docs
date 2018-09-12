@@ -1,7 +1,7 @@
 = MMC Migrator Tool
 :keywords: mmc, migration
 
-This tool enables you to migrate server configuration data in your Mule Management Console (MMC) instance to a Runtime Manager instance. MMC is in the process of being fully replaced by the Runtime Manager, and will eventually be deprecated, so we advise that you carry out this migration at your soonest convenience. The migration process consists on executing two scripts and taking care of a couple of manual steps in between.
+This tool enables you to migrate server configuration data in your Mule Management Console (MMC) instance to a Runtime Manager instance. MMC is in the process of being fully replaced by the Runtime Manager. https://www.mulesoft.com/legal/versioning-back-support-policy#mule-management-console[MMC has been deprecated], so we advise that you carry out this migration at your soonest convenience. The migration process consists on executing two scripts and taking care of a couple of manual steps in between.
 
 Download http://s3.amazonaws.com/MuleEE/mmc-arm-migrationscripts-1.0.0.zip[the migration tool].
 

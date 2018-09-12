@@ -1,3 +1,5 @@
+=== To Configure an Alert
+
 //INCLUDED IN GRAPH CONFIG FILE
 [[alerts]]
 
@@ -8,7 +10,6 @@ You can create, configure, delete, test, and send alerts to people who need to s
 
 image::graph-alert-config.png[Alert Configuration]
 
-=== To Configure an Alert
 
 . Navigate to the configuration screen for a graph in a custom dashboard. For guidance, see link:dashboard-custom-config[Configuring Custom Dashboards].
 . Provide a General configuration for the graph that (at minimum) defines the metric, environment, and resource for which you want to set the alert. For guidance, see link:dashboard-custom-config-graph#general_settings[General Settings].

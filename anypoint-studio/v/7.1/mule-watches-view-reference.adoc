@@ -1,8 +1,8 @@
-= Mule Expression Watches View Reference
+= DataWeave Expression Watches View Reference
 
-Mule Visual Debugger can watch for selected Mule expression in all active breakpoints. If the expression occurs at at any of the active breakpoints, Mule evaluates the expression, then displays the result in the Mule Expression Watches View.
+Mule Visual Debugger can watch for selected DataWeave expressions in all active breakpoints. If the expression occurs at at any of the active breakpoints, Mule evaluates the expression, then displays the result in the DataWeave Expression Watches View.
 
-image::mule-watches-view-reference-9703f.png[mule-watches-view]
+image::mule-watches-view-ref-9703f.png[mule-watches-view]
 
 [%header%autowidth.spread]
 |===

@@ -95,7 +95,7 @@ There are many ways to deploy applications to the WebLogic server. These instruc
 
 . Copy `mule-enterprise-jca.rar` into the `<WLHome>/user_projects/domains/<yourdomain>/autodeploy` directory.
 
-. Restart your domain server instance in development mode. During the starting process, the new RAR file will be auto-discovered and deployed by the domain server.
+. Restart your domain server instance in development mode. During the starting process, the new RAR file will be autodiscovered and deployed by the domain server.
 
 ==== To Deploy Mule Using the Administration Console:
 

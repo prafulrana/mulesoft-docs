@@ -1,5 +1,5 @@
-// authors: Federico Balbi and Nahuel Dalla Vecchia (assigned by Eva)
 = Migrating API Gateways: Mule Runtime Configuration
+// authors: Federico Balbi and Nahuel Dalla Vecchia (assigned by Eva)
 
 // Explain generally how and why things changed between Mule 3 and Mule 4.
 Configuration properties for API Gateway Runtime changed in Mule 4.
@@ -30,6 +30,6 @@ Starting from Mule 4, these properties have to be defined in the `wrapper.conf` 
 
 link:migration-api-gateways[Migrating API Gateways]
 
-link:migration-api-gateways-autodiscovery[Migrating API Gateways: Auto-Discovery]
+link:migration-api-gateways-autodiscovery[Migrating API Gateways: Autodiscovery]
 
 link:migration-api-gateways-policies[Migrating API Gateways: Policies]

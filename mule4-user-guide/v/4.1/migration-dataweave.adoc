@@ -1,5 +1,5 @@
-// sme: PLG, Shoki?, author: sduke?
 = Migrating from DataWeave version 1 to 2
+// sme: PLG, Shoki?, author: sduke?
 
 // Explain generally how and why things changed between Mule 3 and Mule 4.
 

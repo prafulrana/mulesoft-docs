@@ -1,7 +1,7 @@
-= API Auto-Discovery Reference
-:keywords: auto-discovery, autodiscovery, auto-discovery schema, auto-discovery namespace
+= API Autodiscovery Reference
+:keywords: autodiscovery, Autodiscovery namespace
 
-The configuration.xml of a project that includes auto-discovery references the main flow where the HTTP listener is configured. From the auto-discovery configuration, API Manager obtains the information necessary to register the APIs described by the global elements. The following configuration.xml is an example of an API configured for auto-discovery:
+The configuration.xml of a project that includes autodiscovery references the main flow where the HTTP listener is configured. From the autodiscovery configuration, API Manager obtains the information necessary to register the APIs described by the global elements. The following configuration.xml is an example of an API configured for API autodiscovery:
 
 [source, xml, linenums]
 ----
@@ -17,7 +17,7 @@ image::api-auto-discovery-reference-0dc02.png[api-auto-discovery-reference-0dc02
 
 == api-platform-gw Attributes
 
-The api-platform-gw attributes include the `flowRef` attribute. In an APIkit project, the last element includes an `apikitRef` that references the global element. 
+The api-platform-gw attributes include the `flowRef` attribute. In an APIkit project, the last element includes an `apikitRef` that references the global element.
 
 The following table lists the `api-platform-gw` attributes:
 
@@ -28,7 +28,7 @@ The following table lists the `api-platform-gw` attributes:
 |*version* |Yes |The version number. Management breaks if you change the version in API Portal.
 |*flowRef* |Yes |A reference to the main flow of your project. It triggers the agent to discover this flow and use it when performing the auto-registration.
 |*apikitRef* |No |A reference to the APIkit configuration. Used to upload the RAML file to Anypoint Platform after API registration completes and for resource level policies.
-|*create* |No |Enables/disables the automatic creation of APIs in the auto-discovery process. If false or not present, the API is still tracked by Anypoint Platform if it already exists. If it doesn't already exist, the application won't communicate with the platform. 
+|*create* |No |Enables/disables the automatic creation of APIs in the Autodiscovery process. If false or not present, the API is still tracked by Anypoint Platform if it already exists. If it doesn't already exist, the application won't communicate with the platform.
 |===
 
 === api-platform-gw Nested Elements
@@ -42,16 +42,16 @@ The following attributes list the `api-platform-gw` nested elements.
 |*api-platform-gw:tag* |No |The tag is searchable metadata in the API Manager and API that appears on the API version details page when Anypoint Platform discovers and registers the API.
 |===
 
-== Auto-Discovery Namespace, Schema, and Dependency Information
+== Autodiscovery Namespace, Schema, and Dependency Information
 
 *Namespace and Schema*
 
 ----
-mule xmlns:api-platform-gw="http://www.mulesoft.org/schema/mule/api-platform-gw” 
+mule xmlns:api-platform-gw="http://www.mulesoft.org/schema/mule/api-platform-gw”
 http://www.mulesoft.org/schema/mule/api-platform-gw/current/mule-api-platform-gw.xsd
 ----
 
-*Auto-Discovery Dependency Information*
+*Autodiscovery Dependency Information*
 
 Version information depends on the Mule version.
 
@@ -67,5 +67,5 @@ Version information depends on the Mule version.
 == See Also
 
 * link:/api-manager/v/1.x/configuring-an-api-gateway#configuring-your-production-api-gateway-for-integration-with-the-anypoint-platform[Configure API Gateway]
-* link:/api-manager/v/1.x/api-auto-discovery[About Auto-Discovery]
-* link:/api-manager/v/1.x/configure-auto-discovery-task[To Configure Auto-Discovery]
+* link:/api-manager/v/1.x/api-auto-discovery[About Autodiscovery]
+* link:/api-manager/v/1.x/configure-auto-discovery-task[To Configure Autodiscovery]

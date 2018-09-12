@@ -16,7 +16,7 @@ You can view the following types of properties:
 * Environment Properties
 * System Properties
 
-Runtime Manager retrieves the values of these properties from the Runtime Manager Agent which queries the `System` Java class on the remote server. By default, auto-discovery of remote server properties is disabled. You must click Enable Discovery to use this feature. After enabling this feature, Runtime Manager stores an encrypted version of these properties in its internal database.
+Runtime Manager retrieves the values of these properties from the Runtime Manager Agent which queries the `System` Java class on the remote server. By default, Autodiscovery of remote server properties is disabled. You must click Enable Discovery to use this feature. After enabling this feature, Runtime Manager stores an encrypted version of these properties in its internal database.
 
 To fully disable this feature, contact your customer success representative.
 

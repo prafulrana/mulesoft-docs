@@ -36,7 +36,8 @@ For sensitive information, you may wish to flag these properties as hidden so th
 
 To create safely hidden application properties:
 
-1. Identify the property names that you wish to safely hide by listing them as a comma separated array as the value of the `secure.properties` key inside the Mule application's `mule-artifact.json` file. In the example below, there are four total properties used in the application (lines 1-4 below), which have been defined in the mule-app.properties file with values for local testing (optional). Line 5 flags two of the properties as secure.
+1. Inside the Mule application's `mule-artifact.json` file, list the property names you wish to safely hide under the `secureProperties` key as a comma separated array. Line 5 of the example flags two properties as secure.
+(optional) `config.yaml` defines four properties with values for local testing.
 
 .config.yaml
 [source,yaml, linenums]
@@ -72,6 +73,7 @@ birthdate: "01/01/2015"
   }
 }
 ----
+
 
 [NOTE] 
 ====
@@ -133,7 +135,7 @@ Mule applications can also be developed to store encrypted properties in secure 
 
 For CloudHub deployments, none of the secure deployment approaches discussed for customer-hosted deployments is available in CloudHub, because operators do not have access to the CloudHub worker's file system, nor can they log in to a command-line to start up the CloudHub worker. 
 
-Encrypted properties can also be flagged as safely hidden application properties, by listing the encrypted property's name in the secure.properties entry in the Mule application's mule-app.properties file. In particular, the secret key used to decrypt the encrypted properties can be set as a safely hidden property in the mule-app.properties file's secure.properties variable. 
+Encrypted properties can also be flagged as safely hidden application properties, by listing the encrypted property's name in the `secureProperties` entry in the Mule application's `mule-artifact.json` file. In particular, the secret key used to decrypt the encrypted properties can be set as a safely hidden property in the `mule-artifact.json` file's `secureProperties` key. 
 
 Here is an example: 
 
@@ -194,7 +196,7 @@ This means that when you override a secure property in the CloudHub properties t
 For example, if a production application needs to update the database user and password stored in two properties named db.user and db.password, then an operator would enter this new db.user and db.password into the CloudHub properties tab for the application and then Start or Restart the application. This allows the new application to upgrade this secure login information with zero downtime. Once all dependent applications are migrated, the old account could be decomissioned.
 
 == CloudHub Mule Applications Do Not Need Encrypted Properties
-The previous discussion indicates that for Mule applications that will only be deployed into CloudHub workers, you may not need to encrypt properties, but instead just flag those properties as safely hidden propreties in the Mule application's 'mule-app.properties' file's `secure.properties` entry. 
+The previous discussion indicates that for Mule applications that will only be deployed into CloudHub workers, you may not need to encrypt properties, but instead just flag those properties as safely hidden propreties in the Mule application's `mule-artifact.json` file's `secureProperties` entry. 
 
 == See Also
 * link:/mule-user-guide/v/4.1/secure-configuration-properties[Secure Configuration Properties]

@@ -186,12 +186,14 @@ After creating a custom role, you can enable access to the Design Center applica
 image::design-center-permissions.png[Adding permissions to Design Center]
 
 . Click the Select Access drop-down, then click the check box next to Design Center Developer.
-. Click the + icon to add the Design Center Developer permission scope. 
+. Click the + icon to add the Design Center Developer permission scope.
 
 
 === To Assign API Permissions to a Custom Role
 
-You can also associate an API or an Anypoint application to the custom role. This enables you to create roles that give users access to a specific API.
+==== API Manager 1.x
+
+You can associate an API to a custom role. This enables you to create roles that give users access to a specific API.
 
 . From Access Management, select Roles.
 . Click the name of the custom role you want to grant access to an API.
@@ -205,6 +207,30 @@ Custom roles have a radial button next to them.
 +
 * API Version Owner
 * Portal Viewer
+
+=== API Manager 2.x
+
+You can associate environment permissions to the custom role. This enables you to create roles that give users different permissions over environments.
+
+. From Access Management, select Roles.
+. Click the name of the custom role you want to grant access to an API.
++
+Custom roles have a radial button next to them.
++
+. Click Permissions, then click API Manager.
+. Select an environment from the drop-down list.
+. Select the permission from the drop-down list. You can add the following permissions to an environment:
++
+* API Manager Environment Administrator
+* Deploy API Proxy
+* Manage API Alerts
+* Manage APIs Configuration
+* Manage Contracts
+* Manage Policies
+* View API Alerts
+* View APIs Configuration
+* View Contracts
+* View Policies
 
 == Role Mapping
 

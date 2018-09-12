@@ -16,7 +16,7 @@ Object Store v2 provides:
 * Supports unlimited keys.
 * Fully integrated with the Anypoint Platform.
 * OSv2 HA is available in all supported regions and availability zones within each region.
-* Data co-located in the same region as your deployed Mule applications.
+* OSv2 is co-located in the same region as your workers, for example, your workers in Singapore would use OSv2 that is hosted in Singapore.
 * Mule connector for Mule applications and REST interface for external applications.
 * End-to-end secure transport and storage. Object Store v2 uses TLS for secure transport. 
 * Data at rest is stored using FIPS 140-2 compliant encryption standards.
@@ -43,9 +43,11 @@ image:os-use-object-store-v2.png[Click Use Object Store V2 in the Runtime Manage
 * The Object Store Connector works for both Object Store version 1 and 2. 
 * OSv2 enforces a maximum data persistence of 30 days from time of creation.
 * Free accounts are rate limited to 10 transactions per second per application. To go beyond the base 10 TPS rate limit, contact your MuleSoft account team.
-* OSv2 overrides the `_defaultUserObjectStore` object store. In the Object Store connector, you must set the 
-Object Store Reference field to `_defaultUserObjectStore` for data to be stored in OSv2. 
-* Object store data stays within the same region where the Mule application resides.
+* In Mule 4, OSv2 overrides the `_defaultPersistentObjectStore` object store. No further configuration is required.
+If the connector or component that you are using uses that object store, then you have access to OSv2.
++
+In Mule 3, OSv2 overrides the `_defaultUserObjectStore` object store. In the Mule 3 Object Store connector, 
+you must set the Object Store Reference field to `_defaultUserObjectStore` for data to be stored in OSv2. 
 
 == See Also
 

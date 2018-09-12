@@ -22,7 +22,7 @@ Gateway leverages many of the improvements added in Mule 4. See link:/mule4-user
 * Resource-level policy support has been extended to any HTTP API and not restricted to RAML based APIs.
 * Custom policies can leverage Mule core concepts and language. See link:https://docs.mulesoft.com/api-manager/custom-policy-4-reference[Custom Policy General Reference] (on `+https://docs.mulesoft.com/+`).
 
-Note that Mule 4 is only supported on the new API Manager. See new API Manager documentation, link:https://docs.mulesoft.com/api-manager/configure-auto-discovery-new-task#configuration-xml-element-for-mule-4[Configuration XML Element for Mule 4] (on `+https://docs.mulesoft.com/+`), for how to configure API Gateway.
+Note that Mule 4 is only supported on the new API Manager. See new API Manager documentation, link:/api-manager/v/2.x/configure-autodiscovery-4-task[Configuring API Autodiscovery in a Mule 4 Application] (on `+https://docs.mulesoft.com/+`), for how to configure API Gateway.
 
 === Not supported on Early Access
 

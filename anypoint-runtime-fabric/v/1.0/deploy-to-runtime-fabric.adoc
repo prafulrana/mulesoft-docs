@@ -1,54 +1,55 @@
-= Deploy a Mule Application to a Runtime Fabric
-:noindex:
+= Deploy a Mule Application to Runtime Fabric
 
-This topic describes how to deploy a Mule application to an Anypoint Runtime Fabric.
+This topic describes how to deploy a Mule application to Anypoint Runtime Fabric.
 
 == Before You Begin
 
-Before deploying an application to an Anypoint Runtime Fabric, you must perform the following:
+Before deploying an application to Anypoint Runtime Fabric, you must perform the following:
 
-* Install and configure at least one Anypoint Runtime Fabric. See link:/anypoint-runtime-fabric/v/1.0/installation[Install Anypoint Runtime Fabric] for more information.
-* Ensure that your Runtime Fabric is associated with an environment.
-* Determine the resource allocation requirements for your application. See [link to docs on scaling and number of cores/memory] for more information. See link:/anypoint-runtime-fabric/v/1.0/deploy-resource-allocation[Determine Application Resource Allocation on Runtime Fabric] for more information.
+* Install and configure Anypoint Runtime Fabric. See link:/anypoint-runtime-fabric/v/1.0/installation[Install Anypoint Runtime Fabric] for more information.
+* Ensure that Runtime Fabric is associated with an environment.
+* Determine the resource allocation requirements for your application. See link:/anypoint-runtime-fabric/v/1.0/deploy-resource-allocation[Determine Application Resource Allocation on Runtime Fabric] for more information.
+* Your Anypoint user may require the *Exchange Contributors* permission to deploy applications to Runtime Fabric.
 
-== Procedure
+== Deploy an Application
 
-. Provide a name for your deployed application in the *Application Name* field.
-. Select the application you want to deploy by clicking *Choose File*, then select one of the following options:
+To deploy an application, perform the following steps:
+
+. Sign in to link:https://anypoint.mulesoft.com[Anypoint Platform].
+. Navigate to *Runtime Manager*, and select the Applications section.
+. Click *Deploy application*.
+. Provide a name for your application in the *Application Name* field.
+.. The name should only contain lowercase alphanumeric characters, hyphens, and underscores.
+. Select the application to deploy by clicking *Choose File*, then select one of the following options:
 +
-* *Import file from Exchange*: enables you to select a Mule application that has been published to Exchange.
+* *Import file from Exchange*: enables you to select a Mule application stored in Anypoint Exchange.
 * *Upload file*: enables you to select a Mule application file from your filesystem.
-
-. Select a Runtime Fabric from the *Deployment Target* drop-down list.
 +
-_Result_: The *Deployment Target*, *EDGE Configuration*, and *Properties* tabs are displayed. Use these tabs to enter additional configuration information for your application.
+. Select the name of your Runtime Fabric from the *Deployment Target* drop-down list.
++
+_Result_: The *Deployment Target*, *Ingress*, and *Properties* tabs are displayed. Use these tabs to enter additional configuration information for your application.
 
-. Select the *Deployment* Target tab.
+. Select the *Deployment Target* tab.
 +
 This tab displays the name and type of the deployment target you selected above.
 
 . Select the Mule runtime version from the *Runtime Version* drop-down list.
+
+. Select the number of replicas, or instances, of the application to deploy. A minimum of 2 replicas is required for high availability.
+.. Enable *Run in Runtime Clustering Mode* to enable Mule clustering across each replica of the application.
+. Specify the amount of *Cores* and *Memory* to allocate to each replica of the application by adjusting the sliders to the appropriate values.
 +
-See [link to supported runtimes] for more information.
+See how to link:/anypoint-runtime-fabric/v/1.0/deploy-resource-allocation[determine resource allocation] for applications deployed to Runtime Fabric.
 
-. Select the number of workers you want allocate to the application.
-+
-See [link to work/core/memory topic] for more information.
+. Specify network configuration for the application:
 
-. Specify the number of *Cores* and *Memory* you want to allocate to the application by adjusting the sliders to the appropriate values.
-+
-See [link to docs on scaling and number of cores/memory] for more information.
-
-. Specify additional network configuration for the application. (Optional)
-
-.. Click the *EDGE Configuration* tab.
+.. Click the *Ingress* tab.
 .. Enable or disable the following options:
 +
-* *Enable inbound traffic to this application*:
-* *Enable Last-Mile security*: 
-* *Enable application to run in Runtime Cluster Mode*:  
+* *Enable inbound traffic to this application* to allow incoming HTTP requests to be processed by this application. Ensure your application is configured to accept connections on port 8081.
+* *Enable Last-Mile security* to forward HTTPS connections to be decrypted by this application. This requires an SSL certificate to be included in the Mule application, and also requires more CPU resources.
 
-. Configure application properties (Optional)
+. Configure application properties:
 .. Click the *Properties* tab.
 .. Specify your application properties as key-value pairs.
 
@@ -56,13 +57,29 @@ See [link to docs on scaling and number of cores/memory] for more information.
 +
 If the *Deploy Application* button is disabled, ensure that you have uploaded a valid Mule application file. Also ensure that the Mule runtime version you selected is the same as the version used by your application.
 
-_Result_: Runtime Manager displays a status message related to the application deployment. After a few seconds, Runtime Manager displays the list of deployed applications, including the application you just deployed.
+_Result_: Runtime Manager will display a status message confirming the application deployment. After the deployment has started, you'll be directed to the applications list page where you can view the deployment status.
 
-== What to do Next
+For newly deployed applications, the status will initially display as *Starting*. The status will update to *Started* if the application is successful. Monitor the application status to ensure that it starts successfully.
 
-Initially, the application status displayed is *Starting*. The status should eventually change to *Started*. Monitor the application status to ensure that it starts successfully.
+== Verification
+
+To test inbound traffic for deployed applications, a request can be sent using the IP address along with a host header set to the domain. The host header depends on the structure of the App URL.
+
+* An App URL with the format of _{app-name}.domain.com_ will use the following request header format: `Host: {app-name}.domain.com`. Here’s an example cURL command to verify: `curl -Lvk -XGET https://{ip-address}/{path} -H 'Host: {app-name}.domain.com'`
+* An App URL with domain.com/{app-name}_ will will use the following request header format: `Host: domain.com`. Here’s an example cURL command to verify: `curl -Lvk -XGET https://{ip-address}/{app-name}/{path} -H 'Host: domain.com'`
+
+== Common Issues
+
+If your application remains in the *Starting* status for several minutes, this may be due to specifying a lower amount of resources. It's common for applications to take several minutes to start up when selecting 0.3 cores or lower.
+
+If the application encounters an error during startup, the deployment will stop and the status will update to *Failed*. An error message preview is displayed when clicking on the application and viewing the right sidebar. To view the entire message, click on the *Manage Application* button. Viewing the application logs in Ops Center or via your third party logging provider will provide more details.
+
+An error message indicating `insufficient resources` is returned when Runtime Fabric doesn't have the CPU cores or memory available for the deployment. When selecting multiple replicas, it's important to know that the cores and memory specified applies to _each_ replica.
+
+If a re-deployment to an existing running application fails, the previous application will remain running and active. This behavior enables zero-downtime application re-deployments. Runtime Manager will report the details and status of the failed deployment to help resolve the failure.
 
 == See Also
 
+* link:/anypoint-runtime-fabric/v/1.0/deploy-resource-allocation[Determine Application Resource Allocation on Runtime Fabric]
 * link:/runtime-manager/developing-applications-for-cloudhub[Deploy a Mule Application to CloudHub]
 * link:/runtime-manager/deploying-to-your-own-servers[Deploy a Mule Application to a Hybrid Environment]

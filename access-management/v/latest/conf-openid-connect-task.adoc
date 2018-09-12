@@ -8,7 +8,7 @@ This task topic covers two identity management procedures for client registratio
 MuleSoft verifies support in Anypoint Platform for the following registrations:
 
 * Clients created dynamically in Okta and OpenAM
-* Clients created manually in Okta, OpenAM, and PingFederate
+* Clients created manually in Salesforce, Okta, OpenAM, and PingFederate
 
 Please note, that although integration with the aforementioned Identity providers have been officialy tested, Anypoint platform supports the OpenID Connect Protocol. This means that, any Identity Provider that supports the protocol should be able to integrate unless they diverge from the link:http://openid.net/specs/openid-connect-core-1_0.html[specification]. 
 
@@ -16,12 +16,12 @@ If you already configured Anypoint Platform as a client application in your iden
 
 [%autowidth.spread]
 |===
-| URL Name | Okta Example URL | OpenAM Example URL | PingFederate Example URL 
-| Base | `+https://example.okta.com/oauth2/v1+` | `+https://example.com/openam/oauth2+` | `+https://example.com:9031+` 
-| Client Registration | {BASE URL}/clients | {BASE URL}/connect/register | N/A 
-| Authorize | {BASE URL}/authorize | {BASE URL}/authorize | {BASE URL}/as/authorization.oauth2 
-| Token | {BASE URL}/token | {BASE URL}/access_token | {BASE URL}/as/token.oauth2 
-| User Info | {BASE URL}/userinfo | {BASE URL}/userinfo | {BASE URL}/idp/userinfo.openid 
+| URL Name | Okta Example URL | Salesforce Example URL | OpenAM Example URL | PingFederate Example URL
+| Base | `+https://example.okta.com/oauth2/v1+` | `+https://domain.my.salesforce.com/services/oauth2+` | `+https://example.com/openam/oauth2+` | `+https://example.com:9031+`
+| Client Registration | {BASE URL}/clients | {BASE URL}/clients | {BASE URL}/connect/register | N/A
+| Authorize | {BASE URL}/authorize | {BASE URL}/authorize | {BASE URL}/authorize | {BASE URL}/as/authorization.oauth2
+| Token | {BASE URL}/token | {BASE URL}/token | {BASE URL}/access_token | {BASE URL}/as/token.oauth2
+| User Info | {BASE URL}/userinfo | {BASE URL}/userinfo | {BASE URL}/userinfo | {BASE URL}/idp/userinfo.openid
 |===
 
 == To Configure OpenID Connect Dynamically
@@ -102,6 +102,10 @@ The URL that provides the user’s identity encoded in a secure JSON Web Token.
 +
 The URL that returns user profile information to the client app.  
 +
+* OpenID Connect Issuer
++
+The location of the OpenID Provider. For most providers, `/.well-known/openid-configuration` is appended to the issuer to generate the metadata URL for openID Connect specifications. For Salesforce, you must provide the value for `issuer`.
++
 . Save your configuration.
 +
 . Sign out and navigate to your organization’s SSO URL, for example:
@@ -117,6 +121,10 @@ The URL that returns user profile information to the client app.
 * link:https://developer.okta.com/docs/api/resources/oidc.html#token-request[Okta OpenID Connect, Token Request]
 * link:https://developer.okta.com/docs/api/getting_started/getting_a_token.html[Okta Getting a Token]
 * link:https://developer.okta.com/docs/api/resources/oidc.html#get-user-information[Okta OpenID Connect, Get User Information]
+* link:https://help.salesforce.com/articleView?id=remoteaccess_oauth_web_server_flow.htm[Salesforce OAuth 2.0 Web Server Authentication Flow]
+* link:https://help.salesforce.com/articleView?id=sso_provider_openid_connect.htm[Salesforce OpenID Connect, Authentication Request]
+* link:https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_refresh_token_oauth.htm[Salesforce OAuth Refresh Token Process]
+* link:https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_username_password_oauth_flow.htm[Salesforce Understanding Username-Password OAuth]
 * link:https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-oauth2-client-endpoints[OpenAM 13.5 Developer's Guide, Section 2.1.14.1.1 OAuth 2.0 Client and Resource Server Endpoints]
 * link:https://backstage.forgerock.com/docs/openam/13.5/admin-guide#register-openid-connect-client-dynamic[OpenAM 13.5 Developer's Guide, Procedure 14.4 To Register a Relying Party Dynamically]
 * link:https://backstage.forgerock.com/docs/openam/13.5/dev-guide#rest-api-openid-connect-authorization[OpenAM 13.5 Developer's Guide, Section 2.1.14.2.3 Endpoints for Performing OpenID Connect 1.0 Authorization]

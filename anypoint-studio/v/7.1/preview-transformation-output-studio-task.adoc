@@ -42,4 +42,4 @@ Note that samples defined in this pane work only within the *Transform Message* 
 
 * link:/anypoint-studio/v/7.1/workflow-create-mapping-ui-studio[Workflow: Create a Mapping]
 * link:/anypoint-studio/v/7.1/transform-message-component-concept-studio[About Transform Message Component]
-*link:/mule4-user-guide/v/4.1/dataweave[DataWeave language]
+* link:/mule4-user-guide/v/4.1/dataweave[DataWeave Language]

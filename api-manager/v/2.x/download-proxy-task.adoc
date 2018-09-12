@@ -19,4 +19,4 @@ The proxy downloads.
 
 * link:/api-manager/v/2.x/environment-permission-task[Setting permissions]
 * link:/api-manager/v/2.x/create-instance-task[To Create an API Instance]
-* link:/api-manager/v/2.x/api-auto-discovery-new-concept[About Auto-Discovery]
+* link:/api-manager/v/2.x/api-auto-discovery-new-concept[About Autodiscovery]

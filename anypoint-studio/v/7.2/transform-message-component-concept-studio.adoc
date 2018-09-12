@@ -1,0 +1,27 @@
+= About the Transform Message Component
+:keywords: studio, anypoint, esb, transform, transformer, format, aggregate, rename, split, filter convert, xml, json, csv, pojo, java object, metadata, dataweave, data weave, datamapper, dwl, dfl, dw, output structure, input structure, map, mapping
+
+
+The Transform Message component carries out transformations over the input data it receives. You can explicitly write out a transformation in DataWeave language, or you can use the UI to build it implicitly through dragging and dropping elements.
+
+
+You can work with two representations of the same transformation, and any changes done to one are matched in real time by the other.
+
+
+image:using-dataweave-in-studio-b504a.png[]
+
+
+* *Graphical View*: Two tree views show the expected metadata structures of the input and output, mappings between these are represented through lines. These can be created through drag and drop.
+
+
+* *Source Code View*: DataWeave code expresses the transformation in full depth, including functions that aggregate, normalize, group, join, partition, pivot and filter data.
+
+The Transform Message component leverages metadata from connectors, schemas and sample data. It offers you a preview of your output that is built on sample data and is updated in real time as you make changes to your transformation.
+
+
+
+== See Also
+
+* link:/anypoint-studio/v/7.2/workflow-create-mapping-ui-studio[Workflow: Create a Mapping]
+* link:/anypoint-studio/v/7.2/tips-transform-message-ui-studio[Tips on the Transform Message UI]
+* link:/mule4-user-guide/v/4.1/dataweave[DataWeave language]

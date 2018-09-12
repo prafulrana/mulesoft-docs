@@ -1,5 +1,5 @@
-// sme: MG, author: sduke?
 = Migrating to the FTP and SFTP Connectors
+// sme: MG, author: sduke?
 
 The FTP and SFTP transports were completely rewritten. They evolved away from the Mule 3 transport model into an operation based connector. This enables many new capabilities:
 
@@ -107,7 +107,7 @@ Mule 4 offers an improved way of doing that. The `<ftp:listener>` and `<sftp:lis
 <flow name="listener">
   <ftp:inbound-endpoint address="ftp://anonymous:password@localhost:${port1}"
     pollingFrequency="1000"/>
-  
+
   <flow-ref name="processFile" />
 </flow>
 ----
@@ -126,7 +126,7 @@ Mule 4 offers an improved way of doing that. The `<ftp:listener>` and `<sftp:lis
         <fixed-frequency frequency="1000"/>
       </scheduling-strategy>
     </file:listener>
-    
+
     <flow-ref name="processFile" />
 </flow>
 ----

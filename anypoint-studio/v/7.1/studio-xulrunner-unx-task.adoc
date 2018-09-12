@@ -17,5 +17,5 @@ XULRunner binaries are located in a subfolder within the directory where you ext
 
 == See Also
 
-* link:/anypoint-studio/v/7.1/jdk-requirement-lnx-worflow[To Configure Java JDK (Linux)]
+* link:/anypoint-studio/v/7.1/jdk-requirement-xos-worflow[To Configure Java JDK (Mac OSx)]
 * link:/anypoint-studio/v/7.1/studio-configure-vm-task-unx[To Configure Studio's Default VM (Mac OSx)]

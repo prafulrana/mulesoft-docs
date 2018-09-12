@@ -1,8 +1,8 @@
-= To Configure Auto-Discovery
+= To Configure Autodiscovery
 
-You include API auto-discovery capability in a Mule application to enable API management from Anypoint Platform on the application HTTP endpoint. Include code in your Mule app, or use Studio to incorporate auto-discovery in your project. 
+You include API Autodiscovery capability in a Mule application to enable API management from Anypoint Platform on the application HTTP endpoint. Include code in your Mule app, or use Studio to incorporate Autodiscovery in your project.
 
-The following configuration.xml shows code that configures auto-discovery:
+The following configuration.xml shows code that configures Autodiscovery:
 
 [source, xml, linenums]
 ----
@@ -12,13 +12,13 @@ The following configuration.xml shows code that configures auto-discovery:
 </api-platform-gw:api>
 ----
 
-For more information about the elements, see the auto-discovery reference link below.
+For more information about the elements, see the Autodiscovery reference link below.
 
 == Studio Configuration
 
-To use API auto-discovery, first you need to pair Anypoint Studio with an Anypoint Platform organization by adding organization credentials to Studio *Preferences*. Next, you configure auto-discovery for each flow you want to manage using a global element. A Global Element contains the necessary information for registering an API to Anypoint Platform. Global Elements must then be referenced by one or more endpoints. Finally, you deploy the API project as a Mule application in Studio. API Manager discovers the API and registers it. The API appears on the API Administration page in Anypoint Platform for each flow you configure for auto-discovery.
+To use API Autodiscovery, first you need to pair Anypoint Studio with an Anypoint Platform organization by adding organization credentials to Studio *Preferences*. Next, you configure Autodiscovery for each flow you want to manage using a global element. A Global Element contains the necessary information for registering an API to Anypoint Platform. Global Elements must then be referenced by one or more endpoints. Finally, you deploy the API project as a Mule application in Studio. API Manager discovers the API and registers it. The API appears on the API Administration page in Anypoint Platform for each flow you configure for Autodiscovery.
 
-*To configure and trigger auto-discovery*:
+*To configure and trigger Autodiscovery*:
 
 . In a browser, log in to Anypoint Platform as an administrator, click *Access Management*. Select *Organization*.
 +
@@ -78,31 +78,28 @@ image:autodisc-discovered2.png[autodisc-discovered2,height=164,width=561]
 +
 You need to be a member of the Organization Administrators or API Versions Owner role to see a newly registered API in Anypoint Platform.
 
-== Auto-discovery on CloudHub
+== Autodiscovery on CloudHub
 
-If you use the *Deploy to Anypoint Platform > Cloud* context menu to deploy an API or proxy with auto-discovery to Anypoint Platform, CloudHub automatically replaces `0.0.0.0`:${http.port} in your endpoint with <YourUniqueDomain>.cloudhub.io and sends this endpoint URL to the API Manager to be displayed and tracked by the agent.
+If you use the *Deploy to Anypoint Platform > Cloud* context menu to deploy an API or proxy with Autodiscovery to Anypoint Platform, CloudHub automatically replaces `0.0.0.0`:${http.port} in your endpoint with <YourUniqueDomain>.cloudhub.io and sends this endpoint URL to the API Manager to be displayed and tracked by the agent.
 
 If your endpoint runs over HTTP, use the variable `http.port` in its address. If the endpoint runs over HTTPS, use the variable `https.port` instead.
 
-== Configuring and Using Auto-Discovery - API Gateway Runtime 2.x
+== Configuring and Using Autodiscovery - API Gateway Runtime 2.x
 
-To set up an API for auto-discovery, you first install an API Gateway Runtime in Studio. For example, install API Gateway Runtime 2.2.0. Next, follow the procedure in the previous section to configure and use auto-discovery.
+To set up an API for Autodiscovery, you first install an API Gateway Runtime in Studio. For example, install API Gateway Runtime 2.2.0. Next, follow the procedure in the previous section to configure and use Autodiscovery.
 
 == Best Practices
 
-Perform the following tasks after using auto-discovery to deploy an API:
+Perform the following tasks after using Autodiscovery to deploy an API:
 
-* API auto-discovery registers _new_ APIs, API versions, and/or endpoints. If the API already exists, the agent does not compare the name, description, tags, or any other information contained in the global element for updates.
-* After you have registered new APIs or versions using auto-discovery, visit Anypoint Platform and add the necessary API Versions Owner permissions so that users who need to access the link:/api-manager/v/1.x/tutorial-set-up-and-deploy-an-api-proxy[API version details page] for this API version can get there.
+* API Autodiscovery registers _new_ APIs, API versions, and/or endpoints. If the API already exists, the agent does not compare the name, description, tags, or any other information contained in the global element for updates.
+* After you have registered new APIs or versions using Autodiscovery, visit Anypoint Platform and add the necessary API Versions Owner permissions so that users who need to access the link:/api-manager/v/1.x/tutorial-set-up-and-deploy-an-api-proxy[API version details page] for this API version can get there.
 * Set the endpoint host to `0.0.0.0` instead of localhost.
-* Do not change the API Version name in API Portal if you have used auto-discovery. Doing so will break management of the API/
+* Do not change the API Version name in API Portal if you have used Autodiscovery. Doing so will break management of the API/
 
 Configure a production API Gateway for integration with Anypoint Platform. For more information, see the link below for configuring API Gateway.
 
 == See Also
 
-* link:/api-manager/v/1.x/api-auto-discovery-reference[Auto-Discovery Reference]
+* link:/api-manager/v/1.x/api-auto-discovery-reference[Autodiscovery Reference]
 * link:/api-manager/v/1.x/configuring-an-api-gateway#configuring-your-production-api-gateway-for-integration-with-the-anypoint-platform[Configure API Gateway]
-
-
-

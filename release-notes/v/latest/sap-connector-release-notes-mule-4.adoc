@@ -9,6 +9,33 @@ The Mule Runtime supports SAP integration through our Anypoint Connector for SAP
 
 Note: This connector is not supported for use with Anypoint Design Center.
 
+== 4.1.0
+
+*July 25, 2018*
+
+[%header%autowidth.spread]
+|===
+|Software |Version
+|Mule Runtime|4.1.1 and later
+|Anypoint Studio|7.0 and later
+|Java|8
+|SAP Solution| ECC 6.0 and later
+|Supported modules|SAP CRM, SAP ERP, SAP SRM, SAP SCM, and any other modules compatible with the NetWeaver platform.
+|===
+
+=== Features
+
+* Minimum Mule Runtime version set to 4.1.1.
+
+=== Fixed in this Release
+
+* Trying to access row values in a table which does not have any rows yet was throwing an error. It doesn't do that anymore now.
+* Connector can now be downloaded without having to add the releases repository in the settings.xml.
+
+=== Known Issues
+
+* None.
+
 == 4.0.1
 
 *July 17, 2018*

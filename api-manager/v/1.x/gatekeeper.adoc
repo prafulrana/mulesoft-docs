@@ -4,7 +4,7 @@ When you deploy an application, there could be a window of time during which the
 
 == How Gatekeeper Works
 
-After Mule Runtime detects you deployed an application for the first time, and the exposed API is running, all tracked listeners (flows having auto-discovery set up) are stopped. Gatekeeper blocks the API and returns a 503 (Service Unavailable) status code until the following conditions are met:
+After Mule Runtime detects you deployed an application for the first time, and the exposed API is running, all tracked listeners (flows having Autodiscovery set up) are stopped. Gatekeeper blocks the API and returns a 503 (Service Unavailable) status code until the following conditions are met:
 
 * Connection is made to API Manager.
 * Policies are downloaded.

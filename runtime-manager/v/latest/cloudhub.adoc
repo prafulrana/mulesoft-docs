@@ -74,7 +74,7 @@ The CloudHub link:/runtime-manager/virtual-private-cloud[Virtual Private Cloud (
 
 === CloudHub API
 
-If you need to automate tasks or build CloudHub into your deployment process, CloudHub has a link:https://anypoint.mulesoft.com/apiplatform/anypoint-platform/#/portals/organizations/68ef9520-24e9-4cf2-b2f5-620025690913/apis/8617/versions/60494/pages/83689[REST API] with which you can perform tasks such as manage and monitor your applications, scale your applications up or down, and more.
+If you need to automate tasks or build CloudHub into your deployment process, CloudHub has a link:https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-api[REST API] with which you can perform tasks such as manage and monitor your applications, scale your applications up or down, and more.
 
 
 == 3. Manage your Application

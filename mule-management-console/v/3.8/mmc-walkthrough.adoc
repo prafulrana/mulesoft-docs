@@ -45,7 +45,7 @@ image:MMC-quickstartpanel-annotated.png[MMC-quickstartpanel-annotated]
 Before you use MMC to deploy Mule applications to a server, you must first identify the server to MMC. This action is called registering the server.
 
 
-If you run the production version, you'll have to register the server manually. The simplest way to do this is using MMC's auto-discovery feature. The console automatically senses that a Mule server is running and captures much of the information needed for registration, thus making it easy to register any "discovered" servers.
+If you run the production version, you'll have to register the server manually. The simplest way to do this is using MMC's Autodiscovery feature. The console automatically senses that a Mule server is running and captures much of the information needed for registration, thus making it easy to register any "discovered" servers.
 
 . Click the *Servers* tab, then click *Unregistered* in the left navigation pane. 
 . The console lists all servers that have come online and are not yet registered. Select the *Mule-3.4* server, then click the *Register* button. 

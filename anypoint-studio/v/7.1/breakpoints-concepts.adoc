@@ -1,6 +1,6 @@
-= About Breakpoints
+= Breakpoints
 
-You can configure breakpoints according to three parameters, described in the table below. These parameters are set in the Mule Breakpoints View.
+You can configure breakpoints according to three parameters set in the Mule Breakpoints View.
 
 [%header,cols="2*"]
 |===

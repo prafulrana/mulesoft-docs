@@ -40,7 +40,7 @@ The following issues were fixed in this release:
 == Known Issues
 
 * Schedule Management is not supported on Mule 4 EA.
-* Auto-discovery of server properties is not supported on Mule 4 EA.
+* Autodiscovery of server properties is not supported on Mule 4 EA.
 * Application Properties are not supported on Mule 4 EA.
 
 

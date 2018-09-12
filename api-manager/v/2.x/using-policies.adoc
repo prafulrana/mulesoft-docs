@@ -5,7 +5,7 @@ A policy extends the functionality of an API and enforces certain capabilities s
 
 * An APIkit project
 +
-For example, deploy the APIkit project to Anypoint Platform using API auto-discovery and apply a policy.
+For example, deploy the APIkit project to Anypoint Platform using API Autodiscovery and apply a policy.
 +
 * An API running on CloudHub
 +

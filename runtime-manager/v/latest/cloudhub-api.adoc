@@ -21,7 +21,7 @@ Before getting started with specific operations, be sure you're familiar with O
 [NOTE]
 ====
 This API deals only with cloud deployments via the cloud-based version of the Runtime Manager. See link:/runtime-manager/deployment-strategies[Deployment Strategies] for a better understanding of the different possible deployment scenarios. For managing on-prem applications via an API, see the
-link:https://anypoint.mulesoft.com/apiplatform/anypoint-platform/#/portals/organizations/ae639f94-da46-42bc-9d51-180ec25cf994/apis/38784/versions/127446[Runtime Manager API Portal]
+link:https://anypoint.mulesoft.com/apiplatform/anypoint-platform/#/portals/organizations/ae639f94-da46-42bc-9d51-180ec25cf994/apis/38784/versions/5567732[Runtime Manager API Portal]
 ====
 
 == Data Format
@@ -89,9 +89,7 @@ Date: Mon, 10 Aug 2015 00:12:55 GMT
 
 [TIP]
 ====
-Check out the link:https://anypoint.mulesoft.com/apiplatform/anypoint-platform/#/portals[API Portal] of the CloudHub API to see an interactive reference of all the supported resources, methods, required properties and expected responses.
-
-In the link above, search among other Mule APIs for the "CloudHub" API and click on its latest version.
+Check out the link:https://anypoint.mulesoft.com/apiplatform/anypoint-platform/#/portals/organizations/68ef9520-24e9-4cf2-b2f5-620025690913/apis/8617/versions/2321502[API Portal] of the CloudHub API to see an interactive reference of all the supported resources, methods, required properties and expected responses.
 ====
 
 == See Also

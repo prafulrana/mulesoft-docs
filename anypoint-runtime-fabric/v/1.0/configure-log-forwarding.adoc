@@ -1,18 +1,18 @@
-= Configure Log Forwarding
-:noindex:
+= Configure Log Forwarding on Anypoint Runtime Fabric
 
-This topic describes how to configure Runtime Fabric to forward application and Runtime Fabric cluster logs to an external logging service. The log forwarder provided by Runtime Fabric enables you to send logs to an rsyslog server over TCP or UDP.
+This topic describes how to configure Anypoint Runtime Fabric to forward application and cluster logs to an external logging service. The log forwarder built in to Runtime Fabric enables you to send log data to an rsyslog server over TCP or UDP.
 
 == Procedure
 
-. On the Runtime Fabric cluster, create a file named `log-forwarder.yaml`.
-. Add the following content to this file:
+. Using a terminal, open a shell/SSH connection to a controller VM.
+. Create a file named `log-forwarder.yaml`.
+. Add the following content to this file after customizing based on the table below:
 +
 ----
 kind: logforwarder
 version: v2
 metadata:
-   name: forwarder1
+   name: log-forwarder
 spec:
    address: 192.168.100.1:514
    protocol: udp
@@ -23,13 +23,12 @@ Using the following values specific to your environment:
 [%header,cols="2*a"]
 |===
 |Key | Description
-|name | Specifies the name of the log forwarding rule.
-|address | Specifies the endpoint and port to forward the log data
-|protocol (optional) | Specifies the protocol to send the data to. Supported protocols are TCP or UDP.
+|`name` | Specifies the name of the log forwarding rule.
+|`address` | Specifies the endpoint and port to forward the log data
+|`protocol` | Specifies the protocol to send the data to. Supported protocols are TCP or UDP.
 |===
-
-
-. Run the following command on the cluster, referencing the file created earlier.
++
+. Run the following command on the controller VM, referencing the file created earlier.
 ----
 gravity resource create log-forwarder.yaml
 ----
@@ -38,5 +37,5 @@ Your logs should now be forwarded to your external logging service.
 
 == See Also
 
-* link:/anypoint-runtime-fabric/v/1.0/index[Anypoint Runtime Fabric]
-* link:/anypoint-runtime-fabric/v/1.0/installation[Install Anypoint Runtime Fabric]
+* link:/anypoint-runtime-fabric/v/1.0/configure-alerting[Configure Alerting on Anypoint Runtime Fabric]
+* link:/anypoint-runtime-fabric/v/1.0/deploy-to-runtime-fabric[Deploy a Mule Application to a Runtime Fabric]

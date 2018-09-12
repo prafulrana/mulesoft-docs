@@ -1,4 +1,4 @@
 configuration:
   versionName: 7.1
-  isLatest: true
+  isLatest: false
   sectionName: Anypoint Studio

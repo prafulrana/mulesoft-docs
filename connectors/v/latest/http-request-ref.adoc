@@ -110,7 +110,6 @@ When the HTTP request operation receives an HTTP response, it validates the resp
 You can change the set of valid HTTP response codes by configuring General > Response > Response Validator. 
 
 * None: No validation occurs.
-* Expression: Validation occurs per the DataWeave expression you construct.
 * Success Status Code Validator: All the status codes defined within this element are considered valid; the request throws an error for any other status code.
 * Failure Status Code Validator: All the status codes defined within this element are considered invalid and an error is thrown; the request is considered valid with any other status code.
 
@@ -133,12 +132,19 @@ By default, if the type of the payload is a stream, streaming is used to send t
 
 When streaming, the request does not contain the `Content-Length` header. It contains the `Transfer-Encoding` header and sends the body in chunks until the stream is fully consumed.
 
-== Configuring Client Streaming
+== Configuring Response Streaming
 
-In Mule Enterprise Edition, HTTP client streaming is enabled by default. You can set the following attributes to manage streaming:
+When requesting a large payload, you can choose to stream the response by setting the `streamResponse` attributes in the HTTP request configuration.
 
-* responseBufferSize
-* mule.http.disableResponseStreaming, a system property
+By default, the `streamResponse` attribute is set to false. 
+When setting this attribute to true, you enable Mule to handle the response as a stream saving chunks to an in-memory buffer. +
+The buffer size can be configured using the `responseBufferSize` attribute, but its default size is 10Kb.
 
-HTTP requests are all nonblocking.
+[source,xml,linenums]
+----
+<http:request-config name="requestConfig">
+    <http:request-connection host="localhost" port="8081" streamResponse="true" responseBufferSize="1024"/>
+</http:request-config>
+----
 
+To avoid issues, it's important to consume responses when streaming.

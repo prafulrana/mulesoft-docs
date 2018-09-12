@@ -1,0 +1,24 @@
+= APIkit for SOAP 1.0.5 Release Notes
+
+This version of APIkit for SOAP includes two fixes to the runtime.
+
+For Anypoint Studio, this version is distributed as Anypoint APIkit SOAP Extension 1.1.5.
+
+== Compatibility
+
+[%header%autowidth.spread]
+|===
+|Software |Version
+|Mule Runtime |3.7.3, 3.8.x, and 3.9.x
+|Anypoint Studio |6.2.3 and later
+|===
+
+== Fixed in This Release
+
+* SOAP Fault namespaces fixed according to SOAP Version (APIKITSOAP-201)
+* Routing to the correct flow when no soapAction is defined (APIKITSOAP-208)
+
+== See Also
+
+* https://forums.mulesoft.com[MuleSoft Forum].
+* https://support.mulesoft.com[Contact MuleSoft Support].

@@ -21,7 +21,17 @@ Default configuration
 |Name | String | The name for this configuration. Connectors reference the configuration with this name. | | *x*{nbsp}
 | Connection a| <<config_connection, Local FileSystem Connection>>
  | The connection types that can be provided to this configuration. | | *x*{nbsp}
-| Default Write Encoding a| String |  |  | {nbsp}
+| Default write encoding (DEPRECATED) a| String |  +++This parameter is deprecated and is ignored.+++ |  | {nbsp}
+| <<time-between-size-check,Time Between Size Check>> a| Number |  +++Wait time between size checks to determine if a file is ready to be read. This allows a file write to complete before processing. If no value is provided, the check is not performed. When enabled, Mule performs two size checks, waiting the specified time between calls. If both checks return the same value, the file is ready to be read. This attribute works in tandem with #timeBetweenSizeCheckUnit.+++ |  | {nbsp}
+| Time Between Size Check Unit a| Enumeration, one of:
+
+** NANOSECONDS
+** MICROSECONDS
+** MILLISECONDS
+** SECONDS
+** MINUTES
+** HOURS
+** DAYS |  +++A TimeUnit which qualifies the #timeBetweenSizeCheck attribute. <p> Defaults to MILLISECONDS+++ |  +++MILLISECONDS+++ | {nbsp}
 | Expiration Policy a| <<ExpirationPolicy>> |  +++Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform will expire the instance at the exact moment that it becomes eligible. The runtime will actually purge the instances when it sees it fit.+++ |  | {nbsp}
 |======================
 
@@ -154,7 +164,7 @@ Deletes the file pointed by path, provided that it's not locked
 `<file:list>`
 
 +++
-Lists all the files in the directoryPath which match the given matcher. <p> If the listing encounters a directory, the output list will include its contents depending on the value of the recursive parameter. <p> If recursive is set to true but a found directory is rejected by the matcher, then there won't be any recursion into such directory.
+Lists all the files in the directoryPath which match the given matcher. <p> If the listing encounters a directory, the output list will include its contents depending on the value of the recursive parameter. <p>
 +++
 
 ==== Parameters
@@ -165,6 +175,19 @@ Lists all the files in the directoryPath which match the given matcher. <p> If t
 | Directory Path a| String |  +++the path to the directory to be listed+++ |  | *x*{nbsp}
 | Recursive a| Boolean |  +++whether to include the contents of sub-directories. Defaults to false.+++ |  +++false+++ | {nbsp}
 | File Matching Rules a| <<matcher>> |  +++a matcher used to filter the output list+++ |  | {nbsp}
+| <<time-between-size-check,Time Between Size Check>> a| Number |  +++wait time between size checks to determine if a file is ready to be read.+++ |  | {nbsp}
+| Time Between Size Check Unit a| Enumeration, one of:
+
+** NANOSECONDS
+** MICROSECONDS
+** MILLISECONDS
+** SECONDS
+** MINUTES
+** HOURS
+** DAYS |  +++time unit to be used in the wait time between size checks.+++ |  | {nbsp}
+| Streaming Strategy a| * <<repeatable-in-memory-iterable>>
+* <<repeatable-file-store-iterable>>
+* non-repeatable-iterable |  +++Configure if repeatable streams should be used and their behavior+++ |  | {nbsp}
 | Target Variable a| String |  +++The name of a variable on which the operation's output will be placed+++ |  | {nbsp}
 | Target Value a| String |  +++An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable+++ |  +++#[payload]+++ | {nbsp}
 | Reconnection Strategy a| * <<reconnect>>
@@ -174,16 +197,14 @@ Lists all the files in the directoryPath which match the given matcher. <p> If t
 ==== Output
 [cols=".^50%,.^50%"]
 |======================
-| *Type* a| Array of Message of [Binary] payload and [<<LocalFileAttributes>>] attributes
+| *Type* a| Array of Message of [CursorProvider] payload and [<<LocalFileAttributes>>] attributes
 |======================
 
 ==== For Configurations.
 * <<config>> {nbsp}
 
 ==== Throws
-* FILE:CONNECTIVITY {nbsp}
 * FILE:ILLEGAL_PATH {nbsp}
-* FILE:RETRY_EXHAUSTED {nbsp}
 * FILE:ACCESS_DENIED {nbsp}
 
 
@@ -235,6 +256,16 @@ Obtains the content and metadata of a file at a given path. The operation itself
 | Configuration | String | The name of the configuration to use. | | *x*{nbsp}
 | File Path a| String |  +++the path to the file to be read+++ |  | *x*{nbsp}
 | Lock a| Boolean |  +++whether or not to lock the file. Defaults to false.+++ |  +++false+++ | {nbsp}
+| <<time-between-size-check,Time Between Size Check>> a| Number |  +++wait time between size checks to determine if a file is ready to be read.+++ |  | {nbsp}
+| Time Between Size Check Unit a| Enumeration, one of:
+
+** NANOSECONDS
+** MICROSECONDS
+** MILLISECONDS
+** SECONDS
+** MINUTES
+** HOURS
+** DAYS |  +++time unit to be used in the wait time between size checks.+++ |  | {nbsp}
 | Output Mime Type a| String |  +++The mime type of the payload that this operation outputs.+++ |  | {nbsp}
 | Output Encoding a| String |  +++The encoding of the payload that this operation outputs.+++ |  | {nbsp}
 | Streaming Strategy a| * <<repeatable-in-memory-stream>>
@@ -311,7 +342,7 @@ Writes the content into the file pointed by path. <p> If the directory on which 
 | Configuration | String | The name of the configuration to use. | | *x*{nbsp}
 | Path a| String |  +++the path of the file to be written+++ |  | *x*{nbsp}
 | Content a| Binary |  +++the content to be written into the file. Defaults to the current Message payload+++ |  +++#[payload]+++ | {nbsp}
-| Encoding a| String |  +++when content is a String, this attribute specifies the encoding to be used when writing. If not set, then it defaults to FileConnectorConfig#getDefaultWriteEncoding()+++ |  | {nbsp}
+| Encoding (DEPRECATED) a| String |  +++this parameter is deprecated and will do nothing if configured+++ |  | {nbsp}
 | Create Parent Directories a| Boolean |  +++whether or not to attempt creating any parent directories which don't exists.+++ |  +++true+++ | {nbsp}
 | Lock a| Boolean |  +++whether or not to lock the file. Defaults to false+++ |  +++false+++ | {nbsp}
 | Write Mode a| Enumeration, one of:
@@ -359,10 +390,20 @@ Polls a directory looking for files that have been created or updated. One messa
 ** DISABLED
 ** MODIFIED_TIMESTAMP
 ** CREATED_TIMESTAMP |  +++Controls whether or not to do watermarking, and if so, if the watermark should consider the file's modification or creation timestamps+++ |  +++DISABLED+++ | {nbsp}
+| <<time-between-size-check,Time Between Size Check>> a| Number |  +++Wait time in milliseconds between size checks to determine if a file is ready to be read. This allows a file write to complete before processing. You can disable this feature by omitting a value. When enabled, Mule performs two size checks waiting the specified time between calls. If both checks return the same value, the file is ready to be read.+++ |  | {nbsp}
+| Time Between Size Check Unit a| Enumeration, one of:
+
+** NANOSECONDS
+** MICROSECONDS
+** MILLISECONDS
+** SECONDS
+** MINUTES
+** HOURS
+** DAYS |  +++A TimeUnit which qualifies the #timeBetweenSizeCheck attribute.+++ |  | {nbsp}
 | Output Mime Type a| String |  +++The mime type of the payload that this operation outputs.+++ |  | {nbsp}
 | Output Encoding a| String |  +++The encoding of the payload that this operation outputs.+++ |  | {nbsp}
 | Primary Node Only a| Boolean |  +++Whether this source should only be executed on the primary node when running in Cluster+++ |  | {nbsp}
-| Scheduling Strategy a| <<scheduling-strategy>> |  +++Configures the scheduler that triggers the polling+++ |  | *x*{nbsp}
+| Scheduling Strategy a| scheduling-strategy |  +++Configures the scheduler that triggers the polling+++ |  | *x*{nbsp}
 | Streaming Strategy a| * <<repeatable-in-memory-stream>>
 * <<repeatable-file-store-stream>>
 * non-repeatable-stream |  +++Configure if repeatable streams should be used and their behavior+++ |  | {nbsp}
@@ -394,9 +435,9 @@ Polls a directory looking for files that have been created or updated. One messa
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Fails Deployment a| Boolean | When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment will fail if the test doesn't pass after exhausting the associated reconnection strategy |  | 
+| Fails Deployment a| Boolean | When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment will fail if the test doesn't pass after exhausting the associated reconnection strategy |  |
 | Reconnection Strategy a| * <<reconnect>>
-* <<reconnect-forever>> | The reconnection strategy to use |  | 
+* <<reconnect-forever>> | The reconnection strategy to use |  |
 |======================
 
 [[reconnect]]
@@ -405,8 +446,8 @@ Polls a directory looking for files that have been created or updated. One messa
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Frequency a| Number | How often (in ms) to reconnect |  | 
-| Count a| Number | How many reconnection attempts to make |  | 
+| Frequency a| Number | How often (in ms) to reconnect |  |
+| Count a| Number | How many reconnection attempts to make |  |
 |======================
 
 [[reconnect-forever]]
@@ -415,7 +456,7 @@ Polls a directory looking for files that have been created or updated. One messa
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Frequency a| Number | How often (in ms) to reconnect |  | 
+| Frequency a| Number | How often (in ms) to reconnect |  |
 |======================
 
 [[ExpirationPolicy]]
@@ -424,7 +465,7 @@ Polls a directory looking for files that have been created or updated. One messa
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Max Idle Time a| Number | A scalar time value for the maximum amount of time a dynamic configuration instance should be allowed to be idle before it's considered eligible for expiration |  | 
+| Max Idle Time a| Number | A scalar time value for the maximum amount of time a dynamic configuration instance should be allowed to be idle before it's considered eligible for expiration |  |
 | Time Unit a| Enumeration, one of:
 
 ** NANOSECONDS
@@ -433,85 +474,7 @@ Polls a directory looking for files that have been created or updated. One messa
 ** SECONDS
 ** MINUTES
 ** HOURS
-** DAYS | A time unit that qualifies the maxIdleTime attribute |  | 
-|======================
-
-[[matcher]]
-=== Matcher
-
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
-| Field | Type | Description | Default Value | Required
-| Created Since a| DateTime | Files created before this date are rejected. |  | 
-| Created Until a| DateTime | Files created after this date are rejected |  | 
-| Updated Since a| DateTime | Files modified before this date are rejected |  | 
-| Updated Until a| DateTime | Files modified after this date are rejected |  | 
-| Accessed Since a| DateTime | Files which were last accessed before this date are rejected |  | 
-| Accessed Until a| DateTime | Files which were last accessed after this date are rejected |  | 
-| Filename Pattern a| String |  |  | 
-| Path Pattern a| String |  |  | 
-| Directories a| Enumeration, one of:
-
-** REQUIRE
-** INCLUDE
-** EXCLUDE |  | INCLUDE | 
-| Regular Files a| Enumeration, one of:
-
-** REQUIRE
-** INCLUDE
-** EXCLUDE |  | INCLUDE | 
-| Sym Links a| Enumeration, one of:
-
-** REQUIRE
-** INCLUDE
-** EXCLUDE |  | INCLUDE | 
-| Min Size a| Number |  |  | 
-| Max Size a| Number |  |  | 
-|======================
-
-[[repeatable-in-memory-stream]]
-=== Repeatable In Memory Stream
-
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
-| Field | Type | Description | Default Value | Required
-| Initial Buffer Size a| Number | This is the amount of memory that will be allocated in order to consume the stream and provide random access to it. If the stream contains more data than can be fit into this buffer, then it will be expanded by according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  | 
-| Buffer Size Increment a| Number | This is by how much will be buffer size by expanded if it exceeds its initial size. Setting a value of zero or lower will mean that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised when the buffer gets full. |  | 
-| Max Buffer Size a| Number | This is the maximum amount of memory that will be used. If more than that is used then a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised. A value lower or equal to zero means no limit. |  | 
-| Buffer Unit a| Enumeration, one of:
-
-** BYTE
-** KB
-** MB
-** GB | The unit in which all these attributes are expressed |  | 
-|======================
-
-[[repeatable-file-store-stream]]
-=== Repeatable File Store Stream
-
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
-| Field | Type | Description | Default Value | Required
-| Max In Memory Size a| Number | Defines the maximum memory that the stream should use to keep data in memory. If more than that is consumed then it will start to buffer the content on disk. |  | 
-| Buffer Unit a| Enumeration, one of:
-
-** BYTE
-** KB
-** MB
-** GB | The unit in which maxInMemorySize is expressed |  | 
-|======================
-
-[[RedeliveryPolicy]]
-=== Redelivery Policy
-
-[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
-|======================
-| Field | Type | Description | Default Value | Required
-| Max Redelivery Count a| Number | The maximum number of times a message can be redelivered and processed unsuccessfully before triggering process-failed-message |  | 
-| Use Secure Hash a| Boolean | Whether to use a secure hash algorithm to identify a redelivered message |  | 
-| Message Digest Algorithm a| String | The secure hashing algorithm to use. If not set, the default is SHA-256. |  | 
-| Id Expression a| String | Defines one or more expressions to use to determine when a message has been redelivered. This property may only be set if useSecureHash is false. |  | 
-| Object Store a| <<ObjectStore>> | The object store where the redelivery counter for each message is going to be stored. |  | 
+** DAYS | A time unit that qualifies the maxIdleTime attribute |  |
 |======================
 
 [[LocalFileAttributes]]
@@ -520,14 +483,126 @@ Polls a directory looking for files that have been created or updated. One messa
 [cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
 |======================
 | Field | Type | Description | Default Value | Required
-| Creation Time a| DateTime |  |  | 
-| Directory a| Boolean |  |  | 
-| Last Access Time a| DateTime |  |  | 
-| Last Modified Time a| DateTime |  |  | 
-| Name a| String |  |  | 
-| Path a| String |  |  | 
-| Regular File a| Boolean |  |  | 
-| Size a| Number |  |  | 
-| Symbolic Link a| Boolean |  |  | 
+| Last Modified Time a| DateTime |  |  | x
+| Last Access Time a| DateTime |  |  | x
+| Creation Time a| DateTime |  |  | x
+| Size a| Number |  |  | x
+| Regular File a| Boolean |  | false |
+| Directory a| Boolean |  | false |
+| Symbolic Link a| Boolean |  | false |
+| Path a| String |  |  | x
+| File Name a| String |  |  | x
 |======================
 
+[[matcher]]
+=== Matcher
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Created Since a| DateTime | Files created before this date are rejected. |  |
+| Created Until a| DateTime | Files created after this date are rejected |  |
+| Updated Since a| DateTime | Files modified before this date are rejected |  |
+| Updated Until a| DateTime | Files modified after this date are rejected |  |
+| Accessed Since a| DateTime | Files which were last accessed before this date are rejected |  |
+| Accessed Until a| DateTime | Files which were last accessed after this date are rejected |  |
+| Filename Pattern a| String |  |  |
+| Path Pattern a| String |  |  |
+| Directories a| Enumeration, one of:
+
+** REQUIRE
+** INCLUDE
+** EXCLUDE |  | INCLUDE |
+| Regular Files a| Enumeration, one of:
+
+** REQUIRE
+** INCLUDE
+** EXCLUDE |  | INCLUDE |
+| Sym Links a| Enumeration, one of:
+
+** REQUIRE
+** INCLUDE
+** EXCLUDE |  | INCLUDE |
+| Min Size a| Number |  |  |
+| Max Size a| Number |  |  |
+|======================
+
+[[repeatable-in-memory-stream]]
+=== Repeatable In Memory Stream
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Initial Buffer Size a| Number | This is the amount of memory that will be allocated in order to consume the stream and provide random access to it. If the stream contains more data than fits into this buffer, then the buffer expands according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  |
+| Buffer Size Increment a| Number | This is by how much the buffer size expands if it exceeds its initial size. Setting a value of zero or lower will mean that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised when the buffer gets full. |  |
+| Max Buffer Size a| Number | This is the maximum amount of memory that will be used. If more than that is used then a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised. A value lower or equal to zero means no limit. |  |
+| Buffer Unit a| Enumeration, one of:
+
+** BYTE
+** KB
+** MB
+** GB | The unit in which all these attributes are expressed |  |
+|======================
+
+[[repeatable-file-store-stream]]
+=== Repeatable File Store Stream
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Max In Memory Size a| Number | Defines the maximum memory that the stream should use to keep data in memory. If more than that is consumed then it will start to buffer the content on disk. |  |
+| Buffer Unit a| Enumeration, one of:
+
+** BYTE
+** KB
+** MB
+** GB | The unit in which maxInMemorySize is expressed |  |
+|======================
+
+[[RedeliveryPolicy]]
+=== Redelivery Policy
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Max Redelivery Count a| Number | The maximum number of times a message can be redelivered and processed unsuccessfully before triggering process-failed-message |  |
+| Use Secure Hash a| Boolean | Whether to use a secure hash algorithm to identify a redelivered message |  |
+| Message Digest Algorithm a| String | The secure hashing algorithm to use. If not set, the default is SHA-256. |  |
+| Id Expression a| String | Defines one or more expressions to use to determine when a message has been redelivered. This property may only be set if useSecureHash is false. |  |
+| Object Store a| ObjectStore | The object store where the redelivery counter for each message is going to be stored. |  |
+|======================
+
+[[repeatable-in-memory-iterable]]
+=== Repeatable In Memory Iterable
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Initial Buffer Size a| Number | This is the amount of instances that will be initially be allowed to be kept in memory in order to consume the stream and provide random access to it. If the stream contains more data than fits into this buffer, then the buffer expands according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. Default value is 100 instances. |  |
+| Buffer Size Increment a| Number | This is by how much the buffer size expands if it exceeds its initial size. Setting a value of zero or lower will mean that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised when the buffer gets full. Default value is 100 instances. |  |
+| Max Buffer Size a| Number | This is the maximum amount of memory that will be used. If more than that is used then a STREAM_MAXIMUM_SIZE_EXCEEDED error will be raised. A value lower or equal to zero means no limit. |  |
+|======================
+
+[[repeatable-file-store-iterable]]
+=== Repeatable File Store Iterable
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Max In Memory Size a| Number | This is the maximum amount of instances that will be kept in memory. If more than that is required, then it will start to buffer the content on disk. |  |
+| Buffer Unit a| Enumeration, one of:
+
+** BYTE
+** KB
+** MB
+** GB | The unit in which maxInMemorySize is expressed |  |
+|======================
+
+[[time-between-size-check]]
+=== Time Between Size Check Parameter Behavior
+
+This wait will be performed at the moment of retrieving the content of the file.
+If the flow never accesses the content of the file, the check will not be done. Also,
+because this wait can take place in multiple message processors, this connector has no
+control over which thread will be the one performing the wait, thus leaving the possibility
+open to block threads not meant for this type of behavior.

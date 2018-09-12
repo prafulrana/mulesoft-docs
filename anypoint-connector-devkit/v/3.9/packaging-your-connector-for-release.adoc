@@ -23,23 +23,23 @@ Before packaging and releasing your connector, we recommend you document your co
 Documentation tips:
 
 * *Readme* - Provide a Readme file that customers can readily access. The best Readme file appears automatically during installation, such as part of an installation wizard. The Readme needs to contain installation information and explain any required software that customers need to install or configure first before they can install your connector.
-* *Use Cases*: Explain why, when, and how a customer uses your connector. For each use case, provide examples with explanations. 
+* *Use Cases*: Explain why, when, and how a customer uses your connector. For each use case, provide examples with explanations.
 * *Release Notes*: Ensure your connector is versioned and that you help customers understand what changes between releases. We recommend that you list new features, known issues, and what issues were fixed.
 * *APIDoc*: Generate link:/anypoint-connector-devkit/v/3.9/connector-reference-documentation[Connector Reference Documentation] that leverages Javadoc, running a simple Maven command run from your connector's root folder.
 
 == Applying a License Agreement and Header
 
-Before you package the connector you can customize the contents of the license agreement to reflect your terms and the wording you want for your connector license. When a user of your packaged connector installs it in Studio, the user is presented with the license agreement. 
+Before you package the connector you can customize the contents of the license agreement to reflect your terms and the wording you want for your connector license. When a user of your packaged connector installs it in Studio, the user is presented with the license agreement.
 
-Maven first searches for a `LICENSE.md` file in the same directory as the `pom.xml` file during the build process.
+Maven first searches for a `LICENSE.md` file in the same directory as the `pom.xml` file during the build process.
 
-If this file is not found, Maven goes through the following steps to locate a license agreement: 
+If this file is not found, Maven goes through the following steps to locate a license agreement:
 
-. Maven checks for a `LICENSE.txt` file in the same directory as the `pom.xml` file. 
-. If the `pom.xml` file contains a *Licenses* section (as described in the link:http://maven.apache.org/pom.html#Licenses[Maven documentation]), the DevKit attempts to to download the text from the license's URL, then saves the downloaded content as a new `LICENSE.md` file.
+. Maven checks for a `LICENSE.txt` file in the same directory as the `pom.xml` file. 
+. If the `pom.xml` file contains a *Licenses* section (as described in the link:http://maven.apache.org/pom.html#Licenses[Maven documentation]), the DevKit attempts to to download the text from the license's URL, then saves the downloaded content as a new `LICENSE.md` file.
 . If no license text is found by the above steps, the build fails.
 
-In addition to the global license file, the DevKit requires that your source files also contains a license header. To apply the license header to every source file in your project, run the following command in a command console at the root of your project, which contains your connector project's `pom.xml` file: 
+In addition to the global license file, the DevKit requires that your source files also contains a license header. To apply the license header to every source file in your project, run the following command in a command console at the root of your project, which contains your connector project's `pom.xml` file:
 
 [source]
 ----
@@ -50,10 +50,10 @@ This command goes through your whole project and applies the license header defi
 
 == Installing Connector Into Local Maven Repo
 
-Run the following command to install your connector with your updated license information into your local Maven repository. 
+Run the following command to install your connector with your updated license information into your local Maven repository.
 
 [IMPORTANT]
-Run `mvn license:format` before running this Maven install command because Maven verifies the license headers first before installing: 
+Run `mvn license:format` before running this Maven install command because Maven verifies the license headers first before installing:
 
 [source]
 ----
@@ -88,8 +88,10 @@ MuleSoft's program certifies and publishes third party connectors to be distribu
 
 == Optional - Uploading your Connector to Exchange
 
-If your connector has been certified by MuleSoft, you can publish your connector on the publicly available Anypoint Exchange, and make it accessible from Exchange for download into Anypoint Studio. Anypoint Studio identifies each connector by a *Feature ID* that spans all versions of the connector. In order to expose your connector via link:/anypoint-exchange[Anypoint Exchange], you will be prompted by Anypoint Exchange to provide a few required fields: the Feature ID, Connector version number and an Update Site URL.
+If your connector has been certified by MuleSoft, you can publish your connector on the publicly available Anypoint Exchange, and make it accessible from Exchange for download into Anypoint Studio. To publish your connector, use the Maven Facade described in link:/anypoint-exchange/to-publish-assets-maven[To Publish and Deploy Exchange Assets Using Maven].
+Publishing a connector requires obtaining the organization ID for the organization or business group where the connector is available in Exchange.
 
+////
 
 [NOTE]
 ====
@@ -104,8 +106,10 @@ From Exchange, click *Add Item* > *Connector* and fill out the form before enter
 . In the extracted folder, look for the `content.xml` file and open it with a text editor.
 . In this file, search for a string that follows this pattern: `id=’org.mule.tooling.ui.extension.<connector name>.feature.group’`. That entire value is your connector’s *Feature ID*. As a more concrete example, your Feature ID could be something like `’org.mule.tooling.ui.extension.cloudhub.3.6.0.feature.group’`
 . Provide the version string, for example `version='1.0.0.201606211519'`, where it reads *Connector version*. Consumers of the connector only see the short version number. For example if the version number you provide is `2.0.1.201606101417`, they only see `2.0.1`. (The full version number displays ONLY when editing the entry in Exchange.)
-. Enter the minimum Mule runtime version required for your connector to work. 
+. Enter the minimum Mule runtime version required for your connector to work.
 . Provide the *Update Site URL* for your connector, and complete any other necessary fields for the connector's entry on Anypoint Exchange, such as a link to a documentation website.
+
+////
 
 == Optional - Changing the Studio Category of your Module
 
@@ -164,4 +168,3 @@ import org.mule.api.annotations.Category;
 == See Also
 
 * https://www.anypoint.mulesoft.com/exchange/[Anypoint Exchange]
-

@@ -18,6 +18,15 @@ See Also:
 
 *July 10, 2018*
 
+=== Compatibility
+
+[%header%autowidth.spread]
+|===
+|Software|Version
+|Mule Runtime |3.7.4 and later
+|Anypoint Studio |5.4.n and later
+|===
+
 === Feature
 
 * Improved retry logic.

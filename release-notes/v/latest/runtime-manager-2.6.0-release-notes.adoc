@@ -8,7 +8,7 @@ This release contains the following enhancements:
 [cols="2*a"]
 |===
 | Enhancement | Description
-| Auto-discovery of remote server properties | Enables Runtime Manager to display environment and system properties of remote servers and Mule runtimes. This feature is applicable to hybrid deployment scenarios only.
+| Autodiscovery of remote server properties | Enables Runtime Manager to display environment and system properties of remote servers and Mule runtimes. This feature is applicable to hybrid deployment scenarios only.
 | Application properties | Enables you to set application properties from Runtime Manager during application deployment. This feature is applicable to hybrid deployment scenarios only.
 | Schedule management | Adds support for polls to applications deployed in a hybrid deployment scenario. The feature is only supported on single-server environments. It is not supported on servers within server groups or clusters.
 | Disable Insights | Adds ability to control access to the Insights component for an organization or sub-organization. To prohibit this component, contact your customer success representative.

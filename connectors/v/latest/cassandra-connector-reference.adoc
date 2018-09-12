@@ -34,6 +34,7 @@ The Cassandra connector implements the DataStax Java Driver for Apache Cassandra
 | Port a| String |  Port (default is 9042) |  9042 |
 | Keyspace a| String |  Cassandra keyspace |   |
 | Cluster Name a| String |  Cassandra cluster name |  |
+| Cluster Nodes a| String | Cassandra cluster nodes are supported. These addresses are the IP or host address and port  number separated by comma. Format: `host1:port1, host2:port2`, for example: `127.0.0.1:9160, 127.0.0.2:9160`. If the port is not specified, the default 9042 is used. When you specify this parameter, the host and port from general settings are ignored. |  |
 | Username a| String |  |   |
 | Password a| String |  The password to use for authentication. If the password is null or white spaces only, the connector doesn't use authentication and the username must also be empty. |  |
 | Protocol Version a| Enumeration, one of:

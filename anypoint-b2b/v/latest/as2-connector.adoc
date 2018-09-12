@@ -1,303 +1,131 @@
-= AS2 Connector 2.0.0
+= AS2 Connector
 :keywords: b2b, as2, connector
+:imagesdir: ./_images
 
-NOTE: Current instances of the AS2 Connector will continue to be supported in accordance with the https://www.mulesoft.com/legal/support-maintenance-terms[Product Support and Maintenance Terms] but will not be available for new customers or upgrades. Contact your MuleSoft representative for more information on MuleSoft's B2B solutions. 
+_Premium_
 
-The https://www.anypoint.mulesoft.com/exchange/?search=as2[AS2 Connector] allows you to send and receive data from AS2 certified servers.
+The Mule Runtime supports the AS2 protocol through the AS2 Connector. The AS2 connector enables trading partners transmit and receive AS2 messages with EDI-X12, EDIFACT, XML or binary payloads.
 
-After reading this page you should be able to accomplish the following:
+This connector leverages the AS2 protocol, allowing Mule applications to:
 
-* Install the AS2 Connector.
-* Build a simple Hello World project.
-* Run the example project.
+* Send messages, signed or unsigned, over HTTP or HTTPS, following the AS2 protocol.
+* Receive messages, also over HTTP or HTTPS, following the protocol.
 
-== Prerequisites
+This document assumes that you are familiar with AS2, Mule, Anypoint Connectors, and Anypoint Studio.
 
-This document assumes that you are familiar with Mule, the link:/anypoint-studio/v/6/index[Anypoint Studio Essentials] and link:/mule-user-guide/v/3.8/global-elements[Global Elements]. Further, it is assumed that you are familiar with AS2 endpoints and have received endpoint configuration requirements.
+For hardware and software requirements, see the Connector Release Notes.
 
-=== Namespace and Schema Location
+[[install]]
+== How to Install
 
-The XML namespace and schema location are as follows:
-
-----
-xmlns:as2="http://www.mulesoft.org/schema/mule/as2"
-
-http://xsischemaLocation=[xsi:schemaLocation=]"
-
-...
-
-http://www.mulesoft.org/schema/mule/as2 http://www.mulesoft.org/schema/mule/as2/current/mule-as2.xsd"
-----
-
-=== Requirements
-
-* Mule 3.5.2, 3.6.1 or 3.7.2 Runtime
-* Anypoint Studio March 2015 onwards
-* link:http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html[JCE unlimited strength jurisdiction policy]
-
-== Installation
-
-=== Installing AS2 Connector in Anypoint Studio
-
-. In Anypoint Studio, click the Exchange icon in the Studio taskbar.
-. Click Login in Anypoint Exchange.
+. In Anypoint Studio, click the Exchange icon in the Studio task bar.
+. Click Login in Anypoint Exchange and supply your Anypoint Platform username and password.
 . Search for the connector and click Install.
 . Follow the prompts to install the connector.
 
-When Studio has an update, a message displays in the lower right corner, which you can click to install the update.
+[NOTE]
+This connector requires http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html[Java Cryptography Extension (JCE)] installed on your Java runtime.
+
+== About the Connector Namespace and Schema
 
-=== Using AS2 Connector via Maven
+In Anypoint Studio, when you drag the connector from the palette onto the Anypoint Studio canvas, Studio automatically populates the XML code with the connector namespace and schema location.
+
+Namespace: `+http://www.mulesoft.org/schema/mule/as2+` +
+Schema Location `+http://www.mulesoft.org/schema/mule/as2/current/mule-as2.xsd+`
+
+If you are manually coding the Mule application in Studio's XML editor or another text editor, define the namespace and schema location in the header of your Configuration XML, inside the `<mule>` tag.
+
+[source, xml,linenums]
+----
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" 
+xmlns:as2="http://www.mulesoft.org/schema/mule/as2" 
+xmlns="http://www.mulesoft.org/schema/mule/core" 
+xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	    http://www.springframework.org/schema/beans/spring-beans-current.xsd
+        http://www.mulesoft.org/schema/mule/core 
+	http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+        http://www.mulesoft.org/schema/mule/as2 
+	http://www.mulesoft.org/schema/mule/as2/current/mule-as2.xsd">
+      <!-- put your global configuration elements and flows here -->
+
+</mule>
+----
+
+*Note:* Use `current` in the schema path. Studio interprets this to the current Mule version.
+
+[[configure]]
+== To Configure the Connector Global Element
+
+Place the connector in your flow as applicable for your use case.
+
+To use the AS2 connector in your Mule application, create a global AS2 element for use by the AS2 connector. The AS2 connector provides the following global configuration parameters:
+
+[%header%autowidth.spread]
+|===
+|Key| Description
+|Partner From - Name| Sender partner's name.
+|Partner From - AS2 id| Sender partner's ID.
+|Partner From - x509 alias| Sender alias as defined in the certificate file.
+|Partner From - Email| Sender partner's email.
+|Partner To - Name| Receiver partner's name.
+|Partner To - AS2 id| Receiver partner's ID.
+|Partner To - x509 alias| Receiver alias as defined in the certificate.
+|Partner To - Email| Receiver partner's email.
+|Partnership - Sender| The sender's name.
+|Partnership - Receiver| The receiver's name.
+|Partnership - Subject| The text used in email subject line.
+|Partnership - AS2 URL| The partners AS2 server's URL.
+|Partnership - AS2 Receipt Option| The URL that the partner sends the MDN.
+|Partnership - Encrypt| The encryption algorithm for email header.
+|Partnership - Sign|The sign encryption of the message. None by default (message is not signed).
+|Partnership - Content transfer encoding|The content transfer encoding. *Binary* by default.
+|Partnership - Compression type|The compression type. ZLIB is the only supported compression/decompression. Disabled by default.
+|Partnership - Remove CMS algorithm protection attrib|Disable the OID from being sent.
+|AS2 Keystore - Keystore Path|The path of the keystore.
+|AS2 Keystore - Keystore Password|The password of the keystore.
+|Receive Module Ports - Receiver Port|The port used by the receive source.
+|Receive Module Ports - Secure Receiver Port|The secure port (SSL) used by the receive source.
+|Receive Module Ports - Secure Receiver Keystore Path|The path of the keystore with the SSL certificate for the receiver source.
+|Receive Module Ports - Secure Receiver Keystore Password|The password of the keystore.
+|MDN Receiver Module Ports - Receiver Port|The port for the MDN receiver.
+|MDN Receiver Module Ports - Secure Receiver Port|The secure port (SSL) for the MDN receiver.
+|MDN Receiver Module Ports - Secure Receiver Keystore Path|The path of the keystore with the SSL certificate for the MDN receiver.
+|MDN Receiver Module Ports - Secure Receiver Keystore Password|The password of the keystore.
+|===
+
+
+[[operations]]
+== Operations
+
+. Send: Sends a message through HTTP or HTTPS using the AS2 protocol.
+. Receive: Source that receives messages via HTTP or HTTPS using the AS2 protocol.
+
+== Using the Connector
+
+* link:#use-case-1[Working example of send use case]
+* link:#use-case-2[Working example of receive source use case]
+
+To configure the connector you have to complete the connector's global element properties with the required elements as described above.
+
+image:as2-global-element-properties.png[AS2 Global Element Properties]
+
+You can set placeholders in each property and define them in the mule-app.properties file.
+
+[use-case-1]
+== Example of a Send Use Case
+
+image:as2-use-case-1-flow.png[AS2 Use Case 1 flow]
+
+[use-case-2]
+== Example of a Receive Source Use Case
+
+image:as2-use-case-2-flow.png[AS2 Use Case 2 flow]
+
 
-If you wish to use the AS2 Connector in conjunction with Maven, please follow the instructions link:http://modusintegration.github.io/mule-connector-as2/2.0.0/apidocs/guide/install.html[here].
+== See Also
 
-== Using This Connector
-
-=== Use Cases
-
-* Send an AS2 Message
-* Receive an AS2 Message
-* Signed and/or encrypted and/or compressed AS2 messages
-* Signed or unsigned receipts
-* Synchronous or asynchronous receipts
-* HTTP/HTTPS support
-
-=== Tips
-
-* Pick unique AS2 IDs per connector instance, it will help you track your messages
-* Test your trading partner ports and your own are open and reachable
-* It is recommended to use port 80 and 443 when possible (avoids mapping firewall rules for each partner)
-* When creating certificates, include its expiration date and your AS2 ID in the filename.
-
-=== Adding to a Flow
-
-Using the AS2 Connector in your application is explained in detail in the Example Use Case section below.
-
-== Example Use Case - Hello World
-
-The following example requires basic familiarity with AS2, Anypoint Studio, and Mule Runtime.
-
-=== Receive any AS2 message over HTTP
-
-==== Step 1
-
-Create a new Mule Project with Mule Server 3.6.0 EE as runtime:
-
-image:receive-example-step-1.png[receive-example-step-1] +
-
-==== Step 2
-
-Locate the AS2 Connector on the right hand-side palette:
-
-image:receive-example-step-2.png[receive-example-step-2]
-
-==== Step 3
-
-Drag the connector over to the canvas:
-
-image:receive-example-step-3.png[receive-example-step-3]
-
-==== Step 4
-
-The connector requires an AS2 Connector Configuration. To create a connector configuration, you must first create a global HTTP endpoint and then bind the connector configuration to the endpoint. The connector’s operations leverage the HTTP endpoint to receive and send AS2 messages.
-
-Click the Global Elements tab and create an HTTP endpoint:
-
-image:4+http+global.png[4+http+global]
-
-==== Step 5
-
-Give the HTTP connector a more descriptive name like “receive-as2-http-endpoint”. Click the Connector Configuration add symbol to bring up the HTTP connector configuration dialog:
-
-image:5+configure+http.png[5+configure+http]
-
-==== Step 6
-
-Give the HTTP connector name a more descriptive name like “as2-http-connector” and press OK to go back to the global HTTP endpoint dialog box:
-
-image:6+as2+http.png[6+as2+http]
-
-==== Step 7
-
-Press OK to close the global HTTP endpoint dialog box:
-
-image:7+endpoint.png[7+endpoint]
-
-==== Step 8
-
-In this step, you will make an AS2 connector configuration and bind it to the global HTTP endpoint. Create an AS2 Connector Configuration from the Global Elements view:
-
-image:image2015-6-25-step8-glob-elem.png[image2015-6-25+21%3A7%3A49]
-
-==== Step 9
-
-Type “receive-as2-http-endpoint” in the attribute Global HTTP Endpoint Reference to bind the AS2 connector to the previously created global HTTP endpoint. Press OK.
-
-image:image2015-6-25-receive-as2.png[image2015-6-25+21%3A10%3A5]
-
-==== Step 10
-
-After completing the previous steps, you should have the following in the Global Elements view:
-
-image:image2015-6-25-step10a.png[image2015-6-25+21%3A11%3A5]
-
-Back to the Message Flow view, on the AS2 message source, select “AS2” from the Connector Configuration drop-down list and select “Receive” from the Operation drop-down list:
-
-image:image2015-6-25-step10-select-receive.png[image2015-6-25+21%3A13%3A1]
-
-==== Step 11
-
-The connector’s Key Store Path attribute must be configured in either of the following scenarios:
-
-. Connector receives a signed request
-. Connector receives an encrypted request
-. Sender requests a signed receipt
-
-IMPORTANT: The key store must be in JKS format. A cross-platform tool that can help you with the setting up of JKS key
-stores is http://keystore-explorer.sourceforge.net/[KeyStore Explorer].
-
-IMPORTANT: CloudHub deployments must have key stores located within the Mule application Java classpath (e.g., src/main/resources).
-Furthermore, the key store path attribute has to be relative to the classpath. For instance, if the key store is located
-at src/main/resources/key-stores/my-key-store.jks, then Key Store Path is set to key-stores/my-key-store.jks.
-
-For scenario 1, the key store has to contain the certificate used by the AS2 connector to verify the request’s authenticity.
-Scenario 2 and 3 require the key store to have a dual-purpose public/private key pair that the connector uses to decrypt
-the request and sign the receipt. The key store entry alias name for the certificate is required to match the AS2-From field
-received in the request’s headers. Similarly, the key store entry alias name for the public/private key pair is required to match
-the AS2-To field received in the request’s headers. The attribute Key Store Password must be set if the key store is protected by a password.
-
-For the sake of keeping the example simple, no key store is set so no security is provided by the connector.
-
-==== Step 12
-
-Add a File outbound endpoint to save the sender’s AS2 message content. Drag a File outbound endpoint from the palette next to the AS2 Connector. Set the Path attribute to “inbox” and Output Pattern to “data.txt”:
-
-image:image2015-6-25-step12a.png[image2015-6-25+21%3A15%3A36]
-
-==== Step 13
-
-Finally, run the example as a Mule application:
-
-image:image2015-6-25-step13a.png[image2015-6-25+21%3A16%3A12]
-
-The connector saves the content of valid AS2 messages in the file “data.txt” inside the project root directory “inbox”.
-
-=== Send a Clear and Unsigned AS2 Message Over HTTP
-
-==== Step 1
-
-Create a new Mule Project with Mule Server 3.6.0 EE as runtime:
-
-image:image2015-6-26-step1b.png[image2015-6-26+9%3A7%3A18]
-
-==== Step 2
-
-Drag a File inbound endpoint to the canvas to create a message source for a flow. Set the Path attribute to “outbox”:
-
-image:image2015-6-26-step2b.png[image2015-6-26+9%3A18%3A1]
-
-==== Step 3
-
-Locate the AS2 Connector on the right hand-side palette:
-
-image:image2015-6-26-step3b.png[image2015-6-26+9%3A19%3A48]
-
-==== Step 4
-
-Drag the connector over to the canvas next to the File message source:
-
-image:image2015-6-26-step4b.png[image2015-6-26+9%3A21%3A35]
-
-==== Step 5
-
-The connector requires an AS2 Connector Configuration. To create a connector configuration, you must first create a global HTTP endpoint and then bind the connector configuration to the endpoint. The connector’s operations leverage the HTTP transport to receive and send AS2 messages.
-
-Click on the Global Elements tab and create an HTTP endpoint:
-
-image:image2015-6-26-step5b.png[image2015-6-26+9%3A23%3A54]
-
-==== Step 6
-
-Give the endpoint HTTP connector a more descriptive name like “send-as2-http-endpoint”. Set the host, port and path
-attributes to point to an AS2 receiver. Click on the Connector Configuration add symbol to bring up the HTTP connector
-configuration dialog:
-
-image:image2015-6-26-step6b.png[image2015-6-26+9%3A25%3A58]
-
-==== Step 7
-
-Give the HTTP connector a more descriptive name like “as2-http-connector” and press OK to go back to the global HTTP endpoint dialog box:
-
-image:image2015-6-26-step7b.png[image2015-6-26+9%3A36%3A29]
-
-==== Step 8
-
-Press OK to close the global HTTP endpoint dialog box:
-
-image:image2015-6-26-step8b.png[image2015-6-26+9%3A28%3A33]
-
-==== Step 9
-
-In this step, you make an AS2 connector configuration and bind it to the global HTTP connector. From the Global Elements view, create an AS2 Connector Configuration:
-
-image:image2015-6-25-step8-glob-elem.png[image2015-6-25+21%3A7%3A49]
-
-==== Step 10
-
-Type “send-as2-http-endpoint” in the attribute Global HTTP Endpoint Reference to bind the AS2 connector to the previously created global HTTP connector. Press OK.
-
-image:image2015-6-26-step10b.png[image2015-6-26+9%3A31%3A14]
-
-==== Step 11
-
-After completing the previous steps, you should have the following in the Global Elements view:
-
-image:image2015-6-26-step11b.png[image2015-6-26+9%3A32%3A54]
-
-Back to the Message Flow view, on the AS2 processor, select “AS2” from the Connector Configuration drop-down list and select “Send” from the Operation drop-down list:
-
-image:image2015-6-26-step11bb.png[image2015-6-26+9%3A37%3A25]
-
-==== Step 12
-
-Populate the AS2-From and AS2-To attributes. The AS2-To identifier is typically provided out-of-band by the AS2 receiver.
-
-image:image2015-6-26-step12b.png[image2015-6-26+9%3A38%3A57]
-
-==== Step 13
-
-The connector’s Key Store Path attribute must be configured in either of the following scenarios:
-
-. Connector sends a signed request +
-. Connector sends an encrypted request +
-. Receiver returns a signed receipt
-
-IMPORTANT: The key store must be in JKS format. A cross-platform tool that can help you with the setting up of JKS key
-stores is http://keystore-explorer.sourceforge.net/[KeyStore Explorer].
-
-IMPORTANT: CloudHub deployments must have key stores located within the Mule application Java classpath (e.g., src/main/resources).
-Furthermore, the key store path attribute has to be relative to the classpath. For instance, if the key store is located
-at src/main/resources/key-stores/my-key-store.jks, then Key Store Path is set to key-stores/my-key-store.jks.
-
-Scenario 1 and 2 require the key store to have a dual-purpose public/private key pair that the connector uses to encrypt
-and sign the request. For scenario 3, the key store has to contain the certificate used by the AS2 connector to verify the
-receipt’s authenticity. The key store entry alias name for the public/private key pair is required to match the value set
-in the AS2-From attribute. Similarly, the key store entry alias name for the certificate is required to match the value
-set in the AS2-To attribute. The attribute Key Store Password must be set if the key store is protected by a password.
-
-For the sake of keeping the example simple, no key store is set so no security is provided by the connector.
-
-==== Step 14
-
-Viewing the receipt returned by the AS2 receiver is optional but useful for testing. Append to the flow a Byte Array to String transformer followed by a Logger processor to print the receipt's content to console.
-
-image:image2015-6-26-step14.png[image2015-6-26+9%3A41%3A2]
-
-Note that the Logger in the screenshot has its Message attribute set to "#[payload]"
-
-==== Step 15
-
-Finally, run the example as a Mule application:
-
-image:image2015-6-26-step15.png[image2015-6-26+9%3A41%3A51]
-
-Drop a file in the "outbox" directory to send it to the receiver over AS2. If you have followed step 14, you should see the receiver's receipt in the console.
+* Access the link:/release-notes/as2-connector-release-notes[AS2 Connector Release Notes]
+* See https://forums.mulesoft.com/search.html?q=AS2+connector[MuleSoft Forum for this connector]

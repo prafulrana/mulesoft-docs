@@ -34,7 +34,7 @@
 * AGW-700: Performance degradation when analytics is enabled
 * AGW-699: Property placeholder not being passed to encryption module
 * AGW-694: ClassCastException when using multiple X-Forwarded-For headers with IP filtering policy and MEL
-* AGW-692: Id attribute in auto-discovery is required
+* AGW-692: Id attribute in Autodiscovery is required
 * AGW-691: Splunk Events showing wrong status code when policy is violated
 * AGW-676: Analytics not being sent when the request has multiple values for X-Forwarded-For
 * AGW-668: Sometimes policy changes are detected
@@ -47,7 +47,7 @@
 * AGW-602: Platform error on the log
 * AGW-599: Some headers are removed when a response is caught by an exception strategy
 * AGW-598: Endpoint protected with Basic Authentication policy doesn’t generate policy violations
-* AGW-594: null error when running a project with auto-discovery
+* AGW-594: null error when running a project with Autodiscovery
 * AGW-593: Gateway keeps logging error: “The template variable ‘orgId’ has no value”
 * AGW-557: If a tracked API is deleted from API Platform an unexpected error logs indefinitely
 * AGW-502: Content-Length should not be propagated as is by the proxy (this reverts a change in 2.1.0 to propagate it)

@@ -1,7 +1,5 @@
 = Partner Conversations
 
-NOTE: Current Anypoint Partner Manager solutions will continue to be supported in accordance with the https://www.mulesoft.com/legal/support-maintenance-terms[Product Support and Maintenance Terms] but will not be available for new customers or upgrades. Contact your MuleSoft representative for more information on MuleSoft's B2B solutions.
-
 When you create a  _Partner Conversation_, you establish a sequence of events between your company and a trading partner. You can track each event in the sequence of the conversation as it proceeds from the first event to the last.
 
 This page provides instructing for creating and editing Partner Conversations. For information about tracking Conversations, see  link:/anypoint-b2b/transaction-monitoring[Transaction Monitoring].

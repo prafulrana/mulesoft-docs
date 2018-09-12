@@ -5,6 +5,8 @@ _Premium_
 
 The X12 EDI Connector lets you convert X12 messages to and from 
 DataWeave-compatible representations using lists and maps. X12 versions 003010, 003020, 003030, 003040, 003050, 003060, 003070, 004010, 004020, 004030, 004040, 004050, 004060, 005010, 005020, 005030, 005040, 005050, and 006020 are supported with supplied schema definitions for all standard transaction sets.
+Many HIPAA document versions are also supported, as listed separately in the
+Connector HIPAA reference page.
 
 == Prerequisites
 
@@ -204,21 +206,6 @@ The items list references values in the segment by position. The values for thes
 |usage |Usage code, which may be M for Mandatory, O for Optional, C for Conditional, or U for Unused.
 |count |Maximum repetition count value, which may be any number or the special value `>1` meaning any number of repeats. The count value is optional and a base definition value is used if a value is not specified.
 |===
-
-=== To Determine the X12 Schema Location
-
-To use the connector, you need to know the locations of the schemas 
-in your project. If you're using out-of-the-box X12 schemas and 
-not customizing anything, the schema location follows the  
-`/x12/{version}/{transaction set}.esl` pattern. For example, if you're using the 005010 version and the 850 transaction set, your schema location is `/x12/005010/850.esl`.
-
-If you're using one or more custom schemas, you should put these under 
-a directory in `src/main/app` and refer to the location using `${app.home}`. 
-For example, if you've put your 850 schema (either overlay or full) under `src/main/app/mypartner/850.esl, 
-your schema location is `${app.home}/mypartner/850.esl`.
-
-The Mule Runtime automatically checks `src/main/app` for any locations 
-that contain the `${app.home}` value.
 
 == To Create a Mule Project in Anypoint Studio 7
 
@@ -430,9 +417,21 @@ Writer parameters control the writer operation (all are optional, with default v
 
 == To Set Your Schema Locations
 
-You can configure schema locations in the Anypoint Studio XML view.
+To use the connector, you need to know the locations of the schemas
+in your project. If you're using out-of-the-box X12 schemas and
+not customizing anything, the schema location follows the
+`/x12/{version}/{transaction set}.esl` pattern. For example, if you're using the 005010 version and the 850 transaction set, your schema location is `/x12/005010/850.esl`.
 
-In Anypoint Studio, switch to the XML view by clicking Configuration XML and modify your X12 EDI configuration to include a list of all the schemas you wish to include by adding an `+<http://edischema[edi:schema]>+` element for each document type:
+If you're using one or more custom schemas, you should put these under
+a directory in `src/main/app` and refer to the location relative to this directory.
+For example, if you've put your 850 schema (either overlay or full) under `src/main/app/mypartner/850.esl,
+your schema location is `/mypartner/850.esl`.
+
+You can configure schema locations in the Anypoint Studio XML view. The schema files are loaded when the connector is initialized,
+thus runtime expressions such as flow variables are not supported.
+
+To configure schemas in Anypoint Studio, switch to the XML view by clicking Configuration XML and modify your X12 EDI configuration to
+ include a list of all the schemas you wish to use by adding an `+<x12:schema>+` element for each document type:
 
 [source, xml, linenums]
 ----
@@ -443,7 +442,9 @@ In Anypoint Studio, switch to the XML view by clicking Configuration XML and mod
 </x12-edi:config>
 ----
 
-After you create a global element for your X12 EDI, configure any schemas and operations.
+If you don't include any schemas in the configuration, X12 EDI will attempt to load an appropriate schema at runtime for each transaction set, using the
+standard X12 schema definitions provided with the connector. However, in this case you won't see any metadata to define the structure of the
+data passed in and out of the connector.
 
 == About the X12 Message Structure
 

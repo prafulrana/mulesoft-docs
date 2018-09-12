@@ -1,10 +1,10 @@
 
 * link:/anypoint-studio/v/7.1/index[About Anypoint Studio]
 
-** link:/anypoint-studio/v/7.1/to-download-and-install-studio[To Download and Install Anypoint Studio 7.1]
-*** link:/anypoint-studio/v/7.1/to-download-and-install-studio-wx[To Download and Install Anypoint Studio 7.1 (Windows)]
-*** link:/anypoint-studio/v/7.1/to-download-and-install-studio-ox[To Download and Install Anypoint Studio 7.1 (OSx)]
-*** link:/anypoint-studio/v/7.1/to-download-and-install-studio-lx[To Download and Install Anypoint Studio 7.1 (Linux)]
+** link:/anypoint-studio/v/7.1/to-download-and-install-studio[To Install Anypoint Studio 7.1]
+*** link:/anypoint-studio/v/7.1/to-download-and-install-studio-wx[To Install Anypoint Studio 7.1 (Windows)]
+*** link:/anypoint-studio/v/7.1/to-download-and-install-studio-ox[To Install Anypoint Studio 7.1 (OSx)]
+*** link:/anypoint-studio/v/7.1/to-download-and-install-studio-lx[To Install Anypoint Studio 7.1 (Linux)]
 ** link:/anypoint-studio/v/7.1/faq-default-browser-config[FAQ: Troubleshooting Issues with Your Default OS Browser]
 *** link:/anypoint-studio/v/7.1/studio-xulrunner-wx-task[To Configure XULRunner as Studio's Default Layout Engine (Windows)]
 *** link:/anypoint-studio/v/7.1/studio-xulrunner-lnx-task[To Configure XULRunner as Studio's Default Layout Engine (Linux)]
@@ -53,9 +53,9 @@
 *** link:/anypoint-studio/v/7.1/to-set-error-breakpoints[To Set Error Breakpoints]
 *** link:/anypoint-studio/v/7.1/to-evaluate-breakpoint-using-expression[To Evaluate a Breakpoint Using an Expression]
 *** link:/anypoint-studio/v/7.1/debugger-perspective-concept[About the Mule Debugger Perspective]
-*** link:/anypoint-studio/v/7.1/breakpoint-view-reference[Breakpoint View Reference]
+*** link:/anypoint-studio/v/7.1/breakpoint-view-reference[Breakpoints View Reference]
 *** link:/anypoint-studio/v/7.1/breakpoints-concepts[About Breakpoints]
-*** link:/anypoint-studio/v/7.1/mule-watches-view-reference[Mule Watches View Reference]
+*** link:/anypoint-studio/v/7.1/mule-watches-view-reference[DataWeave Expression Watches View Reference]
 
 ** link:/anypoint-studio/v/7.1/datasense-concept[About DataSense]
 *** link:/anypoint-studio/v/7.1/datasense-perceptive-flow-design-concept[About Perceptive Flow Design]

@@ -1,93 +1,114 @@
-= To Configure the Auto-Discovery XML Element (Mule 3)
+= Configuring API Autodiscovery in a Mule 3 Application
 
-Before you configure auto-discovery, you publish the API in Exchange and, then in API Manager, configure management of the API.
+To configure API Autodiscovery in your Mule 3.x application, you must meet the following requirements:
 
-You use one of the following procedures to set up auto-discovery of an API deployed in Mule Runtime 3.x:
+== Making your API Available in API Manager
 
-* Method 1: Set up the global auto-discovery element on XML Editor.
-+
-Include the name and version-based auto-discovery element in the configuration.xml.
-+
-*Or*
-* Method 2: Set up the global auto-discovery element in Studio 6.
+The API to which you want to pair your Mule application must be available in API Manager. +
+You can either:
 
-== Method 1: Set up the global auto-discovery element on XML Editor.
+* Publish your API in Exchange and import it from there to API Manager. +
+See link:/api-manager/v/2.x/manage-exchange-api-task[To Manage an API from Exchange].
+* Import it directly from your machine. +
+See link:/api-manager/v/2.x/import-api-task[To Import an API Instance] for more details.
 
-In Mule 3.x, the API name and version reference to the API's main flow identify the API. The main flow is where the HTTP listener is defined. 
+image::api-name-version-autodiscovery.png[align=center]
 
-. In API Administration, click the API version name.
-+
-image::click-version.png[height=267,width=518]
-+
-The version details page, which shows the API name and version, appears.
-+
-image::name-version.png[]
-. Use the following syntax to specify the `apiName` and `version` in the configuration.xml:
-+
-`<api-platform-gw:api apiName="${apiName}" version="${apiVersion}" flowRef="proxy" />`
-+
-The API name consists of a UUID, which is the group ID and the Exchange asset ID. The API version consists of the version name and the instance ID or the label.
+API Manager exposes the API Name and version that you generated in the tasks above. +
+These API Name and Version are required by the Autodiscovery element to identify the API to which you want to pair your application.
 
 
-== Method 2: Studio 6 Configuration
+== Configuring Anypoint Platform Organization Credentials in Mule Runtime
 
-First, you get the Client-ID and Secret from Access Management in Anypoint Platform. You need these credentials for configuration of auto-discovery in Studio. In Studio, you pair Anypoint Studio with an Anypoint Platform environment in your organization by adding the credentials to Studio Preferences. You configure auto-discovery for each flow you want to manage using a global element.
+To use Autodiscovery in a Mule Application, the Runtime must start with Anypoint Platform credentials already configured. +
+There are two types of credentials that you can use: Organization's client ID and secret, or typically, environment's client ID and secret.
 
-. In a browser, log in to Anypoint Platform as an administrator, click Access Management > Environments. Click an environment.
-+
-The environment client ID and client secret appear. You copy/paste these credentials later.
-+
-image::env-clientid-clientsecret.png[] 
-+
-Alternatively, you can get the organization client ID and client secret to copy/paste later:
-+
-* Click Access Management > Organization.
-* In Name, click the organization name from the list.
-+
-The Organization Info appears:
-+
-image::org-id.png[]
-+
-. In Studio, from the main menu, select Anypoint Studio > Preferences > Anypoint Studio > Anypoint Platform for APIs.
-+
-The Preferences dialog for Anypoint Platform for APIs appears.
-+
-. Copy the environment or organization client ID and client secret from step 1 and paste to Client Credentials.
-+
-image:autodis-pairing.png[autodis-pairing]
-+
-This action pairs Mule Runtime with your Anypoint Platform organization's environment.
-+
-. Click Validate to verify that the pairing succeeds.
-+
-. In Project Explorer, select the app. For example, select `api.xml` in `src/main/app` that you created in the APIkit tutorial.
-. On the Global Elements tab on the canvas, click Create.
-+
-image::autodis-cerate-global2.png[]
-+
-The Choose Global Type dialog appears.
-+
-. Select Component Configurations > API Autodiscovery.
-+
-image::autodis-choose-global2.png[]
-+
-The Global Element Properties - API Autodiscovery dialog appears.
-+
-. Create a global element to declare the details of the API version you want Anypoint Platform to discover:
-+
-*  The API name consists of a UUID, which is the group ID and the Exchange asset ID. The version details page shows the API name and version as described in method 1.
-+
-* The API version consists of the version name and the instance ID or the label. The version details page shows the API name and version as described in method 1.
-+
-* In Flow Name, select the name of the flow in the API to which you want to direct requests. For example, select `api-main`, the APIkit tutorial main flow.
-* In APIkit Router Configuration, click api-config from the drop-down in the case of the APIkit tutorial.
-+
-This configuration is not used by API Manager.
-+
-* In Description, write some documentation about the API.
-+
-image:auto-disc-conf2.png[auto-disc-conf2,height=422,width=439]
-+
-. In Project Explorer, right-click the app, `api.xml` in this example, and select Run As > Mule Application.
+[TIP]
+If you configured a proxy endpoint for your API and choose to take advantage of the platform deployment capabilities, such as 1-Click deployment, the Anypoint Platform credentials will be automatically set for you in your autogenerated proxy.
 
-The API is now manageable from API Manager.
+
+=== Getting Environment's Information
+
+In Anypoint Platform, logged as an administrator, click Access Management, Environments, and click the environment in which your API is being managed. +
+The environment's info appears:
+
+image::environment-api-manager.png[align=center]
+
+=== Getting Organization's Information
+
+In Anypoint Platform, logged as an administrator, click Access Management, Organization, and click your target organization name. +
+The organization info appears:
+
+image::orgid-api-manager.png[align=center]
+
+
+=== Configuring Anypoint Platform Credentials in Mule Runtime
+
+==== Standalone Installation.
+
+. Navigate to your $MULE_HOME directory.
+. Open the file located in  `/conf/wrapper.conf`
+. Add your Anypoint Platform Organization credentials in these configurations:
++
+[source,linenums]
+----
+wrapper.java.additional.<n>=-Danypoint.platform.client_id=XXXXXXXX
+wrapper.java.additional.<n>=-Danypoint.platform.client_secret=XXXXXXXX
+----
++
+In these arguments you can pass both organization, or environment credentials.
+
+==== Anypoint Studio 6
+
+You can also pass these credentials in Anypoint Studio 6:
+
+. In Anypoint Studio, click Anypoint Studio from the top menu bar, and Preferences.
+. Under Anypoint Studio, click API Manager
+. Type in the client ID and secret under Environment Credentials
++
+image::configure-autodiscovert-3-studio.png[align=center]
+
+
+== Configuring the Autodiscovery Element in Your Mule Application
+
+Within the code of your Mule Application, you must configure the `api-gateway:auto-discovery` element. +
+The Autodiscovery element points to the specific API in API Manager to which you want to pair.
+
+[TIP]
+If you configured a proxy endpoint for your API, your autogenerated proxy will already be correctly configured with the Autodiscovery element.
+
+.XML element
+[source,xml,linenums]
+----
+<api-platform-gw:api
+  apiName="${apiName}" // <1>
+  version="${apiVersion}" //<2>
+  flowRef="proxy" //<3>
+  apikitRef="api-config"/> //<4>
+----
+
+<1> Configure the `${apiName}` with the UUID, which is the group ID and the Exchange asset ID assigned to your API by API Manager.
+<2> Configure the `${apiVersion}` with the API Version, which is the version name and the instance ID or the label assigned to your API by API Manager.
+<3> Set the `flowRef` element to point to the flow that you want to pair to the API in API Manager.
+<4> If you use APIKit and you would like to apply policies at a resource level, you must set this value. Otherwise said policies won't work at resource level.
+
+You can either replace `${apiName}` and `${apiVersion}` with your specific value, or you can create a `config.properties` file where you define it in a key-value fashion: `apiName=[your-specific-value]` and reference it as `${apiName}` and `${apiVersion}` in this configuration.
+
+You can also configure this using Anypoint Studio's UI:
+
+. In your existing flow, select the Global Elements tab in your Mule Configuration File editor.
+. Click the Create button, and look for the API Autodiscovery global element.
++
+image::autodis-cerate-global2.png[align=center]
+. Set the APIname, version, and Flow Reference.
++
+image::autodis-choose-global2.png[align=center]
++
+You can also choose to use the `${apiName}` and `${apiVersion}` value and reference it from a `config.properties` file.
+
+After the element is defined in the application, and the runtime is configured  with your Anypoint Platform credentials, Mule Runtime will automatically track and keep up to date with the API configuration. defined in API Manager.
+//_COMBAK: Does this need to be deployed for the green dot to show in API Manager?
+
+== See Also
+
+* link:/api-manager/v/2.x/api-auto-discovery-new-concept[About API Autodiscovery]

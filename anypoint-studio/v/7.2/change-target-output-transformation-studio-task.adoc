@@ -1,0 +1,18 @@
+= To Change the Target Output of a Transformation (Anypoint Studio)
+
+By default, the Transform Message component outputs to the message payload. You can change this target, so that the result of your transformation populates another part of the output such as a property or variable.
+
+. Click the *Edit Current Target* button image:using-dataweave-in-studio-47984.png[] above the DataWeave code editor.
+
+
+. Specify where in the output Mule message to place the result of your DataWeave transform. In case you're creating a new variable or property, you must also set a name for it.
+
++
+image:dw_new_variable.png[new variable]
+
+== See Also
+
+* link:/anypoint-studio/v/7.2/transform-message-component-concept-studio[About Transform Message Component]
+* link:/anypoint-studio/v/7.2/add-another-output-transform-studio-task[Add Another Output Target]
+* link:/mule4-user-guide/v/4.1/mule-message-structure[Mule Message Structure]
+* link:/mule4-user-guide/v/4.1/dataweave[DataWeave language]

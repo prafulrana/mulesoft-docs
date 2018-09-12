@@ -49,7 +49,7 @@ Changes in this release:
 
 Changes in this release:
 
-The connector is now able to auto-discover the AX service endpoint address and port from the WSDL of the service. It is still possible to manually override in the global element configuration with the `aosEndpointPort` parameter, but this field is now optional instead of mandatory.
+The connector is now able to autodiscover the AX service endpoint address and port from the WSDL of the service. It is still possible to manually override in the global element configuration with the `aosEndpointPort` parameter, but this field is now optional instead of mandatory.
 
 == 1.0.0
 
@@ -84,4 +84,3 @@ New in this release:
 * link:/mule-user-guide/v/3.9/windows-gateway-services-guide[Windows Gateway Services].
 * https://forums.mulesoft.com[MuleSoft Forum]
 * https://support.mulesoft.com[Contact MuleSoft Support]
-

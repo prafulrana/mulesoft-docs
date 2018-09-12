@@ -1,5 +1,7 @@
 = API Designer Release Notes
 
+* <<API Designer 0.4.13 Release Notes>>
+
 * <<API Designer 0.4.12 Release Notes>>
 
 * <<API Designer 0.4.11 Release Notes>>
@@ -27,6 +29,30 @@
 * <<API Designer 0.3.0 Release Notes>>
 
 * <<API Designer 0.2.0 Release Notes>>
+
+== API Designer 0.4.13 Release Notes
+
+August 23, 2018
+
+=== Enhancement
+
+The JS parser is now at version 1.1.45.
+
+=== Fixed Issue
+
+The requirement in the RAML 1.0 specification that the `protocols` node "be a non-empty array of strings, of values HTTP and/or HTTPS" and be case-insensitive, is now enforced. In previous releases, values such as this one were allowed:
+
+```
+protocols: HTTPS
+```
+
+Now, the use of brackets to denote the value as an array is required:
+
+```
+protocols: [ HTTPS ]
+```
+
+
 
 == API Designer 0.4.12 Release Notes
 

@@ -3,7 +3,7 @@
 This file is obsolete.
 
 ////
-API Manager automatically generates the proxy app when you configure the API as an endpoint with a proxy and includes an auto-discovery element in the app. Mule locks the API until all policies have been applied. The client app (consumer) calls the proxy which forwards the call to the API. After you deploy the app, Mule Runtime 3.x and earlier calls API Manager using the environment client ID and secret to get the policies for the API.
+API Manager automatically generates the proxy app when you configure the API as an endpoint with a proxy and includes an Autodiscovery element in the app. Mule locks the API until all policies have been applied. The client app (consumer) calls the proxy which forwards the call to the API. After you deploy the app, Mule Runtime 3.x and earlier calls API Manager using the environment client ID and secret to get the policies for the API.
 
 In most cases, the proxy you generate in API Manager is suitable for deployment. However, you can modify the proxy to log data to a file or send data to a Splunk account with the Anypoint Splunk Connector, for example. 
 

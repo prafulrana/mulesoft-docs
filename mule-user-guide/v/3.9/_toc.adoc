@@ -65,6 +65,8 @@
 **** link:/mule-user-guide/v/3.9/amqp-connector[AMQP Connector]
 ***** link:/mule-user-guide/v/3.9/amqp-connector-examples[AMQP Connector Examples]
 ***** link:/mule-user-guide/v/3.9/amqp-connector-reference[AMQP Connector Reference]
+**** link:/mule-user-guide/v/3.9/anypoint-mq-connector[Anypoint MQ Connector]
+***** link:/mule-user-guide/v/3.9/anypoint-mq-connector-reference[Anypoint MQ Connector Reference]
 **** link:/mule-user-guide/v/3.9/box-connector[Box Connector]
 **** link:/mule-user-guide/v/3.9/cassandra-connector-about[Cassandra Connector]
 ***** link:/mule-user-guide/v/3.9/cassandra-connector-conf-task[To Configure Cassandra Authentication]

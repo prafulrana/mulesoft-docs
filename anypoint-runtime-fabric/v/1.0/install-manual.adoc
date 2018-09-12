@@ -1,113 +1,159 @@
-= Manually Install Runtime Fabric
-:noindex:
+= Install Runtime Fabric Manually
 
 This topic describes how to install and register Anypoint Runtime Fabric on VMs hosted in your data center.
 
 [WARNING]
 ====
-Before running the installer, ensure that your infrastructure meets the minimum hardware requirements. An operations specialist may be needed to provision the required infrastructure.
+Before running the installer, ensure that your infrastructure meets the minimum hardware, operating system, and networking requirements. An operations and networking specialist may be needed to provision the required infrastructure.
 ====
 
-== Download Installer
-The installer package includes the necessary scripts and binaries needed to install Runtime Fabric.
+== Before you Begin
+
+Prepare the necessary steps and understand the core concepts prior to installing Runtime Fabric. In addition, ensure the following criteria have been met before beginning the installation:
+
+* Review the link:/anypoint-runtime-fabric/v/1.0/installation[installation details] to ensure you are ready to install Runtime Fabric.
+* Provision the necessary hardware for the controller VMs and worker VMs as outlined in the system requirements page.
+* Ensure the required disks are listed as a block device for each VM. The disks should not be mounted or formatted.
+* Runtime Fabric supports RedHat v7.4 or CentOS v7.4. Each VM should be running a compatible operating system.
+* The necessary ports should be opened as described on the port requirements page.
+
+== Download Script
+
+The installer script ZIP file includes the necessary scripts needed to install Runtime Fabric. Download it to a controller VM you wish to act as the leader during the installation. It'll be referred to as the installer VM.
 
 . Log in to Anypoint platform and navigate to Runtime Manager.
 . On the left navigation pane, select "Runtime Fabrics".
 . Click "Create Runtime Fabric".
-. Click the installer link to begin the download.
-. Once downloaded, unpack the installer file to view its contents.
+. Copy the "Download files" link.
+.. Right-click the button and select an option most similar to "Copy link location".
+. Download the file to the installer VM.
+.. Open a shell (SSH session) to the installer VM.
+.. Download the file: `curl {INSTALLER_URL} --output rtf-install-scripts.zip`
+. Once downloaded, unzip the `rtf-install-scripts.zip` file in a separate directory.
++
+----
+mkdir -p ./rtf-install-scripts && unzip rtf-install-scripts.zip -d ./rtf-install-scripts
+----
 
-[NOTE]
-The extension for the installer is packaged as `tar.gz`. You'll need a utility to unpack tar files.
+Inside `rtf-install-scripts/`, you'll find a directory named `manual` containing the following:
 
-The contents inside the installation binary include the following:
-
-* `auto_installer.py`: the installation bootstrap script.
-* `controller-init.sh`: a script to configure each VM serving as a controller.
-* `worker-init.sh`: a script to configure each VM serving as a worker.
+* `generate-configs.sh`: a script to help generate environment variables for each VM.
 * `README.md`: a markdown file containing instructions to aid with installation.
 
-== Running the Command Line Installation
+== Prepare VMs for Installation
+The initialization process performs the following actions:
 
-. Copy and run the `controller-init.sh` script, in proviledged mode, to each VM acting as a controller. The script accepts 2 parameters which are required. The first parameter describes the disk block device path for _Disk 1_, while the second parameter describes the same for _Disk 2_. After running the script, you may be prompted to accept the changes. 
-+
-----
-chmod +x setup.sh
-sudo ./setup.sh /dev/sdc /dev/sdd
-----
-+
-[NOTE]
-To help identify the paths to your block devices, use `lsblk`.
-+
+* Formats the dedicated disks.
+* Mounts the dedicated disks to the appropriate path.
+* Sets iptable rules.
+* Enables the required kernel modules.
+* Enables and reloads system services.
 
-. Copy the `installer.tar.gz` binary, the `auto-installer.py` script, and your private key to a single server or virtual machine. The installer URL can be found by navigating to Anypoint Runtime Manager, selecting the *Runtime Fabric* tab, and clicking the *Create Runtime Fabric* button.
-+
-----
-wget <installer_URL> -O installer.tar.gz
-----
+To begin, we will run a configuration tool. This aids in generating the environment variables required on each machine. The script reads these variables during execution.
 
-. Move the `installer.tar.gz` binary to the user's home directory.
-+
-----
-mv installer.tar.gz ~
-----
-+
-[NOTE]
-Ensure the installation binary file name is equal to `installer.tar.gz`.
-+
-
-. Move `auto-installer.py` to a temp directory, and change to that directory.
-+
-----
-mv auto-installer.py /tmp/
-cd /tmp/
-----
-
-. Run the following command on the same server or virtual machine to start the `auto-installer.py` script. This script requires Python 2.7 to run. The private and public IP addresses, admin username for the servers, the block device path for _Disk 2_, and the private ssh key pair should be filled in as environment variables before running.
-+
-----
-PRIVATE_IPS="<private-ip-1> <private-ip-2> <private-ip-3> \
- PUBLIC_IPS="<public-ip-1> <public-ip-2> <public-ip-3>" \
- FLAVOR=three \
- USER=<username> \
- KEY=</path/to/private/ssh/key> \
- DOCKER_DEVICE=</dev/sdd> \
- python auto_installer.py
-----
-+
-Using the following values:
-+
-[%header,cols="2*a"]
+=== Variables to specify:
+[%header,cols="3*a"]
 |===
-|Parameter | Description
-|PRIVATE_IPS | Specifies the private IP address for each server.
-|PUBLIC_IPS | Specifies the public IP address for each server.
-|FLAVOR | Specifies the number of nodes in your cluster. Valid values are: `one`, `three`, and `six`.
-|USER | Specifies the username on the servers.
-|KEY | Specifies the path for the private ssh key pair.
-|DOCKER_DEVICE | Specifies the path to _Disk 2_ device on each server. Use `lsblk` to list the available devices.
+|Parameter | Description | Example
+| `RTF_CONTROLLER_IPS` | IP addresses of the controller VMs, separated by whitespace. The first IP address serves as the installer VM. | `"10.3.0.4 10.3.0.5 10.3.0.6"`
+| `RTF_WORKER_IPS` | IP addresses of the worker VMs, separated by whitespace. | `"10.3.0.11 10.3.0.12 10.3.0.13"`
+| `RTF_DOCKER_DEVICE` |  Block device path for the dedicated disk used for Docker, supporting 1000 provisioned IOPS. | `/dev/xvdc`
+| `RTF_ETCD_DEVICE` |  Block device path for the dedicated disk used for etcd, supporting 3000 provisioned IOPS. | `/dev/xvdb`
+| `RTF_AUTH_TOKEN` | An active Anypoint authentication token, available on the Create Runtime Fabric page. | `Bearer 626d7810-0730-498b-bd48-544490c2226b`
+| `RTF_REGION` | The Anypoint broker region you're registering to, available on the Create Runtime Fabric page. | `us-east-1`
+| `RTF_ORG_ID` | The ID for your Anypoint organization, available on the Create Runtime Fabric page. | `2f99d26-a3c2-4023-b303-5528sdd5v022`
+| `RTF_ENDPOINT` | The Anypoint control plane you're registering to, available on the Create Runtime Fabric page. | `anypoint.mulesoft.com`
+| `RTF_INSTALL_PACKAGE_URL` | The URL of the Runtime Fabric installation package, available on the Create Runtime Fabric page. _If this is not specified, the installer will expect you to manually copy the installation package to_ `/opt/anypoint/runtimefabric/installer.tar.gz`. | `https://s3.amazonaws.com/runtimefabric/...`
+| `RTF_NAME` | The name of your Runtime Fabric cluster. | `runtime-fabric`
+| `RTF_TOKEN` | The token used to join each other VM to the installer VM. This should be a unique value to avoid conflicts during installation. | `my-rtf-token`
+| `RTF_MULE_LICENSE` | The digest contents (`muleLicenseKey.lic`) of your organization's Mule Enterprise license key. Learn more on how to link:/mule-user-guide/v/3.9/installing-an-enterprise-license[install a Mule Enterprise license]. | `<xml>...`
 |===
-+
+
 [NOTE]
-This step will install the Project Worker Cloud appliance across all servers to form a cluster. It may take 10-15 minutes or longer to complete.
+To help identify the block device paths to your disks, run the `lsblk` command on the VMs.
 
-== Registering the Project Worker Cloud appliance
-
-After the installation script has completed, you'll need to register the Project Worker Cloud appliance to Anypoint Runtime Manager.
-
-. Navigate to Runtime Manager, select the Worker Clouds tab, and select the Create Worker Cloud button.
-. On Step 3, choose a name for your Project Worker Cloud appliance. Copy the script to your clipboard.
-. On a server running the appliance, paste and run the registration script with a privledged user.
-. After the script completes the registration process, your appliance should be registered and visible on the Worker Clouds tab in Runtime Manager.
+. If needed, open a shell/SSH on the installer VM and navigate to the `manual` directory from the unzipped directory.
+. Fill in the values to each variable and execute `generate-configs.sh`. It may be easier to paste the following command in a text editor to fill in the variables.
 +
+----
+RTF_CONTROLLER_IPS='' \
+RTF_WORKER_IPS='' \
+RTF_DOCKER_DEVICE= \
+RTF_ETCD_DEVICE= \
+RTF_AUTH_TOKEN='' \
+RTF_REGION= \
+RTF_ORG_ID= \
+RTF_ENDPOINT= \
+RTF_INSTALL_PACKAGE_URL= \
+RTF_NAME= \
+RTF_TOKEN= \
+RTF_MULE_LICENSE='' \
+./generate-configs.sh
+----
++
+. The output is a configuration snippet for the `installer`, `controller`, and `worker` VMs. Execute the snippet on each VM based on its desired role to add the expected environment variables.
+
+.. On the installer VM, paste and execute the `installer` snippet to prepare it for the installation script.
+.. On the controller VM(s), paste and execute the `controller` snippet.
+.. On the worker VMs, paste and execute the `worker` snippet.
+
+. On each VM, copy the `installer/scripts/init.sh` file to `/opt/anypoint/runtimefabric`, and ensure the script is executable. The script below assumes the present working directory contains the unzipped directory `rtf-install-scripts`.
+
+----
+mkdir -p /opt/anypoint/runtimefabric && cp ./rtf-install-scripts/scripts/init.sh /opt/anypoint/runtimefabric/init.sh && chmod +x /opt/anypoint/runtimefabric/init.sh
+----
+
+== Installation
+
+. Run the `init.sh` script in privileged mode on the `installer` VM:
++
+----
+sudo /opt/anypoint/runtimefabric/init.sh foreground
+----
++
+. Once the installer VM has successfully completed the pre-flight checks and is running the installation process, run the `init.sh` script in privileged mode on all the other VMs. This step can be performed concurrently.
++
+----
+sudo /opt/anypoint/runtimefabric/init.sh foreground
+----
+
 [NOTE]
-A new sandbox environment must be created with the name `Worker-Cloud-beta` in order to deploy applications to the Project Worker Cloud appliance. This is a limitation placed during the beta program.
+This step will install Runtime Fabric across all VMs to form a cluster. It may take 15-25 minutes or longer to complete.
 
-== Known Issues
+The installer VM will download the installer package, unpack it and begin installation. The other VMs will wait for the installer VM to progress with installation until it's able to make the installer files transferrable. Each VM will then transfer the files from the installer VM and carry out their own installation procedure.
 
-The following are issues which may be present during the beta program for Project Worker Cloud. 
+When installation has been completed, a cluster will be formed across all VMs. The installer VM will then carry out the registration step using the Anypoint Organization ID, token, and region specified.
 
-* The `region` parameter of the registration script may need to be manually set to `us-east-1`. 
-* In Runtime Manager, stopping an application deployed to a Project Worker Cloud appliance will not alter its state.
-* Applications must be uploaded to Anypoint Exchange before they can be deployed to Project Worker Cloud.
-* When deleting a Project Worker Cloud appliance which has been disconnected from the Anypoint Control Plane, you may encounter an error asking to remove all applications. Reach out to the Product/Engineering team to help resolve this issue.
+After registration has completed, you'll see the name used when provisioning Runtime Fabric in Anypoint Runtime Manager, under the Runtime Fabrics tab. The installation script on the installer VM will proceed to insert the Mule Enterprise license digest in Runtime Fabric.
+
+When finished, verify the installation by running this command to view the health of the Runtime Fabric cluster on any VM; you should see each VM in the cluster with a status equal to `healthy`.
+----
+gravity status
+----
+
+=== Monitoring the Installation
+
+It's useful to monitor the installation on the installer VM to verify all pre-flight checks have passed; if an error were to occur during installation, it's likely to be visible by viewing the installer VM's log output.
+
+When the `foreground` parameter is applied to the `init.sh` script, logs are outputted to the user for realtime feedback on the installation. If this parameter was omitted, logs are sent to a specific location on each VM.
+
+To view the progress during the installation, you can tail the output log on each VM:
+
+. Open a shell (or SSH session) to the VM.
+. Tail the output log, located at `/var/log/rtf-init.log`
++
+----
+tail -f /var/log/rtf-init.log
+----
+
+[NOTE]
+You can tail the same log on each VM to view its progress.
+
+When the installation completes successfully, the file `/opt/anypoint/runtimefabric/init-succeeded` is created.
+
+== Next Steps
+
+Before deploying applications on Anypoint Runtime Fabric, you'll need to perform the following steps:
+
+* link:/anypoint-runtime-fabric/v/1.0/associate-environments[Associate an environment to Runtime Fabric]
+* link:/anypoint-runtime-fabric/v/1.0/enable-inbound-traffic[Enable inbound traffic to Runtime Fabric] (optional)

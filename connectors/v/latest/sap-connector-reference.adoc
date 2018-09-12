@@ -1,33 +1,301 @@
 = SAP Connector Reference
 
-SAP Extension.
-
+Class that has an overall configuration for the SAP extension.
 
 [[inbound-config]]
-== Inbound
-
+== Inbound Configuration
 
 Default configuration for SAP extension outbound elements.
 
-
-=== Inbound Parameters
+=== Parameters
 
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-|Name | String | The name of this configuration. With this name can be later referenced. | | x
-| Connection a| Simple Connection Provider
- | The connection types that can be provided to this configuration. | | x
-| Encoding a| String |  |  | 
+|Name | String | The name for this configuration. Connectors reference the configuration with this name. | |x
+| Connection a| <<inbound-config_simple-connection-provider>>
+| The connection types that can be provided to this configuration. | |x
+| Expiration Policy a| <<ExpirationPolicy>> |  Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform expires the instance at the exact moment that it becomes eligible. The runtime only purges instances as it sees fit. |  |
 |===
 
-== Connection Types
-
 [[inbound-config_simple-connection-provider]]
-=== Simple Connection Provider
-
+== Simple Connection Provider Connection Type
 
 Connection provider that contains shared functionality on how to provide the connection.
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Application Server Host a| String |  |  |x
+| Username a| String |  |  |x
+| Password a| String |  |  |x
+| System Number a| String |  |  |x
+| Client a| String |  |  |x
+| Login Language a| String |  |  |x
+| Extended Properties a| Object |  |  |
+| Destination Name a| String |  |  default |
+| Trace From Server Flag a| Boolean |  |  false |
+| Reconnection a| <<Reconnection>> |  When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment fails if the test doesn't pass after exhausting the associated reconnection strategy. |  |
+|===
+
+=== Associated Sources
+
+* <<DocumentSource>>
+* <<FunctionSource>>
+
+[[outbound-config]]
+== Outbound
+
+Default configuration for SAP extension outbound elements.
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+|Name | String | The name for this configuration. Connectors reference the configuration with this name. | |x
+| Connection a| <<outbound-config_simple-connection-provider, Simple Connection Provider>>
+ | The connection types that can be provided to this configuration. | |x
+| Expiration Policy a| <<ExpirationPolicy>> |  Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform expires the instance at the exact moment that it becomes eligible. The runtime only purges instances as it sees fit. |  |
+| Default Idocument Version a| String |  |  0 |
+| Disable Function Template Cache Flag a| Boolean |  |  false |
+| Evaluate Response Flag a| Boolean |  |  false |
+| Log Trace Flag a| Boolean |  |  false |
+|===
+
+[[outbound-config_simple-connection-provider]]
+== Simple Connection Provider Connection Type
+
+Connection provider that contains shared functionality on how to provide the connection.
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Application Server Host a| String |  |  |x
+| Username a| String |  |  |x
+| Password a| String |  |  |x
+| System Number a| String |  |  |x
+| Client a| String |  |  |x
+| Login Language a| String |  |  |x
+| Extended Properties a| Object |  |  |
+| Destination Name a| String |  |  default |
+| Trace From Server Flag a| Boolean |  |  false |
+| Reconnection a| <<Reconnection>> |  When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment fails if the test doesn't pass after exhausting the associated reconnection strategy. |  |
+|===
+
+=== Associated Operations
+
+* <<confirmTransactionId>>
+* <<createIdoc>>
+* <<createTransactionId>>
+* <<executeQueuedRemoteFunctionCall>>
+* <<executeSynchronousRemoteFunctionCall>>
+* <<executeTransactionalRemoteFunctionCall>>
+* <<getFunction>>
+* <<send>>
+
+== Operations
+
+[[confirmTransactionId]]
+== Confirm Transaction ID
+
+`<sap:confirm-transaction-id>`
+
+Confirms a determined transaction.
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | |x
+| Transaction Id a| String |  The ID of the transaction to confirm. |  |x
+| Transactional Action a| Enumeration, one of:
+
+** ALWAYS_JOIN
+** JOIN_IF_POSSIBLE
+** NOT_SUPPORTED |  The type of joining action that operations can take regarding transactions. |  JOIN_IF_POSSIBLE |
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  A retry strategy in case of connectivity errors. |  |
+|===
+
+=== For Configurations
+
+* <<outbound-config>>
+
+=== Throws
+
+* SAP:CONNECTIVITY
+* SAP:RETRY_EXHAUSTED
+
+[[createIdoc]]
+== Create IDoc
+
+`<sap:create-idoc>`
+
+Retrieves a IDocument based on its key.
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | |x
+| Key a| String |  The key that contains the required information to retrieve the IDocument. |  |x
+| Transactional Action a| Enumeration, one of:
+
+** ALWAYS_JOIN
+** JOIN_IF_POSSIBLE
+** NOT_SUPPORTED |  The type of joining action that operations can take regarding transactions. |  JOIN_IF_POSSIBLE |
+| Streaming Strategy a| * <<repeatable-in-memory-stream>>
+* <<repeatable-file-store-stream>>
+* non-repeatable-stream |  Configure to use repeatable streams. |  |
+| Target Variable a| String |  The name of a variable in which the operation's output is placed. |  |
+| Target Value a| String |  An expression to evaluate against the operation's output and the outcome of that expression stored in the target variable. |  #[payload] |
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  A retry strategy in case of connectivity errors. |  |
+|===
+
+=== Output
+
+[%autowidth.spread]
+|===
+| Type | Binary
+|===
+
+=== For Configurations
+
+* <<outbound-config>>
+
+=== Throws
+
+* SAP:BEGIN_TRANSACTION_ERROR
+* SAP:COMMIT_TRANSACTION_ERROR
+* SAP:CONFIG_ERROR
+* SAP:CONFIRM_TRANSACTION_ERROR
+* SAP:CONNECTION_ERROR
+* SAP:CONNECTIVITY
+* SAP:EXECUTION_ERROR
+* SAP:FIELD_NOT_FOUND_ERROR
+* SAP:INVALID_CREDENTIALS_ERROR
+* SAP:INVALID_HOST_ERROR
+* SAP:MISSING_BUSINESS_OBJECT_ERROR
+* SAP:RETRY_EXHAUSTED
+* SAP:ROLLBACK_TRANSACTION_ERROR
+* SAP:TID_CREATION_ERROR
+* SAP:UNKNOWN
+* SAP:XML_PARSING_ERROR
+
+
+[[createTransactionId]]
+== Create Transaction ID
+
+`<sap:create-transaction-id>`
+
+Creates a transaction ID to be used as part of future calls.
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | |x
+| Transactional Action a| Enumeration, one of:
+
+** ALWAYS_JOIN
+** JOIN_IF_POSSIBLE
+** NOT_SUPPORTED |  The type of joining action that operations can take regarding transactions. |  JOIN_IF_POSSIBLE |
+| Target Variable a| String |  The name of a variable in which the operation's output is placed. |  |
+| Target Value a| String |  An expression to evaluate against the operation's output and the outcome of that expression stored in the target variable. |  #[payload] |
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  A retry strategy in case of connectivity errors. |  |
+|===
+
+=== Output
+
+[%autowidth.spread]
+|===
+| Type | String
+|===
+
+=== For Configurations
+
+* <<outbound-config>>
+
+=== Throws
+
+* SAP:CONNECTIVITY
+* SAP:RETRY_EXHAUSTED
+
+
+[[executeQueuedRemoteFunctionCall]]
+== Execute BAPI / Function over qRFC
+
+`<sap:execute-queued-remote-function-call>`
+
+Executes a BAPIFunction over an Queued Remote Function Call (qRFC). A queued RFC is an extension of tRFC. It also ensures that individual steps are processed in sequence. To guarantee that multiple LUWs (Logical Unit of Work or Transaction) are processed in the order specified by the application. 
+
+tRFC can be serialized using queues (inbound and outbound queues). Hence the name queued RFC (qRFC).  
+
+qRFC is best used for: Extension of the Transactional RFC, defined processing sequence, and  Implementation of qRFC. The latter is recommended if you want to guarantee that several transactions are processed in a predefined order.
+
+=== Parameters
+
+[%header%autowidth.spread]
+|===
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | |x
+| Key a| String |  The name of the function to execute. |  |x
+| Content a| Binary |  The BAPIFunction to execute. |  #[payload] |
+| Transaction Id a| String |  The ID that identifies an RFC so it's run only once |  |
+| Queue Name a| String |  The name of the queue on which the RFC executes. |  |x
+| Transactional Action a| Enumeration, one of:
+
+** ALWAYS_JOIN
+** JOIN_IF_POSSIBLE
+** NOT_SUPPORTED |  The type of joining action that operations can take regarding transactions. |  JOIN_IF_POSSIBLE |
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  A retry strategy in case of connectivity errors. |  |
+|===
+
+=== For Configurations
+
+* <<outbound-config>>
+
+=== Throws
+
+* SAP:BEGIN_TRANSACTION_ERROR
+* SAP:COMMIT_TRANSACTION_ERROR
+* SAP:CONFIG_ERROR
+* SAP:CONFIRM_TRANSACTION_ERROR
+* SAP:CONNECTION_ERROR
+* SAP:CONNECTIVITY
+* SAP:EXECUTION_ERROR
+* SAP:FIELD_NOT_FOUND_ERROR
+* SAP:INVALID_CREDENTIALS_ERROR
+* SAP:INVALID_HOST_ERROR
+* SAP:MISSING_BUSINESS_OBJECT_ERROR
+* SAP:RETRY_EXHAUSTED
+* SAP:ROLLBACK_TRANSACTION_ERROR
+* SAP:TID_CREATION_ERROR
+* SAP:UNKNOWN
+* SAP:XML_PARSING_ERROR
+
+
+[[executeSynchronousRemoteFunctionCall]]
+== Execute BAPI / Function over sRFC
+`<sap:execute-synchronous-remote-function-call>`
+
+
+Executes a BAPIFunction over a Synchronous Remote Function Call (sRFC). A synchronous RFC requires both the systems (client and server) to be available at the time of communication or data transfer. It is the most common type and is required when result is required immediately after the execution of sRFC.  
+
+sRFC is a means of communication between systems where acknowledgements are required. The resources of the Source System wait at the target system and ensure that they deliver the message/data with ACKD. The Data is consistent and reliable for communication.  The issue is if the target system is not available, the source system resources wait until target system is available. This may lead to the Processes of source system to go into Sleep/RFC/CPIC Mode at target systems and hence blocks these resources.  
+
+sRFC is best used for: Communication between systems, communication between SAP, and Web Application Server to SAP GUI.
 
 
 === Parameters
@@ -35,717 +303,424 @@ Connection provider that contains shared functionality on how to provide the con
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Application Server Host a| String |  |  | x
-| Username a| String |  |  | x
-| Password a| String |  |  | x
-| System Number a| String |  |  | x
-| Client a| String |  |  | x
-| Login Language a| String |  |  | x
-| Extended Properties a| Object |  |  | x
-| Destination Name a| String |  |  default | 
-| Trace From Server Flag a| Boolean |  |  false | 
-| Reconnection Strategy a| * reconnect
-* reconnect-forever |  A retry strategy in case of connectivity errors |  | 
-|===
-
-
-=== Associated Sources
-
-* DocumentSource 
-* FunctionSource 
-
-
-[[outbound-config]]
-== Outbound
-
-
-Default configuration for SAP extension outbound elements.
-
-
-=== Outbound Parameters
-
-[%header%autowidth.spread]
-|===
-| Name | Type | Description | Default Value | Required
-|Name | String | The name of this configuration. With this name can be later referenced. | | x
-| Connection a| Simple Connection Provider
- | The connection types that can be provided to this configuration. | | x
-| Encoding a| String |  |  | 
-| Default Idocument Version a| String |  |  0 | 
-| Disable Function Template Cache Flag a| Boolean |  |  false | 
-| Evaluate Response Flag a| Boolean |  |  false | 
-| Log Trace Flag a| Boolean |  |  false | 
-|===
-
-== Connection Types
-
-[[outbound-config_simple-connection-provider]]
-=== Simple Connection Provider
-
-
-Connection provider that contains shared functionality on how to provide the connection.
-
-
-==== Simple Connection ProviderParameters
-
-[%header%autowidth.spread]
-|===
-| Name | Type | Description | Default Value | Required
-| Application Server Host a| String |  |  | x
-| Username a| String |  |  | x
-| Password a| String |  |  | x
-| System Number a| String |  |  | x
-| Client a| String |  |  | x
-| Login Language a| String |  |  | x
-| Extended Properties a| Object |  |  | x
-| Destination Name a| String |  |  default | 
-| Trace From Server Flag a| Boolean |  |  false | 
-| Reconnection Strategy a| * reconnect
-* reconnect-forever |  A retry strategy in case of connectivity errors |  | 
-|===
-
-== SAP Connector Operations
-
-* confirmTransactionId 
-* createIdoc 
-* createTransactionId 
-* executeQueuedRemoteFunctionCall 
-* executeSynchronousRemoteFunctionCall 
-* executeTransactionalRemoteFunctionCall 
-* getFunction 
-* send 
-
-
-[[confirmTransactionId]]
-== Confirm Transaction ID
-
-
-Confirms a determined transaction.
-
-
-=== Confirm Transaction ID Parameters
-
-[%header%autowidth.spread]
-|===
-| Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | x
-| Transaction Id a| String |  The ID of the transaction to confirm. |  | x
+| Configuration | String | The name of the configuration to use. | |x
+| Key a| String |  The name of the function to execute. |  |x
+| Content a| Binary |  The BAPIFunction to execute. |  #[payload] |
 | Transactional Action a| Enumeration, one of:
 
 ** ALWAYS_JOIN
 ** JOIN_IF_POSSIBLE
-** NOT_SUPPORTED |  The type of joining action that operations can take regarding transactions. |  JOIN_IF_POSSIBLE | 
+** NOT_SUPPORTED |  The type of joining action that operations can take regarding transactions. |  JOIN_IF_POSSIBLE |
+| Streaming Strategy a| * <<repeatable-in-memory-stream>>
+* <<repeatable-file-store-stream>>
+* non-repeatable-stream |  Configure to use repeatable streams. |  |
+| Target Variable a| String |  The name of a variable where the operation's output is placed. |  |
+| Target Value a| String |  An expression to evaluate against the operation's output and the outcome of that expression stored in the target variable. |  #[payload] |
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  A retry strategy in case of connectivity errors. |  |
 |===
 
+=== Output
 
-=== Confirm Transaction ID for Configurations
-
-* outbound-config 
-
-=== Confirm Transaction ID Throws
-
-* SAP:CONNECTIVITY 
-* SAP:RETRY_EXHAUSTED 
-
-
-[[createIdoc]]
-== Create IDoc
-
-
-Retrieves a IDocument based on it's key.
-
-
-=== Create IDoc Parameters
-
-[%header%autowidth.spread]
+[%autowidth.spread]
 |===
-| Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | x
-| Key a| String |  The key that contains the required information to retrieve the IDocument. |  | x
-| Transactional Action a| Enumeration, one of:
-
-** ALWAYS_JOIN
-** JOIN_IF_POSSIBLE
-** NOT_SUPPORTED |  The type of joining action that operations can take regarding transactions. |  JOIN_IF_POSSIBLE | 
-| Streaming Strategy a| * repeatable-in-memory-stream
-* repeatable-file-store-stream
-* non-repeatable-stream |  Configure if repeatable streams should be used and their behavior |  | 
-| Target Variable a| String |  The name of a variable on which the operation's output is placed |  | 
+| Type | Binary
 |===
 
-=== Create IDoc Output
+=== For Configurations
 
-[cols=".^50%,.^50%"]
-|===
-| Type a| Binary
-|===
+* <<outbound-config>>
 
-=== Create IDoc for Configurations
+=== Throws
 
-* outbound-config 
-
-=== Create IDoc Throws
-
-* SAP:UNKNOWN 
-* SAP:CONFIRM_TRANSACTION_ERROR 
-* SAP:COMMIT_TRANSACTION_ERROR 
-* SAP:CONNECTIVITY 
-* SAP:ROLLBACK_TRANSACTION_ERROR 
-* SAP:XML_PARSING_ERROR 
-* SAP:RETRY_EXHAUSTED 
-* SAP:FIELD_NOT_FOUND_ERROR 
-* SAP:INVALID_HOST_ERROR 
-* SAP:MISSING_BUSINESS_OBJECT_ERROR 
-* SAP:EXECUTION_ERROR 
-* SAP:INVALID_CREDENTIALS_ERROR 
-* SAP:TID_CREATION_ERROR 
-* SAP:CONNECTION_ERROR 
-* SAP:CONFIG_ERROR 
-* SAP:BEGIN_TRANSACTION_ERROR 
-
-
-[[createTransactionId]]
-== Create Transaction ID
-
-Creates a transaction ID to be used as part of future calls.
-
-
-=== Create Transaction ID Parameters
-
-[%header%autowidth.spread]
-|===
-| Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | x
-| Transactional Action a| Enumeration, one of:
-
-** ALWAYS_JOIN
-** JOIN_IF_POSSIBLE
-** NOT_SUPPORTED |  The type of joining action that operations can take regarding transactions. |  JOIN_IF_POSSIBLE | 
-| Target Variable a| String |  The name of a variable on which the operation's output is placed |  | 
-|===
-
-=== Create Transaction ID Output
-
-[cols=".^50%,.^50%"]
-|===
-| Type a| String
-|===
-
-=== Create Transaction ID for Configurations
-
-* outbound-config 
-
-=== Create Transaction ID Throws
-
-* SAP:CONNECTIVITY 
-* SAP:RETRY_EXHAUSTED 
-
-
-[[executeQueuedRemoteFunctionCall]]
-== Execute BAPI Over qRFC
-
-Executes a BAPIFunction over an Queued Remote Function Call (qRFC).
-
-A queued RFC is an extension of tRFC. It also ensures that individual steps are processed in sequence.
-To guarantee that multiple LUWs (Logical Unit of Work/ Transaction) are processed in the order specified by the application.
-tRFC can be serialized using queues (inbound and outbound queues). Hence the name queued RFC (qRFC).
-
-qRFC is best used for:
-
-* Extension of the Transactional RFC
-* Defined processing sequence
-
-Implementation of qRFC is recommended if you want to guarantee that several transactions are processed in a predefined order.
-
-
-=== Execute BAPI Over qRFC Parameters
-
-[%header%autowidth.spread]
-|===
-| Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | x
-| Key a| String |  The name of the function to execute. |  | x
-| Content a| Binary |  The BAPIFunction to execute. |  #[payload] | 
-| Transaction Id a| String |  The ID that identifies an RFC so it's run only once |  | 
-| Queue Name a| String |  The name of the queue on which the RFC executes. |  | x
-| Transactional Action a| Enumeration, one of:
-
-** ALWAYS_JOIN
-** JOIN_IF_POSSIBLE
-** NOT_SUPPORTED |  The type of joining action that operations can take regarding transactions. |  JOIN_IF_POSSIBLE | 
-|===
-
-
-=== Execute BAPI Over qRFC for Configurations
-
-* outbound-config 
-
-=== Execute BAPI Over qRFC Throws
-
-* SAP:BEGIN_TRANSACTION_ERROR 
-* SAP:COMMIT_TRANSACTION_ERROR 
-* SAP:CONFIG_ERROR 
-* SAP:CONFIRM_TRANSACTION_ERROR 
-* SAP:CONNECTION_ERROR 
-* SAP:CONNECTIVITY 
-* SAP:EXECUTION_ERROR 
-* SAP:FIELD_NOT_FOUND_ERROR 
-* SAP:INVALID_CREDENTIALS_ERROR 
-* SAP:INVALID_HOST_ERROR 
-* SAP:MISSING_BUSINESS_OBJECT_ERROR 
-* SAP:RETRY_EXHAUSTED 
-* SAP:ROLLBACK_TRANSACTION_ERROR 
-* SAP:TID_CREATION_ERROR 
-* SAP:UNKNOWN 
-* SAP:XML_PARSING_ERROR 
-
-
-[[executeSynchronousRemoteFunctionCall]]
-== Execute BAPI Over sRFC
-
-Executes a BAPIFunction over a Synchronous Remote Function Call 
-(sRFC). A synchronous RFC requires both the systems (client and server) 
-to be available at the time of communication or data transfer.
-It is the most common type and is required when result is required 
-immediately after the execution of sRFC.
-
-sRFC is a means of communication between systems where acknowledgements 
-are required. The resources of the Source System wait
-at the target system and ensure that they deliver the message/data with 
-ACKD. The Data is consistent and reliable for communication.
-
-The issue is if the target system is not available, the source system 
-resources wait until target system is available.
-This may lead to the Processes of source system to go into Sleep/RFC/CPIC 
-Mode at target systems and hence blocks these resources.
-
-
-sRFC is best used for:
-
-* Communication between systems
-* Communication between SAP Web Application Server to SAP GUI
-
-
-
-=== Execute BAPI Over sRFC Parameters
-
-[%header%autowidth.spread]
-|===
-| Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | x
-| Key a| String |  The name of the function to execute. |  | x
-| Content a| Binary |  The BAPIFunction to execute. |  #[payload] | 
-| Transactional Action a| Enumeration, one of:
-
-** ALWAYS_JOIN
-** JOIN_IF_POSSIBLE
-** NOT_SUPPORTED |  The type of joining action that operations can take regarding transactions. |  JOIN_IF_POSSIBLE | 
-| Streaming Strategy a| * repeatable-in-memory-stream
-* repeatable-file-store-stream
-* non-repeatable-stream |  Configure if repeatable streams should be used and their behavior |  | 
-| Target Variable a| String |  The name of a variable on which the operation's output is placed |  | 
-|===
-
-=== Execute BAPI Over sRFC Output
-
-[cols=".^50%,.^50%"]
-|===
-| Type a| Binary
-|===
-
-=== Execute BAPI Over sRFC for Configurations
-
-* outbound-config 
-
-=== Execute BAPI Over sRFC Throws
-
-* SAP:BEGIN_TRANSACTION_ERROR 
-* SAP:COMMIT_TRANSACTION_ERROR 
-* SAP:CONFIG_ERROR 
-* SAP:CONFIRM_TRANSACTION_ERROR 
-* SAP:CONNECTION_ERROR 
-* SAP:CONNECTIVITY 
-* SAP:EXECUTION_ERROR 
-* SAP:FIELD_NOT_FOUND_ERROR 
-* SAP:INVALID_CREDENTIALS_ERROR 
-* SAP:INVALID_HOST_ERROR 
-* SAP:MISSING_BUSINESS_OBJECT_ERROR 
-* SAP:RETRY_EXHAUSTED 
-* SAP:ROLLBACK_TRANSACTION_ERROR 
-* SAP:TID_CREATION_ERROR 
-* SAP:UNKNOWN 
-* SAP:XML_PARSING_ERROR 
+* SAP:BEGIN_TRANSACTION_ERROR
+* SAP:COMMIT_TRANSACTION_ERROR
+* SAP:CONFIG_ERROR
+* SAP:CONFIRM_TRANSACTION_ERROR
+* SAP:CONNECTION_ERROR
+* SAP:CONNECTIVITY
+* SAP:EXECUTION_ERROR
+* SAP:FIELD_NOT_FOUND_ERROR
+* SAP:INVALID_CREDENTIALS_ERROR
+* SAP:INVALID_HOST_ERROR
+* SAP:MISSING_BUSINESS_OBJECT_ERROR
+* SAP:RETRY_EXHAUSTED
+* SAP:ROLLBACK_TRANSACTION_ERROR
+* SAP:TID_CREATION_ERROR
+* SAP:UNKNOWN
+* SAP:XML_PARSING_ERROR
 
 
 [[executeTransactionalRemoteFunctionCall]]
-== Execute BAPI Over tRFC
+== Execute BAPI and Function over tRFC
 
-Executes a BAPIFunction over a Transactional Remote Function Call (tRFC).
+`<sap:execute-transactional-remote-function-call>`
 
-A tRFC is a special form of asynchronous Remote Function Call (aRFC). 
-Transactional RFC ensures transaction-like handling of processing
-steps that were originally autonomous.
+Executes a BAPIFunction over a Transactional Remote Function Call (tRFC). A tRFC is a special form of asynchronous Remote Function Call (aRFC). Transactional RFC ensures transaction-like handling of processing steps that were originally autonomous. 
 
-tRFC is an asynchronous communication method that executes the called 
-function module in the RFC server only once, even if the data is
-sent multiple times due to some network issue. The remote system need 
-not be available at the time when the RFC client program is executing
-a tRFC.
+tRFC is an asynchronous communication method that executes the called function module in the RFC server only once, even if the data is sent multiple times due to some network issue. The remote system need not be available at the time when the RFC client program is executing a tRFC.  
 
-The tRFC component stores the called RFC function, together with the 
-corresponding data, in the SAP database under a unique transaction ID
-(TID). tRFC is similar to aRFC as it does not wait at the target 
-system (Similar to a registered post). If the system is not available, it
-writes the Data into aRFC Tables with a transaction ID (SM58) which is 
-picked by the scheduler RSARFCSE (which runs for every 60 seconds).
+The tRFC component stores the called RFC function, together with the corresponding data, in the SAP database under a unique transaction ID (TID). tRFC is similar to aRFC as it does not wait at the target system (Similar to a registered post). If the system is not available, it will write the Data into aRFC Tables with a transaction ID (SM58) which is picked by the scheduler RSARFCSE (which runs for every 60 seconds).  
 
-tRFC is best used for:
+tRFC is best used for: Extension of Asynchronous RFC, and for secure communication between systems.
 
-* Extension of Asynchronous RFC
-* For secure communication between systems
-
-=== Execute BAPI Over tRFC Parameters
+=== Parameters
 
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | x
-| Key a| String |  The name of the function to execute. |  | x
-| Content a| Binary |  The BAPIFunction to execute. |  #[payload] | 
-| Transaction Id a| String |  The ID that identifies an RFC so it's run only once |  | 
+| Configuration | String | The name of the configuration to use. | |x
+| Key a| String |  The name of the function to execute. |  |x
+| Content a| Binary |  The BAPIFunction to execute. |  #[payload] |
+| Transaction Id a| String |  The ID that identifies an RFC so it's run only once |  |
 | Transactional Action a| Enumeration, one of:
 
 ** ALWAYS_JOIN
 ** JOIN_IF_POSSIBLE
-** NOT_SUPPORTED |  The type of joining action that operations can take regarding transactions. |  JOIN_IF_POSSIBLE | 
+** NOT_SUPPORTED |  The type of joining action that operations can take regarding transactions. |  JOIN_IF_POSSIBLE |
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  A retry strategy in case of connectivity errors. |  |
 |===
 
+=== For Configurations
 
-=== Execute BAPI Over tRFC for Configurations
+* <<outbound-config>>
 
-* outbound-config 
+=== Throws
 
-=== Execute BAPI Over tRFC Throws
-
-* SAP:BEGIN_TRANSACTION_ERROR 
-* SAP:COMMIT_TRANSACTION_ERROR 
-* SAP:CONFIG_ERROR 
-* SAP:CONFIRM_TRANSACTION_ERROR 
-* SAP:CONNECTION_ERROR 
-* SAP:CONNECTIVITY 
-* SAP:EXECUTION_ERROR 
-* SAP:FIELD_NOT_FOUND_ERROR 
-* SAP:INVALID_CREDENTIALS_ERROR 
-* SAP:INVALID_HOST_ERROR 
-* SAP:MISSING_BUSINESS_OBJECT_ERROR 
-* SAP:RETRY_EXHAUSTED 
-* SAP:ROLLBACK_TRANSACTION_ERROR 
-* SAP:TID_CREATION_ERROR 
-* SAP:UNKNOWN 
-* SAP:XML_PARSING_ERROR 
-
+* SAP:BEGIN_TRANSACTION_ERROR
+* SAP:COMMIT_TRANSACTION_ERROR
+* SAP:CONFIG_ERROR
+* SAP:CONFIRM_TRANSACTION_ERROR
+* SAP:CONNECTION_ERROR
+* SAP:CONNECTIVITY
+* SAP:EXECUTION_ERROR
+* SAP:FIELD_NOT_FOUND_ERROR
+* SAP:INVALID_CREDENTIALS_ERROR
+* SAP:INVALID_HOST_ERROR
+* SAP:MISSING_BUSINESS_OBJECT_ERROR
+* SAP:RETRY_EXHAUSTED
+* SAP:ROLLBACK_TRANSACTION_ERROR
+* SAP:TID_CREATION_ERROR
+* SAP:UNKNOWN
+* SAP:XML_PARSING_ERROR
 
 [[getFunction]]
 == Get Function
 
-Retrieves a BAPIFunction based on it's name.
+`<sap:get-function>`
 
+Retrieves a BAPIFunction based on its name.
 
-=== Get Function Parameters
+=== Parameters
 
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | x
-| Key a| String |  The name of the function to retrieve. |  | x
+| Configuration | String | The name of the configuration to use. | |x
+| Key a| String |  The name of the function to retrieve. |  |x
 | Transactional Action a| Enumeration, one of:
 
 ** ALWAYS_JOIN
 ** JOIN_IF_POSSIBLE
-** NOT_SUPPORTED |  The type of joining action that operations can take regarding transactions. |  JOIN_IF_POSSIBLE | 
-| Streaming Strategy a| * repeatable-in-memory-stream
-* repeatable-file-store-stream
-* non-repeatable-stream |  Configure if repeatable streams should be used and their behavior |  | 
-| Target Variable a| String |  The name of a variable on which the operation's output is placed |  | 
+** NOT_SUPPORTED |  The type of joining action that operations can take regarding transactions. |  JOIN_IF_POSSIBLE |
+| Streaming Strategy a| * <<repeatable-in-memory-stream>>
+* <<repeatable-file-store-stream>>
+* non-repeatable-stream | Configure to use repeatable streams. |  |
+| Target Variable a| String | The name of a variable in which the operation's output is placed. |  |
+| Target Value a| String | An expression to evaluate against the operation's output and the outcome of that expression is stored in the target variable. |  #[payload] |
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  A retry strategy in case of connectivity errors. |  |
 |===
 
-=== Get Function Output
+=== Output
 
-[cols=".^50%,.^50%"]
+[%autowidth.spread]
 |===
-| Type a| Binary
+| Type | Binary
 |===
 
-=== Get Function for Configurations
+=== For Configurations
 
-* outbound-config 
+* <<outbound-config>>
 
-=== Get Function Throws
+=== Throws
 
-* SAP:BEGIN_TRANSACTION_ERROR 
-* SAP:COMMIT_TRANSACTION_ERROR 
-* SAP:CONFIG_ERROR 
-* SAP:CONFIRM_TRANSACTION_ERROR 
-* SAP:CONNECTION_ERROR 
-* SAP:CONNECTIVITY 
-* SAP:EXECUTION_ERROR 
-* SAP:FIELD_NOT_FOUND_ERROR 
-* SAP:INVALID_CREDENTIALS_ERROR 
-* SAP:INVALID_HOST_ERROR 
-* SAP:MISSING_BUSINESS_OBJECT_ERROR 
-* SAP:RETRY_EXHAUSTED 
-* SAP:ROLLBACK_TRANSACTION_ERROR 
-* SAP:TID_CREATION_ERROR 
-* SAP:UNKNOWN 
-* SAP:XML_PARSING_ERROR 
+* SAP:BEGIN_TRANSACTION_ERROR
+* SAP:COMMIT_TRANSACTION_ERROR
+* SAP:CONFIG_ERROR
+* SAP:CONFIRM_TRANSACTION_ERROR
+* SAP:CONNECTION_ERROR
+* SAP:CONNECTIVITY
+* SAP:EXECUTION_ERROR
+* SAP:FIELD_NOT_FOUND_ERROR
+* SAP:INVALID_CREDENTIALS_ERROR
+* SAP:INVALID_HOST_ERROR
+* SAP:MISSING_BUSINESS_OBJECT_ERROR
+* SAP:RETRY_EXHAUSTED
+* SAP:ROLLBACK_TRANSACTION_ERROR
+* SAP:TID_CREATION_ERROR
+* SAP:UNKNOWN
+* SAP:XML_PARSING_ERROR
 
 
 [[send]]
 == Send IDoc
-
-Sends an IDocument to SAP over an RFC.
-
-An RFC can be one of two types for IDocuments:
-* Transactional (tRFC): A tRFC is a special form of asynchronous 
-Remote Function Call (aRFC). Transactional RFC ensures transaction-like 
-handling of processing steps that were originally autonomous.
-
-tRFC is an asynchronous communication method that executes the called 
-function module in the RFC server only once, even if the data is
-sent multiple times due to some network issue. The remote system need not 
-be available at the time when the RFC client program is executing
-a tRFC.
-
-The tRFC component stores the called RFC function, together with the 
-corresponding data, in the SAP database under a unique transaction ID
-(TID). tRFC is similar to aRFC as it does not wait at the target 
-system (Similar to a registered post). If the system is not available, it
-writes the Data into aRFC Tables with a transaction ID (SM58) which 
-is picked by the scheduler RSARFCSE (which runs for every 60 seconds).
-
-tRFC is best used for:
-
-* Extension of Asynchronous RFC
-* For secure communication between systems
-* Queued (qRFC): A queued RFC is an extension of tRFC. It also ensures 
-that individual steps are processed in sequence.
-To guarantee that multiple LUWs (Logical Unit of Work/ Transaction) are 
-processed in the order specified by the application.
-tRFC can be serialized using queues (inbound and  queues). Hence the name queued RFC (qRFC).
+`<sap:send>`
 
 
-qRFC is best used for:
+Sends an IDocument to SAP over an RFC. An RFC can be one of two types for IDocuments:  Transactional (tRFC): A tRFC is a special form of asynchronous Remote Function Call (aRFC). Transactional RFC ensures transaction-like handling of processing steps that were originally autonomous. tRFC is an asynchronous communication method that executes the called function module in the RFC server only once, even if the data is sent multiple times due to some network issue. The remote system need not be available at the time when the RFC client program is executing a tRFC.  
 
-* Extension of the Transactional RFC
-* Defined processing sequence
+The tRFC component stores the called RFC function, together with the corresponding data, in the SAP database under a unique transaction ID (TID). tRFC is similar to aRFC as it does not wait at the target system (Similar to a registered post). If the system is not available, it will write the Data into aRFC Tables with a transaction ID (SM58) which is picked by the scheduler RSARFCSE (which runs for every 60 seconds).  
 
-Implementation of qRFC is recommended if you want to guarantee that several 
-transactions are processed in a predefined order.
+tRFC is best used for: Extension of Asynchronous RFC, For secure communication between systems, Queued (qRFC).
 
-=== Send IDoc Parameters
+A queued RFC is an extension of tRFC. It also ensures that individual steps are processed in sequence. To guarantee that multiple LUWs (Logical Unit of Work/ Transaction) are processed in the order specified by the application. tRFC can be serialized using queues (inbound and  queues). Hence the name queued RFC (qRFC).  
+
+qRFC is best used for: Extension of the Transactional RFC, Defined processing sequence, and  Implementation of qRFC, which is recommended if you want to guarantee that several transactions are processed in a predefined order.    
+
+
+=== Parameters
 
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | x
-| Key a| String |  The name of the iDocument to execute. |  | x
-| Content a| Binary |  The IDocument to execute. |  #[payload] | 
-| Version a| String |  The version of the IDoc |  | 
-| Transaction Id a| String |  The ID that identifies an RFC so it's run only once |  | 
-| Queue Name a| String |  The name of the queue on which the RFC executes. |  | 
+| Configuration | String | The name of the configuration to use. | |x
+| Key a| String |  The name of the iDocument to execute. |  |x
+| Content a| Binary |  The IDocument to execute. |  #[payload] |
+| Version a| String |  The version of the IDoc |  |
+| Transaction Id a| String |  The ID that identifies an RFC so it's run only once. |  |
+| Queue Name a| String |  The name of the queue on which the RFC executes. |  |
 | Transactional Action a| Enumeration, one of:
 
 ** ALWAYS_JOIN
 ** JOIN_IF_POSSIBLE
-** NOT_SUPPORTED |  The type of joining action that operations can take regarding transactions. |  JOIN_IF_POSSIBLE | 
+** NOT_SUPPORTED |  The type of joining action that operations can take regarding transactions. |  JOIN_IF_POSSIBLE |
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  A retry strategy in case of connectivity errors. |  |
 |===
 
 
-=== Send IDoc for Configurations
+=== For Configurations
 
-* outbound-config 
+* <<outbound-config>>
 
-=== Send IDoc Throws
+=== Throws
 
-* SAP:BEGIN_TRANSACTION_ERROR 
-* SAP:COMMIT_TRANSACTION_ERROR 
-* SAP:CONFIG_ERROR 
-* SAP:CONFIRM_TRANSACTION_ERROR 
-* SAP:CONNECTION_ERROR 
-* SAP:CONNECTIVITY 
-* SAP:EXECUTION_ERROR 
-* SAP:FIELD_NOT_FOUND_ERROR 
-* SAP:INVALID_CREDENTIALS_ERROR 
-* SAP:INVALID_HOST_ERROR 
-* SAP:MISSING_BUSINESS_OBJECT_ERROR 
-* SAP:RETRY_EXHAUSTED 
-* SAP:ROLLBACK_TRANSACTION_ERROR 
-* SAP:TID_CREATION_ERROR 
-* SAP:UNKNOWN 
-* SAP:XML_PARSING_ERROR 
+* SAP:BEGIN_TRANSACTION_ERROR
+* SAP:COMMIT_TRANSACTION_ERROR
+* SAP:CONFIG_ERROR
+* SAP:CONFIRM_TRANSACTION_ERROR
+* SAP:CONNECTION_ERROR
+* SAP:CONNECTIVITY
+* SAP:EXECUTION_ERROR
+* SAP:FIELD_NOT_FOUND_ERROR
+* SAP:INVALID_CREDENTIALS_ERROR
+* SAP:INVALID_HOST_ERROR
+* SAP:MISSING_BUSINESS_OBJECT_ERROR
+* SAP:RETRY_EXHAUSTED
+* SAP:ROLLBACK_TRANSACTION_ERROR
+* SAP:TID_CREATION_ERROR
+* SAP:UNKNOWN
+* SAP:XML_PARSING_ERROR
 
 
 == Sources
 
 [[DocumentSource]]
-=== Document Source
+== Document Source
 
-=== Document Source Parameters
+`<sap:document-source>`
+
+=== Parameters
 
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | x
-| Operation Timeout a| Number |  |  | x
-| Gateway Host a| String |  |  | x
-| Gateway Service a| String |  |  | x
-| Program ID a| String |  |  | x
-| Connection Count a| Number |  |  1 | 
+| Configuration | String | The name of the configuration to use. | |x
+| Operation Timeout a| Number |  |  |x
+| Gateway Host a| String |  |  |x
+| Gateway Service a| String |  |  |x
+| Program ID a| String |  |  |x
+| Connection Count a| Number |  |  1 |
 | Transactional Action a| Enumeration, one of:
 
 ** ALWAYS_BEGIN
-** NONE |  The type of beginning action that sources can take regarding transactions. |  NONE | 
-| Redelivery Policy a| RedeliveryPolicy |  Defines a policy for processing the redelivery of the same message |  | 
-| Streaming Strategy a| * repeatable-in-memory-stream
-* repeatable-file-store-stream
-* non-repeatable-stream |  Configure if repeatable streams should be used and their behavior |  | 
-| Reconnection Strategy a| * reconnect
-* reconnect-forever |  A retry strategy in case of connectivity errors |  | 
+** NONE |  The type of beginning action that sources can take regarding transactions. |  NONE |
+| Transaction Type a| Enumeration, one of:
+
+** LOCAL
+** XA |  The type of transaction to create. Availability depends on the runtime version. |  LOCAL |
+| Redelivery Policy a| <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message. |  |
+| Streaming Strategy a| * <<repeatable-in-memory-stream>>
+* <<repeatable-file-store-stream>>
+* non-repeatable-stream |  Configure to use repeatable streams. |  |
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  A retry strategy in case of connectivity errors. |  |
 |===
 
-=== Document Source Output
+=== Output
 
-[cols=".^50%,.^50%"]
+[%autowidth.spread]
 |===
-| Type a| Binary
-| *Attributes Type* a| SapAttributes
+| Type | Binary
+| Attributes Type a| <<SapAttributes>>
 |===
 
-=== Document Source for Configurations
+=== For Configurations
 
-* inbound-config 
-
-
+* <<inbound-config>>
 
 [[FunctionSource]]
-=== Function Source
+== Function Source
 
-=== Function Source Parameters
+`<sap:function-source>`
+
+=== Parameters
 
 [%header%autowidth.spread]
 |===
 | Name | Type | Description | Default Value | Required
-| Configuration | String | The name of the configuration to use. | | x
-| Operation Timeout a| Number |  |  | x
-| Gateway Host a| String |  |  | x
-| Gateway Service a| String |  |  | x
-| Program ID a| String |  |  | x
-| Connection Count a| Number |  |  1 | 
-| Targeted Function a| String |  |  | 
+| Configuration | String | The name of the configuration to use. | |x
+| Operation Timeout a| Number |  |  |x
+| Gateway Host a| String |  |  |x
+| Gateway Service a| String |  |  |x
+| Program ID a| String |  |  |x
+| Connection Count a| Number |  |  1 |
+| Targeted Function a| String |  |  |
 | Transactional Action a| Enumeration, one of:
 
 ** ALWAYS_BEGIN
-** NONE |  The type of beginning action that sources can take regarding transactions. |  NONE | 
-| Redelivery Policy a| RedeliveryPolicy |  Defines a policy for processing the redelivery of the same message |  | 
-| Streaming Strategy a| * repeatable-in-memory-stream
-* repeatable-file-store-stream
-* non-repeatable-stream |  Configure if repeatable streams should be used and their behavior |  | 
-| Reconnection Strategy a| * reconnect
-* reconnect-forever |  A retry strategy in case of connectivity errors |  | 
+** NONE |  The type of beginning action that sources can take regarding transactions. |  NONE |
+| Transaction Type a| Enumeration, one of:
+
+** LOCAL
+** XA |  The type of transaction to create. Availability will depend on the runtime version. |  LOCAL |
+| Redelivery Policy a| <<RedeliveryPolicy>> |  Defines a policy for processing the redelivery of the same message |  |
+| Streaming Strategy a| * <<repeatable-in-memory-stream>>
+* <<repeatable-file-store-stream>>
+* non-repeatable-stream |  Configure to use repeatable streams. |  |
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> |  A retry strategy in case of connectivity errors. |  |
 |===
 
-=== Function Source Output
+=== Output
 
-[cols=".^50%,.^50%"]
+[%autowidth.spread]
 |===
-| Type a| Binary
-| *Attributes Type* a| SapAttributes
+| Type | Binary
+| Attributes Type  <<SapAttributes>>
 |===
 
-=== Function Source for Configurations
+=== For Configurations
 
-* inbound-config 
-
-=== Function Source Throws
-
-* MULE:SOURCE_ERROR_RESPONSE_GENERATE 
-* MULE:SOURCE_ERROR_RESPONSE_SEND 
-* MULE:SOURCE_RESPONSE_GENERATE 
-* MULE:SOURCE_RESPONSE_SEND 
-
+* <<inbound-config>>
 
 == Types
+[[Reconnection]]
+== Reconnection
+
+[%header%autowidth.spread]
+|===
+| Field | Type | Description | Default Value | Required
+| Fails Deployment a| Boolean | When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment fails if the test doesn't pass after exhausting the associated reconnection strategy |  | 
+| Reconnection Strategy a| * <<reconnect>>
+* <<reconnect-forever>> | The reconnection strategy to use |  | 
+|===
 
 [[reconnect]]
-=== Reconnect
+== Reconnect
 
 [%header%autowidth.spread]
 |===
-| Field | Type | Default Value
-| Frequency a| Number | 
-| Count a| Number | 
-| Blocking a| Boolean | 
+| Field | Type | Description | Default Value | Required
+| Frequency a| Number | How often in milliseconds to reconnect. |  | 
+| Count a| Number | How many reconnection attempts to make |  | 
 |===
-    
+
 [[reconnect-forever]]
-=== Reconnect Forever
+== Reconnect Forever
 
 [%header%autowidth.spread]
 |===
-| Field | Type | Default Value
-| Frequency a| Number | 
+| Field | Type | Description | Default Value | Required
+| Frequency a| Number | How often in milliseconds to reconnect. |  | 
 |===
-    
+
+[[ExpirationPolicy]]
+== Expiration Policy
+
+[%header%autowidth.spread]
+|===
+| Field | Type | Description | Default Value | Required
+| Max Idle Time a| Number | A scalar time value for the maximum amount of time a dynamic configuration instance should be allowed to be idle before it's considered eligible for expiration. |  | 
+| Time Unit a| Enumeration, one of:
+
+** NANOSECONDS
+** MICROSECONDS
+** MILLISECONDS
+** SECONDS
+** MINUTES
+** HOURS
+** DAYS | A time unit that qualifies the maxIdleTime attribute. |  | 
+|===
+
 [[SapAttributes]]
-=== Sap Attributes
+== Sap Attributes
 
 [%header%autowidth.spread]
 |===
-| Field | Type | Default Value
-| Transaction Id a| String | 
+| Field | Type | Description | Default Value | Required
+| Transaction Id a| String |  |  | 
 |===
-    
+
 [[RedeliveryPolicy]]
-=== Redelivery Policy
+== Redelivery Policy
 
 [%header%autowidth.spread]
 |===
-| Field | Type | Default Value
-| Max Redelivery Count a| Number | 
-| Use Secure Hash a| Boolean | 
-| Message Digest Algorithm a| String | 
-| Id Expression a| String | 
-| Object Store Ref a| String | 
+| Field | Type | Description | Default Value | Required
+| Max Redelivery Count a| Number | The maximum number of times a message can be redelivered and processed unsuccessfully before triggering process-failed-message. |  | 
+| Use Secure Hash a| Boolean | Whether to use a secure hash algorithm to identify a redelivered message. |  | 
+| Message Digest Algorithm a| String | The secure hashing algorithm to use. If not set, the default is SHA-256. |  | 
+| Id Expression a| String | Defines one or more expressions to use to determine when a message has been redelivered. This property may only be set if useSecureHash is false. |  | 
+| Object Store a| ObjectStore | The object store where the redelivery counter for each message is going to be stored. |  | 
 |===
-    
+
 [[repeatable-in-memory-stream]]
-=== Repeatable In Memory Stream
+== Repeatable In Memory Stream
 
 [%header%autowidth.spread]
 |===
-| Field | Type | Default Value
-| Initial Buffer Size a| Number | 
-| Buffer Size Increment a| Number | 
-| Max Buffer Size a| Number | 
+| Field | Type | Description | Default Value | Required
+| Initial Buffer Size a| Number | This is the amount of memory to allocate to consume the stream and provide random access to it. If the stream contains more data than can be fit into this buffer, then it will be expanded by according to the bufferSizeIncrement attribute, with an upper limit of maxInMemorySize. |  | 
+| Buffer Size Increment a| Number | This is by how much the buffer size expands if it exceeds its initial size. Setting a value of zero or lower means that the buffer should not expand, meaning that a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised when the buffer gets full. |  | 
+| Max Buffer Size a| Number | This is the maximum amount of memory to use. If more than that is used then a STREAM_MAXIMUM_SIZE_EXCEEDED error is raised. A value lower or equal to zero means no limit. |  | 
 | Buffer Unit a| Enumeration, one of:
 
 ** BYTE
 ** KB
 ** MB
-** GB | 
+** GB | The unit in which all these attributes are expressed. |  | 
 |===
-    
+
 [[repeatable-file-store-stream]]
-=== Repeatable File Store Stream
+== Repeatable File Store Stream
 
 [%header%autowidth.spread]
 |===
-| Field | Type | Default Value
-| Max In Memory Size a| Number | 
+| Field | Type | Description | Default Value | Required
+| Max In Memory Size a| Number | Defines the maximum memory that the stream should use to keep data in memory. If more than that is consumed then it starts to buffer the content on disk. |  | 
 | Buffer Unit a| Enumeration, one of:
 
 ** BYTE
 ** KB
 ** MB
-** GB | 
+** GB | The unit in which maxInMemorySize is expressed. |  | 
 |===
+
+== See Also
+
+* https://forums.mulesoft.com[MuleSoft Forum]
+* https://support.mulesoft.com[Contact MuleSoft Support]
+

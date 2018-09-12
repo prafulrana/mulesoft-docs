@@ -1,7 +1,5 @@
 = Certificate
 
-NOTE: Current Anypoint Partner Manager solutions will continue to be supported in accordance with the https://www.mulesoft.com/legal/support-maintenance-terms[Product Support and Maintenance Terms] but will not be available for new customers or upgrades. Contact your MuleSoft representative for more information on MuleSoft's B2B solutions.
-
 The <<img-certificate>> enables you to upload an AS2 or RNIF certificate for the partner you selected on the <<partner-configuration.adoc#img-partner-configuration, Partner Configuration Page>>.
 
 include::/_sources/edit-settings.adoc[]

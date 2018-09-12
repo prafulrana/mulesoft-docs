@@ -16,7 +16,7 @@ Each value defined in this `enum` is considered to be an Error.
 public enum SimpleError implements ErrorTypeDefinition<SimpleError> {
       INVALID_PARAMETER,
       TIME_OUT,
-      NOT ALLOWED
+      NOT_ALLOWED
 }
 ----
 

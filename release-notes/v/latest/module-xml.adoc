@@ -1,15 +1,47 @@
 = XML Module Release Notes for Mule 4
 :keywords: mule, XML, mmodule, release notes
 
+*August 2018*
+
+== 1.1.2
+
+*August 9, 2018*
+
+==== Min Mule Version
+*Mule 4.1.0*
+
+=== New Features and Enhancements
+
+N/A
+
+=== Fixed Issues
+
+[%header,cols="15a,85a"]
+|===
+|Issue |Description
+| https://www.mulesoft.org/jira/browse/MULE-15526[MULE-15526] | `validate-schema` is not working with an XSD referencing other schema.
+|===
+
 *July 2018*
 
 == 1.1.1
 
 *July 2, 2018*
 
+==== Min Mule Version
+*Mule 4.1.0*
+
+=== New Features and Enhancements
+
+N/A
+
 === Fixed Issues
 
-* Reset underlying controller of XSLTTransformer after each transformation. (MULE-15259)
+[%header,cols="15a,85a"]
+|===
+|Issue |Description
+| https://www.mulesoft.org/jira/browse/MULE-15259[MULE-15259] | Reset underlying controller of XSLTTransformer after each transformation.
+|===
 
 *March 2018*
 
@@ -19,7 +51,20 @@
 
 === Fixed Issues
 
-* Cannot set media type in XSLT transformer. (MULE-14651)
+==== Min Mule Version
+*Mule 4.1.0*
+
+=== New Features and Enhancements
+
+N/A
+
+=== Fixed Issues
+
+[%header,cols="15a,85a"]
+|===
+|Issue |Description
+| https://www.mulesoft.org/jira/browse/MULE-14651[MULE-14651] | Cannot set media type in XSLT transformer.
+|===
 
 == See Also
 

@@ -147,7 +147,7 @@ We've tweaked the loggers so as to suppress the noisy Lucene index messages. You
 * [http://www.mulesoft.org/jira/browse/TCAT-1054[TCAT-1054]] - On Dashboard, Server Metrics, system does not allow to add "Avg Response Time" and/or "Error Count" portlets.
 * [http://www.mulesoft.org/jira/browse/TCAT-1057[TCAT-1057]] - Tcat 7.x build on RED because issues with installer module.
 * [http://www.mulesoft.org/jira/browse/TCAT-1058[TCAT-1058]] - System does not allow to re pair a server.
-* [http://www.mulesoft.org/jira/browse/TCAT-1060[TCAT-1060]] - Server auto-discovering does not work.
+* [http://www.mulesoft.org/jira/browse/TCAT-1060[TCAT-1060]] - Server autodiscovering does not work.
 * [http://www.mulesoft.org/jira/browse/TCAT-1063[TCAT-1063]] - On Repository, error message when deleting apps used on deploys is incorrect.
 * [http://www.mulesoft.org/jira/browse/TCAT-1064[TCAT-1064]] - On Rest API, system does not create server group.
 * [http://www.mulesoft.org/jira/browse/TCAT-1069[TCAT-1069]] - On Servers, unable to register a server successfully using IBM JDK.

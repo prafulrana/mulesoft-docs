@@ -1,0 +1,78 @@
+= Anypoint Platform Private Cloud Edition 2.0.0 Release Notes
+
+*August 24, 2017*
+
+== New Features and Enhancements
+
+This version of Anypoint Platform Private Cloud Edition contains the following features and enhancements:
+
+* Upgraded Core Paas Cluster
+* OpsCenter
+* Kubernetes 1.9
+* Support for RHEL 7.5
+* Improved Pre-installation Checks
+* Improved Installation and Provisioning flow
+* Updated Cassandra and PostgreSQL
+* New Alerts
+
+
+== Installing
+
+See link:/anypoint-private-cloud/v/2.0/install-workflow[Workflow: Install Anypoint Private Cloud] for information on how to install Anypoint Platform Private Cloud Edition.
+
+== Upgrading to 2.0.0
+
+See link:/anypoint-private-cloud/v/2.0/upgrade[Migrate to Anypoint Platform Private Cloud, Version 2.0.0] for information on how to upgrade to the current version.
+
+Before upgrading, you must backup your system as described in link:/anypoint-private-cloud/v/2.0/backup-and-disaster-recovery[To Backup and Restore Your System].
+
+== Software Compatibility
+
+[%header,cols="2*a"]
+|===
+| Compatible with |Version
+| Mule runtime | 3.7.x , 3.8.x, 3.9.x 4.x, 4.1.x
+| API Gateway Runtime | 2.1.x - 2.2.x
+| Runtime Manager Agent | 1.7 - 1.9.x, 2.1.x
+| Infrastructure providers |
+* VMWare
+* Bare Metal
+| Compatible browsers when running the installer |
+* Firefox (latest version)
+* Chrome (latest version)
+* Safari (latest version)
+|===
+
+== Fixed Issues
+
+[%header%autowidth.spread]
+|===
+| Issue | Description
+| Install fails with IPv6 is in resolv.conf | We now support IPv6 entries in resolv.conf
+|===
+
+== Known Issues
+
+[%header%autowidth.spread]
+|===
+| Description | Workaround
+| Some parts of the UI make requests to an external CDN | While browsing Anypoint Platform, you may see some failed requests in your browser JavaScript console.
+| Studio 7 management not supported | Users can manually upload their application to PCE from Studio
+|===
+
+
+== Anypoint Platform Features
+
+The following table outlines the major Anypoint Platform features and versions added in this release:
+
+[%header%autowidth.spread]
+|===
+| Component | Version
+| Exchange 2.1 |  July 2018
+| Runtime Manager | July  2018
+| API Designer | July 2018
+| API Manager) | July 2018
+| Access Management | May 2018
+| Studio | Studio 7
+|===
+

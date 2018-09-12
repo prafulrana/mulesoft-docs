@@ -1,13 +1,13 @@
+= Migrating API Gateways: Autodiscovery
 // authors: Federico Balbi and Nahuel Dalla Vecchia (assigned by Eva)
-= Migrating API Gateways: Auto-Discovery
 
 // Explain generally how and why things changed between Mule 3 and Mule 4.
-The Auto-Discovery element was updated after Mule 4 release.
+The Autodiscovery element was updated after Mule 4 release.
 
 * APIs are referenced by an ID instead of a name and version.
 * Creation of APIs from the runtime is no longer possible.
 
-Simple Mule app with an HTTP listener and an Auto-Discovery element defined:
+Simple Mule app with an HTTP listener and an Autodiscovery element defined:
 
 .Mule 3 Example: All Configurable Attributes
 [source,xml,linenums]

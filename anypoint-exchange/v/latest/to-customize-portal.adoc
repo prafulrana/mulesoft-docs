@@ -4,6 +4,20 @@ If you have Exchange Administrator or Organization Owner access, you can customi
 
 Access the public portal and click Customize at the right of the navigation bar.
 
+== Portal Default Settings
+
+If you need to revert portal customizations back to their default settings, use these values:
+
+* Background color: #262728 
+* Text color: #FFFFFF 
+* Text color (active): #00A2DF
+* https://cdn.anypoint.mulesoft.com/artifacts/exchange-ui/images/hero-image-default.png[Welcome section Hero image]
++
+*Note:* Open the image in a browser and right click to save the image to your computer. In Exchange, you can upload 
+the image to replace the image in your portal from the image on your computer.
++
+* Welcome section text color: #FFFFFF
+
 == Banner Text
 
 After you click Customize, click in the banner text. Delete text you want to change, 

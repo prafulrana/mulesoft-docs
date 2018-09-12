@@ -9,7 +9,7 @@ The X12 Module HIPAA support includes:
 
 * X12 HIPAA EDI message-reading, message-validation, and message-writing
 * Integration with DataSense and DataWeave
-* HIPAA message packs for 005010X212, 005010X214B3, 005010X217, 005010X218, 005010X220A1, 005010X221A1, 005010X222A2, 005010X223A2. 005010X223A3, 005010X224A3, and 005010X279A1
+* HIPAA message packs for 005010X212, 005010X214B3, 005010X217, 005010X218, 005010X220A1, 005010X221A1, 005010X222A1, 005010X222A2, 005010X223A2, 005010X223A3, 005010X224A2, 005010X224A3, and 005010X279A1
 * The ability to customize the base X12 HIPAA schemas
 
 Most aspects of using HIPAA with the X12 Module are the same as using standard X12. The main differences are:
@@ -46,7 +46,7 @@ nested within the composite component is given a key based on the
 containing segment and referenced directly from the map
 representing the segment.
 
-In the 4.x version of the connector each 
+In the 2.x version of the connector each
 composite component is instead represented by a child map
 and the values within the composite have keys based on the composite identifier.
 
@@ -65,7 +65,8 @@ To use the X12 Module connector for HIPAA transaction sets you must:
 
 To use the connector, you need to know the locations of the schemas in your project. If you're using the out of the box HIPAA schemas and not customizing anything, the schema location follows the  `/hipaa/{version}/{transaction-set}.esl` pattern. For example, if you're using the `005010X222A2` version and the 837 transaction set, your schema location is `/hipaa/005010X222A2/837.esl`.
 
-If you're using a modified HIPAA schema, you should put your schemas under a directory in src/main/app and refer to the location using `${app.home}`. For example, if you've put your HIPAA 837 schema under src/main/app/mypartner/837.esl, your schema location is `${app.home}/mypartner/837.esl`.
+If you’re using one or more custom schemas, you should put these under src/main/resources and refer to the location relative to this directory.
+For example, if you've put your HIPAA 837 schema under src/main/app/mypartner/837.esl, your schema location is `/mypartner/837.esl`.
 
 == About HIPAA Schema Definitions
 

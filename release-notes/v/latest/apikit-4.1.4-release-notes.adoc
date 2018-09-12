@@ -1,0 +1,19 @@
+= APIkit Mule4-1.1.4 Release Notes
+
+*July 30, 2018*
+
+== What's New
+
+There are no new features in this version. There are just a few enhancements and bug fixes.
+
+== Compatibility
+
+* Mule Runtime 4.1.2 and later
+* Anypoint Studio 7.1.2 and later
+* Java Parser RAML 1.0 v1.0.20
+* Java Parser RAML 0.8 v0.8.22
+* API Console 4.2.0
+
+== Fixed in the Release
+
+* APIKit scaffolder is unable to generate the flows for some APIs.

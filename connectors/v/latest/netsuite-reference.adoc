@@ -17,7 +17,7 @@ Default: none +
 Required: yes
 |Connection |The connection types that can be provided to this configuration.
 
-Type: 
+Type:
 
 * Login Authentication
 * Request Level Authentication
@@ -278,7 +278,7 @@ Type: Enumeration, one of:
 
 Default: HMAC_SHA_1
 Required: no
-| Reconnection Strategy 
+| Reconnection Strategy
 
 Type:
 
@@ -448,7 +448,7 @@ Returns:
 * The ID of the folder record where to add this file.
 * Preferences for the request.
 
-If the content cannot be parsed to byte[] or if failure, throws one of: 
+If the content cannot be parsed to byte[] or if failure, throws one of:
 
 [source,xml,linenums]
 ----
@@ -544,7 +544,7 @@ Returns:
 * The records with their attributes.
 * Preferences for the request.
 
-If failure, throws one of: 
+If failure, throws one of:
 
 [source,xml,linenums]
 ----
@@ -611,7 +611,7 @@ Returns:
 * Preferences of the request.
 * Record that was added.
 
-If failure, throws one of: 
+If failure, throws one of:
 
 [source,xml,linenums]
 ----
@@ -675,7 +675,7 @@ Returns:
 
 * A list of com.netsuite.webservices.platform.core.Record objects.
 
-If failure, throws one of: 
+If failure, throws one of:
 
 [source,xml,linenums]
 ----
@@ -736,7 +736,7 @@ An asynchronous request equivalent to Add List.
 The attributes can either be POJOs corresponding to the field, or a map that represents the field.
 
 In asynchronous requests, your client application sends a request to the SuiteTalk Platform where it is placed in a processing queue and handled asynchronously with other
-requests. 
+requests.
 
 Note: All available jobs for each polling period process contiguously. There is no enforced waiting period for a job that is available. After a job is
 initiated, a job ID is returned in the Web services response. Your client application can then check on the status and result of the request by referencing the job ID.
@@ -749,7 +749,7 @@ Returns:
 * A list of Map<String,Object> containing the attributes of the records that were added.
 * Preferences for the request.
 
-If failure, throws one of: 
+If failure, throws one of:
 
 [source,xml,linenums]
 ----
@@ -808,17 +808,17 @@ com.netsuite.webservices.platform.ExceededRecordCountFault
 == Async Delete List
 
 
-An asynchronous request equivalent to #deleteList(List, Preferences). In asynchronous requests, 
-a client application sends a request to the SuiteTalk Platform where it is placed in a processing 
+An asynchronous request equivalent to #deleteList(List, Preferences). In asynchronous requests,
+a client application sends a request to the SuiteTalk Platform where it is placed in a processing
 queue and handled asynchronously with other
-requests. 
+requests.
 
 Note: All available jobs for each polling period process contiguously. There is no enforced waiting period for a job that is available. After a job is
 initiated, a job ID is returned in the Web services response. Your client application can then check on the status and result of the request by referencing the job ID.
 
 Note: Asynchronous request Job IDs are valid for 30 days.
 
-Returns: 
+Returns:
 
 * A list of org.mule.module.netsuite.extension.internal.client.BaseRefType that references the objects to be deleted.
 
@@ -888,7 +888,7 @@ Returns:
 * A list of com.netsuite.webservices.platform.core.RecordRef that references the objects to be deleted.
 * Preferences for the request.
 
-If failure, throws one of: 
+If failure, throws one of:
 
 [source,xml,linenums]
 ----
@@ -952,7 +952,7 @@ initiated, a job ID is returned in the Web services response. Your client applic
 
 Note: Asynchronous request JobIDs are valid for 30 days.
 
-Returns: 
+Returns:
 
 * A list of com.netsuite.webservices.platform.core.RecordRef that references the objects to be retrieved.
 * Preferences for the request.
@@ -1657,9 +1657,9 @@ Changes the email address for the account.
 
 Value for the new email.
 Update email for the current account only.
-An exception is thrown when this operation is used with SSO Login Authentication. 
+An exception is thrown when this operation is used with SSO Login Authentication.
 
-If failure, throws one of: 
+If failure, throws one of:
 
 [source,xml,linenums]
 ----
@@ -1901,7 +1901,7 @@ com.netsuite.webservices.platform.UnexpectedErrorFault
 [[deleteList]]
 == Delete List
 
-Deletes one or more records in the system. 
+Deletes one or more records in the system.
 
 If failure, throws one of:
 
@@ -2020,7 +2020,7 @@ com.netsuite.webservices.platform.UnexpectedErrorFault
 [[deleteRecordsList]]
 == Delete Records List
 
-Deletes one or more records in the system as a list of 
+Deletes one or more records in the system as a list of
 com.netsuite.webservices.platform.core.RecordRef to delete.
 
 If failure, throws one of:
@@ -2147,7 +2147,7 @@ Retrieves a record by providing the unique id that identifies that record.
 
 An instance of org.mule.module.netsuite.extension.internal.client.BaseRefType.
 
-If failure, throws one of: 
+If failure, throws one of:
 
 [source,xml,linenums]
 ----
@@ -2404,7 +2404,7 @@ The type of record to get.
 The internalId of the record to get. You can choose between this or externalId.
 The externalId of the record to get. You can choose between this or internalId.
 
-If failure, throws one of: 
+If failure, throws one of:
 
 [source,xml,linenums]
 ----
@@ -2906,7 +2906,7 @@ Retrieves a list of objects referenced in the list of BaseRef object.
 
 List of BaseRef child classes. Check com.netsuite.webservices.platform.core.BaseRef for a list of child classes.
 
-If failure, throws one of: 
+If failure, throws one of:
 
 [source,xml,linenums]
 ----
@@ -3038,7 +3038,7 @@ The type of record to get.
 The internalId of the record to get. You can choose between this or externalId.
 The externalId of the record to get. You can choose between this or internalId.
 
-If failure, throws one of: 
+If failure, throws one of:
 
 [source,xml,linenums]
 ----
@@ -3931,7 +3931,7 @@ The attributes can either be POJOs corresponding to the field, or a map that rep
 Returns the target record type to update, the record attributes, including internalId or externalId attribute,
 and the record that was added.
 
-If failure, throws one of: 
+If failure, throws one of:
 
 [source,xml,linenums]
 ----
@@ -4136,7 +4136,7 @@ Also, this operation prohibits the passing of internal ID values.
 
 Returns the target record type to update, the record attributes, and the record that was added.
 
-If failure, throws one of: 
+If failure, throws one of:
 
 [source,xml,linenums]
 ----
@@ -4199,29 +4199,29 @@ com.netsuite.webservices.platform.UnexpectedErrorFault
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Frequency a| Number | 
-| Count a| Number | 
-| Blocking a| Boolean | 
+| Frequency a| Number |
+| Count a| Number |
+| Blocking a| Boolean |
 |===
-    
+
 [[reconnect-forever]]
 == Reconnect Forever
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Frequency a| Number | 
+| Frequency a| Number |
 |===
-    
+
 [[RecordRefDTO]]
 == Record Ref DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| External Id a| String | 
-| Internal Id a| String | 
-| Name a| String | 
+| External Id a| String |
+| Internal Id a| String |
+| Name a| String |
 | Type a| Enumeration, one of:
 
 ** ACCOUNT
@@ -4398,51 +4398,51 @@ com.netsuite.webservices.platform.UnexpectedErrorFault
 ** WORK_ORDER
 ** WORK_ORDER_ISSUE
 ** WORK_ORDER_COMPLETION
-** WORK_ORDER_CLOSE | 
+** WORK_ORDER_CLOSE |
 |===
-    
+
 [[PreferencesDTO]]
 == Preferences DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Disable Mandatory Custom Field Validation a| Boolean | 
-| Disable System Notes For Custom Fields a| Boolean | 
-| Ignore Read Only Fields a| Boolean | 
-| Run Server Suite Script And Trigger Workflows a| Boolean | 
-| Warning As Error a| Boolean | 
+| Disable Mandatory Custom Field Validation a| Boolean |
+| Disable System Notes For Custom Fields a| Boolean |
+| Ignore Read Only Fields a| Boolean |
+| Run Server Suite Script And Trigger Workflows a| Boolean |
+| Warning As Error a| Boolean |
 |===
-    
+
 [[WriteResponseDTO]]
 == Write Response DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Base Ref a| BaseRefDTO | 
-| Status a| StatusDTO | 
+| Base Ref a| BaseRefDTO |
+| Status a| StatusDTO |
 |===
-    
+
 [[BaseRefDTO]]
 == Base Ref DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Name a| String | 
+| Name a| String |
 |===
-    
+
 [[StatusDTO]]
 == Status DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Is Success a| Boolean | 
-| Status Detail a| Array of StatusDetailDTO | 
+| Is Success a| Boolean |
+| Status Detail a| Array of StatusDetailDTO |
 |===
-    
+
 [[StatusDetailDTO]]
 == Status Detail DTO
 
@@ -5790,79 +5790,79 @@ com.netsuite.webservices.platform.UnexpectedErrorFault
 ** WS_LOG_IN_REQD
 ** WS_PERMISSION_REQD
 ** WS_REQUEST_BLOCKED
-** ZIP_FILE_CONTAINS_VIRUS | 
-| Message a| String | 
+** ZIP_FILE_CONTAINS_VIRUS |
+| Message a| String |
 | Type a| Enumeration, one of:
 
 ** ERROR
 ** WARN
-** INFO | 
+** INFO |
 |===
-    
+
 [[RecordDTO]]
 == Record DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Null Field List a| NullField | 
+| Null Field List a| NullField |
 |===
-    
+
 [[NullField]]
 == Null Field
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Name a| Array of String | 
+| Name a| Array of String |
 |===
-    
+
 [[AsyncStatusResultDTO]]
 == Async Status Result DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Est Remaining Duration a| Number | 
-| Job Id a| String | 
-| Percent Completed a| Number | 
+| Est Remaining Duration a| Number |
+| Job Id a| String |
+| Percent Completed a| Number |
 | Status a| Enumeration, one of:
 
 ** FAILED
 ** FINISHED_WITH_ERRORS
 ** PENDING
 ** PROCESSING
-** FINISHED | 
+** FINISHED |
 |===
-    
+
 [[BaseRefType]]
 == Base Ref Type
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| External Id a| String | 
-| Internal Id a| String | 
-| Name a| String | 
-| Specific Fields a| Object | 
+| External Id a| String |
+| Internal Id a| String |
+| Name a| String |
+| Specific Fields a| Object |
 | Type a| Enumeration, one of:
 
 ** RECORD_REF
 ** INITIALIZE_AUX_REF
 ** CUSTOMIZATION_REF
 ** INITIALIZE_REF
-** CUSTOM_RECORD_REF | 
+** CUSTOM_RECORD_REF |
 |===
-    
+
 [[InitializeRecordDTO]]
 == Initialize Record DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Aux Reference a| InitializeAuxRef | 
-| Reference a| InitializeRef | 
-| Reference List a| InitializeRefList | 
+| Aux Reference a| InitializeAuxRef |
+| Reference a| InitializeRef |
+| Reference List a| InitializeRefList |
 | Type a| Enumeration, one of:
 
 ** ASSEMBLY_BUILD
@@ -5889,35 +5889,35 @@ com.netsuite.webservices.platform.UnexpectedErrorFault
 ** WORK_ORDER
 ** WORK_ORDER_ISSUE
 ** WORK_ORDER_COMPLETION
-** WORK_ORDER_CLOSE | 
+** WORK_ORDER_CLOSE |
 |===
-    
+
 [[InitializeAuxRef]]
 == Initialize Aux Ref
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| External Id a| String | 
-| Internal Id a| String | 
-| Name a| String | 
+| External Id a| String |
+| Internal Id a| String |
+| Name a| String |
 | Type a| Enumeration, one of:
 
 ** SHIPPING_GROUP
 ** AR_ACCOUNT
 ** AP_ACCOUNT
-** ITEM_FULFILLMENT | 
+** ITEM_FULFILLMENT |
 |===
-    
+
 [[InitializeRef]]
 == Initialize Ref
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| External Id a| String | 
-| Internal Id a| String | 
-| Name a| String | 
+| External Id a| String |
+| Internal Id a| String |
+| Name a| String |
 | Type a| Enumeration, one of:
 
 ** ASSEMBLY_ITEM
@@ -5942,155 +5942,155 @@ com.netsuite.webservices.platform.UnexpectedErrorFault
 ** VENDOR
 ** VENDOR_BILL
 ** VENDOR_RETURN_AUTHORIZATION
-** WORK_ORDER | 
+** WORK_ORDER |
 |===
-    
+
 [[InitializeRefList]]
 == Initialize Ref List
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Initialize Ref a| Array of InitializeRef | 
+| Initialize Ref a| Array of InitializeRef |
 |===
-    
+
 [[SessionResponseDTO]]
 == Session Response DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Status a| StatusDTO | 
-| User Id a| RecordRefDTO | 
-| Ws Role List a| WsRoleList | 
+| Status a| StatusDTO |
+| User Id a| RecordRefDTO |
+| Ws Role List a| WsRoleList |
 |===
-    
+
 [[WsRoleList]]
 == Ws Role List
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Ws Role a| Array of WsRole | 
+| Ws Role a| Array of WsRole |
 |===
-    
+
 [[WsRole]]
 == Ws Role
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Is Default a| Boolean | 
-| Is Inactive a| Boolean | 
-| Is Logged In Role a| Boolean | 
-| Role a| RecordRefDTO | 
+| Is Default a| Boolean |
+| Is Inactive a| Boolean |
+| Is Logged In Role a| Boolean |
+| Role a| RecordRefDTO |
 |===
-    
+
 [[GetBudgetExchangeRateResultDTO]]
 == Get Budget Exchange Rate Result DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Budget Exchange Rate List a| BudgetExchangeRateList | 
-| Status a| StatusDTO | 
+| Budget Exchange Rate List a| BudgetExchangeRateList |
+| Status a| StatusDTO |
 |===
-    
+
 [[BudgetExchangeRateList]]
 == Budget Exchange Rate List
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Budget Exchange Rate a| Array of BudgetExchangeRate | 
+| Budget Exchange Rate a| Array of BudgetExchangeRate |
 |===
-    
+
 [[BudgetExchangeRate]]
 == Budget Exchange Rate
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Average Rate a| Number | 
-| Current Rate a| Number | 
-| From Subsidiary a| RecordRefDTO | 
-| Historical Rate a| Number | 
-| Period a| RecordRefDTO | 
-| To Subsidiary a| RecordRefDTO | 
+| Average Rate a| Number |
+| Current Rate a| Number |
+| From Subsidiary a| RecordRefDTO |
+| Historical Rate a| Number |
+| Period a| RecordRefDTO |
+| To Subsidiary a| RecordRefDTO |
 |===
-    
+
 [[GetCurrencyRateResultDTO]]
 == Get Currency Rate Result DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Currency Rate List a| CurrencyRateList | 
-| Status a| StatusDTO | 
+| Currency Rate List a| CurrencyRateList |
+| Status a| StatusDTO |
 |===
-    
+
 [[CurrencyRateList]]
 == Currency Rate List
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Currency Rate a| Array of CurrencyRate | 
+| Currency Rate a| Array of CurrencyRate |
 |===
-    
+
 [[CurrencyRate]]
 == Currency Rate
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Base Currency a| RecordRefDTO | 
-| Effective Date a| DateTime | 
-| Exchange Rate a| Number | 
-| From Currency a| RecordRefDTO | 
+| Base Currency a| RecordRefDTO |
+| Effective Date a| DateTime |
+| Exchange Rate a| Number |
+| From Currency a| RecordRefDTO |
 |===
-    
+
 [[CurrencyRateFilterDTO]]
 == Currency Rate Filter DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Base Currency a| RecordRefDTO | 
-| Effective Date a| DateTime | 
-| From Currency a| RecordRefDTO | 
+| Base Currency a| RecordRefDTO |
+| Effective Date a| DateTime |
+| From Currency a| RecordRefDTO |
 |===
-    
+
 [[GetCustomizationIdResultDTO]]
 == Get Customization Id Result DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Customization Ref List a| CustomizationRefList | 
-| Status a| StatusDTO | 
-| Total Records a| Number | 
+| Customization Ref List a| CustomizationRefList |
+| Status a| StatusDTO |
+| Total Records a| Number |
 |===
-    
+
 [[CustomizationRefList]]
 == Customization Ref List
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Customization Ref a| Array of CustomizationRefDTO | 
+| Customization Ref a| Array of CustomizationRefDTO |
 |===
-    
+
 [[CustomizationRefDTO]]
 == Customization Ref DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| External Id a| String | 
-| Internal Id a| String | 
-| Name a| String | 
-| Script Id a| String | 
+| External Id a| String |
+| Internal Id a| String |
+| Name a| String |
+| Script Id a| String |
 | Type a| Enumeration, one of:
 
 ** ACCOUNT
@@ -6267,63 +6267,63 @@ com.netsuite.webservices.platform.UnexpectedErrorFault
 ** WORK_ORDER
 ** WORK_ORDER_ISSUE
 ** WORK_ORDER_COMPLETION
-** WORK_ORDER_CLOSE | 
+** WORK_ORDER_CLOSE |
 |===
-    
+
 [[GetDataCenterUrlsResultDTO]]
 == Get Data Center Urls Result DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Data Center Urls a| DataCenterUrls | 
-| Status a| StatusDTO | 
+| Data Center Urls a| DataCenterUrls |
+| Status a| StatusDTO |
 |===
-    
+
 [[DataCenterUrls]]
 == Data Center Urls
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Rest Domain a| String | 
-| System Domain a| String | 
-| Webservices Domain a| String | 
+| Rest Domain a| String |
+| System Domain a| String |
+| Webservices Domain a| String |
 |===
-    
+
 [[GetDeletedResultDTO]]
 == Get Deleted Result DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Deleted Record List a| DeletedRecordList | 
-| Page Index a| Number | 
-| Page Size a| Number | 
-| Status a| StatusDTO | 
-| Total Pages a| Number | 
-| Total Records a| Number | 
+| Deleted Record List a| DeletedRecordList |
+| Page Index a| Number |
+| Page Size a| Number |
+| Status a| StatusDTO |
+| Total Pages a| Number |
+| Total Records a| Number |
 |===
-    
+
 [[DeletedRecordList]]
 == Deleted Record List
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Deleted Record a| Array of DeletedRecord | 
+| Deleted Record a| Array of DeletedRecord |
 |===
-    
+
 [[DeletedRecord]]
 == Deleted Record
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Deleted Date a| DateTime | 
-| Record a| BaseRefDTO | 
+| Deleted Date a| DateTime |
+| Record a| BaseRefDTO |
 |===
-    
+
 [[SearchDateFieldDTO]]
 == Search Date Field DTO
 
@@ -6345,7 +6345,7 @@ com.netsuite.webservices.platform.UnexpectedErrorFault
 ** ON
 ** ON_OR_AFTER
 ** ON_OR_BEFORE
-** WITHIN | 
+** WITHIN |
 | Predefined Search Value a| Enumeration, one of:
 
 ** FISCAL_HALF_BEFORE_LAST
@@ -6514,210 +6514,210 @@ com.netsuite.webservices.platform.UnexpectedErrorFault
 ** WEEK_AFTER_NEXT_TO_DATE
 ** WEEK_BEFORE_LAST
 ** WEEK_BEFORE_LAST_TO_DATE
-** YESTERDAY | 
-| Search Value a| DateTime | 
-| Search Value2 a| DateTime | 
+** YESTERDAY |
+| Search Value a| DateTime |
+| Search Value2 a| DateTime |
 |===
-    
+
 [[GetItemAvailabilityResultDTO]]
 == Get Item Availability Result DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Item Availability List a| ItemAvailabilityList | 
-| Status a| StatusDTO | 
+| Item Availability List a| ItemAvailabilityList |
+| Status a| StatusDTO |
 |===
-    
+
 [[ItemAvailabilityList]]
 == Item Availability List
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Item Availability a| Array of ItemAvailability | 
+| Item Availability a| Array of ItemAvailability |
 |===
-    
+
 [[ItemAvailability]]
 == Item Availability
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Item a| RecordRefDTO | 
-| Last Qty Available Change a| DateTime | 
-| Location Id a| RecordRefDTO | 
-| On Hand Value Mli a| Number | 
-| Preferred Stock Level a| Number | 
-| Quantity Available a| Number | 
-| Quantity Back Ordered a| Number | 
-| Quantity Committed a| Number | 
-| Quantity On Hand a| Number | 
-| Quantity On Order a| Number | 
-| Reorder Point a| Number | 
+| Item a| RecordRefDTO |
+| Last Qty Available Change a| DateTime |
+| Location Id a| RecordRefDTO |
+| On Hand Value Mli a| Number |
+| Preferred Stock Level a| Number |
+| Quantity Available a| Number |
+| Quantity Back Ordered a| Number |
+| Quantity Committed a| Number |
+| Quantity On Hand a| Number |
+| Quantity On Order a| Number |
+| Reorder Point a| Number |
 |===
-    
+
 [[ReadResponseDTO]]
 == Read Response DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Record a| RecordDTO | 
-| Status a| StatusDTO | 
+| Record a| RecordDTO |
+| Status a| StatusDTO |
 |===
-    
+
 [[GetPostingTransactionSummaryResultDTO]]
 == Get Posting Transaction Summary Result DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Page Index a| Number | 
-| Page Size a| Number | 
-| Posting Transaction Summary List a| PostingTransactionSummaryList | 
-| Status a| StatusDTO | 
-| Total Pages a| Number | 
-| Total Records a| Number | 
+| Page Index a| Number |
+| Page Size a| Number |
+| Posting Transaction Summary List a| PostingTransactionSummaryList |
+| Status a| StatusDTO |
+| Total Pages a| Number |
+| Total Records a| Number |
 |===
-    
+
 [[PostingTransactionSummaryList]]
 == Posting Transaction Summary List
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Posting Transaction Summary a| Array of PostingTransactionSummary | 
+| Posting Transaction Summary a| Array of PostingTransactionSummary |
 |===
-    
+
 [[PostingTransactionSummary]]
 == Posting Transaction Summary
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Account a| RecordRefDTO | 
-| Amount a| Number | 
-| Book a| RecordRefDTO | 
-| Clazz a| RecordRefDTO | 
-| Department a| RecordRefDTO | 
-| Entity a| RecordRefDTO | 
-| Item a| RecordRefDTO | 
-| Location a| RecordRefDTO | 
-| Parent Item a| RecordRefDTO | 
-| Period a| RecordRefDTO | 
-| Subsidiary a| RecordRefDTO | 
+| Account a| RecordRefDTO |
+| Amount a| Number |
+| Book a| RecordRefDTO |
+| Clazz a| RecordRefDTO |
+| Department a| RecordRefDTO |
+| Entity a| RecordRefDTO |
+| Item a| RecordRefDTO |
+| Location a| RecordRefDTO |
+| Parent Item a| RecordRefDTO |
+| Period a| RecordRefDTO |
+| Subsidiary a| RecordRefDTO |
 |===
-    
+
 [[PostingTransactionSummaryFieldDTO]]
 == Posting Transaction Summary Field DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Account a| Boolean | 
-| Book a| Boolean | 
-| Clazz a| Boolean | 
-| Department a| Boolean | 
-| Entity a| Boolean | 
-| Item a| Boolean | 
-| Location a| Boolean | 
-| Parent Item a| Boolean | 
-| Period a| Boolean | 
-| Subsidiary a| Boolean | 
+| Account a| Boolean |
+| Book a| Boolean |
+| Clazz a| Boolean |
+| Department a| Boolean |
+| Entity a| Boolean |
+| Item a| Boolean |
+| Location a| Boolean |
+| Parent Item a| Boolean |
+| Period a| Boolean |
+| Subsidiary a| Boolean |
 |===
-    
+
 [[PostingTransactionSummaryFilterDTO]]
 == Posting Transaction Summary Filter DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Account a| RecordRefList | 
-| Book a| RecordRefList | 
-| Clazz a| RecordRefList | 
-| Department a| RecordRefList | 
-| Entity a| RecordRefList | 
-| Item a| RecordRefList | 
-| Location a| RecordRefList | 
-| Parent Item a| RecordRefList | 
-| Period a| RecordRefList | 
-| Subsidiary a| RecordRefList | 
+| Account a| RecordRefList |
+| Book a| RecordRefList |
+| Clazz a| RecordRefList |
+| Department a| RecordRefList |
+| Entity a| RecordRefList |
+| Item a| RecordRefList |
+| Location a| RecordRefList |
+| Parent Item a| RecordRefList |
+| Period a| RecordRefList |
+| Subsidiary a| RecordRefList |
 |===
-    
+
 [[RecordRefList]]
 == Record Ref List
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Record Ref a| Array of RecordRefDTO | 
+| Record Ref a| Array of RecordRefDTO |
 |===
-    
+
 [[GetAllResultDTO]]
 == Get All Result DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Record List a| RecordList | 
-| Status a| StatusDTO | 
-| Total Records a| Number | 
+| Record List a| RecordList |
+| Status a| StatusDTO |
+| Total Records a| Number |
 |===
-    
+
 [[RecordList]]
 == Record List
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Record a| Array of RecordDTO | 
+| Record a| Array of RecordDTO |
 |===
-    
+
 [[GetSavedSearchResultDTO]]
 == Get Saved Search Result DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Record Ref List a| RecordRefList | 
-| Status a| StatusDTO | 
-| Total Records a| Number | 
+| Record Ref List a| RecordRefList |
+| Status a| StatusDTO |
+| Total Records a| Number |
 |===
-    
+
 [[GetSelectValueResultDTO]]
 == Get Select Value Result DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Base Ref List a| BaseRefList | 
-| Status a| StatusDTO | 
-| Total Pages a| Number | 
-| Total Records a| Number | 
+| Base Ref List a| BaseRefList |
+| Status a| StatusDTO |
+| Total Pages a| Number |
+| Total Records a| Number |
 |===
-    
+
 [[BaseRefList]]
 == Base Ref List
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Base Ref a| Array of BaseRefDTO | 
+| Base Ref a| Array of BaseRefDTO |
 |===
-    
+
 [[GetSelectValueFieldDescriptionDTO]]
 == Get Select Value Field Description DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Custom Form a| RecordRefDTO | 
-| Custom Record Type a| RecordRefDTO | 
-| Custom Transaction Type a| RecordRefDTO | 
-| Field a| String | 
-| Filter a| GetSelectValueFilter | 
-| Filter By Value List a| GetSelectFilterByFieldValueList | 
+| Custom Form a| RecordRefDTO |
+| Custom Record Type a| RecordRefDTO |
+| Custom Transaction Type a| RecordRefDTO |
+| Field a| String |
+| Filter a| GetSelectValueFilter |
+| Filter By Value List a| GetSelectFilterByFieldValueList |
 | Record Type a| Enumeration, one of:
 
 ** ACCOUNT
@@ -6894,82 +6894,82 @@ com.netsuite.webservices.platform.UnexpectedErrorFault
 ** WORK_ORDER
 ** WORK_ORDER_ISSUE
 ** WORK_ORDER_COMPLETION
-** WORK_ORDER_CLOSE | 
-| Sublist a| String | 
+** WORK_ORDER_CLOSE |
+| Sublist a| String |
 |===
-    
+
 [[GetSelectValueFilter]]
 == Get Select Value Filter
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Filter Value a| String | 
+| Filter Value a| String |
 | Operator a| Enumeration, one of:
 
 ** CONTAINS
 ** IS
-** STARTS_WITH | 
+** STARTS_WITH |
 |===
-    
+
 [[GetSelectFilterByFieldValueList]]
 == Get Select Filter By Field Value List
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Filter By a| Array of GetSelectFilterByFieldValue | 
+| Filter By a| Array of GetSelectFilterByFieldValue |
 |===
-    
+
 [[GetSelectFilterByFieldValue]]
 == Get Select Filter By Field Value
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Field a| String | 
-| Internal Id a| String | 
-| Sublist a| String | 
+| Field a| String |
+| Internal Id a| String |
+| Sublist a| String |
 |===
-    
+
 [[repeatable-in-memory-iterable]]
 == Repeatable In Memory Iterable
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Initial Buffer Size a| Number | 
-| Buffer Size Increment a| Number | 
-| Max Buffer Size a| Number | 
+| Initial Buffer Size a| Number |
+| Buffer Size Increment a| Number |
+| Max Buffer Size a| Number |
 |===
-    
+
 [[repeatable-file-store-iterable]]
 == Repeatable File Store Iterable
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Max In Memory Size a| Number | 
+| Max In Memory Size a| Number |
 | Buffer Unit a| Enumeration, one of:
 
 ** BYTE
 ** KB
 ** MB
-** GB | 
+** GB |
 |===
-    
+
 [[UpdateInviteeStatusReferenceDTO]]
 == Update Invitee Status Reference DTO
 
 [%header,cols=".^30%,.^40%,.^30%"]
 |===
 | Field | Type | Default Value
-| Event Id a| RecordRefDTO | 
+| Event Id a| RecordRefDTO |
 | Response Code a| Enumeration, one of:
 
 ** ACCEPTED
 ** DECLINED
 ** NO_RESPONSE
-** TENTATIVE | 
+** TENTATIVE |
 |===
     

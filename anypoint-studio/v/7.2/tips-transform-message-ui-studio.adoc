@@ -1,0 +1,21 @@
+= Tips for the Transform Message UI (Anypoint Studio)
+
+
+
+* Before creating your mapping, configure everything else on the flow so that the input and output is known.
+
+* To filter what you see from the input or output structures, click the magnifying glass icon image:tips-transform-message-ui-studio-69e11.png[] at the top of either section and then start typing the name of a field.
+
+
+* Select an element in the output pane to have its corresponding line in the DataWeave code highlighted.
+
+* If an input field is mapped to two or more output fields, you can right-click it and then select which of the multiple outputs you want to highlight in the DataWeave code.
+
+
+
+
+== See Also
+
+* link:/anypoint-studio/v/7.2/transform-message-component-concept-studio[About Transform Message Component]
+* link:/anypoint-studio/v/7.2/workflow-create-mapping-ui-studio[Workflow: Create a Mapping]
+* link:/mule4-user-guide/v/4.1/dataweave[DataWeave Language]

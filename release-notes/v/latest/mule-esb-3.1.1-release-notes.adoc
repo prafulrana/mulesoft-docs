@@ -20,7 +20,7 @@ In previous versions of Mule ESB, you were required to set the MULE_HOME environ
 
 === Example Launcher
 
-Both the Community and the Enterprise editions of Mule ESB Version 3.1.1 include a new Example Launcher application which allows you to discover the power of Mule right out of the box. 
+Both the Community and the Enterprise editions of Mule ESB Version 3.1.1 include a new Example Launcher application which allows you to discover the power of Mule right out of the box.
 
 === Documentation Improvements
 
@@ -99,7 +99,7 @@ Open Issues +
 |MMC-740 |Mule Management Console |MMC screen showing three unregistered servers at the same location |Start multiple instances of Mule sequentially to allow proper port binding.
 |EE-2113 |Mule ESB |The populate_m2_repo still requires MULE_HOME to be set. | 
 |EE-2197 |Mule ESB |Widget example still requires MULE_HOME to be set. | 
-|MMC-726 |Mule Management Console |if a mule instance is manually registered in MMC (rather than auto-discovered) then it is expected that the mule instance always be available on the same ip address and port. |Best practice - change port range for automatic port binding to be well above the range with manual port assignment.
+|MMC-726 |Mule Management Console |if a mule instance is manually registered in MMC (rather than autodiscovered) then it is expected that the mule instance always be available on the same ip address and port. |Best practice - change port range for automatic port binding to be well above the range with manual port assignment.
 |MMC-765 |Mule Management Console |Applications/servers removed from a deployment are not undeployed from servers. Applications manually started/stopped (via MMC or by manual copy in apps/ folder) do not trigger automatic reconciliation check. Down servers are ignored during deployment operation. This might lead to inconsistencies. |Before modifying a deployment, undeploy it, modify it, then redeploy. To remove an application from a deployment, force undeploy on the deployment before removing an app from it. When the deployment is deployed again, the removed app will not be available.
 |MMC-754 |Mule Management Console |"After" payload is not visible in the Flow Analyzer for async blocks and one-way end-points |N/A
 |MMC-663 |Mule Management Console |Alert description is not displayed for raised alerts |Although the information is not shown, it is correctly saved. To verify this, go to to alert edit mode.
@@ -237,4 +237,3 @@ Mule version 3.1.1 builds on the features added in link:/release-notes/mule-esb-
 |MMC-577 |Mule Management Console |Audit UI should be reset when audited application/flow is no longer present
 |MMC-470 |Mule Management Console |Agent port range support
 |===
-

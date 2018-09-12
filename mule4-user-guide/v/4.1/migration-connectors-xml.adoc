@@ -12,7 +12,7 @@ A new XML module in Mule 4 replaces the one that was bundled in with Mule 3. The
 ** DSL namespace prefix changed from `mxml` to `xml-module`
 ** Consistency of return types
 ** Syntax and UX changes
-* `xpath()` and `xpath3()` functions replaced by a new `Xml-Module:xpath()` function
+* `xpath()` and `xpath3()` functions replaced by a new `XmlModule::xpath()` function
 * Improved error reporting for the schema validator
 * `schema-validation-filter` now replaced with `schema-validator`
 * No longer tied to Java: It no longer uses SAX, StaX, or DOM types. Mule 4 is now strongly typed and we have mime type information about which data is in XML format. The runtime does the rest. All XML documents are represented as either Strings or streams. This means the following no longer exist (and are no longer needed):
@@ -86,12 +86,12 @@ The XPath extractor no longer supports custom `resultType` parameter. It will no
 
 === To Use the XPath Expression Function
 
-Mule 3 originally had an `xpath()` MEL function. In Mule 3.6, it was deprecated in favor of a new `xpath3()` function. Now, both functions are replaced by a new `Xml-Module::xpath()` DataWeave function, which becomes available when the module is added to an application.
+Mule 3 originally had an `xpath()` MEL function. In Mule 3.6, it was deprecated in favor of a new `xpath3()` function. Now, both functions are replaced by a new `XmlModule::xpath()` DataWeave function, which becomes available when the module is added to an application.
 
 .Mule 3 Example: Using the xpath3 function
 [source,xml, linenums]
 ----
-<set-payload value="#[xpath3('//book', payload, 'NODESET')] />
+<set-payload value="#[xpath3('//book', payload, 'NODESET')]" />
 ----
 
 Mule 3's `xpath3()` function allowed you to specify the XPath expression and the input value, and it gave different options in terms of the expected output: `BOOLEAN`, `STRING`, `NUMBER`, `NODESET` or `NODE`, where `NODESET` and `NODE` required understanding of Java's representation of a DOM tree.
@@ -104,7 +104,7 @@ The new function also accepts the XPath expression and the input, but differs in
 .Mule 4 Example: Using the xpath function
 [source,xml, linenums]
 ----
-<set-payload value="#[Xml-Module::xpath('//book', payload, {})] />
+<set-payload value="#[XmlModule::xpath('//book', payload, {})]" />
 ----
 
 [TIP]

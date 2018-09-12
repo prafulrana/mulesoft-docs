@@ -1,7 +1,5 @@
 = Lookup Tables
 
-NOTE: Current Anypoint Partner Manager solutions will continue to be supported in accordance with the https://www.mulesoft.com/legal/support-maintenance-terms[Product Support and Maintenance Terms] but will not be available for new customers or upgrades. Contact your MuleSoft representative for more information on MuleSoft's B2B solutions.
-
 Anypoint Partner Manager (APM) enables you to create, populate and edit a _lookup table_.  A lookup table is a table that facilitates transaction processing by associating values. For example, this page shows how to create a lookup table that associates internal partner product codes with customer product codes.
 
 include::/_sources/edit-home-partner-settings.adoc[]

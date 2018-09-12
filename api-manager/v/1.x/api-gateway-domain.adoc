@@ -92,7 +92,7 @@ To successfully register an API, you must deploy the API (or its proxy) to the A
 
 Servers try to expose every interface, privileging the most declarative ones. For example `local_ip` is privileged against `localhost`.
 
-If you are using the link:/api-manager/v/1.x/api-auto-discovery[API auto-discovery] feature, your endpoint registers itself using the local IP address. If your IP changes, update your endpoint accordingly. When you deploy the proxy or app on CloudHub, the autodiscovery mechanism assigns privileges to the Cloudhub domain.
+If you are using the link:/api-manager/v/1.x/api-auto-discovery[API Autodiscovery] feature, your endpoint registers itself using the local IP address. If your IP changes, update your endpoint accordingly. When you deploy the proxy or app on CloudHub, the Autodiscovery mechanism assigns privileges to the Cloudhub domain.
 
 
 === Deploying with Shared Resources
@@ -206,5 +206,3 @@ The "Address already in use" error typically occurs for the following reasons:
 * You are using a hybrid/standalone version and you have multiple apps, check that their paths are not duplicated.
 
 Solution: Check if the port 8081 is not bound to another application/program. In that case you can locally modify the port of the listener-config by changing the domain config in `./domains/api-gateway/mule-domain-config.xml`
-
-

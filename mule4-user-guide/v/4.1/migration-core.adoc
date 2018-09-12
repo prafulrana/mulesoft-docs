@@ -1,14 +1,14 @@
-// sme: Dan, writer: Mariano Gonzalez
 = Migrating Core Components
-|:keywords: studio, server, components, connectors, elements, palette, global elements, configuration elements
+// sme: Dan, writer: Mariano Gonzalez
+:keywords: studio, server, components, connectors, elements, palette, global elements, configuration elements
 
 This section covers the migration of component-specific features, and the table below maps Mule 3.x components and expressions to their replacements in Mule 4.
 
 [%header,cols="30,70"]
 |===
-|Mule 3.x Component | Mule 4.0 Replacement
-|All router  | Use scatter gather instead or execute the operations one after the other with different target attributes and then use DW to merge results.
-|async[‘processingStrategy’] | Async processing strategies are no longer needed with the non-blocking execution engine. Use an “async” scope wrapping all the components if you want them to behave asynchronously.
+| Mule 3.x Component | Mule 4.0 Replacement
+| All router  | Use scatter gather instead or execute the operations one after the other with different target attributes and then use DW to merge results.
+| async[‘processingStrategy’] | Async processing strategies are no longer needed with the non-blocking execution engine. Use an “async” scope wrapping all the components if you want them to behave asynchronously.
 | asynchronous-processing-strategy | Async processing strategies are no longer needed with the non-blocking execution engine. Use an “async” scope wrapping all the components if you want them to behave asynchronously.
 | bridge | Removed. Use flows.
 | catch-exception-strategy | Use error-handler with an on-error-continue strategy.
@@ -55,7 +55,7 @@ This section covers the migration of component-specific features, and the table 
 | interceptor-stack | Removed. Use custom policies.
 | invoke | Use the Java module.
 | jndi-transaction-manager | Removed.
-| jrun-transaction-mamanger | Removed.
+| jrun-transaction-manager | Removed.
 | legacy-abstract-exception-strategy | Use the new error handlers.
 | managed-store | Use object store module extension to create custom stores.
 | message-properties-transformer | Use Transform component and DataWeave.
@@ -67,7 +67,7 @@ This section covers the migration of component-specific features, and the table 
 | poll | Replaced with scheduler source.
 | pooling-profile[‘disabled’] | New attribute
 | processor | Use DataWeave, scripting component, the Mule SDK, or the Java module.
-| prototype-object | Use Java module or Spring module
+| prototype-object | Use Java module or Spring module.
 | queue-profile | Removed.
 | queue-store | Removed.
 | recipient-list | Removed.
@@ -76,16 +76,16 @@ This section covers the migration of component-specific features, and the table 
 | reconnect-custom-strategy | Removed.
 | reconnect-custom-strategy | Removed.
 | reconnect-notifier | Removed.
-| remove-attachment|No longer needed. Attachments can be stored as variables.
-| remove-property|Properties no longer exist in the new message model. You can store attributes from the Mule message in a variable.
-| response|Removed. No longer needed.
-| request-reply|Mule 4 will not longer support request-reply for all connectors. Connectors that had a “request-reply” behavior will provide a “request-reply” operation built in, such as the JMS consume operation.
-| resin-transaction-mamanger | Removed.
+| remove-attachment | No longer needed. Attachments can be stored as variables.
+| remove-property | Properties no longer exist in the new message model. You can store attributes from the Mule message in a variable.
+| response | Removed. No longer needed.
+| request-reply | Mule 4 will not longer support request-reply for all connectors. Connectors that had a “request-reply” behavior will provide a “request-reply” operation built in, such as the JMS consume operation.
+| resin-transaction-manager | Removed.
 | rollback-exception-strategy | Use error-handler with an on-error-propagate strategy.
 | scatter-gather[‘threading-profile’] | No longer needed now that Mule 4 is non blocking.
 | seda-model | No more SEDA queues in Mule 4. The execution engine in Mule 4 is non-blocking.
 | service | Use flows.
-| set-attachment |No longer needed. Attachments can be stored as variables.
+| set-attachment | No longer needed. Attachments can be stored as variables.
 | set-property | Properties no longer exist in the new message model. You can store attributes from the Mule message in a variable.
 | set-session-variable | Session variables have been removed. Users must explicitly pass headers across transport boundaries.
 | simple-in-memory-queue-store | Use the new VM Connector.
@@ -94,11 +94,11 @@ This section covers the migration of component-specific features, and the table 
 | singleton-object | Use Java module or Spring module.
 | spring-object | Use Java module or Spring module.
 | synchronous-processing-strategy | The behavior related to flow components execution is the same as flows in 4.x but it doesn't always execute in the same thread as in 3.x.
-|transactional scope | Replaced with “try” scope.
-|username-password-filter | Removed.
-|validator | Removed.
-|weblogic-transaction-manager | Removed.
-|websphere-transaction-manager |
+| transactional scope | Replaced with “try” scope.
+| username-password-filter | Removed.
+| validator | Removed.
+| weblogic-transaction-manager | Removed.
+| websphere-transaction-manager |
 | all-strategy | Removed.
 | entry-point-resolver | Use the Java module.
 | filter | Filters are replaced by the Validations module.

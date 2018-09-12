@@ -1,9 +1,61 @@
 = NetSuite Connector Release Notes 
 :keywords: release notes, netsuite, oracle, connector
 
-*March 2018*
+*August 2018*
 
 The Anypoint Connector for NetSuite synchronizes data and automates business processes between NetSuite and third-party applications, either on-premises or in the cloud.
+
+== 8.2.0
+
+*August 4, 2018*
+
+=== Compatibility
+
+[%header%autowidth.spread]
+|===
+|Software | Version
+|Mule Runtime | 4.0.0 and later
+|SuiteTalk API | 2017.2
+|===
+
+[NOTE]
+The NetSuite version *is not* the same as the *SuiteTalk API* version. Your account may be running on a version of NetSuite different to the version of the the API you are using.
+
+=== Features
+
+* *Triggers* - You can now start a flow with the NetSuite Connector every time an object of a specific type is created, updated, or deleted.
+
+=== Fixed in this Release
+
+None.
+
+=== Known Issues
+
+None.
+
+== 8.1.1
+
+*July 13, 2018*
+
+=== Compatibility
+
+[%header%autowidth.spread]
+|===
+|Software | Version
+|Mule Runtime | 4.0.0 and later
+|SuiteTalk API | 2017.2
+|===
+
+[NOTE]
+The *NetSuite* version is *not* the same as the *SuiteTalk API* version. Your account may be running on a version of NetSuite different to the version of the the API you are using.
+
+=== Fixed in this Release
+
+* Search operation returned an empty response in Mac and a parsing error in Windows.
+
+=== Known Issues
+
+None.
 
 == 8.1.0
 

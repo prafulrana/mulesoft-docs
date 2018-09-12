@@ -1,11 +1,31 @@
 = Cassandra Connector Release Notes
 :keywords: cassandra
 
-*January 2018*
+*July 2018*
 
 _Select_
 
 The Anypoint Cassandra connector provides the capability to connect a Mule application to a Cassandra database or cluster. 
+
+=== 3.1.0
+
+*July 31, 2018*
+
+Cassandra connector is available on Mule 4.0.
+
+=== Compatibility
+
+[%header%autowidth.spread]
+|===
+|Application/Service |Version
+|Cassandra database or cluster | 1.2 and later
+|CQL spec | 3.x
+|Mule Runtime | 4.0 and later
+|===
+
+=== Features
+
+* This version supports Cassandra cluster configuration. Users can provide comma-separated Cassandra nodes, for example `127.0.0.1:9160, 127.0.0.2:9160`.
 
 == 3.0.0
 

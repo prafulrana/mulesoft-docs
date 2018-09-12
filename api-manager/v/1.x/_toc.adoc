@@ -22,9 +22,9 @@
 *** link:/api-manager/v/1.x/browsing-and-accessing-apis[Handling Client Applications Reference]
 *** link:/api-manager/v/1.x/engaging-users-of-your-api[Portal Creation Reference]
 
-*** link:/api-manager/v/1.x/api-auto-discovery[About Auto-Discovery]
-**** link:/api-manager/v/1.x/configure-auto-discovery-task[To Configure Auto-Discovery]
-**** link:/api-manager/v/1.x/api-auto-discovery-reference[Auto-Discovery Reference]
+*** link:/api-manager/v/1.x/api-auto-discovery[About Autodiscovery]
+**** link:/api-manager/v/1.x/configure-auto-discovery-task[To Configure Autodiscovery]
+**** link:/api-manager/v/1.x/api-auto-discovery-reference[Autodiscovery Reference]
 
 *** link:/api-manager/v/1.x/proxy-about[About Deploying Proxies]
 **** link:/api-manager/v/1.x/proxy-depl-cloudhub[To Deploy a Proxy to CloudHub]
@@ -45,7 +45,6 @@
 **** link:/api-manager/v/1.x/disable-edit-remove-task[To Disable, Edit, or Remove a Policy]
 **** link:/api-manager/v/1.x/reorder-policies-task[To Re-order Policies]
 **** link:/api-manager/v/1.x/tutorial-manage-consuming-applications[To Manage API Access Requests]
-**** link:/api-manager/v/1.x/configure-policy-polling-task[To Configure Policy Polling Time]
 *** link:/api-manager/v/1.x/resource-level-policies-about[About Resource Level Policies]
 *** link:/api-manager/v/1.x/resource-level-policy-reference[Resource Level Policy Reference]
 *** link:/api-manager/v/1.x/accessing-your-api-behind-a-firewall[About Firewall Access]
@@ -138,4 +137,3 @@
 *** link:/api-manager/v/1.x/proxy-depl-api-gate[To Deploy a Proxy]
 *** link:/api-manager/v/1.x/configuring-proxy-access-to-an-api[Configuring Proxy Access to APIs]
 *** link:/api-manager/v/1.x/deploy-to-api-gateway-runtime[Deploying to API Gateway Runtime]
-

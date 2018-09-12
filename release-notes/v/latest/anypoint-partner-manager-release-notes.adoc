@@ -3,6 +3,60 @@
 
 *link:/anypoint-b2b/anypoint-partner-manager[Anypoint Partner Manager User Documentation]*
 
+== 1.25.2
+
+*July 26, 2018*
+
+=== Browser Support
+
+Anypoint Partner Manager, as a component of https://anypoint.mulesoft.com[Anypoint Platform], supports the following browsers:
+
+* Firefox (latest version)
+* Chrome (latest version)
+
+=== Compatibility
+
+Compatible with:
+
+* X12 Module 1.2.1
+* EDIFACT Module 1.2.1
+* Partner Manager Connector 3.0.x
+* FTPS Connector 1.0.8
+* AS2 Connector 2.0.1
+
+=== Fixed in this Release
+
+Inability to open the Partner Manager web application for users assigned only to a master organization.
+
+Note: Users may need to clear their browser cache to see the benefit of the fix.
+
+== 1.25.1
+
+*July 24, 2018*
+
+=== Browser Support
+
+Anypoint Partner Manager, as a component of https://anypoint.mulesoft.com[Anypoint Platform], supports the following browsers:
+
+* Firefox (latest version)
+* Chrome (latest version)
+
+=== Compatibility
+
+Compatible with:
+
+* X12 Module 1.2.1
+* EDIFACT Module 1.2.1
+* Partner Manager Connector 3.0.x
+* FTPS Connector 1.0.8
+* AS2 Connector 2.0.1
+
+=== Fixed in this Release
+
+Inability to open the Partner Manager web application for users assigned only to a sub business group.
+(Note: users may need to clear their browser cache to see the benefit of the fix.)
+
+
 == 1.25.0
 
 *June 2, 2018*

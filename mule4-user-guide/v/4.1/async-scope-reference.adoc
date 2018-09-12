@@ -31,6 +31,7 @@ In other words, if the payload of your message is a mutable object (for example,
 
 This example shows the XML for the Async scope.
 
+[source,XML, linenums]
 ----
 <async doc:name="Async">
   <!-- One or more processors here -->

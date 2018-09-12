@@ -2376,7 +2376,7 @@ Mark a method to be stopped during a method's `org.mule.lifecycle.Stoppable` pha
 
 [source, code, linenums]
 ----
-@Start
+@Stop
 public void mystop() {
     if ( this.sessionId != null ) {
        serviceProvider.logout(sessionId);

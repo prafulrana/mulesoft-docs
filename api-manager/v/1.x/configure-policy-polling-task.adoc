@@ -1,9 +1,0 @@
-= To Configure Policy Polling Time
-
-The default policy polling time is 60 seconds. A minimum 60-second delay occurs between the time you apply a policy from the UI and the time the policy goes into effect. The same delay occurs when you disable or edit a policy. You can configure the length of the delay using the following system property:
-
-`anypoint.platform.poll_policies_freq`
-
-Configure a new value in seconds by changing the wrapper.conf file. For example:
-
-`wrapper.java.additional.30=-Danypoint.platform.poll_policies_freq=45`

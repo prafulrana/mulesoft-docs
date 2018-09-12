@@ -1,5 +1,5 @@
 = Configuring an API Gateway (Archive)
-:keywords: api, cloudhub, gateway, auto-discovery
+:keywords: api, cloudhub, gateway, Autodiscovery
 
 Mule 3.8.0 runtime unifies the API Gateway runtime with the core Mule runtime, eliminating the need to configure API Gateway. This document pertains to earlier installations, not to Mule 3.8 runtime deployments managed by link:/runtime-manager/[Runtime Manager]. To configure Mule 3.8 runtime, see link:/mule-user-guide/v/3.8/downloading-and-starting-mule-esb[Downloading and Starting Mule] and link:/mule-user-guide/v/3.8/installing-an-enterprise-license[Installing an Enterprise License].
 
@@ -15,7 +15,7 @@ API Gateway is installed in the following ways:
 * On premises (at your site) independent from Studio
 * In the cloud
 
-These installations are configured versions of Mule runtimes and can communicate with Anypoint Platform, including support for link:/api-manager/api-auto-discovery[API auto-discovery].
+These installations are configured versions of Mule runtimes and can communicate with Anypoint Platform, including support for link:/api-manager/api-auto-discovery[API Autodiscovery].
 
 == Migrating From TLS 1.0
 
@@ -40,18 +40,18 @@ You can use the API Gateway in the following ways:
 
 You need to perform the following tasks to manage an existing Mule API deployed on API Gateway, either on premises or in CloudHub:
 
-* Enable link:/api-manager/api-auto-discovery[auto-discovery].
+* Enable link:/api-manager/api-auto-discovery[Autodiscovery].
 * Provide organization credentials.
 
-==== API Auto-Discovery
+==== API Autodiscovery
 
-Auto-discovery ensures that the API Manager handles the following tasks:
+Autodiscovery ensures that the API Manager handles the following tasks:
 
 * Tracking the API and displaying its status
 * Enforcing applied policies
 * Sending analytics
 
-If an API is not registered on Anypoint Platform, auto-discovery triggers that registration. If you manually register and deploy an API, you still need to enable auto-discovery to use the API Gateway.
+If an API is not registered on Anypoint Platform, Autodiscovery triggers that registration. If you manually register and deploy an API, you still need to enable Autodiscovery to use the API Gateway.
 
 ==== Organization Credentials
 

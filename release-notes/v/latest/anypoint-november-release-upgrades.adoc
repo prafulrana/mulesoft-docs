@@ -16,12 +16,14 @@ The upgrade schedule depends on the number of APIs in your organization:
 
 * New experience (video on YouTube): https://www.youtube.com/watch?v=oL827WlMmfM&feature=youtu.be[Nov. 2017 Release: UI Updates for Existing Users]
 * Changes and features: link:anypoint-november-release[Anypoint Platform July and November Release: Release Notes]
+* Changes to Anypoint Platform APIs: link:/release-notes/upgrade#anypoint-platform-apis-november-2017-release[See Changes]
 
 Because many of the new products have new features and a different UX, please consider the following:
 
 * For API Portal, the look and feel is changing. This change is especially important for public API portals that are exposed to external developers.
 * The API lifecycle is slightly different, so if you are in the middle of a big release, be sure to communicate this to your team(s).
 * Other Anypoint accounts used by you or other developers in your organization might retain the same, “old” Anypoint Platform experience.
+
 
 == After the Upgrade
 

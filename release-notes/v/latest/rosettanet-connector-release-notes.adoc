@@ -1,7 +1,7 @@
 = RosettaNet Connector Release Notes
 :keywords: release notes, RosettaNet, b2b, connector
 
-*July 2017*
+*July 2018*
 
 _Premium_
 
@@ -11,6 +11,38 @@ and responds to received messages with the appropriate HTTP response and/or
 signal. Users work directly with the RosettaNet message service content as an XML document.
 
 *Guide:* link:/mule-user-guide/v/3.9/rosettanet-connector[RosettaNet Connector]
+
+== 1.1.1
+
+*July 26, 2018*
+
+Compatibility:
+
+[%header%autowidth.spread]
+|===
+|Software	|Version
+|Mule Runtime |3.7.0 and later
+|Java |7
+|===
+
+=== Features
+
+* No added features
+
+=== Fixed in this Release
+
+* Corrected tracking of aliases for certificates validating signature.
+* Added DOCTYPE to service content being sent.
+* Fixed shutdown handling to allow clean restart.
+
+=== Known Issues
+
+Only supports:
+
+* Asynchronous response messages
+* RNIF 2.00.01
+* Cluster 3 PIPs (limited selection)
+
 
 == 1.1.0
 

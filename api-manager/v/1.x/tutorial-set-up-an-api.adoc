@@ -1,7 +1,7 @@
 = To Set Up an API
 :keywords: api, define, creator, create, setup
 
-You can set up an API by importing one into API Manager, by using auto-discovery, or by defining the API in API Manager. This procedure covers the latter. Setting up an API consists of naming the API and a version. Other entries are optional. API Manager creates an API version details page, which has controls such as API Definition, for managing the API. 
+You can set up an API by importing one into API Manager, by using Autodiscovery, or by defining the API in API Manager. This procedure covers the latter. Setting up an API consists of naming the API and a version. Other entries are optional. API Manager creates an API version details page, which has controls such as API Definition, for managing the API. 
 
 . In Anypoint Platform, click API Manager.
 +

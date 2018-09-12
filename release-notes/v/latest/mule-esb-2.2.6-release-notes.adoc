@@ -2,7 +2,7 @@
 :keywords: release notes, esb
 
 
-This release of Mule ESB Enterprise Edition introduces substantial MMC improvements, including UI support for configuration of email alerts, auto-discovery of Mule server instances, external LDAP configuration, and improved performance.
+This release of Mule ESB Enterprise Edition introduces substantial MMC improvements, including UI support for configuration of email alerts, Autodiscovery of Mule server instances, external LDAP configuration, and improved performance.
 
 This release also includes ESB improvements such as re-worked exception handling and a number of additional platform certifications.
 
@@ -139,7 +139,7 @@ Mule ESB Management Console has been tested with and supports the following plat
 |MMC-399 |Attempting to register backup node removed servers from MMC, threw errors
 |MMC-372 |Registering a standalone server with an agent of MMC 2.2.5 didn't work properly
 |MMC-344 |Running MMC in a web application running on TCServer causes exception: "java.lang.NoSuchMethodError: org.tanukisoftware.wrapper.jmx.WrapperManagerMBean.getJavaPID()"
-|MMC-53 |Discovery - agent must user Mule server ID when broadcasting. This issue is fixed by the implementation of auto-discovery.
+|MMC-53 |Discovery - agent must user Mule server ID when broadcasting. This issue is fixed by the implementation of Autodiscovery.
 |MMC-390 |Exception alert not working.
 |MMC-365 |MMC is unable to detect Mule shutdown, still shows green status and no alert is fired
 |MMC-269 |ServerUp event must deploy alerts only for the target server, not every server associated with the alert definition

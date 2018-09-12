@@ -1,8 +1,19 @@
 = Alerts
 
-Alerts indicate whether a resource (such as a Mule app) is behaving as expected or exceeding a defined threshold. 
+Alerts indicate whether a resource (such as a Mule app) is behaving as expected or exceeding a defined threshold.
 
 There are several types of alerts. From the Alerts page in Anypoint Monitoring, you can link out to alerts for API and Runtime alerts. If your subscription permits, you can also view, enable, and disable alerts that are configured for graphs in custom dashboards.
+
+Once you configure an alert for a graph, an alert status icon will appear at the
+top-left corner of the graph. For example, the green dot in the bell indicates
+that the status is OK:
+
+image::alert-in-graph.png[alt]
+
+Note that if you scroll over the bell icon, you can get a description, in this
+case, *Status OK*. See
+link:alerts-using#alert_status[Filtering Alerts by Alert Status] to understand
+each alert status.
 
 //When the data exceed a configured threshold on your resources over a period of time, you can also receive notification to take action.
 

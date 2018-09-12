@@ -1,5 +1,5 @@
-// sme: Ana, author: sduke?
 = Introduction to Mule 4: Error Handlers
+// sme: Ana, author: sduke?
 
 In Mule 4, error handling is no longer limited to a Java exception handling process that requires you to check the source code or force an error in order to understand what happened. Though Java `Throwable` errors and exceptions are still available, Mule 4 introduces a formal Error concept that's easier to use. Now, each component declares the type of errors it can throw, so you can identify potential errors at design time.
 
@@ -81,3 +81,11 @@ Mule 4 now also allows for mapping default errors to custom ones. The Try scope 
 By mapping errors from the first request to a custom API_1 error and errors in the second request to API_2, you can route those errors to different handlers. The next example maps HTTP:INTERNAL_SERVER_ERROR  so that different handling policies can be applied if the APIs go down (propagating the error in the first API and handling it in the second API).
 
 image::error-handling-mappings.png[Error Handling Mappings]
+
+
+== See Also
+
+* link:error-handling[About Error Handling]
+* link:mule-error-concept[About the Mule Error Structure]
+* link:on-error-scope-concept[The On-Error Scopes]
+* link:try-scope-concept[The Try Scope]

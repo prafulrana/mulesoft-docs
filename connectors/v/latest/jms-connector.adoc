@@ -126,9 +126,11 @@ An example of a simple configuration of an ActiveMQ connection would be:
 
 [source, xml, linenums]
 ----
-<jms:config name="JMS_Config">
-  <jms:active-mq-connection initialRedeliveryDelay="2000" brokerUrl="tcp://localhost:61616"/>
-</jms:config>
+ <jms:config name="JMS_Config">
+  <jms:active-mq-connection >
+   <jms:factory-configuration brokerUrl="tcp://localhost:61616" />
+  </jms:active-mq-connection>
+ </jms:config>
 ----
 
 == Using Different Brokers

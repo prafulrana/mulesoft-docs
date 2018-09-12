@@ -4,7 +4,7 @@
 It's time to roll up your sleeves and build your first Mule application in Anypoint Studio!
 
 The objective of this tutorial is get something built and running fast, so this document doesn't
-spend much time explaining components. 
+spend much time explaining components.
 This tutorial shows you how to create a simple application in Studio, deploy it to Studio's embedded server,
 and then interact with the application through a Web browser.
 
@@ -12,7 +12,7 @@ and then interact with the application through a Web browser.
 == Assumptions
 
 
-This tutorial assumes that you have link:/anypoint-studio/v/5/download-and-launch-anypoint-studio[downloaded, installed, and launched Anypoint Studio], and that you've read through the link:/anypoint-studio/v/5/index[Anypoint Studio Essentials].
+This tutorial assumes that you have link:/anypoint-studio/v/5/download-and-launch-anypoint-studio[installed, and launched Anypoint Studio], and that you've read through the link:/anypoint-studio/v/5/index[Anypoint Studio Essentials].
 
 == Creating a New Project
 
@@ -86,7 +86,7 @@ image:set+payload+hello+world.png[set+payload+hello+world]
 <?xml version="1.0" encoding="UTF-8"?>
 
 <mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-    xmlns:spring="http://www.springframework.org/schema/beans" 
+    xmlns:spring="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd

@@ -1,0 +1,15 @@
+= To Set Breakpoints
+
+To set breakpoints, right-click a building block, then select Toggle Breakpoint.
+
+Studio applies a red dot to the building block's icon on the canvas.
+
+When you run your application in Debug mode, Studio stops the flow execution at the breakpoint you have set, allowing you to check the Mule Event content in the Mule Debugger View.
+
+== See Also
+
+* link:/anypoint-studio/v/7.2/mule-debugger-view-reference[Mule Debugger View Reference]
+* link:/anypoint-studio/v/7.2/to-set-conditional-breakpoints[To Set Conditional Breakpoints]
+* link:/anypoint-studio/v/7.2/to-set-error-breakpoints[To Set Error Breakpoint]
+* link:/anypoint-studio/v/7.2/to-evaluate-breakpoint-using-expression[To Evaluate a Breakpoint Using an Expression]
+* link:/anypoint-studio/v/7.2/breakpoints-concepts[About Breakpoints]

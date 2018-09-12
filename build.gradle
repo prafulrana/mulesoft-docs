@@ -151,7 +151,7 @@ task copyAssets(type: Copy) {
   from(assetsDir) {
     exclude 'README.md'
     exclude '_*/**'
-    exclude 'css'
+    exclude 'css/*.less'
   }
   into siteDir
   //outputs.dir siteDir

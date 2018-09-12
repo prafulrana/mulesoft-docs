@@ -1,0 +1,28 @@
+= APIkit for SOAP 1.1.3 Release Notes
+
+This version of APIkit for SOAP includes bug fixes.
+
+For Anypoint Studio, this version is distributed as Anypoint APIkit SOAP Extension 1.1.3.
+
+== Compatibility
+
+[%header%autowidth.spread]
+|===
+|Software |Version
+|Mule Runtime |4.1.0 and later
+|Anypoint Studio |7.1.0 and later
+|===
+
+== Fixed in This Release
+
+* Use currentThread().classloader to load WSDL.
+* WSDL and xsd resources are now included in mule-artifact.json.
+* Backport: APIKIT For SOAP is not routing to the correct flow when no soapAction defined.
+* Scaffolder does not load the full WSDL definition with references.
+* Upgrade WSDLParser version in SOAPKIT for M4.
+* Failed to deploy artifact `[soap-exp-api]` when creating a Mule application based on WSDL.
+* Referenced WSDL and XSD are not copied to `/api` during scaffolding.
+
+== See Also
+
+* https://forums.mulesoft.com[MuleSoft Forum].

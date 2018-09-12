@@ -1,0 +1,11 @@
+= Configure DNS on Anypoint Private Cloud
+
+You must provide the DNS or IP where your Anypoint Platform installation is exposed to the local network. This is required for Mule runtimes to communicate with the platform.
+
+. From Anypoint Platform, click Access Management.
+. Click the DNS/IP tab.
+. Enter in the *Platform DNS/IP* field with the address where you are hosting the platform
+. Click *Save*.
+
+
+image:on-premises-features-2f348.png[]

@@ -59,6 +59,7 @@ payload
 
 == New Capabilities
 There are also many new capabilities, including:
+
  * Typing for reusable functions
  * Multi-line comments
  * Ability to call out to Java code

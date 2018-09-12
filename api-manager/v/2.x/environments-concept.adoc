@@ -1,4 +1,4 @@
-= About Environments in API Manager 
+= About Environments in API Manager
 
 The support for environments in strategic components of Anypoint Platform eliminates the need to construct version names to reflect an environment. The administrator grants permissions per environment. A user who is granted environment access permission has full access to operations inside the specific environment:
 
@@ -17,13 +17,13 @@ When you navigate to API Manager, you see the environment control bearing the na
 
 image::environment.png[]
 
-When you click the environment control, a list of your environments appears. 
+When you click the environment control, a list of your environments appears.
 
-To connect Mule Runtime to API Manager through auto-discovery, you need to provide the one of the following credential pairs:
+To connect Mule Runtime to API Manager through Autodiscovery, you need to provide the one of the following credential pairs:
 
 * The client ID and secret of the environment
 * The client ID and secret of the organization where you registered the API
-* The client ID and secret of the parent of the organization where you registered the API. 
+* The client ID and secret of the parent of the organization where you registered the API.
 +
 For example, you can have a parent business group(BG) for ABC Corp, and that parent can have children ABC-BG1 and ABC-BG2. You can track the ABC-BG1 API using credentials of ABC.
 +
@@ -44,6 +44,6 @@ If you upgraded APIs from the earlier versions of API Manager to API Manager 2.x
 * link:/access-management/environments[Environments]
 * link:/api-manager/v/2.x/classify-api-task[To Classify an API]
 * link:/api-manager/v/2.x/environment-permission-task[To Grant Permission to Access Environments]
-* link:/api-manager/v/2.x/api-auto-discovery-new-concept[About Auto-Discovery (registering the API)]
-* link:/api-manager/v/2.x/configure-auto-discovery-new-task[To Configure Auto-Discovery]
-* link:/api-manager/v/2.x/api-auto-discovery-new-reference[Auto-Discovery Reference]
+* link:/api-manager/v/2.x/api-auto-discovery-new-concept[About Autodiscovery (registering the API)]
+* link:/api-manager/v/2.x/configure-autodiscovery-4-task[Configuring API Autodiscovery in a Mule 4 Application]
+* link:/api-manager/v/2.x/configure-autodiscovery-3-task[Configuring API Autodiscovery in a Mule 3 Application]

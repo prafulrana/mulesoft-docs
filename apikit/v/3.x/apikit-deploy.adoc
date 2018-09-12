@@ -1,13 +1,13 @@
 = Deploying the Project
 
-In Studio, you prepare the API for auto-discovery. You need to set multiple auto-discovery global elements, one for each flow to which you want to direct requests. In the auto-discovery global configuration, you select a drop-down containing the names of a flow in the project.
+In Studio, you prepare the API for Autodiscovery. You need to set multiple Autodiscovery global elements, one for each flow to which you want to direct requests. In the Autodiscovery global configuration, you select a drop-down containing the names of a flow in the project.
 
-Finally, you run the project as a Mule application. Studio deploys the flows as individual APIs to Anypoint Platform, and registers the APIs with API Manager. After registering the APIs, you can apply policies.  
+Finally, you run the project as a Mule application. Studio deploys the flows as individual APIs to Anypoint Platform, and registers the APIs with API Manager. After registering the APIs, you can apply policies.
 
 *To deploy an APIkit project to Anypoint Platform*:
 
 . In Studio, select Anypoint Studio > Preferences > Anypoint Studio > Anypoint Platform for APIs, and enter your client ID and client secret.
-. In the Global Elements dialog, configure auto-discovery by entering settings for a global element as follows:
+. In the Global Elements dialog, configure Autodiscovery by entering settings for a global element as follows:
 +
 * API Name: vending
 +
@@ -15,7 +15,7 @@ Finally, you run the project as a Mule application. Studio deploys the flows as 
 +
 * Flow Name: api-main
 +
-. Enter auto-discovery settings for a second global element as follows:
+. Enter Autodiscovery settings for a second global element as follows:
 +
 * API Name: test-policy
 +
@@ -45,4 +45,3 @@ Using the implementation URI, you can now simulate calls to the API using API Co
 `+http://192.168.127:8081/console+`
 
 You can also apply policies to the APIs.
-

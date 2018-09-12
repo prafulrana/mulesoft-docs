@@ -29,7 +29,7 @@ No change.
 * Fixed issue where a user could not delete an application that failed to deploy.
 * Fixed issue where a custom business event name was not displayed in Insights.
 * Fixed issue where Mule agent fails on the IBM JDK.
-* Added support for auto-discovery of local Server Properties.
+* Added support for Autodiscovery of local Server Properties.
 * Added support for Configuration Management when deploying or redeploying.
 * Mule Runtime Agent support for schedulers management
 * Support for multiple environments on Anypoint Platform

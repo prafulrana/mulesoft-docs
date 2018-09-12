@@ -1,36 +1,71 @@
-= Anypoint Visualizer Version 1.0.0 Release Notes
+= Anypoint Visualizer Release Notes
 
-_June 30, 2018_
+This document describes new features and enhancements, known limitations, issues, and fixes for Anypoint Visualizer. See link:/anypoint-visualizer[Anypoint Visualizer] for more information.
 
-This document describes new features and enhancements, known limitations, issues, and fixes for Anypoint Visualizer, version 1.0.0.
+== August 21, 2018
+Version: 1.1.0
 
-== New Features and Enhancements
+=== New Features and Enhancements
+
+* Improved node layout to minimize crossing arrows.
+* Improved environment selector
+
+=== Fixed Issues
+
+* Allow special characters as node names
+* Incorrect Node positioning in special circumstances
+
+== July 27, 2018
+Version: 1.0.2
+
+=== New Features and Enhancements
+
+* Changes to how permissions are managed
+** Users can only see the environments in which they have Runtime Manager Read applications permission, or the administrator role.
+** Users can only see the business groups that they have access to, and at least have one environment where they have view permissions.
+* Layers
+** Collapsed layers maintain the width of the canvas view
+
+
+=== Fixed Issues
+
+* Invalid dependency detected when using mule gateways
+* When using a Mule 4 application the flow validation component was shown as a dependency.
+
+=== Known Limitations and Workarounds
+
+There are no known limitations or workarounds in this release.
+
+
+== June 30, 2018
+Version: 1.0.0
+=== New Features and Enhancements
 
 This is the initial release of Anypoint Visualizer. Anypoint Visualizer provides a graphical representation of the APIs, and Mule applications, and third-party systems within your application network.
 
 See link:/anypoint-visualizer[Anypoint Visualizer] for more information.
 
-== Changes in This Release
+=== Changes in This Release
 
 This release contains no feature changes.
 
-== Fixed Issues
+=== Fixed Issues
 
 There are no fixed issues in this release.
 
-== Known Limitations and Workarounds
+=== Known Limitations and Workarounds
 
 There are no known limitations or workarounds in this release.
 
-== Upgrade Requirements
+=== Upgrade Requirements
 
 To use Anypoint Visualizer, you must deploy you application to a supported version of Mule Runtime on CloudHub.
 
-== Compatibility Notes
+=== Compatibility Notes
 
 Anypoint Visualizer supports the following Mule runtimes running on CloudHub:
 
-* Mule Runtime, version 3.9.x-visualizer
-* Mule Runtime, version 4.1.2-visualizer
+* Mule Runtime, version 3.9.x
+* Mule Runtime, version 4.1.2
 
 **Note**: Applications using supported runtimes before June 30th, will have to update the runtime, which can be done with 0-downtime for CloudHub applications, APIs and proxies.

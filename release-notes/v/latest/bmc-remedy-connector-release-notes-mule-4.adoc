@@ -1,11 +1,36 @@
 = BMC Remedy Connector Release Notes
 :keywords: release notes, bmc, remedy, connector
 
-*March 2018*
+*June 2018*
 
 _Select_
 
 The BMC Remedy Connector functions within a Mule application as a secure entrance for access and updates to your organization’s information in the BMC Remedy AR System.
+
+== 3.0.1
+
+*June 28, 2018*
+
+=== Compatibility
+
+The Remedy connector 3.0.1 is compatible with the following applications:
+
+[%header%autowidth.spread]
+|===
+| Application/Service | Version
+|Mule Runtime| 4.0.0 and later
+|BMC Remedy AR System Java API | 8.1
+|Anypoint Studio|7.0 and later
+|===
+
+=== Features
+
+* None
+
+=== Fixed in this Release
+
+* Dependency issue has been resolved.
+
 
 == 3.0.0
 

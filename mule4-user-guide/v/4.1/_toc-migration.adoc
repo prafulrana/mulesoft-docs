@@ -70,7 +70,7 @@
 +
 *** link:migration-example-complex[Example: Migrating an APIkit application]
 *** link:migration-api-gateways[Migrating API Gateways]
-**** link:migration-api-gateways-autodiscovery[Migrating API Gateways: Auto-Discovery]
+**** link:migration-api-gateways-autodiscovery[Migrating API Gateways: Autodiscovery]
 **** link:migration-api-gateways-policies[Migrating API Policies]
 **** link:migration-api-gateways-runtime-config[Migrating Mule Runtime Configurations for API Gateways]
 *** link:migration-mel[Migrating from MEL to DataWeave]

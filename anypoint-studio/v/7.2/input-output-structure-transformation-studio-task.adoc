@@ -1,0 +1,84 @@
+= To Define Input and Output Structure of a Transformation (Anypoint Studio)
+
+To use the graphical view and construct mappings via drag and drop, the Transform Message component first needs information about what fields are available for dragging and dropping onto.
+
+If you plan to create your transformation entirely by writing DataWeave code, you can skip defining input and output and reference elements directly.
+
+
+== Define Data Structure on Other Components
+
+
+. Make sure that all other elements in the flow are fully configured.
++
+When input and output of a component can be predicted based on its configuration, these are exposed to the rest of the flow. For example, when a Salesforce connector is configured to carry out a specific operation, its output structure is known and exposed.
+
+. If input or output of certain components can't be predicted, manually define the output and input of key components via their Metadata Tab.
++
+For example, an HTTP listener might receive requests containing any payload.
+
+
+== Define Data Structure in Transform Message Component
+
+. Right click on the root of the input or the output tree, then select Set Metadata.
+
+. Manually define the data structure.
+
+
+
+== Define Data Structure Via XML
+
+See link:/mule4-user-guide/v/4.1/transform-dataweave-xml-reference[DataWeave XML Reference].
+
+
+== Reader Configuration
+
+In case your input needs to be parsed in a special way, you can set up certain properties for the reader object. Each input format has different configurable properties, or none. There are two ways to set these listed below.
+
+* Configure other components on the flow, by accessing their corresponding Metadata tab.
+
+* On the Transform Message component, right click on the root of the input pane and select *Reader Configuration*
++
+image:dw_reader_configuration_select.png[reader conf]
+
++
+[NOTE]
+This option only exists if the selected data type format allows for configurable reader properties. If the payload is of type `unknown`, you must change its type first.
+
+
+For a detailed reference of what properties can be set in the Reader Configuration of each format, see the corresponding *reader properties* section:
+
+* link:/mule4-user-guide/v/4.1/dataweave-formats#csv[CSV]
+
+* link:/mule4-user-guide/v/4.1/dataweave-formats#xml[XML]
+
+* link:/mule4-user-guide/v/4.1/dataweave-formats#flat-file[Flat File]
+
+[NOTE]
+You can also add this information through properties in the XML source of your Mule project.
+
+
+== Writer Configuration
+
+In case your output needs to be constructed in a special way, you can set up certain properties of the writer object. Each output format has different configurable properties, or none.
+
+These properties must be written on the `%output` directive of your DataWeave code.
+
+For a detailed reference of what properties can be set in the Writer Configuration of each format, see the corresponding *reader properties* section:
+
+* link:/mule4-user-guide/v/4.1/dataweave-formats#csv[CSV]
+
+* link:/mule4-user-guide/v/4.1/dataweave-formats#xml[XML]
+
+* link:/mule4-user-guide/v/4.1/dataweave-formats#json[JSON]
+
+* link:/mule4-user-guide/v/4.1/dataweave-formats#flat-file[Flat File]
+
+
+== See Also
+
+* link:/anypoint-studio/v/7.2/workflow-create-mapping-ui-studio[Workflow: Create a Mapping]
+* link:/anypoint-studio/v/7.2/transform-message-component-concept-studio[About Transform Message Component]
+* link:/mule4-user-guide/v/4.1/dataweave[DataWeave Language]
+* link:/mule4-user-guide/v/4.1/dataweave-types[DataWeave Types]
+* link:/mule4-user-guide/v/4.1/dataweave-formats[DataWeave Formats]
+* link:/mule4-user-guide/v/4.1/transform-dataweave-xml-reference[DataWeave XML reference]

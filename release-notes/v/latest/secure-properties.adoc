@@ -1,6 +1,6 @@
-// Product_Name Version number/date Release Notes
 = Secure Configuration Properties Extension Release Notes for Mule 4
 :keywords: mule, release notes, secure configuration properties, secure properties, extension
+// Product_Name Version number/date Release Notes
 
 == 1.0.1
 
@@ -20,4 +20,3 @@ None
 |Issue |Description
 | EE-6050 | Secure Properties cannot be defined depending on another secure property
 |===
-

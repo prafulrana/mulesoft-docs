@@ -1,7 +1,27 @@
 = File Connector Release Notes for Mule 4
 :keywords: mule, File, connector, runtime, release notes
 
-*May 2018*
+*Aug 2018*
+
+== 1.2.0
+
+*Aug 14, 2018*
+
+=== Min Mule Version
+
+*Mule 4.1.0*
+
+=== New Features and Enhancements
+
+* You can make use of `timeBetweenSizeCheck` to prevent the connector from processing files while they are being written.
+
+=== Fixed Issues
+
+* File getting partial files. (MULE-14881)
+* `file:listener` does not delete source file when moving to a file that already exists. (MULE-15030)
+* File Polling Source does not communicate their Attributes correctly. (MULE-15351)
+* When File connector listeners are configured to move to a directory, auto-delete deletes files but does not move them. (MULE-15448)
+* Encoding parameter should be removed from the write operation. (MULE-15503)
 
 == 1.1.3
 

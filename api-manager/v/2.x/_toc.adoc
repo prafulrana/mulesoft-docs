@@ -1,6 +1,8 @@
 // TOC File
 
 * link:/api-manager/v/2.x/index[API Manager]
+** link:/api-manager/v/2.x/api-gateway-capabilities-mule4[API Gateway capabilities (Mule 4)]
+
 ** link:/api-manager/v/2.x/latest-overview-concept[About API Manager 2.x]
 *** link:/api-manager/v/2.x/latest-tasks[Basic API Management Tasks]
 **** link:/api-manager/v/2.x/manage-exchange-api-task[To Manage an API from Exchange]
@@ -21,12 +23,9 @@
 **** link:/api-manager/v/2.x/find-api-id-task[To Find the API ID of an API]
 
 *** link:/api-manager/v/2.x/manage-versions-instances-concept[About Managing API Versions and Instances]
-*** link:/api-manager/v/2.x/api-auto-discovery-new-concept[About Auto-Discovery]
-**** link:/api-manager/v/2.x/configure-auto-discovery-new-task[Auto-Discovery Configuration Tasks]
-***** link:/api-manager/v/2.x/configure-autodiscovery-4-task[To Configure the Auto-Discovery XML Element (Mule 4)]
-***** link:/api-manager/v/2.x/configure-autodiscovery-3-task[To Configure the Auto-Discovery XML Element (Mule 3)]
-**** link:/api-manager/v/2.x/api-auto-discovery-new-reference[Auto-Discovery Reference (Mule 4)]
-**** link:/api-manager/v/2.x/api-platform-gw-attributes-3[Auto-Discovery Reference (Mule 3)]
+*** link:/api-manager/v/2.x/api-auto-discovery-new-concept[About API Autodiscovery]
+**** link:/api-manager/v/2.x/configure-autodiscovery-4-task[Configuring API Autodiscovery in a Mule 4 Application]
+**** link:/api-manager/v/2.x/configure-autodiscovery-3-task[Configuring API Autodiscovery in a Mule 3 Application]
 
 *** link:/api-manager/v/2.x/proxy-latest-concept[About Deploying Mule Runtime Proxies]
 **** link:/api-manager/v/2.x/wsdl-raml-http-proxy-reference[Mule 4 Proxy Error and Request Handling]
@@ -34,6 +33,7 @@
 *** link:/api-manager/v/2.x/proxy-deploy-cloudhub-latest-task[To Deploy a Proxy to CloudHub]
 *** link:/api-manager/v/2.x/proxy-deploy-hybrid-latest-task[To Deploy a Proxy to Hybrid]
 *** link:/api-manager/v/2.x/download-proxy-task[To Download a Proxy]
+
 
 ** link:/api-manager/v/2.x/policies-4-concept[About Policies]
 *** link:/api-manager/v/2.x/policies-whats-new-concept[What's New in Policy Management]
@@ -53,7 +53,6 @@
 **** link:/api-manager/v/2.x/offline-policy-task[To Apply an Offline Policy]
 **** link:/api-manager/v/2.x/offline-remove-task[To Remove an Offline Policy]
 **** link:/api-manager/v/2.x/upload-policy-exchange-task[To Upload a Policy to Exchange]
-**** link:/api-manager/v/2.x/configure-policy-polling-task[To Configure Policy Polling Time]
 *** link:/api-manager/v/2.x/resource-level-policies-about[About Resource Level Policies]
 *** link:/api-manager/v/2.x/resource-level-policy-reference[Resource Level Policy Reference]
 *** link:/api-manager/v/2.x/available-policies[About Provided Policies]
@@ -124,4 +123,3 @@
 *** link:/api-manager/v/2.x/analytics-chart[Chart in API Manager]
 
 *** link:/api-manager/v/2.x/analytics-event-forward[About Event Forwarding]
-

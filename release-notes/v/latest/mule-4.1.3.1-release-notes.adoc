@@ -1,0 +1,57 @@
+= Mule Runtime 4.1.3.1 Release Notes 
+:keywords: mule, 4.1.3.1, runtime, release notes 
+ 
+*August 10, 2018* 
+ 
+link:http://s3.amazonaws.com/new-mule-artifacts/mule-ee-distribution-standalone-4.1.3.1.zip[Download Mule 4.1.3.1 EE Distribution] 
+
+== New Features and Enhancements 
+ 
+Not applicable.
+ 
+== Changes 
+ 
+Not applicable.
+
+== Known Limitations and Workarounds 
+ 
+[%header,cols="15a,85a"] 
+|===
+|Issue |Description
+| https://www.mulesoft.org/jira/browse/SE-9071[SE-9071] | 4.1.3.1, license installation, installs the trial license. As a workaround, start Mule at least once first using the trial license, or process the license at the license verifier website and install the digested license directly to the `/conf` directory.
+|=== 
+
+
+== Upgrade Requirements from 4.1.2 to 4.1.3
+ 
+[%header,cols="15a,85a"] 
+|===
+|Issue |Description
+| MULE-15167 | A new property, `mule.deploy.applications` was added to deploy specific applications at startup. The old command-line option, `-app` is still functional but deprecated.
+|=== 
+
+ 
+== Fixed Issues 
+ 
+[%header,cols="15a,85a"] 
+|===
+|Issue |Description
+// Fixed Issues 
+| https://www.mulesoft.org/jira/browse/SE-9009[SE-9009] | Mule install License issue in 4.1.3 runtime.
+|=== 
+ 
+== Compatibility Testing Notes 
+ 
+Mule was tested on the following software: 
+ 
+[%header,cols="15a,85a"] 
+|===
+|Software |Version
+| JDK | JDK 1.8.0 (Recommended JDK 1.8.0_151/52) 
+| OS | MacOS 10.11.x, HP-UX 11i V3, AIX 7.2, Windows 2016 Server, Windows 10, Solaris 11.3, RHEL 7, Ubuntu Server 16.04 
+| Application Servers | Tomcat 7, Tomcat 8, Weblogic 12c, Wildfly 8, Wildfly 9, Websphere 8, Jetty 8, Jetty 9 
+| Databases | Oracle 11g, Oracle 12c, MySQL 5.5+, DB2 10, PostgreSQL 9, Derby 10, Microsoft SQL Server 2014 
+|=== 
+ 
+This version of Mule runtime is bundled with the Runtime Manager Agent plugin version 2.1.4. 
+ 

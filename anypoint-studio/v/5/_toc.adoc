@@ -3,7 +3,7 @@
 * link:/anypoint-studio/v/5/index[Anypoint Studio]
 ** link:/anypoint-studio/v/5/setting-up-your-development-environment[Development Environment Setup]
 *** link:/anypoint-studio/v/5/hardware-and-software-requirements[Hardware and Software Requirements]
-*** link:/anypoint-studio/v/5/download-and-launch-anypoint-studio[Download and Launch Anypoint Studio]
+*** link:/anypoint-studio/v/5/download-and-launch-anypoint-studio[Launch Anypoint Studio]
 **** link:/anypoint-studio/v/5/installing-extensions[Installing Extensions]
 *** link:/anypoint-studio/v/5/studio-update-sites[Studio Update Sites]
 **** link:/anypoint-studio/v/5/adding-community-runtime[Installing Community Edition of Mule Runtime]

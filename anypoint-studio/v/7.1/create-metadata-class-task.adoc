@@ -5,9 +5,9 @@
 image::dw_define_type2.png[]
 . Type in an ID for the new metadata type and click Create Type.
 . Select a data format using the type dropdown list in your Metadata Editor. +
-If the type of your data is undeclared or not understood it will default to 'application/java', a warning will be logged.
+If the type of your data is undeclared or not understood, the type default to `application/java`, and a warning is logged.
 
-Depending on the selected option, there are different ways to define the data structure. With some formats, the structure can be inferred from an example, others require a schema, for some of these a builtin editor UI can be used to define this schema easily.
+Depending on the selected option, there are different ways to define the data structure. With some formats, the structure can be inferred from an example, others require a schema. For some schemas, a built-in editor UI is available.
 
 [%header,cols="40a,20a,20a,20a"]
 |===

@@ -1,0 +1,25 @@
+= Workflow: Create a Mapping via UI (Anypoint Studio)
+
+
+
+
+
+. link:/anypoint-studio/v/7.2/input-output-structure-transformation-studio-task[To Define Input and Output Structure of a Transformation]
+Provide expected input and required output structures.
+
+
+. link:/anypoint-studio/v/7.2/graphically-construct-mapping-studio-task[To Graphically Construct a Mapping]
+Drag elements of the input and drop them onto elements of the output. You can also include fixed values and functions to build out the output.
+
+
+. link:/anypoint-studio/v/7.2/preview-transformation-output-studio-task[To Preview the Output of a Transformation]
+Verify that the transformation produces the expected output.
+
+
+
+
+
+== See Also
+
+* link:/anypoint-studio/v/7.2/transform-message-component-concept-studio[About Transform Message Component]
+* link:/mule4-user-guide/v/4.1/dataweave[DataWeave Language]

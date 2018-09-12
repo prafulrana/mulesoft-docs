@@ -1,0 +1,140 @@
+= Design Center Release Notes: Features for Creating API Specifications
+
+These release notes cover the following versions of these features:
+
+* link:/release-notes/design-center-release-notes-api_specs#2-2-9[2.2.9]
+* link:/release-notes/design-center-release-notes-api_specs#2-2-8[2.2.8]
+* link:/release-notes/design-center-release-notes-api_specs#2-2-7[2.2.7]
+* link:/release-notes/design-center-release-notes-api_specs#2-2-6[2.2.6]
+* link:/release-notes/design-center-release-notes-api_specs#2-2-5[2.2.5]
+
+== 2.2.9
+*August 9, 2018*
+
+This release contains an enhancement.
+
+=== Enhancement
+
+If your organization contains more than one business group, you can now select the group ID to associate an API specification with when you publish that specification to Anypoint Exchange.
+
+== 2.2.8
+
+*July 26, 2018*
+
+This release introduces a change and fixes for several issues.
+
+=== Enhancement
+
+The code editor now supports the following structure for the declaration of a `baseUri` in specifications that are written in RAML 1.0:
+
+[source,raml,linenums]
+----
+baseUri:
+  value: http://www.example.com/api
+----
+
+=== Fixed Issues
+
+* OAS files with identical names were allowed to be imported. There was no check to find out whether existing OAS 2.0 files in a project already had the same name as an OAS 2.0 file being imported.
+* The `protocols` node was not being validated either in the code editor or in the visual editor.
+* Error messages were not appearing for invalid `examples` nodes. Here is an example of an invalid `examples` node:
+
+[source,raml,linenums]
+----
+title: New API
+
+types:
+  ids:
+    type: object
+    properties:
+      identification:
+        type: string
+        examples:
+          - MuleSoft
+          - Salesforce
+----
+
+The correct way to define this `examples` node would be as follows:
+
+[source,raml,linenums]
+----
+title: New API
+
+types:
+  ids:
+    type: object
+    properties:
+      identification:
+        type: string
+        examples:
+          id1: MuleSoft
+          id2: Salesforce
+----
+
+The symbol `-`, which is used incorrectly in the invalid `examples` node is used for defining elements in arrays, as in this example:
+
+[source,raml,linenums]
+----
+title: New API
+
+types:
+  ids:
+    type: object
+    properties:
+      identification:
+        type: array
+        examples:
+          id1:
+            - MuleSoft
+            - Salesforce
+          id2:
+            - Mule
+            - CRM
+----
+
+* Uploading an API-specification project by using `anypoint-cli` resulted in the following message if the project contained a large number of files:
++
+`Error: Could not open JPA EntityManager for transaction; nested exception is javax.persistence.PersistenceException: org.hibernate.exception.JDBCConnectionException: Could not open connection`
+* Importing an OAS 2.0 file that used parentheses in its name resulted in an error, but the error message did not explain the problem well.
+* The conversion of an OAS 2.0 file to RAML, which takes place when an OAS file is imported, resulted in the `required` field in the properties of response objects being set to `false` even when the value in the OAS file was `true`.
+* Attempts to import either RAML files or OAS 2.0 files via URL failed. If you tried to import a RAML file via URL, the file appeared empty in the code editor. If you tried to import an OAS 2.0 file via URL, the *Import* dialog would display the error message `Invalid OAS document`.
+* When switched on, the mocking service could incorrectly insert the URI to the mocking server.
+* It was possible to import an example into an API-specification project that was in read-only mode.
+* If in the code editor you clicked the plus sign in the left sidebar, selected *Other* in the *Add New File* dialog, and then clicked *Create* without specifying a name for the file, a new file with the name `*/` appeared in the file list. It was not possible to delete that file.
+
+
+== 2.2.7
+
+*May 16, 2018*
+
+This release fixes these issues:
+
+* Supplying a base URI parameter in the visual editor, using the parameter in a base URI, closing the visual editor, and then reopening the project resulted in an error message and a blank middle panel.
+* Selecting the type Number for a new Data Type in the visual editor, specifying a format, and changing the type to Integer resulted in the RAML viewer still including the specified number format.
+* In the visual editor, changing the type for a base URI parameter caused the RAML viewer to show the new type, but the *Type* field continued to show the previously selected type.
+
+
+== 2.2.6
+
+*April 20, 2018*
+
+This release fixes these issues:
+
+* Attempts to import OAS JSON files would result in this error message being displayed: `Cannot read property 'hasOwnProperty' of null`  Such files could also fail to be converted by the JSON-to-RAML online conversion tool.
+* Some warning and error messages were not being displayed.
+
+
+== 2.2.5
+
+*April 6, 2018*
+
+This release includes two enhancements and fixes an issue.
+
+=== Enhancements
+
+* The left sidebar of the editor now lists groups, their resources, and their datatypes.
+* An example API to use in the visual editor is now available from a link in the left sidebar.
+
+=== Fixed Issue
+
+The word "type" could not be used as the name of a property in a RAML API specification.

@@ -6,6 +6,7 @@ Anypoint Connectors facilitate easy integration of your Mule applications with t
 [[mule_4]]
 == Connector Release Notes for Mule 4
 
+* link:aggregators-module-release-notes[Aggregators Module Release Notes (for Mule 4)]
 * link:amazon-dynamodb-connector-release-notes-mule-4[Amazon DynamoDB Connector Release Notes (for Mule 4)]
 * link:amazon-ec2-connector-release-notes-mule-4[Amazon EC2 Connector Release Notes (for Mule 4)]
 * link:amazon-rds-connector-release-notes-mule-4[Amazon RDS Connector Release Notes (for Mule 4)]
@@ -29,7 +30,9 @@ Anypoint Connectors facilitate easy integration of your Mule applications with t
 * link:hl7-mllp-connector-release-notes-mule-4[HL7 MLLP Connector Release Notes (for Mule 4)]
 * link:connector-http[HTTP Connector Release Notes (for Mule 4)]
 * link:ibm-ctg-connector-release-notes-mule-4[IBM CTG Connector Release Notes (for Mule 4)]
+* link:java-module[Java Module Release Notes (for Mule 4)]
 * link:connector-jms[JMS Connector Release Notes (for Mule 4)]
+* link:json-module-release-notes[JSON Module Release Notes (for Mule 4)]
 * link:kafka-connector-release-notes-mule-4[Kafka Connector Release Notes (for Mule 4)]
 * link:ldap-connector-release-notes-mule-4[LDAP Connector Release Notes (for Mule 4)]
 * link:marketo-connector-release-notes-mule-4[Marketo Connector Release Notes (for Mule 4)]

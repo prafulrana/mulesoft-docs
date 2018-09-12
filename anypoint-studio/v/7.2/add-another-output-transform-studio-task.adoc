@@ -1,0 +1,30 @@
+= To Add Another Output to the Transform Message Component (Anypoint Studio)
+
+
+A single Transform Message component can give shape to several different parts of the output (example: the payload, a flow variable, a property). Each different output part must be defined in a separate DataWeave code, written out in a separate tab of the Transform pane. For example: if one tab defines the payload, and another an outbound property, these are both parts of the same output Mule message.
+
+
+
+To add a new output:
+
+
+. Click the *Add new target* button image:using-dataweave-in-studio-34a3e.png[].
+
+
+. Specify where in the output Mule message to place the result of this new DataWeave transform. In case you're creating a new variable or property, you must also set a name for it.
+
++
+image:dw_new_variable.png[new variable]
+
+
+[NOTE]
+Execution order of multiple outputs may vary. Ensure each transformation is independent of the order of execution and the other outputs.
+
+
+== See Also
+
+* link:/anypoint-studio/v/7.2/transform-message-component-concept-studio[Transform Message Component]
+* link:/anypoint-studio/v/7.2/change-target-output-transformation-studio-task[Change the Target Output of a Transformation]
+
+* link:/mule4-user-guide/v/4.1/mule-message-structure[Mule Message Structure]
+* link:/mule4-user-guide/v/4.1/dataweave[DataWeave language]

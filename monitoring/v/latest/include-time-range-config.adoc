@@ -1,5 +1,5 @@
-//INCLUDED IN SINGLESTAT AND TABLE CONFIG FILES
 == Time Range (Overrides, Time Shifts, Info Display)
+//INCLUDED IN SINGLESTAT AND TABLE CONFIG FILES
 
 Time range configurations provide a way to override _relative_ time ranges (such as the last 30 minutes) selected from the dashboard UI by end users.
 

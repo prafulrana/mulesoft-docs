@@ -1,15 +1,15 @@
-= About Auto-Discovery
+= About Autodiscovery
 :imagesdir: ./_images
 
-API auto-discovery is a mechanism that manages an API from API Manager by pairing the deployed application to an API created on the platform. API Management includes tracking, enforcing policies if you apply any, and reporting API analytics. Critical to the auto-discovery process is identifying the API by providing the API name and version.
+API Autodiscovery is a mechanism that manages an API from API Manager by pairing the deployed application to an API created on the platform. API Management includes tracking, enforcing policies if you apply any, and reporting API analytics. Critical to the Autodiscovery process is identifying the API by providing the API name and version.
 
-== Unsupported Use of Auto-Discovery
+== Unsupported Use of Autodiscovery
 
-Multiple auto-discovery elements pointing to an API instance are not supported. For each supported Mule runtime version for an API instance, you can have only one auto-discovery element pointing to the API in API Manager.
+Multiple Autodiscovery elements pointing to an API instance are not supported. For each supported Mule runtime version for an API instance, you can have only one Autodiscovery element pointing to the API in API Manager.
 
-== Configuring Auto-Discovery
+== Configuring Autodiscovery
 
-If an API is not registered on Anypoint Platform, auto-discovery triggers that registration. If you manually register and deploy an API, you need to enable auto-discovery to use the API Gateway. If the API is not registered, you need to provide the credentials as follows:
+If an API is not registered on Anypoint Platform, Autodiscovery triggers that registration. If you manually register and deploy an API, you need to enable Autodiscovery to use the API Gateway. If the API is not registered, you need to provide the credentials as follows:
 
 * Deploy from Studio
 +
@@ -30,9 +30,9 @@ Set system properties in Runtime Manager. In the property settings using the fol
 ** anypoint.platform.client_id={your client ID}
 ** anypoint.platform.client_secret={your client secret}
 
-== Auto-Discovery Process
+== Autodiscovery Process
 
-The following diagram illustrates the auto-discovery process for a project containing an `api-platform-gw:api` auto-discovery global element in the configuration.xml:
+The following diagram illustrates the Autodiscovery process for a project containing an `api-platform-gw:api` Autodiscovery global element in the configuration.xml:
 
 image::api-auto-discovery-v2.png[api-auto-discovery-v2,height=452,width=600]
 
@@ -41,8 +41,5 @@ After API registration, the API version and its endpoint function the same as an
 == See Also
 
 * link:/anypoint-studio/v/6/setting-up-your-development-environment#configure-anypoint-platform-credentials[Configure Anypoint Platform Credentials - Studio 6]
-* link:/api-manager/v/1.x/configure-auto-discovery-task[To Configure Auto-Discovery]
-* link:/api-manager/v/1.x/api-auto-discovery-reference[Auto-Discovery Reference]
-
-
-
+* link:/api-manager/v/1.x/configure-auto-discovery-task[To Configure Autodiscovery]
+* link:/api-manager/v/1.x/api-auto-discovery-reference[Autodiscovery Reference]

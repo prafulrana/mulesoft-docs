@@ -31,7 +31,7 @@ The steps in this procedure explain how to modify a BAT project for support in I
 
 == Procedure
 
-. If you do not already have a BAT project that you want to work with, create one with the `bat` command in a terminal window.
+. If you do not already have a BAT project that you want to work with, create one with the `bat init` command in a terminal window.
 . Inside the project folder, run the command `bat idea`.
 +
 *Result*: The command creates a new file in the project: `_project-name_.iml`

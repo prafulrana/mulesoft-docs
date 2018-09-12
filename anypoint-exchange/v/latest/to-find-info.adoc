@@ -164,6 +164,12 @@ The table that follows shows examples that match or not with the searched assets
 |category:this.* = some-* |this.is.my.key:some-value |No
 |===
 
+You can search for a combination of different categories, but you can't search for multiple values of the same category. Multiple search terms use an implicit AND. OR is not supported. 
+
+The following search terms return all assets marked as both System APIs and Salesforce products:
+
+`category:"API Type" = "System API" category:"Product" = "Salesforce"`
+
 === Search by Custom Fields
 
 Similar to search by Categories, you can search for `field` instead `category` in the query language.

@@ -33,6 +33,9 @@ image:hl7-mllp-designer-global.png[Design Center General Tab]
 +
 You also can create a TLS configuration, you can set the timeout configuration and the buffer configuration.
 
+NOTE: If your app is running at mllp-rnnf.us-e1.cloudhub.io, you can send HL7 messages over MLLP to your Mule app to mule-worker-mllp-rnnf.us-e1.cloudhub.io
+
+
 === Send Operation Configuration
 
 For the Send operation the procedure is the same, the only extra thing is that you can set the Local Address Settings tab within the connector config with a different host, port, and delimiter that specifies the character used to separate messages.

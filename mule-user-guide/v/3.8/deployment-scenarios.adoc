@@ -31,7 +31,7 @@ a|
 |Not Supported |Supported*
 |===
 
-*When Mule is embedded in another container, the link:/mule-management-console/v/3.8/[Mule Management Console] cannot perform auto-discovery or server restarts.
+*When Mule is embedded in another container, the link:/mule-management-console/v/3.8/[Mule Management Console] cannot perform Autodiscovery or server restarts.
 
 [TIP]
 Learn about other link:/runtime-manager/deployment-strategies[deployment strategies] that leverage link:anypoint.mulesoft.com[Anypoint Platform].

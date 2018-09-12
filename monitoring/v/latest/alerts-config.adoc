@@ -4,7 +4,9 @@ Depending on your subscription level, you can configure different types of alert
 
 * Operational alerts for APIs through API Manager
 * Operational alerts for the runtime through Runtime Manager
-* Alerts for graphs in custom dashboards in Anypoint Monitoring
+* Alerts for graphs in custom dashboards in Anypoint Monitoring.
++
+Limit: Up to 20 alerts per organization.
 +
 Note that thresholds are checked every 5 minutes. The evaluated query is the average value of the metric in the last 5 minutes. The evaluated metric is the one referenced in the General tab for the graph. If the value is above the threshold, the alert is triggered. The alert is triggered only if the alert state changes (from OK state to Alerting state or vice versa).
 

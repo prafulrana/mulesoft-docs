@@ -3,15 +3,15 @@
 
 _Select_
 
-The Anypoint MQ connector provides publish-subscribe messaging to Mule applications in the cloud or on-premise using the Anypoint MQ cloud service.
+The Anypoint MQ connector provides publish-subscribe messaging to Mule applications using the Anypoint MQ cloud service.
 
-Anypoint MQ supports a wide range of messaging use cases: enterprise messaging patterns, asynchronous communications between microservices, IoT, and more.  Anypoint MQ also has a REST api for publishing or consuming messages using any framework such as node.js, Java, Go, and devops bash scripts.
+Anypoint MQ supports a wide range of messaging use cases: enterprise messaging patterns, asynchronous communications between microservices, IoT, and more. Anypoint MQ also has a REST API for publishing or consuming messages using any framework such as node.js, Java, Go, and devops bash scripts.
+
+For more information, see the link:/anypoint-mq[Anypoint MQ documentation set] and additional resources listed in <<See Also>>.
 
 == Prerequisites
 
-To use this connector, you should be familiar with Anypoint Studio, Anypoint connectors, and Mule flows. The Anypoint MQ connector is free, but connecting to the service in Anypoint Platform requires a license.
-
-*Note:* You cannot complete the configuration information in this document without an Anypoint MQ license. Contact MuleSoft Sales for a trial license.
+To use this connector, you should be familiar with Anypoint Studio, Anypoint connectors, and Mule flows. The Anypoint MQ connector is free, but connecting to the service in Anypoint Platform requires a license. Free trial software is available.
 
 === Compatibility
 
@@ -23,6 +23,15 @@ To use this connector, you should be familiar with Anypoint Studio, Anypoint con
 |===
 
 == To Install This Connector
+
+From Anypoint Exchange:
+
+. In Anypoint Studio, click the Exchange icon in the Studio task bar.
+. Click Login in Anypoint Exchange and supply your Anypoint Platform username and password.
+. Search for the connector and click Install.
+. Follow the prompts to install the connector.
+
+For applications written in XML or that are standalone:
 
 . Open your Mule project in Anypoint Studio.
 . Add the connector as a dependency in the pom.xml file:
@@ -44,30 +53,46 @@ To use this connector, you should be familiar with Anypoint Studio, Anypoint con
 . Search for "mq" and drag the *Anypoint MQ* connector to the canvas. If you cannot find this connector, return to
 <<To Install This Connector>> and ensure you installed the connector.
 . Click the green plus sign to the right of Connector Configuration.
-. In the Global Element Properties window:
-.. Specify the URL for the region you want your MQ queues and exchanges to reside.
+. Specify the URL for the region you want your MQ queues and exchanges to reside.
 +
 Possible values are:
 +
-** US East (N. Virginia): `+https://mq-us-east-1.anypoint.mulesoft.com/api/v1+`
-** US West (Oregon): `+https://mq-us-west-2.anypoint.mulesoft.com/api/v1+`
-** EU (Ireland): `+https://mq-eu-west-1.anypoint.mulesoft.com/api/v1+`
-** Asia Pacific (Singapore): `+https://mq-ap-southeast-1.anypoint.mulesoft.com/api/v1+`
-** Asia Pacific (Sydney): `+https://mq-ap-southeast-2.anypoint.mulesoft.com/api/v1+`
+** North America:
+*** US East (N. Virginia): `+https://mq-us-east-1.anypoint.mulesoft.com/api/v1+`
+*** US West (Oregon): `+https://mq-us-west-2.anypoint.mulesoft.com/api/v1+`
+*** Central Canada: `+https://mq-ca-central-1.anypoint.mulesoft.com/api/v1+`
+** Europe:
+*** EU (Ireland): `+https://mq-eu-west-1.anypoint.mulesoft.com/api/v1+`
+*** EU (London): `+https://mq-eu-west-2.anypoint.mulesoft.com/api/v1+`
+** APAC:
+*** Asia Pacific (Singapore): `+https://mq-ap-southeast-1.anypoint.mulesoft.com/api/v1+`
+*** Asia Pacific (Sydney): `+https://mq-ap-southeast-2.anypoint.mulesoft.com/api/v1+`
 +
 FIFO queues can reside in US East, US West, and EU Ireland.
 +
-.. In Anypoint Platform, click MQ > Client Apps. If needed, create a client app.
-.. Copy the Anypoint Platform > MQ > Client App > Client App ID value to Studio's Client ID field.
-.. Copy the Client App > Client Secret value to Studio's Client Secret field. You can ignore the other settings to test your  connector.
-.. Click *OK*.
-. Click the *Operation* field and specify an operation such as Publish or Consume. 
+. In Anypoint Platform, click MQ > Client Apps. If needed, create a client app.
+. Copy the Anypoint Platform > MQ > Client App > Client App ID value to Studio's Client ID field.
+. Copy the Client App > Client Secret value to Studio's Client Secret field. You can ignore the other settings to test your  connector.
+. Click OK.
+. Click the Operation field and specify an operation such as Publish or Consume. 
 . If using the Publish or Consume operations, specify the *Destination* as the name of the queue or message exchange that you set in Anypoint Platform.
 . For the Publish operation, you can leave the Message ID field empty, or specify a message ID if you want to publish a specific message ID. If a message ID is not set, MQ auto generates a unique message ID for each message that’s sent to a queue. When publishing to FIFO queues, if you specify a Message ID and the Message ID is the same on multiple messages, the messages with the same Message ID are not redelivered.
 
-For a list of all other configuration fields, see the link:/connectors/anypoint-mq-connector-reference[Anypoint MQ Connector Reference].
+Possible operations are:
 
-== MQ Schema and Endpoint
+[%header%autowidth.spread]
+|===
+|Operation |Description
+|link:/connectors/anypoint-mq-connector-reference#ack[Ack] |Indicates that the message has been consumed correctly and deletes the message from in-flight status.
+|link:/connectors/anypoint-mq-connector-reference#consume[Consume] |Consumes messages from a queue.
+|link:/connectors/anypoint-mq-connector-reference#nack[Nack] |Changes the status of the message from in-flight to in-queue to be consumed again by a subscriber.
+|link:/connectors/anypoint-mq-connector-reference#publish[Publish] |Publishes messages
+to a queue or message exchange.
+|===
+
+For a list of configuration fields for each operation and information about XML elements, see the link:/connectors/anypoint-mq-connector-reference[Anypoint MQ Connector Reference].
+
+== XML Schema and Endpoint
 
 If you are creating an XML or standalone application, add this dependency to your pom.xml file:
 
@@ -76,32 +101,19 @@ If you are creating an XML or standalone application, add this dependency to you
 <dependency>
   <groupId>com.mulesoft.connectors</groupId>
   <artifactId>anypoint-mq-connector</artifactId>
-  <version>2.0.0</version>
+  <version>2.0.1</version>
   <classifier>mule-plugin</classifier>
 </dependency>
 ----
 
+For the latest POM, Gradle, or SBT dependencies, see the  https://www.anypoint.mulesoft.com/exchange/com.mulesoft.connectors/anypoint-mq-connector/[Exchange Anypoint MQ Connector] asset. Click *Dependency Snippets* for a complete list.
+
 *Note:* If you are creating an application using Anypoint Studio, when you install the MQ connector, the MQ dependency
 in the pom.xml file is updated for you.
 
-Additional dependencies for Gradle, EBT, and Ivy are listed in Anypoint Exchange in the https://www.anypoint.mulesoft.com/exchange/org.mule.tooling.messaging/mule-module-anypoint-mq-ee-studio/[Anypoint MQ Connector] asset. Click Dependency Snippets for a complete list.
+Endpoint: `+http://www.mulesoft.org/schema/mule/anypoint-mq+`
 
-Endpoint:
-
-`+http://www.mulesoft.org/schema/mule/anypoint-mq+`
-
-== XML and Standalone Configuration
-
-For a list of XML fields, see link:/connectors/anypoint-mq-connector-reference[Anypoint MQ Connector Reference].
-
-== Anypoint MQ XML Examples
-
-This section provides these topics:
-
-* <<Example 1: MQ and DataWeave>>
-* <<Example 2: MQ and Object Store>>
-
-=== Example 1: MQ and DataWeave
+== Example: MQ and DataWeave
 
 The following example illustrates the use of the Anypoint MQ connector with DataWeave to transform
 a Mule message to JSON:
@@ -111,16 +123,26 @@ a Mule message to JSON:
 <?xml version="1.0" encoding="UTF-8"?>
 
 <mule xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw"
-	xmlns:anypoint-mq="http://www.mulesoft.org/schema/mule/anypoint-mq" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:anypoint-mq="http://www.mulesoft.org/schema/mule/anypoint-mq"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" 
+	xmlns="http://www.mulesoft.org/schema/mule/core" 
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:spring="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
-http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/mule/anypoint-mq/current/mule-anypoint-mq.xsd">
-  <anypoint-mq:default-subscriber-config name="Anypoint_MQ_Configuration" doc:name="Anypoint MQ Configuration">
-      <anypoint-mq:connection url="https://mq-us-east-1.anypoint.mulesoft.com/api/v1" clientId="<id>" clientSecret="<secret>"/>
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/dw 
+	http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core 
+http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http 
+http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/anypoint-mq 
+http://www.mulesoft.org/schema/mule/anypoint-mq/current/mule-anypoint-mq.xsd">
+  <anypoint-mq:default-subscriber-config name="Anypoint_MQ_Configuration" 
+  doc:name="Anypoint MQ Configuration">
+      <anypoint-mq:connection url="https://mq-us-east-1.anypoint.mulesoft.com/api/v1" 
+      clientId="<id>" clientSecret="<secret>"/>
   </anypoint-mq:default-subscriber-config>
 <flow name="producerFlow">
   <poll doc:name="Poll">
@@ -135,61 +157,22 @@ http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/m
 }]]></dw:set-payload>
     </dw:transform-message>
   </poll>
-        <anypoint-mq:publish config-ref="Anypoint_MQ_Configuration" destination="MyExchange" messageId="mq42" doc:name="Anypoint MQ">
-            <anypoint-mq:body >#[payload]</anypoint-mq:body>
-        </anypoint-mq:publish>
+  <anypoint-mq:publish config-ref="Anypoint_MQ_Configuration" 
+    destination="MyExchange" 
+    messageId="mq42" doc:name="Anypoint MQ">
+   <anypoint-mq:body>#[payload]</anypoint-mq:body>
+  </anypoint-mq:publish>
 </flow>
 </mule>
 ----
 
-=== Example 2: MQ and Object Store
-
-The following example shows the use of the Anypoint MQ connector to consume
-information from an object store.
-
-[source,xml,linenums]
-----
-<?xml version="1.0" encoding="UTF-8"?>
-
-<mule xmlns:anypoint-mq="http://www.mulesoft.org/schema/mule/anypoint-mq"
-    xmlns:objectstore="http://www.mulesoft.org/schema/mule/objectstore"
-    xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw"
-    xmlns:http="http://www.mulesoft.org/schema/mule/http"
-    xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
-    xmlns="http://www.mulesoft.org/schema/mule/core"
-    xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-    xmlns:spring="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/mule/objectstore/current/mule-objectstore.xsd
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
-http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
-http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
-http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/mule/anypoint-mq/current/mule-anypoint-mq.xsd">
-
-    <objectstore:config name="ObjectStore_Configuration" partition="employees" doc:name="ObjectStore: Configuration"/>
-    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
-    <anypoint-mq:default-subscriber-config name="Anypoint_MQ_Configuration" doc:name="Anypoint MQ Configuration">
-        <anypoint-mq:connection url="https://mq-us-east-1.anypoint.mulesoft.com/api/v1" clientId="<ID>" clientSecret="<SECRET>"/>
-    </anypoint-mq:default-subscriber-config>
-    <flow name="objectstore-store-flow">
-        <http:listener config-ref="HTTP_Listener_Configuration" path="/store" doc:name="HTTP"/>
-        <objectstore:store config-ref="ObjectStore_Configuration" key="#[message.inboundProperties.'http.query.params'.key]" value-ref="#[message.inboundProperties.'http.query.params'.value]" doc:name="ObjectStore"/>
-        <anypoint-mq:consume config-ref="Anypoint_MQ_Configuration" destination="MyDemoQueue" doc:name="Anypoint MQ"/>
-        <set-payload value= "OK" doc:name="Set Payload"/>
-    </flow>
-    <flow name="objectstore-retrieve-employee-flow">
-        <http:listener config-ref="HTTP_Listener_Configuration" path="/retrieve" doc:name="HTTP"/>
-        <objectstore:retrieve config-ref="ObjectStore_Configuration" key="#[message.inboundProperties.'http.query.params'.key]" doc:name="Retrieve"/>
-        <logger message="Value: #[payload]" level="INFO" doc:name="Log"/>
-        <set-payload value="Value : #[payload]" doc:name="Show"/>
-    </flow>
-</mule>
-----
-
-
 == See Also
 
+* link:/anypoint-mq/[MQ documentation]
+* link:/anypoint-mq/mq-faq[MQ FAQ]
+* link:/anypoint-mq/mq-apis[REST API]
 * link:/connectors/anypoint-mq-connector-reference[Anypoint MQ Connector Reference]
-* https://www.anypoint.mulesoft.com/exchange/org.mule.tooling.messaging/mule-module-anypoint-mq-ee-studio/[Anypoint MQ Connector]
+* https://www.anypoint.mulesoft.com/exchange/com.mulesoft.connectors/anypoint-mq-connector/[Anypoint MQ Connector]
+* https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/[MuleSoft Developer Portal]
+* https://forums.mulesoft.com[MuleSoft Forum]
+* https://support.mulesoft.com[Contact MuleSoft Support]

@@ -477,6 +477,10 @@ mvn archetype:generate                                       \
   -DmuleConnectorName=Hello
 ----
 +
+
+[TIP]
+Since the connector name above is `Hello`, the namespace for the module will be automatically set to `module-hello`, as configured in the `prefix` attribute.
+
 . When prompted to indicate whether the values are correct, press `enter` to continue.
 +
 The Maven archetype creates a stub project with a minimal amount of code for the XML SDK module and a functional test to run it. The structure of that project looks something like this:

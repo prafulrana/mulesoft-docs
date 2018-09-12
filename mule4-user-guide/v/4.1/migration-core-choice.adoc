@@ -1,5 +1,5 @@
-// sme: DF, author: sduke?
 = Migrating the Choice Router
+// sme: DF, author: sduke?
 
 Little changed between Choice router for Mule 3 and Mule 4 except for:
 

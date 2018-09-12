@@ -1,0 +1,131 @@
+= Anypoint Studio 7.2 with Mule Runtime 4.1.3 Update Site 1 Release Notes
+
+*August 6, 2018* +
+*Build ID: 201808061331*
+
+xref:migration[Skip to Migration Guide]
+
+== Compatibility
+
+[cols="30a,70a"]
+|===
+| Product | Version
+| *Mule Runtime*
+| Version: 4.1.3
+
+|*Anypoint Studio*
+|Version: 7.2.1 +
+Build Id: 201808061331
+
+|*Maven*
+|Version: 3.3.9
+
+|*DataWeave* +
+|Version: 2.1.4
+
+|*MUnit* +
+|Version: 2.1.4 (munit-studio-plugin)
+
+|*Eclipse* +
+|Version: 4.7.2
+
+|===
+
+
+== What's New
+
+This version of Anypoint Studio focuses on bug fixes.
+
+== Hardware Requirements
+
+* For most use cases, Anypoint Studio with the 4.1.3 Runtime does not change hardware or software requirements from the previous Studio 7  versions.
+* MuleSoft recommends a minimum of 4GB of free RAM available on a developer workstation. As applications become complex, consider adding more RAM.
+
+* 4GB of free memory available.
+* 2GHz CPU.
+* 10GB free hard drive space.
+
+== Software Requirements
+
+[cols="30a,70a"]
+|===
+| Software | Version
+|Java Environments
+| * Oracle JDK 1.8.0
+|Operating Systems |* MacOS 10.12.0 +
+* Windows (32- and 64-bit) Windows 7, Windows 8, Windows 10 +
+* RHEL 7.0 +
+* Ubuntu 15.04 or later
+|Suggested Web Browsers by Platform. +
+_Studio will always use the OS default web browser_ | * Windows: +
+** Microsoft Edge 25.0  +
+** Internet Explorer 11 +
+* Linux +
+** Mozilla Firefox 51.0.1  +
+* OS X +
+** Safari 10.1
+| Maven
+| Studio comes with Maven 3.3.9 bundled, but you can externally use the versions: 3.3.3 or your own  3.3.9
+|===
+
+[NOTE]
+--
+If you are running McAfee VirusScan on your Windows OS, Eclipse-based Anypoint Studio may experience negative performance impacts. McAfee has suggested the following remedy link:https://kc.mcafee.com/corporate/index?page=content&id=KB58727[options].
+--
+
+[[migration]]
+== Migration Guide
+
+For first time installment, refer to link:/release-notes/anypoint-studio-7.2-with-4.1-runtime-release-notes[Studio 7.2 release notes] for instructions and known issues.
+
+Studio 7.1 only supports Mule 4.x projects. The structure of the project, export format, XML and scripting language are different. +
+Users must migrate Mule 3 projects to Mule 4 manually, before they can be used in Studio 7.
+
+=== Workspace Compatibility
+
+Projects created or updated with Studio 7.2.0 are not compatible with 7.1.x due to some improvements with the management of the mule-artifcat.json file. The content of the file was reduced and part of the content used to be required by Studio 7.1.x. +
+To fix this issue you only need to update Studio to the latest 7.2.x version available. See link:/anypoint-studio/v/7.2/update-workspace[Updating Workspaces] for more information.
+
+Workspaces created using Anypoint Studio 6.x or below are not compatible with Anypoint Studio 7 workspaces.
+
+== JIRA Ticket List for Anypoint Studio
+
+=== Known Issues
+
+* Some existing features in Studio 6.x are not yet supported in Studio 7.1: Custom Policies, API Sync, Anypoint Private Cloud.
+* Anypoint Studio uses your configured default browser to display web content such as Exchange and the Runtime Manager UI when deploying an application to Anypoint Platform. If your default internet browser does not display this content correctly, you can configure Anypoint Studio to use a Mozilla/XULRunner runtime environment as the underlying renderer for the Web UI. +
+Follow the link:/anypoint-studio/v/7.1/faq-default-browser-config[FAQ: Troubleshooting Issues with Your Default OS Browser] for more details.
+* Copybook import fails with no message.
+* Copybook import file not copied to project.
+* Mule modules needs to provide icons, today many of the modules have the generic icon.
+* Running application "pom.xml" is not updated when changing dependencies.
+* Debugger: payload shown while debugging is partial but there is no way to view the rest of the payload.
+* Mule plugins with snapshot versions should always be regenerated.
+* Datasense/Runtime not working correctly through proxy on connectors using TCP/IP or connectors which don’t yet support it.
+* When importing a project with a runtime that is not installed in Studio there is no notification to the user.
+
+
+=== Enhancement Requests
+
+There are no enhancement requests solved for this release.
+
+=== Bug Fixes
+
+* STUDIO-11178 - NPE is thrown when changing required library.
+* STUDIO-11258 - When configuring specific required libraries, Studio may hang.
+* STUDIO-11259 - Transform Message components field mapping graph lines do not show.
+* STUDIO-11290 - NPE when openning incomplete sockets config with no protocol.
+
+=== Epics
+
+There are no epics solved for this release.
+
+=== Tasks
+
+* STUDIO-11254 - Update bundled Java Module version to version is 1.1.1.
+* STUDIO-11271 - Update bundled SFTP Module version to 1.2.2.
+
+== Support
+
+* link:http://forums.mulesoft.com/[MuleSoft’s Forum].
+* link:http://www.mulesoft.com/support-login[MuleSoft’s Customer Portal].

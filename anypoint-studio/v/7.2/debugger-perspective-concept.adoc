@@ -1,0 +1,15 @@
+= About the Mule Debugger Perspective
+
+The debugger perspective is composed by a list of preconfigured views aimed to help you debug your application:
+
+* Mule Debugger View Reference
+* Mule Watches View Reference
+* Breakpoint View Reference
+
+When you run your application in debug mode for the first time, Aynpoint Studio prompts you to load the Mule Debugger Perspective
+
+== See Also
+
+* link:/anypoint-studio/v/7.2/breakpoint-view-reference[Mule Breakpoints View Reference]
+* link:/anypoint-studio/v/7.2/mule-debugger-view-reference[Mule Debugger View Reference]
+* link:/anypoint-studio/v/7.2/mule-watches-view-reference[Mule Watches View Reference]

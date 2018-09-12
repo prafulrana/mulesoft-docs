@@ -353,7 +353,7 @@ The Microsoft Dynamics CRM connector is compatible with:
 
 * *Improved connection troubleshooting*: The Test Connection functionality of the connector is now much more robust, and provides detailed and helpful error messages for the most common configuration or connectivity problems.
 
-* *Kerberos auto-configuration*: Configuration of Kerberos authentication is now much simpler for on-premises installations, with auto-discovery of KDC and SPN reducing the need to supply these details. Most installations now typically only require providing the domain account and a password to connect with.
+* *Kerberos auto-configuration*: Configuration of Kerberos authentication is now much simpler for on-premises installations, with autodiscovery of KDC and SPN reducing the need to supply these details. Most installations now typically only require providing the domain account and a password to connect with.
 
 * *Claims authentication*: Support for claims-based authentication is now provided in the Dynamics CRM connector, allowing flexibility of authentication model choice for ADFS-enabled enterprises.
 

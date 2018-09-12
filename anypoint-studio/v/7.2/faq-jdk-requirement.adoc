@@ -1,0 +1,27 @@
+= About Anypoint Studio JDK Requirement
+
+Anypoint Studio 7.2 requires Java 8 to run properly.
+
+To verify that you have the correct JDK version installed, type `java -version` in your command line. +
+If you get the error `java: Command not found`, install JDK 1.8. +
+If you get a version different than 1.8, make sure to upgrade, or downgrade to 1.8.
+
+After downloading and installing the JDK, make sure that your JDK installation is properly configured within the the JAVA_HOME environment variable by following the instructions below:
+
+* link:/anypoint-studio/v/7.2/jdk-requirement-wx-workflow[To Configure Java JDK (Windows)]
+* link:/anypoint-studio/v/7.2/jdk-requirement-lnx-worflow[To Configure Java JDK (Linux)]
+* link:/anypoint-studio/v/7.2/jdk-requirement-xos-worflow[To Configure Java JDK (Mac OSx)]
+
+Under certain circumstances, if you had a JRE installation previous to installing the JDK, your default VM could still be configured as the JRE. +
+To correct this, follow the instructions below to configure Anypoint Studio to point to your JDK installation as the default VM:
+
+* link:/anypoint-studio/v/7.2/studio-configure-vm-task-wx[To Configure Studio's Default VM (Windows)]
+* link:/anypoint-studio/v/7.2/studio-configure-vm-task-unx[To Configure Studio's Default VM (Mac OSx)]
+* link:/anypoint-studio/v/7.2/studio-configure-vm-task-lnx[To Configure Studio's Default VM (Linux)]
+
+If after doing so, Anypoint Studio still does not recognize your JDK installation, consider uninstalling your the JRE.
+
+
+== See Also
+
+* For more information about this configuration, check the link:https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html#CJAGAACB[Oracle Documentation resource].

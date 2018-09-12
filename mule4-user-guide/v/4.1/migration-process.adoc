@@ -1,5 +1,5 @@
-// Contacts/SMEs: Andres Alleva
 = About the Migration Process
+// Contacts/SMEs: Andres Alleva
 
 //TODO: LINK TO MULE 4 SECTIONS FOR ALL THESE STEPS.
 After learning how to prepare for the migration, it is important to understand the high-level migration steps:

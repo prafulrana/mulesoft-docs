@@ -1,4 +1,4 @@
-= To Authenticate HTTP Requests
+= Authenticate HTTP Requests
 :keywords: http, authentication, security, users, connectors, anypoint, studio, oauth, basic auth, digest
 
 Use the authentication that you configure in HTTP requests when your Mule app is sending requests to a service that requires authentication, such as the Github OAuth2 server described in <<OAuth2 - Authorization Code>>. In this case, your Mule app is the client. On the other hand, when you want to protect your API or app from _receiving requests_ from unauthorized access, use an API Manager policy, such as the link:/api-manager/external-oauth-2.0-token-validation-policy[OAuth 2.0 Access Token Enforcement Using External Provider] policy.
@@ -264,127 +264,69 @@ The Mule client app sends the token to the *Token URL* that you configure in th
 [tab,title="Studio Visual Editor"]
 ....
 
-. In Studio, create a new Mule project: *File* > *New* > *Mule Project*.
-+
-The New Mule Project dialog appears.
-+
-. In Project Settings, set the following options for the HTTP Listen Connector:
-+
-* *Project Name*: `oauth-grant-code`
-* *Runtime*: Select or accept the default `Mule Server 3.8.0 EE` or later.
-. Drag an HTTP component from the palette to the Source section of the flow.
-. In the properties editor, accept the default *Path* `/`.
-. In Connector Configuration, click image:Add-16x16.png[Add-16x16].
-+
-The HTTP Request Configuration dialog appears.
-. Click OK to accept the following options:
-+
-* Name: HTTP_Request_Configuration
-* Protocol: HTTP
-* Host: 0.0.0.0
-* Port: 8081
-* Base Path: /github
-+
-. Click OK.
-. Save changes.
-+
-The error indicator disappears.
-
-*Next, set up an HTTP request connector:*
-
-. Drag another HTTP connector from the palette, and drop it in the Process area of the flow.
-. In the properties editor, in Connector Configuration, click image:Add-16x16.png[Add-16x16].
-+
-The HTTP Request Configuration dialog appears.
-+
-. Set the following HTTP Request Configuration options:
-+
-* Name: Accept `HTTP_Request_Configuration`.
-* Protocol: *HTTPS*
-* Host: `api.github.com`
-* Port: `443`
-+
-. On the *Authentication* tab, select `OAuth2 - Authorization Code`.
+. Add the OAuth Module from the palette.
+. In Studio, select the HTTP Request Configuration global element where you want to use the OAuth authorization code grant type.
+. On the *Authentication* combo box, select `Authorization code grant type`.
 . Set the following options:
 +
 * Client Id: Type the client Id that Github provided when you registered the app.
 * Client Secret: Type the client secret that Github provided when you registered the app.
-* Redirection URL: `+http://localhost:8082/callback+`
+* Local callback URL: `+http://localhost:8082/callback+`
 +
 This value matches the value you configured for *Authorization callback URL* when registering the app in Github.
 * Authorization Url: `+https://github.com/login/oauth/authorize+`
 * Local Authorization Url: `+https://localhost:8082/login+`
 * Token Url: `+https://github.com/login/oauth/access_token+`
-* Access Token: `#[payload.'access_token']`
+* Response Access Token: `#[payload.'access_token']`
 +
-This MEL expression link:/mule-user-guide/v/3.8/authentication-in-http-requests#extracting-parameters-from-the-token-url-response[extracts an access token].
+This DataWeave expression link:#extracting-parameters-from-the-token-url-response[extracts an access token].
 +
-* Refresh Token: `#[payload.'access_token']`
+* Response Refresh Token: `#[payload.'access_token']`
 +
-You can use the same MEL expression for the refresh token; however, Github doesn't actually use a refresh token.
+You can use a similar DataWeave expression for the refresh token (i.e.: `#[payload.'refresh_token']`) if the provider you are using sends a refresh token. In this example, however, Github doesn't actually use a refresh token.
 +
 image::authentication-in-http-requests-c2070.png[authentication-in-http-requests-c2070]
 +
 . Click OK.
 . Save changes.
-. Drag a Transform Message component from the palette to the right of the HTTP request component.
-. In the properties editor, change the output of the payload as follows:
-+
-----
-%dw 1.0
-%output application/json
----
-  payload
-----
-+
-This formats the output of the user data in Github.
 
 ....
 [tab,title="XML Editor"]
 ....
-Within the global configuration of the connector, add an `oauth2:authorization-code-grant-type` child element, include the following values in it:
+Within the global configuration of the connector, add an `oauth:authorization-code-grant-type` child element, include the following values in it:
 
 * The *clientId* and *clientSecret*.
 +
 Use the client ID and client secret you received from Github when registering your application.
-* The *redirectionUrl* to which the Github authentication server will send the access token once the RO grants you access.
+* The `localCallbackUrl` to which the Github authentication server will send the access token once the RO grants you access.
 
 If you were required to provide a redirect URL when registering your application with Github, this value must match what you provided there.
 
-Inside this element, add a `oauth2:authorization-request` child element with the following attributes:
+Add the following attributes:
 
 * The *authorizationUrl* that the Github authentication server exposes
 * The *localauthorizationUrl*
 
-Also, at the same level, add a `oauth2:token-request` child element with the following attribute:
+Also, add the following attribute:
 
 * The *tokenUrl* that the Github authentication server exposes
 
 [source, xml, linenums]
 ----
-    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration" basePath="/github"/>
-    <http:request-config name="HTTP_Request_Configuration" protocol="HTTPS" host="api.github.com" port="443" doc:name="HTTP Request Configuration">
-        <oauth2:authorization-code-grant-type clientId="27...df" clientSecret="ae...6" redirectionUrl="http://localhost:8082/callback">
-            <oauth2:authorization-request authorizationUrl="https://github.com/login/oauth/authorize" localAuthorizationUrl="http://localhost:8082/login" />
-            <oauth2:token-request tokenUrl="https://github.com/login/oauth/access_token">
-                <oauth2:token-response accessToken="#[payload.'access_token']" refreshToken="#[payload.'access_token']"/>
-            </oauth2:token-request>
-        </oauth2:authorization-code-grant-type>
+    <http:listener-config name="HTTP_Listener_Configuration"
+                          host="0.0.0.0" port="8081" basePath="/github"/>
+    <http:request-config name="HTTP_Request_Configuration"
+                         protocol="HTTPS" host="api.github.com" port="443">
+        <oauth:authorization-code-grant-type
+            clientId="27...df" clientSecret="ae...6"
+            localCallbackUrl="http://localhost:8082/callback"
+        	   authorizationUrl="https://github.com/login/oauth/authorize"
+        	   localAuthorizationUrl="http://localhost:8082/login"
+            tokenUrl="https://github.com/login/oauth/access_token"
+        	   responseAccessToken="#[payload.'access_token']"
+        	   responseRefreshToken="#[payload.'access_token']">
+        </oauth:authorization-code-grant-type>
     </http:request-config>
-    <flow name="oauth-grant-codeFlow">
-        <http:listener config-ref="HTTP_Listener_Configuration" path="/" doc:name="HTTP"/>
-        <http:request config-ref="HTTP_Request_Configuration" path="/user" method="GET" doc:name="HTTP">
-            <http:request-builder>
-                <http:header headerName="Accept" value="application/vnd.github.v3+json"/>
-            </http:request-builder>
-        </http:request>
-        <dw:transform-message doc:name="Transform Message">
-            <dw:set-payload><![CDATA[%dw 1.0
-%output application/json
----
-  payload]]></dw:set-payload>
-        </dw:transform-message>
-    </flow>
 ----
 ....
 ------
@@ -454,28 +396,32 @@ There are OAuth implementations that require or allow extra query parameters to 
 ------
 [tab,title="Studio Visual Editor"]
 ....
-. Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it.
-. Select the *Authentication* tab.
-. In the Protocol dropdown menu, pick *OAuth2 - Authorization Code*.
+. In Studio, select the HTTP Request Configuration global element where you want to use the OAuth authorization code grant type.
+. On the *Authentication* combo box, select `Authorization code grant type`.
 . Fill in the same fields as in the previous example.
-. Click the *Add Custom Parameter* as many times as you need and define a name and value for each custom parameter.
+. On `Custom Parameters` select `Edit inline`. Click the Plus (+) button as many times as you need and define a name and value for each custom parameter.
 ....
 [tab,title="XML Editor"]
 ....
-This example includes two `Oauth2:custom-parameter` child elements that define parameters that are specific to this API.
+This example includes two `oauth:custom-parameter` child elements that define parameters that are specific to this API.
 
 [source, xml, linenums]
 ----
-<http:request-config name="HTTP_Request_Configuration" host="api.box.com" port="443" basePath="/2.0" doc:name="HTTP Request Configuration" >
-        <oauth2:authorization-code-grant-type clientId="your_client_id" clientSecret="your_client_secret" redirectionUrl="http://localhost:8082/redirectUrl">
-            <oauth2:authorization-request authorizationUrl="http://www.box.com/api/oauth2/authorize" localAuthorizationUrl="http://localhost:8082/authorization">
-                <oauth2:custom-parameters>
-                    <oauth2:custom-parameter paramName="box_device_id" value="123142"/>
-                    <oauth2:custom-parameter paramName="box_device_name" value="my-phone"/>
-                </oauth2:custom-parameters>
-            </oauth2:authorization-request>
-            <oauth2:token-request tokenUrl="http://www.box.com/api/oauth2/token"/>
-        </oauth2:authorization-code-grant-type>
+<http:request-config name="HTTP_Request_Configuration"
+                     host="api.box.com" port="443" basePath="/2.0">
+        <oauth:authorization-code-grant-type
+            clientId="your_client_id" clientSecret="your_client_secret"
+            localCallbackUrl="http://localhost:8082/redirectUrl"
+            authorizationUrl="http://www.box.com/api/oauth2/authorize"
+            localAuthorizationUrl="http://localhost:8082/authorization"
+            tokenUrl="http://www.box.com/api/oauth2/token">
+                <oauth:custom-parameters>
+                    <oauth:custom-parameter
+                        key="box_device_id" value="123142"/>
+                    <oauth:custom-parameter
+                        key="box_device_name" value="my-phone"/>
+                </oauth:custom-parameters>
+        </oauth:authorization-code-grant-type>
     </http:request-config>
 ----
 
@@ -486,27 +432,21 @@ This example includes two `Oauth2:custom-parameter` child elements that define p
 
 The link:https://tools.ietf.org/html/rfc6749[OAuth 2.0 specification] describes checking the redirect URI from the destination site of the redirect. The OAuth authentication server uses the URL to provide the authentication code to the Mule server for retrieving the access token. If you provide this URL, Mule creates an endpoint at the URL for storing the authentication code unless there’s already an endpoint registered to manually extract the authorization code.
 
-You configure the external redirect URI by setting the system property `mule.oauth2.externalRedirectUrl`.
+You configure the external redirect URI by setting the attribute `externalCallbackUrl`.
 
-Using `mule.oauth2.externalRedirectUrl` is particularly useful for deploying applications to CloudHub, for example. In the configuration of authentication, you need to specify the redirectionURL in the following format:
+Using `externalCallbackUrl` is particularly useful for deploying applications to CloudHub, for example. In the configuration of authentication, you need to specify the `localCallbackUrl` in the following format:
 
-For example, the redirectionURLis http://localhost:8082/callback in the link:/mule-user-guide/v/3.8/authentication-in-http-requests#creating-the-mule-client-app[previous example]:
+For example, the `localCallbackUrl` is http://localhost:8082/callback in the link:#creating-the-mule-client-app[previous example]:
 
 To create the endpoint for CloudHub, Mule has to create an endpoint for CloudHub in a different format. For example:
 
 `+https://<app>.cloudhub.io/<redirect Uri>+`
 
-To instruct Mule to create the endpoint for CloudHub in the correct format, include the `mule.oauth2.externalRedirectUrl` system property in your Mule properties file. For example:
-
-----
-mule.env=dev
-mule.oauth2.externalRedirectUrl=http://<app>.cloudhub.io/callback
-...
-----
+To instruct Mule to create the endpoint for CloudHub in the correct format, include the `externalCallbackUrl` attribute in your `oauth:authorization-code-grant-type` configuration.
 
 === Extracting Parameters from the Token URL Response
 
-After you have obtained an authorization code from the authentication server, you make a request to the Token URL of the server to receive an *access token*.
+After you have obtained an authorization code from the authentication server, the OAuth dancer makes a request to the Token URL of the server to receive an *access token*.
 
 The format of the response to the request to the token URL is not defined in the OAuth spec. Each implementation may therefore return different response formats. By default, Mule expects the response to be in JSON format. When this is the case, the HTTP Response Connector knows how to extract the required information, as long as its elements are named as below:
 
@@ -514,9 +454,9 @@ The format of the response to the request to the token URL is not defined in the
 * *refresh token*: JSON field must be named `refresh_token`
 * *expires*: JSON field must be named `expires_in`
 
-When the response is in JSON format, the parameters are automatically extracted and you can use link:/mule-user-guide/v/3.8/mule-expression-language-mel[MEL expressions] to reference these values in the Mule Message that was generated from the response to the request to the token URL, as shown in the previous Github example.
+When the response is in JSON format, the parameters are automatically extracted and you can use link:/mule4-user-guide/v/4.1/dataweave[DataWeave expressions] to reference these values in the response to the request to the token URL, as shown in the previous Github example.
 
-When the response is not in JSON format, then you must first configure the connector so that it knows how to extract these values. In the following example, the connector expects the response to have a `Content-Type` of `application/x-www-form-urlencoded`, so the body of the response is transformed into a Map in the payload. You extract the values from the Map through MEL expressions, such as `#[payload.'access_token']`.
+When the response is not in JSON format, then you must first configure the connector so that it knows how to extract these values. In the following example, the connector expects the response to have a `Content-Type` of `application/x-www-form-urlencoded`, so the body of the response is transformed into a Map in the payload. You extract the values from the Map through DataWeave expressions, such as `#[payload.access_token]`.
 
 [tabs]
 ------
@@ -525,23 +465,28 @@ When the response is not in JSON format, then you must first configure the conne
 
 On the *Authentication* tab, configure the options as follows for the *OAuth2 - Authorization Code*:
 
-** Access Token: `#[payload.'access_token']`
-** Expires In `#[payload.'expires_in']`
-** Refresh Token `#[payload.'refresh_token']`
+** Response Access Token: `#[payload.access_token]`
+** Response Refresh Token `#[payload.refresh_token]`
+** Response Expires In `#[payload.expires_in]`
 ....
 [tab,title="XML Editor"]
 ....
-This example includes two `Oauth2:custom-parameter` child elements that define parameters specific to this API.
+This example includes two `oauth:custom-parameter` child elements that define parameters specific to this API.
 
 [source, xml, linenums]
 ----
-<http:request-config name="HTTP_Request_Configuration" host="api.box.com" port="443" basePath="/2.0" doc:name="HTTP Request Configuration">
-        <oauth2:authorization-code-grant-type clientId="your_client_id" clientSecret="your_client_secret" redirectionUrl="http://localhost:8082/redirectUrl">
-            <oauth2:authorization-request authorizationUrl="http://www.box.com/api/oauth2/authorize" localAuthorizationUrl="http://localhost:8082/authorization"/>
-            <oauth2:token-request tokenUrl="http://www.box.com/api/oauth2/token">
-                <oauth2:token-response accessToken="#[payload.'access_token']" expiresIn="#[payload.'expires_in']" refreshToken="#[payload.'refresh_token']"/>
-            </oauth2:token-request>
-        </oauth2:authorization-code-grant-type>
+<http:request-config name="HTTP_Request_Configuration"
+                     host="api.box.com" port="443" basePath="/2.0">
+        <oauth:authorization-code-grant-type
+            clientId="your_client_id" clientSecret="your_client_secret"
+            localCallbackUrl="http://localhost:8082/redirectUrl"
+            authorizationUrl="http://www.box.com/api/oauth2/authorize"
+            localAuthorizationUrl="http://localhost:8082/authorization"
+            tokenUrl="http://www.box.com/api/oauth2/token"
+            responseAccessToken="#[payload.'access_token']"
+            responseExpiresIn="#[payload.'expires_in']"
+             responseRefreshToken="#[payload.'refresh_token']>
+        </oauth:authorization-code-grant-type>
     </http:request-config>
 ----
 
@@ -554,51 +499,55 @@ The access token you obtain from the token URL eventually expires. The length of
 
 Mule handles this use case automatically. So by default, when an HTTP Request Connector is executed, if the response has a status code of 403, mule call the token URL and gets a new access token.
 
-You can customize when Mule performs one of these requests to obtain a new access token using a link:/mule-user-guide/v/3.8/mule-expression-language-mel[MEL Expression]. The expression is evaluated against the Mule Message that is generated from the response of the HTTP Request Connector call.
+You can customize when Mule performs one of these requests to obtain a new access token using a link:/mule4-user-guide/v/4.1/dataweave[DataWeave expression]. The expression is evaluated against the response of the HTTP Request Connector call.
 
 [tabs]
 ------
 [tab,title="Studio Visual Editor"]
 ....
-On the *Authentication* tab, configure the *Request Token When* field with the following MEL expression:
-#`[xpath3('/response/status/text()', payload, 'STRING') == ‘unauthorized’]`
+On the *Authentication* section, configure the *Request Token When* combo to `Expression` and the field next to it with the following DataWeave expression:
+`#[payload.response.status == 'unauthorized']`
 ....
 [tab,title="XML Editor"]
 ....
-To set when to perform a call to obtain a new access token, set a MEL expression for the attribute `refreshTokenwhen` in the `oauth2:token-request` element.
+To set when to perform a call to obtain a new access token, set a DataWeave expression for the attribute `refreshTokenWhen` in the `oauth:authorization-code-grant-type` element.
 
 [source, xml, linenums]
 ----
-<http:request-config name="HTTP_Request_Configuration" host="api.box.com" port="443" basePath="/2.0" doc:name="HTTP Request Configuration">
-        <oauth2:authorization-code-grant-type clientId="your_client_id" clientSecret="your_client_secret" redirectionUrl="http://localhost:8082/redirectUrl">
-            <oauth2:authorization-request authorizationUrl="http://www.box.com/api/oauth2/authorize" localAuthorizationUrl="http://localhost:8082/authorization"/>
-            <oauth2:token-request tokenUrl="http://www.box.com/api/oauth2/token" refreshTokenWhen="#[xpath3('/response/status/text()', payload, 'STRING') == ‘unauthorized’]"/>
-        </oauth2:authorization-code-grant-type>
+<http:request-config name="HTTP_Request_Configuration"
+                     host="api.box.com" port="443" basePath="/2.0">
+        <oauth:authorization-code-grant-type
+            clientId="your_client_id" clientSecret="your_client_secret"
+            localCallbackUrl="http://localhost:8082/redirectUrl"
+            authorizationUrl="http://www.box.com/api/oauth2/authorize"
+            localAuthorizationUrl="http://localhost:8082/authorization"
+            tokenUrl="http://www.box.com/api/oauth2/token"
+            refreshTokenWhen="#[payload.response.status == 'unauthorized']">
+        </oauth:authorization-code-grant-type>
     </http:request-config>
 ----
 
 ....
 ------
 
-When a request authorization fails, the response contains an XML node named *status* with value `‘unauthorized’`. In the previous example, the MEL expression evaluates that condition. When it evaluates to true, Mule sends a request to the Token URL to retrieve a new access token.
+When a request authorization fails, the response contains an XML node named *status* with value `‘unauthorized’`. In the previous example, the DataWeave expression evaluates that condition. When it evaluates to true, Mule sends a request to the Token URL to retrieve a new access token.
 
 === Accessing Resources on Behalf of Several Users
 
 In the preceding examples, you authenticated a single user. You can handle access tokens for multiple users in a single application by defining a way to identify each user during the authorization period. During this period, you send a request to the Token URL to retrieve an access token and execute operations against the API with the acquired access token.
 
-To identify which user is granting access to the Mule client app, define a MEL expression to retrieve a *Resource Owner ID* against the call to the local authorization URL.
+To identify which user is granting access to the Mule client app, define a DataWeave expression to retrieve a *Resource Owner ID* against the call to the local authorization URL.
 
 [tabs]
 ------
 [tab,title="Studio Visual Editor"]
 ....
-On the *Authentication* tab, configure the options as follows for the *OAuth2 - Authorization Code*: In the Advanced section of the Authentication tab, set:
+In the *Authentication* section, configure the options as follows for the *OAuth2 - Authorization Code*:
 
-* *Resource Owner ID* to `#[flowVars.'userId']`
-* *Local Authorization URI*
-#[message.inboundProperties.'http.query.params'.userId]
+* *Resource Owner ID* to `#[vars.userId]`
+* *Local Authorization URL resource owner id* to `#[attributes.queryParams.userId]`
 
-The field *Resource Owner ID* must be set with a MEL expression that allows each execution of the HTTP Request Connector to retrieve the RO identifier from the Mule Message. So on this example, whenever the HTTP Request Connector is executed, there must be a flow variable named ‘userId’ with the RO identifier to use. To create this variable, you can add a Variable transformer to your flow, positioned before the HTTP Request Connector, and configure the transformer to create the userId variable in the Mule Message.
+The field *Resource Owner ID* must be set with a DataWeave expression that allows each execution of the HTTP Request Connector to retrieve the RO identifier from the Mule Message. So on this example, whenever the HTTP Request Connector is executed, there must be a flow variable named ‘userId’ with the RO identifier to use. To create this variable, you can add a Variable transformer to your flow, positioned before the HTTP Request Connector, and configure the transformer to create the userId variable in the Mule Event.
 
 The *Local Authorization* *URI* field (the one in the Advanced section), defines that in order to get the RO identifier, the `userId` query parameter must be parsed from the call done to the local authorization URL.
 
@@ -606,30 +555,39 @@ So if you hit `http://localhost:8082/authorization?userId=john`, then the RO joh
 ....
 [tab,title="XML Editor"]
 ....
-Set `resourceOwnerId` to `#[flowVars.'userId']` and `localAuthorizationUrlResourceOwnerId` to  `#[message.inboundProperties.'http.query.params'.userId]`
+Set `resourceOwnerId` to `#[vars.userId]` and `localAuthorizationUrlResourceOwnerId` to  `#[attributes.queryParams.userId]`
 
 [source, xml, linenums]
 ----
-<http:request-config name="HTTP_Request_Configuration" host="api.box.com" port="443" basePath="/2.0" doc:name="HTTP Request Configuration" tlsContext-ref="TLS_Context">
-        <oauth2:authorization-code-grant-type clientId="your_client_id" clientSecret="your_client_secret" redirectionUrl="http://localhost:8082/redirectUrl" localAuthorizationUrlResourceOwnerId="#[message.inboundProperties.'http.query.params'.userId]"
-resourceOwnerId="#[flowVars.'userId']">
-            <oauth2:authorization-request authorizationUrl="http://www.box.com/api/oauth2/authorize" localAuthorizationUrl="http://localhost:8082/authorization" scopes="access_user_details, read_user_files"/>
-            <oauth2:token-request tokenUrl="http://www.box.com/api/oauth2/token" refreshTokenWhen="#[xpath3('/response/status/text()')]" />
-        </oauth2:authorization-code-grant-type>
+<http:request-config name="HTTP_Request_Configuration"
+                     host="api.box.com" port="443" basePath="/2.0"
+                     tlsContext-ref="TLS_Context">
+        <oauth:authorization-code-grant-type
+            clientId="your_client_id" clientSecret="your_client_secret"
+            localCallbackUrl="http://localhost:8082/redirectUrl"
+            localAuthorizationUrlResourceOwnerId="#[attributes.queryParams.userId]"
+            resourceOwnerId="#[vars.userId']"
+            authorizationUrl="http://www.box.com/api/oauth2/authorize"
+            localAuthorizationUrl="http://localhost:8082/authorization"
+            scopes="access_user_details, read_user_files"
+            tokenUrl="http://www.box.com/api/oauth2/token"
+            refreshTokenWhen="#[xpath3('/response/status/text()')]">
+        </oauth:authorization-code-grant-type>
     </http:request-config>
 ----
 
-The attribute `resourceOwnerId` must be set with a MEL expression that allows each `http:request` execution to retrieve the RO identifier from the Mule Message. So on this example, whenever the `http:request` is executed, there must be a flow variable named ‘userId’ with the RO identifier to use.
+The attribute `resourceOwnerId` must be set with a DataWeave expression that allows each `http:request` execution to retrieve the RO identifier from the Mule Event. So on this example, whenever the `http:request` is executed, there must be a flow variable named ‘userId’ with the RO identifier to use.
 
 [source, xml, linenums]
 ----
-<flow name="accessROFolders">
-        <set-variable variableName="userId" value="#['Peter']" doc:name="Variable"/>
-        <http:request config-ref="HTTP_Request_Configuration" path="/folders" method="GET" doc:name="HTTP"/>
+    <flow name="accessROFolders">
+        <set-variable variableName="userId" value="#['Peter']"/>
+        <http:request config-ref="HTTP_Request_Configuration"
+            path="/folders" method="GET"/>
     </flow>
 ----
 
-The attribute localAuthorizationUrlResourceOwnerId defines that, in order to get the RO identifier, the `userId` query parameter must be parsed from the call done to the local authorization URL.
+The attribute `localAuthorizationUrlResourceOwnerId` defines that, in order to get the RO identifier, the `userId` query parameter must be parsed from the call done to the local authorization URL.
 
 So if you hit `http://localhost:8082/authorization?userId=john`, then the RO john can grant access to the CA on his behalf. If you hit `http://localhost:8082/authorization?userId=peter` then the RO peter can grant access to the CA on his behalf.
 
@@ -651,9 +609,9 @@ By specifying a TLS context in your HTTP Request Connector authentication settin
 ------
 [tab,title="Studio Visual Editor"]
 ....
-On the *Authentication* tab, configure the options as follows for the *OAuth2 - Authorization Code*:
+In the *Authentication* section, configure the options as follows for the *OAuth2 - Authorization Code*:
 
-. In the TLS configuration section, select *Use Global TLS Config*
+. In the TLS configuration section, select *Global Reference*
 . Click the green plus sign next to the field to create a new TLS Context
 . Set up the trust store and key store configuration and click OK to save
 
@@ -663,25 +621,34 @@ The TLS settings in the Authentication tab encode your OAuth credentials. The TL
 ....
 [tab,title="XML Editor"]
 ....
-Set `tlsContext-ref` to reference a TLS context element, provide your trust store and key store credentials in this element.
+Set `tlsContext` to reference a TLS context element, provide your trust store and key store credentials in this element.
 
 [source, xml, linenums]
 ----
-<http:request-config name="HTTP_Request_Configuration_HTTPS" host="api.box.com" port="443" basePath="/2.0" doc:name="HTTP Request Configuration" tlsContext-ref="TLS_Context" protocol="HTTPS">
-        <oauth2:authorization-code-grant-type clientId="your_client_id" clientSecret="your_client_secret" redirectionUrl="http://localhost:8082/redirectUrl" tlsContext-ref="TLS_Context">
-            <oauth2:authorization-request authorizationUrl="https://www.box.com/api/oauth2/authorize" localAuthorizationUrl="https://localhost:8082/authorization" scopes="access_user_details, read_user_files"/>
-            <oauth2:token-request tokenUrl="https://www.box.com/api/oauth2/token" />
-        </oauth2:authorization-code-grant-type>
+<http:request-config name="HTTP_Request_Configuration_HTTPS"
+                     host="api.box.com" port="443" basePath="/2.0"
+                     tlsContext-ref="TLS_Context" protocol="HTTPS">
+        <oauth:authorization-code-grant-type
+            clientId="your_client_id" clientSecret="your_client_secret"
+            localCallbackUrl="http://localhost:8082/redirectUrl"
+            tlsContext="TLS_Context"
+            authorizationUrl="https://www.box.com/api/oauth2/authorize"
+            localAuthorizationUrl="https://localhost:8082/authorization"
+            scopes="access_user_details, read_user_files"
+            tokenUrl="https://www.box.com/api/oauth2/token">
+        </oauth:authorization-code-grant-type>
     </http:request-config>
 
-    <tls:context name="TLS_Context" doc:name="TLS Context">
-        <tls:trust-store path="your_trust_store" password="your_password"/>
-        <tls:key-store path="your_keystore_path" password="your_password" keyPassword="your_key_password"/>
+    <tls:context name="TLS_Context">
+        <tls:trust-store path="your_trust_store"
+            password="your_password"/>
+        <tls:key-store path="your_keystore_path"
+            password="your_password" keyPassword="your_key_password"/>
     </tls:context>
 ----
 
 
-The `tlsContext-ref` attribute of the `oauth2:authorization-code-grant-type` element is for encoding your OAuth credentials. The `tls:context` child element of the `http:request-config` is for encoding your request's body.
+The `tlsContext` attribute of the `oauth:authorization-code-grant-type` element is for encoding your OAuth credentials. The `tls:context` child element of the `http:request-config` is for encoding your request's body.
 
 ....
 ------
@@ -710,14 +677,13 @@ Client credentials grant type is meant to be used by a CA to grant access to an 
 ------
 [tab,title="Studio Visual Editor"]
 ....
-. Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it
-. Select the *Authentication* tab
-. In the Protocol dropdown menu, pick *OAuth2 - Client Credentials*
+. In Studio, select the HTTP Request Configuration global element where you want to use the OAuth authorization code grant type.
+. On the *Authentication* combo box, select `Client credentials grant type`.
 . Fill in the following fields:
 
 ** The *Client Id* and *Client Secret* the OAS gave you when registering your application.
 ** The *Scopes* field is optional, it allows you to define a comma separated list of OAuth scopes available in the OAS. Scopes in OAuth are very much like security roles.
-** The *Token URI* that the OAS exposes
+** The *Token URL* that the OAS exposes
 ....
 [tab,title="XML Editor"]
 ....
@@ -729,10 +695,13 @@ You must include the following information:
 
 [source, xml, linenums]
 ----
-<http:request-config name="HTTP_Request_Configuration" host="some.api.com" port="80" basePath="/api/1.0" doc:name="HTTP Request Configuration">
-        <oauth2:client-credentials-grant-type clientId="your_client_id" clientSecret="your_client_secret">
-            <oauth2:token-request tokenUrl="http://some.api.com/api/1.0/oauth/token" scopes="access_user_details, read_user_files"/>
-</oauth2:client-credentials-grant-type>
+<http:request-config name="HTTP_Request_Configuration"
+                     host="some.api.com" port="80" basePath="/api/1.0">
+        <oauth:client-credentials-grant-type
+            clientId="your_client_id" clientSecret="your_client_secret"
+            tokenUrl="http://some.api.com/api/1.0/oauth/token"
+            scopes="access_user_details, read_user_files">
+        </oauth:client-credentials-grant-type>
     </http:request-config>
 ----
 
@@ -757,10 +726,9 @@ It’s possible to access authorization information for client credentials and a
 ------
 [tab,title="Studio Visual Editor"]
 ....
-. Drag an HTTP Connector to your canvas, create a new Connector Configuration element for it
-. Select the *Authentication* tab
-. In the Protocol dropdown menu, pick *OAuth2 - Client Credentials*
-. In the Advanced section of the form, click the *green plus sign* next to *Token Manager* to create a new token manager
+. In Studio, select the HTTP Request Configuration global element where you want to use the OAuth authorization code grant type.
+. On the *Authentication* combo box, select `Client credentials grant type`.
+. In the Advanced section of the form, set `Token Manager` to `Global Reference`, then click the *green plus sign* next to *Token Manager* to create a new token manager
 . Assign it a reference to an object store
 ....
 [tab,title="XML Editor"]
@@ -769,13 +737,21 @@ The tokenManager-ref attribute need to reference a token-manager-config element 
 
 [source, xml, linenums]
 ----
-<oauth2:token-manager-config name="Token_Manager_Config"  doc:name="Token Manager Config"/>
+    <oauth:token-manager-config name="Token_Manager_Config"/>
 
-    <http:request-config name="HTTP_Request_Configuration" host="api.box.com" port="443" basePath="/2.0" doc:name="HTTP Request Configuration">
-        <oauth2:authorization-code-grant-type clientId="your_client_id" clientSecret="your_client_secret" redirectionUrl="http://localhost:8082/redirectUrl" tokenManager-ref="Token_Manager_Config" localAuthorizationUrlResourceOwnerId="#[message.inboundProperties.'http.query.params'.userId]" resourceOwnerId="#[flowVars.'userId']">
-            <oauth2:authorization-request authorizationUrl="https://www.box.com/api/oauth2/authorize" localAuthorizationUrl="https://localhost:8082/authorization" scopes="access_user_details, read_user_files"/>
-            <oauth2:token-request tokenUrl="https://www.box.com/api/oauth2/token"/>
-        </oauth2:authorization-code-grant-type>
+    <http:request-config name="HTTP_Request_Configuration"
+                         host="api.box.com" port="443" basePath="/2.0">
+        <oauth:authorization-code-grant-type
+            clientId="your_client_id" clientSecret="your_client_secret"
+            localCallbackUrl="http://localhost:8082/redirectUrl"
+            tokenManager-ref="Token_Manager_Config"
+            localAuthorizationUrlResourceOwnerId="#[attributes.queryParams.userId]"
+            resourceOwnerId="#[vars.userId']"
+            authorizationUrl="https://www.box.com/api/oauth2/authorize"
+            localAuthorizationUrl="https://localhost:8082/authorization"
+            scopes="access_user_details, read_user_files"
+            tokenUrl="https://www.box.com/api/oauth2/token">
+        </oauth:authorization-code-grant-type>
     </http:request-config>
 ----
 ....
@@ -783,49 +759,62 @@ The tokenManager-ref attribute need to reference a token-manager-config element 
 
 === Access Authorization Information Through the Token Manager
 
-Once you have a token manager associated with the authorization grant type (in the example below, with authorization code) we can use the `oauthContext` function in a MEL expression anywhere in your flow to access information from an OAuth authorization.
+Once you have a token manager associated with the authorization grant type (in the example below, with authorization code) we can use the operations provided by the OAuth module anywhere in the flow to access information from an OAuth authorization.
 
-If you're using *client credentials* or authorization code with a *single RO*, use the following function:
+If you're using *client credentials* or authorization code with a *single RO*, use the following operations in a a flow:
 
-[source, code]
+[source, XML, linenums]
 ----
-oauthContext(tokenManagerConfigName)
-----
+    <oauth:retrieve-access-token tokenManager="tokenManagerConfig"/>
 
-This function provides access to the OAuth authorization information from a token manager. 
+    <oauth:retrieve-refresh-token tokenManager="tokenManagerConfig"/>
 
-* `tokenManagerConfigName`: Name of a token manager in the configuration
+    <oauth:retrieve-expires-in tokenManager="tokenManagerConfig"/>
 
-If you're using authorization code with **multiple RO **, use the following function:
+    <oauth:retrieve-state tokenManager="tokenManagerConfig"/>
 
-[source, code]
-----
-oauthContext(tokenManagerConfigName, resourceOwnerId)
+    <oauth:retrieve-custom-token-response-param tokenManager="tokenManagerConfig" key="#[vars.key]"/>
 ----
 
-This function provides access to OAuth authorization information from a token manager.
+This operations provide access to the OAuth authorization information from a token manager. 
 
-* `tokenManagerConfigName`: Name of a token manager in the configuration
+* `tokenManager`: Name of a token manager in the configuration
+
+If you're using authorization code with **multiple RO**, use the following operations:
+
+[source, XML, linenums]
+----
+    <oauth:retrieve-access-token tokenManager="tokenManagerConfig" resourceOwnerId="#[vars.resourceOwnerId]"/>
+
+    <oauth:retrieve-refresh-token tokenManager="tokenManagerConfig" resourceOwnerId="#[vars.resourceOwnerId]"/>
+
+    <oauth:retrieve-expires-in tokenManager="tokenManagerConfig" resourceOwnerId="#[vars.resourceOwnerId]"/>
+
+    <oauth:retrieve-state tokenManager="tokenManagerConfig" resourceOwnerId="#[vars.resourceOwnerId]"/>
+
+    <oauth:retrieve-custom-token-response-param tokenManager="tokenManagerConfig" resourceOwnerId="#[vars.resourceOwnerId]" key="#[vars.key]"/>
+----
+
+This operations provide access to OAuth authorization information from a token manager.
+
+* `tokenManager`: Name of a token manager in the configuration
 * `resourceOwnerId`: Identifier of a RO.
 
 ==== Examples
 
-This table includes examples of how to retrieve information from a Token Manager. Use these expressions in any building block in your flow that you place after the HTTP Request Connector that handles your OAuth authentication.
+This table includes examples of how to retrieve information from a Token Manager. Use these operations in your flow that you place after the HTTP Request Connector that handles your OAuth authentication.
 
 [%header,cols="2*a"]
 |===
 |Function |Result
-| `oauthContext(‘Token_Manager_Config’).accessToken` |accessToken value
-| `oauthContext(‘Token_Manager_Config’, ‘Peter’).accessToken` |accessToken value for the RO identified with the id ‘Peter’
-|`oauthContext(‘Token_Manager_Config’).refreshToken` |refreshToken value
-| `oauthContext(‘Token_Manager_Config’).expiresIn` |expires in value
-| `oauthContext(‘Token_Manager_Config’).state` |state used for the authorization URL
-| `oauthContext(‘Token_Manager_Config’).`
-`tokenResponseParameters.‘a_custom_param_name’`
-|custom parameter extracted from the token URL response
-| `oauthContext(‘Token_Manager_Config’, ‘Peter’).`
-`tokenResponseParameters.‘a_custom_param_name’`
-|custom parameter extracted from the token URL response for RO ‘Peter’.
+| `<oauth:retrieve-access-token tokenManager="tokenManagerConfig" target="accessToken"/>` | accessToken value accessible through `vars.accessToken` from DataWeave.
+| `<oauth:retrieve-access-token tokenManager="tokenManagerConfig" resourceOwnerId="Perter" target="accessToken"/>` | accessToken value for the RO identified with the id ‘Peter’ accessible through `vars.accessToken` from DataWeave.
+| `<oauth:retrieve-refresh-token tokenManager="tokenManagerConfig" target="refreshToken"/>` |refreshToken value accessible through `vars.refreshToken` from DataWeave.
+| `<oauth:retrieve-expires-in tokenManager="tokenManagerConfig" target="expiresIn"/>` |expires in value accessible through `vars.expiresIn` from DataWeave.
+| `<oauth:retrieve-state tokenManager="tokenManagerConfig" target="state"/>` |state used for the authorization URL accessible through `vars.state` from DataWeave.
+| `<oauth:retrieve-custom-token-response-param tokenManager="tokenManagerConfig" key="a_custom_param_name" target="customParam"/>` |custom parameter extracted from the token URL response accessible through `vars.customParam` from DataWeave.
+| `<oauth:retrieve-custom-token-response-param tokenManager="tokenManagerConfig" esourceOwnerId="Perter" key="a_custom_param_name" target="customParam"/>`
+|custom parameter extracted from the token URL response for RO ‘Peter’ accessible through `vars.customParam` from DataWeav.
 |===
 
 === Access Token Invalidation
@@ -845,7 +834,7 @@ When using a Token Manager, you can block a particular RO. 
 [source, xml, linenums]
 ----
 <flow name="invalidateOauthContext">
-    <oauth2:invalidate-oauth-context config-ref="tokenManagerConfig"/>
+    <oauth:invalidate-oauth-context tokenManager="tokenManagerConfig"/>
 </flow>
 ----
 
@@ -863,7 +852,7 @@ When using multiple RO with a single Token Manager, if you want to only clear th
 . Drag an *Invalidate OAuth Context* element to your canvas.
 . In its properties editor, set up the *Token Manager Configuration* so that it points to the same *Token Manager* that your HTTP Request Connector references when handling OAuth authentication.
 . Set the *Resource Owner Id* to an expression that points to the RO you want to clear. For example
-#`[flowVars.'resourceOwnerId']`
+#`[vars.resourceOwnerId]`
 ....
 [tab,title="XML Editor"]
 ....
@@ -871,7 +860,8 @@ When using multiple RO with a single Token Manager, if you want to only clear th
 [source, xml, linenums]
 ----
 <flow name="invalidateOauthContextWithResourceOwnerId">
-    <oauth2:invalidate-oauth-context config-ref="tokenManagerConfig" resourceOwnerId="#[flowVars.'resourceOwnerId']"/>
+    <oauth:invalidate-oauth-context tokenManager="tokenManagerConfig"
+                                    resourceOwnerId="#[vars.resourceOwnerId]"/>
 </flow>
 ----
 
@@ -880,12 +870,10 @@ When using multiple RO with a single Token Manager, if you want to only clear th
 
 === Customizing the Token Manager Object Store
 
-By default, the token manager uses an in-memory object store to store the credentials. You can customize the token manager object store by using the objectStore-ref attribute. link:/mule-user-guide/v/3.8/mule-object-stores[See how to configure a custom object store].
+By default, the token manager uses an in-memory object store to store the credentials. You can customize the token manager object store by using the `objectStore` attribute. link:/connectors/object-store-to-define-a-new-os[See how to configure a custom object store].
 
 == See Also
 
-* HTTP Request Connector
-* HTTP Listener Connector
-* See a link:/mule-user-guide/v/3.8/http-connector-reference[reference] of the available XML configurable options in this connector
-* link:/mule-user-guide/v/3.8/migrating-to-the-new-http-connector[Migrating to the New HTTP Connector]
-* link:/mule-user-guide/v/3.8/object-store-module-reference[Object Store Module Reference]
+* link:/connectors/http-connector[HTTP Connector]
+* link:/connectors/http-connector-xml-reference[HTTP Connector XML Reference]
+* link:/object-store/[Object Store V2]

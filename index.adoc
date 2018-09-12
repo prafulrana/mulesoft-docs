@@ -1,84 +1,72 @@
 = MuleSoft Documentation
 :keywords: platform, arm, rest, soa, saas, api, proxy, design, develop, anypoint platform, studio, mule, devkit, studio, connectors, auth, exchange, api design, apikit, raml, application network, anypoint, arm, rest, soa, saas, api, proxy
 
-MuleSoft provides the Anypoint Platform to help your organization create integrations and APIs, simplifying the task of connecting multiple data sources.
+Use the Anypoint Platform to build an application network, a structured set of integrations between apps and services that are secure and easy to reuse.
 
+== Explore the Platform with Exchange
 
-[[what-is]]
-== What is Anypoint Platform?
+link:https://www.anypoint.mulesoft.com/exchange/[Exchange] hosts elements created by Mulesoft and others that you can use to build your own integration apps (Mule apps) and APIs. The site includes connectors with examples and templates. Most connectors also have helpful links where you can explore reference guides and user guides. RAML fragments, custom packages, videos, and other items are available here.
 
-Anypoint Platform is MuleSoft's *integration application and API suite*. It comprises a unique toolset that enables organizations to create, integrate, model, build, and deploy services, APIs, and Mule applications.
+== Design and Build Integration Apps and APIs
 
-The Anypoint Platform tools are accessed primarily through a browser but also have command line tools and APIs. Through the platform it is possible to control most aspects of integration applications and APIs throughout their entire lifecycle.
+Anypoint Studio is the Eclipse-based IDE to help you create Mule apps and APIs, and Design Center is the cloud-based tool.
 
+|===
+| **Creating Mule Apps** | **Creating APIs**
+| link:/anypoint-studio/v/7.1[Building Mule Apps in Anypoint Studio] | link:/anypoint-studio/v/7.1/import-api-def-dc[Importing APIs from Design Center to Anypoint Studio]
+| link:/design-center/v/1.0/create-basic-app-task[Building Apps in Design Center]  | link:/design-center/v/1.0/design-create-publish-api-specs[Creating APIs in Design Center]
+|===
 
-== Set up Anypoint Platform
+Studio 7 includes link:/mule4-user-guide/v/4.1/[Mule Runtime (Mule) 4], the runtime environment where you deploy Mule apps and APIs.
+Earlier versions of Studio include link:/mule-user-guide/v/3.9/[Mule 3]. 
 
-Follow these steps to get an Anypoint Platform account and set up your workstation.
+|===
+| **Mule 3**    | **Mule 4**
+| link:/mule-user-guide/v/3.9/anypoint-connectors[Connectors for Mule 3] | link:/connectors[Connectors for Mule 4]
+| link:/mule-user-guide/v/3.9/dataweave[DataWeave 1 for Mule 3]  | link:/mule4-user-guide/v/4.1/dataweave[DataWeave 2 for Mule 4]
+| link:/apikit/v/3.x/[APIkit 3] | link:/apikit/v/4.x/overview-4[APIkit 4]
+| link:/anypoint-connector-devkit/v/3.9/[Connector DevKit] | link:/mule-sdk/v/1.1/[Mule SDKs]
+|===
 
-* link:https://anypoint.mulesoft.com/login/#/signup?apintent=exchange[Create an Anypoint Platform account].
-* Consider the link:/mule-user-guide/v/3.8/hardware-and-software-requirements[MuleSoft hardware and software requirements]
-* For development of Mule apps or API design, set up your workstation according to the link:#getting-started-dev[Developer Toolkit].
-* To manage and deploy Mule apps, see the link:#getting-started-deploy[Deployment Toolkit].
-* To set up platform permissions or monitor deployed assets see the link:#getting-started-manage[Administrator Toolkit].
+You can test and run the Mule apps and APIs you build from Studio or the Design Center.
 
+== Deploy Integrations
 
+* link:runtime-manager/deployment-strategies[Choosing a deployment strategy]
+* link:https://docs.mulesoft.com/mule-user-guide/v/3.9/installing#mule-installation-procedure[Installing Standalone Mule 3]
+* link:/mule4-user-guide/v/4.1/runtime-installation-task[Installing Standalone Mule 4]
 
-[[getting-started-dev]]
-== Developer Toolkit
+== Test Integrations
 
-After obtaining access to the Anypoint Platform, you are a few steps away from developing integrations with Mule.
+* link:/munit/v/2.1[Testing with MUnit]
+* link:/runtime-manager/troubleshooting[Troubleshooting]
 
-. link:/anypoint-studio/v/6/download-and-launch-anypoint-studio[Download and Install Anypoint Studio]. Studio comes with a test Mule server.
-. If you are an API developer, ensure you read up on link:/api-manager/[API Manager], accessible from Anypoint Platform, to design, publish and manage APIs.
-. Check out templates, connectors and more from Anypoint Exchange, where you can find and publish developer resources. You can use Exchange to publish private repositories too.
+== Manage Integrations
 
-[NOTE]
-If you're working with Mule outside Studio or you have an enterprise license, see how to link:/mule-user-guide/v/3.8/configuring-maven-to-work-with-mule-esb[Configure Maven] to properly manage the dependencies used by your Mule apps.
+* link:monitoring/[Anypoint Monitoring]
+* link:api-functional-monitoring/[API Functional Monitoring]
+* link:runtime-manager/monitoring[Runtime Monitoring]
 
-[[getting-started-deploy]]
-== Deployment Toolkit
+== Manage Platform Features
 
-For *API deployment*, see link:/api-manager[API Manager], accessible from Anypoint Platform.
+* link:/design-center/v/1.0/[Design Center]
+* link:/api-manager/v/2.x/latest-overview-concept[API Manager]
+* link:/access-management/[Access Management]
 
-For *Mule application deployment*, see link:/runtime-manager/deployment-strategies[deployment strategies]. This document explains the standard app-to-runtime deployment workflows and tools.
+'''
 
+== More Resources
 
-See instructions on how to deploy applications to link:/getting-started/deploy-to-cloudhub[CloudHub] or to link:/getting-started/deploy-to-server[local Mule runtime instances] via the Anypoint Platform.
+* link:/release-notes/[Release Notes]
+* link:http://developer.mulesoft.com[Mulesoft developer site]
+* link:https://training.mulesoft.com/[Training]
 
+'''
 
-[[getting-started-manage]]
-== Administrator Toolkit
+== Contributing to the Documentation
 
-If you are an administrator, provision access to your organization's Anypoint Platform instance through the link:/access-management[Access Management console].
-
-link:/access-management/external-identity[Set up external identities] to manage users and clients using your organization's external federated identity system.
-
-To manage Mule apps and servers, use link:/runtime-manager/[Runtime Manager], the same platform tool used to deploy apps to Mule anywhere.
-
-For APIs, see link:/api-manager[API Manager] and link:/api-manager/[Anypoint Analytics].
-
-
-== Contribute to the Documentation
-
-MuleSoft welcomes contributions to our documentation from the community. To make a contribution:
-
-. Click *Edit on GitHub* at the top of any page.
-+
-The source page on GitHub appears.
-+
-. Click *Edit this file* and make a change using the link:https://en.wikipedia.org/wiki/Lightweight_markup_language[asciidoc markup language].
-. Accept the link:http://www.mulesoft.org/legal/contributor-agreement.html[contributor's agreement] so that we can acknowledge your contribution.
-
-For more information about making a contribution, see the link:https://github.com/mulesoft/mulesoft-docs/blob/master/README.adoc[README.adoc file]. Your positive impact in the community by improving MuleSoft documentation is appreciated and recognized.
+MuleSoft welcomes contributions to our documentation. To make a contribution, use the instructions in  our GitHub link:https://github.com/mulesoft/mulesoft-docs/blob/master/README.adoc[README]. Your improvements to MuleSoft documentation are appreciated by the entire community. Thank you!
 
 == Archived Documentation
 
-Documentation for product versions that are no longer supported or have reached their end of life is available at https://docs.archive.mulesoft.com/.
-
-== See Also
-
-* *NEXT STEP:* link:/getting-started/[Getting Started] gives you an overview of API and Mule app lifecycles.
-* link:/api-manager/designing-your-api[Designing an API]
-* link:/anypoint-studio/v/6/basic-studio-tutorial[Basic Studio Tutorial]
-* link:https://anypoint.mulesoft.com/login/#/signin?apintent=exchange[Sign into Anypoint Platform]
+When an older version of a product is no longer supported, including products with end-of-life status, the documentation moves to https://docs.archive.mulesoft.com/.

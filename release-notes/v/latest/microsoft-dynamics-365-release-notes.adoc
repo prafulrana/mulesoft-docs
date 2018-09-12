@@ -1,13 +1,63 @@
 = Microsoft Dynamics 365 Release Notes
 :keywords: microsoft, dynamics, 365, crm, release notes
 
-*April 2018*
+*July 2018*
 
 _Select_
 
 *Guide:* link:/mule-user-guide/v/3.8/microsoft-dynamics-365-connector[Microsoft Dynamics 365  Connector]
 
 MuleSoft provides OAuth 2.0 Connection and Username-Password access to the Microsoft Dynamics 365 server.
+
+
+== 1.0.4
+
+*July 24, 2018*
+
+=== Compatibility
+
+[%header%autowidth.spread]
+|===
+|Software |Version
+|Mule Runtime | Mule Runtime Enterprise Edition 3.6.0 and later
+|===
+
+=== Features
+
+* No new features added.
+
+=== Fixed in this Release
+
+* Fixed Read Timeout default value. Default was always 5 seconds even if setting was not specified or set to 0.
+Now, if ReadTimeout is not specified, the default is 5 seconds, else if ReadTimeout is less or equal to 0 (zero), 
+the default is an infinite wait.
+
+=== Known Issues
+
+* No known issues.
+
+== 1.0.3
+
+*May 23, 2018*
+
+[%header%autowidth.spread]
+|===
+|Software |Version
+|Mule Runtime | Mule Runtime Enterprise Edition 3.6.0 and later
+|===
+
+=== Features
+
+* No new features added.
+
+=== Fixed in this Release
+
+* Dynamics 365 Connector was not releasing immediately the connections with an error response (HTTP error code >= 400).
+ The Olingo protocol doesn't release a connection immediately if the response is not consumed, so we forced the connector to consume the response even if it's an error response.
+
+=== Known Issues
+
+* No known issues.
 
 == 1.0.2
 
@@ -19,7 +69,6 @@ MuleSoft provides OAuth 2.0 Connection and Username-Password access to the Micro
 |===
 |Software |Version
 |Mule Runtime | Mule Runtime Enterprise Edition 3.6.0 and later
-|Microsoft Dynamics 365 | 1.0.2
 |===
 
 === Features

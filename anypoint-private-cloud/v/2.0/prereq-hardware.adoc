@@ -1,0 +1,59 @@
+= Hardware Requirements for Anypoint Private Cloud
+
+To ensure the performance and stability of Anypoint Platform Private Cloud Edition, your environment must meet the minimum system requirements described in this topic. Before installing or upgrading, review each of following sections and ensure that your environment meets these requirements.
+
+[WARNING]
+If your system does not meet all of the minimum system requirements, you cannot install Anypoint Platform Private Cloud Edition.
+
+The following sections describe the minimum disk sizes and performance requirements of Anypoint Platform Private Cloud Edition. During installation, the installer tests to ensure that you have enough enough disk space and performance.
+
+==  Network File System (NFS) Server
+
+To use Anypoint Private Cloud, version 2.0 you must install and configure an NFS server. Before installing or upgrding, you must have an NFS endpoint available. You NFS server must meet the following requirements:
+
+* Must be running on a filesystem that has at least 250 GB available.
+* Must be using NFS version 4.0. 
+* Can be backed by a network attached storage system (NAS).
+* Enable ports 111 and 2049 for both TCP and UDP.
+* Configure your network so that all of the PCE nodes can access the NFS server. The direct NFS client is Kubernetes 1.9 and requires conformance with NFS version 4.
+
+To secure your NFS server to work with Anypoint Platform contact your customer success representative.
+
+== Memory and CPU Requirements
+
+[%header%autowidth.spread]
+|===
+| Component |Requirement
+|RAM |32GB
+|CPU |8 Cores
+|===
+
+== Disk Size and Performance Requirements
+
+Anypoint Platform Private Cloud Edition has strict minimum size and performance requirements for storage devices used by the platform. All disk drives must meet the following criteria:
+
+* Must have at least 300 MB/sec of throughput. 
+* Must have high performance capability, even if they are virtual block devices or network attached storage.
+
+For production usage, each node in your configuration must have the following devices and they must meet the stated minimum requirements. 
+
+[%header%autowidth.spread]
+|===
+| Component |Requirement |Recommended IOPS |Description
+|HDD 1 (operating system) |50GB |500 |
+|HDD 2 (system data) | 100GB |1500 |Stores system configuration and metadata, including databases and packages. As package sizes can be arbitrary large, it is important to estimate the minimum size requirements and allocate enough space as a dedicated device before installation.
+|HDD 3 (application data)| 250GB |1500 |Stores application configuration and data. The amount of space required should be at leasat 250GB, but might vary depending on your specific use case. It is important to estimate the minimum size requirements and allocate enough space as a dedicated device ahead of time.
+|HDD 4 (Docker) | 100GB |3000 |Used by Docker’s Device Mapper storage driver. This device must be a dedicated device. It must exist on every node of your cluster.
+|HDD 5 (etcd) | 20GB |3000 |Provides dedicated storage for the distributed database used for cluster coordination. This device must be a dedicated device. It must exist on every node of your cluster.
+|/tmp (installer) | 20GB |N/A |
+|Networking (connectivity between hosts)  |1GbE | |
+|=== 
+
+== Load Balancer
+
+You must purchase, install, and configure an external load balancer before installing Anypoint Platform Private Cloud Edition on a physical server.
+
+== See Also
+
+* link:/anypoint-private-cloud/v/2.0/install-create-lb[To Setup a Load Balancer for Anypoint Platform Private Cloud Edition]
+

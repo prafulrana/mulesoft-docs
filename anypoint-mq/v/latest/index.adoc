@@ -16,7 +16,7 @@ link:/anypoint-mq/mq-apis[REST APIs],
 link:/anypoint-mq/mq-faq[FAQ], and 
 link:/release-notes/anypoint-mq-release-notes[Release Notes].
 
-*Important:* Do not use Anypoint MQ connector version 1.1.1. Customers should upgrade to MQ connector version 1.1.2 or later as soon as possible.
+*Note:* Anypoint MQ does not support use with CloudHub Insight or Anypoint Monitoring.
 
 == Anypoint MQ Documentation
 

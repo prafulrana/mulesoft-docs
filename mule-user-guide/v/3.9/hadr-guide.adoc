@@ -220,7 +220,7 @@ System backups are a major component of a solid disaster recovery program. There
 * <<Anypoint CloudHub Default Deployment Model>>
 * <<Anypoint CloudHub Alternative Deployment Model>>
 
-=== Disaster Recovery with Mule
+=== Disaster Recovery with CloudHub
 
 Anypoint CloudHub provides disaster recovery for application and hardware failure by re-deploying the application within the region. If the application uses multiple workers, CloudHub deploys them in separate availability zones within the same region, thereby providing HA across availability zones. The distance between the availability zones is variable and in general it cannot be assumed that they are 350 miles or more apart. If an application uses a single worker, when the availability zone comes down, it needs to be brought up manually. Alerting can be setup when any failure occurs.
 

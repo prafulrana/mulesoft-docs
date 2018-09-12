@@ -1,8 +1,6 @@
 [[aggregators-examples]]
 = Aggregator Examples
 :keywords: aggregators, connector
-:toc:
-:toc-title:
 
 A common use case for an aggregator is to store multiple values, then process them as a batch later. 
 That is easily accomplished by using a size-based aggregator.
@@ -64,6 +62,7 @@ But what if you do not want to wait forever to fill every batch. In that case, y
 ----
 
 To make sure that the `aggregation-complete` route will execute once a timeout occurs, you also need to include a listener, for example: 
+
 [source, xml, linenums]
 ----
 <aggregators:aggregator-listener aggregatorName="personsNameAggregator" includeTimedOutGroups="true"/>
@@ -112,4 +111,4 @@ Notice that the example does not configure an eviction time in the aggregator. T
 [[see_also]]
 == See Also
 
-* link:aggregators-documentation[Aggregators Module Documentation Reference]
+* link:aggregators-module-reference[Aggregators Module Reference]

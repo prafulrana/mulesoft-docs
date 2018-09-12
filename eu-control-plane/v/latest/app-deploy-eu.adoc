@@ -6,7 +6,7 @@ However, consider the following differences when deploying to the EU control pla
 
 * The EU control plane supports a smaller number of  Mule runtimes than the US control plane.
 * The domain name of CloudHub workers is `<app_name>.de.eu1.cloudhub.io`.
-* You can only deploy to the Frankfurt region from the EU control plane.
+* You can only deploy to the Frankfurt or Dublin regions from the EU control plane.
 * Applications deployed to the EU control plane use Object Store v2.
 
 == See Also

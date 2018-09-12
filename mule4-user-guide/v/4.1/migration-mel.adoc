@@ -1,5 +1,6 @@
-// Contacts/SMEs: Esteban Wasinger, Ana Felisatti
 = Migrating MEL to DataWeave
+// Contacts/SMEs: Esteban Wasinger, Ana Felisatti
+
 In Mule 4, the DataWeave expression language replaces Mule Expression Language (MEL).
 This section provides guidance on migrating MEL expressions in your Mule apps to
 DataWeave (2.0 and later).
@@ -177,7 +178,7 @@ The following examples use Java's Locale `getDefault` static method in Mule 3 an
 <validation:is-time time="#[payload]" pattern="h:mm a" locale="#[java!java::util::Locale::getDefault().getLanguage()]"/>
 ----
 
-Note that DataWeave requires the `java!` prefix to indicate that a Java static method is to be searched, and 
+Note that DataWeave requires the `java!` prefix to indicate that a Java static method is to be searched, and
 it requires the fully qualified Class name (separated by `::` instead of `.`).
 
 ==== Instance Methods

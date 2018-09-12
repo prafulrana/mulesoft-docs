@@ -3,6 +3,71 @@
 
 These are the release notes for patches which are made to the Mule runtimes on CloudHub. In addition to these release notes, see the link:/release-notes/cloudhub-release-notes[CloudHub release notes] and complete link:/runtime-manager/cloudhub[CloudHub] documentation.
 
+== August 23, 2018
+
+All 3.8.x, 3.9.x and 4.1.x Runtimes:
+
+* A kernel-level patch to the operating system against the SegmentSmack vulnerability (CVE-2018-5390)
+
+== August 14, 2018
+
+4.1.2 Runtime Update:
+
+* Cache locks CPU lite threads under load, address incomplete fix [SE-8937]
+* SFTP connector not closing connections [SE-8996]
+
+4.1.1 Runtime Update:
+
+* Cache locks CPU lite threads under load, address incomplete fix [SE-8937]
+* SFTP connector not closing connections [SE-8996]
+
+
+== July 31, 2018
+
+3.8.7 Runtime Update:
+
+* Update object store plugin to provide better reconnection strategy on socket timeout exception
+
+3.8.6 Runtime Update:
+
+* Update object store plugin to provide better reconnection strategy on socket timeout exception
+
+3.8.5 Runtime Update:
+
+* Update object store plugin to provide better reconnection strategy on socket timeout exception
+
+3.9.1 Runtime Update:
+
+* StackOverflow on Exception in non-blocking flow [SE-7797]
+* Update object store plugin to provide better reconnection strategy on socket timeout exception
+* Fix Anypoint Visualizer enablement for cached instances
+
+3.9.0 Runtime Update:
+
+* Infinite loop in non-blocking flow using Scatter Gather [SE-8351]
+* Update object store plugin to provide better reconnection strategy on socket timeout exception
+
+
+== July 30, 2018
+
+4.1.2 Runtime Update:
+
+* Cache locks CPU lite threads under load [SE-8937]
+* Update object store plugin to provide better reconnection strategy on socket timeout exception
+* Fix Anypoint Visualizer enablement for cached instances
+
+4.1.1 Runtime Update:
+
+* Cache locks CPU lite threads under load [SE-8937]
+* Update object store plugin to provide better reconnection strategy on socket timeout exception
+
+
+== July 23, 2018
+
+4.1.2 Runtime Update:
+
+* MuleModuleLoader keeps reference to a BindingContext [SE-8526]
+
 
 == July 18, 2018
 

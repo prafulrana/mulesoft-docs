@@ -1,9 +1,9 @@
-// authors: Gonzalez
 = Migrating to the AMQP Connector
+// authors: Gonzalez
 
 // Explain generally how and why things changed between Mule 3 and Mule 4.
-As in other cases the AMQP connector was completely reshaped and evolved away from the Mule 3 transport model into an operation based connector with a simplified UX and fully DataSense enabled Message information. 
-This means not only that using AMQP now provides the same experience regarding connection and configuration that any other connector, but also that publishing and consuming messages is simpler based on the structured Message information. 
+As in other cases the AMQP connector was completely reshaped and evolved away from the Mule 3 transport model into an operation based connector with a simplified UX and fully DataSense enabled Message information.
+This means not only that using AMQP now provides the same experience regarding connection and configuration that any other connector, but also that publishing and consuming messages is simpler based on the structured Message information.
 
 ////
 These don't resolve correctly in Doc asciidoc, plus they're also listed in the right side nav area
@@ -108,9 +108,9 @@ The same results can be achieved in Mule 4 using the AMQP Connector with the fol
 <flow name="AMQPConnectorPublish">
 		<http:listener config-ref="HTTP_Listener_config" path="/orders"/>
 		// <2>
-		<amqp:publish config-ref="AMQP_Config" exchangeName="targetExchange> 
+		<amqp:publish config-ref="AMQP_Config" exchangeName="targetExchange>
 			<amqp:message> // <1>
-				<amqp:body>#[output application/json --- 
+				<amqp:body>#[output application/json ---
         {
           order_id: payload.id,
           supplier: payload.warehouse
@@ -206,7 +206,7 @@ org.mule.api.MuleMessage message = new org.mule.module.client.MuleClient(muleCon
 
 Some things to notice here are:
 
-* All metadata regarding AMQP Message is completely lost, so logging the CorrelationId relies on you knowing the syntax to obtain the header. 
+* All metadata regarding AMQP Message is completely lost, so logging the CorrelationId relies on you knowing the syntax to obtain the header.
 * We need both the AMQP and the configuration for the queue in the request.
 
 Mule 4 comes out of the box with the capability of consuming messages mid-flow by using 'consume' operation. This operation is very similar to the listener we saw before, with the difference that it can be used anywhere in the flow:
@@ -243,7 +243,7 @@ In Mule 3, for the first case where the reply queue is a temporary exclusive que
         costumer: message.inboundProperties."http.query.params".costumer_id
         }]]></dw:set-payload>
   </dw:transform-message>
-  <object-to-string-transformer/> 
+  <object-to-string-transformer/>
   <amqp:outbound-endpoint exchange-pattern="request-response" queueName="invoiceProcessor" connector-ref="AMQP_Connector"/>
   <logger level="INFO" message="Status: #[payload]">
 </flow>
@@ -301,14 +301,14 @@ Doing a request-reply with an explicit `reply-to` queue was can be done in Mule 
 
 Transactions support is quite similar in its configuration when moving from 3.x to 4.x, with the expected change from it being configured in the `inbound-endpoint` and `outbound-endpoint` to the normalized Mule 4 approach for operations and sources:
 
-.Mule 3 Example: Using Transactions 
+.Mule 3 Example: Using Transactions
 [source, xml, linenums]
 ----
 <flow name="transactedAmqpFlow">
     <amqp:inbound-endpoint queue=Name"${in}">
-        <amqp:transaction action="ALWAYS_BEGIN" /> //<1> 
+        <amqp:transaction action="ALWAYS_BEGIN" /> //<1>
     </amqp:inbound-endpoint>
-    <set-variable variableName="originalPayload" value="#[payload]"/> //<2> 
+    <set-variable variableName="originalPayload" value="#[payload]"/> //<2>
     <dw:transform-message> //<3>
         <dw:set-payload><![CDATA[%dw 1.0
           %output application/xml
@@ -343,7 +343,7 @@ Things to note are:
 
 Same scenarion can be implemented in Mule 4 with the following approach:
 
-.Mule 4 Example: Using Transactions 
+.Mule 4 Example: Using Transactions
 [source, xml, linenums]
 ----
 <flow name="transactedAmqpFlow">

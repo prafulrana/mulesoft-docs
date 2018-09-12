@@ -1,0 +1,21 @@
+= APIkit for OData 1.0.7 Release Notes
+
+August 14, 2018
+
+For Studio, this version is distributed as APIkit for OData Feature 1.0.3.
+
+== Compatibility
+
+* Mule 3.8.1+
+* APIkit 3.8.2+
+* Anypoint Studio 6.2.3+
+
+== Fixed in this Release
+
+* ODATA-44 OData APIKit deployment to CloudHub naming restrictions.
+* ODATA-43 Improve error message when _odata.raml_ file contains errors.
+
+== Links to Legacy OData Documentation
+
+* link:/release-notes/odata-extension-release-notes-101[OData Extension Studio Plugin 1.0.1 Release Notes]
+* link:/release-notes/odata-extension-studio-plugin-release-notes[OData Extension Studio Plugin 1.0.0 Release Notes]

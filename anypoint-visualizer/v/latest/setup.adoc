@@ -6,8 +6,8 @@ This topic describes how to configure the roles and permission required to use A
 
 To access Anypoint Visualizer, you must be assigned a role that has one of the following permissions:
 
-* Viewer: enables a user to view the graph of an application network, but does not allow them to make changes. This permission can only be assigned to withing the master organization.
-* Editor: enables a user to view and modify the graph of an application network. This permission must be configured for each business group. This enables users within the business group to access Anypoint Visualizer.
+* Visualizer Viewer: enables a user to view the graph of an application network, but does not allow them to make changes. This permission must be configured for each business group. This enables users within the business group to access Anypoint Visualizer.
+* Visualizer Editor: enables a user to view and modify the graph of an application network. This permission can only be assigned within the master organization.
 
 
 == Verify Supported Runtimes
@@ -20,6 +20,7 @@ Anypoint Visualizer supports the following Mule runtimes running on CloudHub:
 * Mule Runtime, version 3.9.1-AM
 * Mule Runtime, version 4.1.2
 * Mule Runtime, version 4.1.2-AM
+* Mule Runtime, version 4.1.3
 
 To select these versions, expand the "old patched releases" section in the runtime versions drop-down.
 

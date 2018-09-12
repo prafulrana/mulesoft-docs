@@ -1,0 +1,21 @@
+= To Configure XULRunner as Studio’s Default Layout Engine (Mac OSx)
+
+. Download `XULRunner` (we recommend link:http://ftp.mozilla.org/pub/xulrunner/releases/24.0/runtimes/[v24.0]).
+. Unzip your package and install it.
+. Go to your `/Applications` folder, right click the AnypointStudio.app package and select `Show Package Contents`.
+. Navigate to `Contents > Eclipse` and open your AnypointStudio.ini file.
+. Add a `-Dorg.eclipse.swt.browser.XULRunnerPath=` variable with the full path to your XULRunner binaries:
++
+[source]
+----
+-Dorg.eclipse.swt.browser.XULRunnerPath={YourXULRunnerFolder}
+----
++
+[TIP]
+XULRunner binaries are located in a subfolder within the directory where you extracted the XULRunner package: `XUL.framework/Versions/Current/`
+
+
+== See Also
+
+* link:/anypoint-studio/v/7.2/jdk-requirement-xos-worflow[To Configure Java JDK (Mac OSx)]
+* link:/anypoint-studio/v/7.2/studio-configure-vm-task-unx[To Configure Studio's Default VM (Mac OSx)]

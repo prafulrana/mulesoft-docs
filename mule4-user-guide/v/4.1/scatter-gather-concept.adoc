@@ -1,4 +1,5 @@
 = About Scatter-Gather
+:imagesdir: ./_images
 
 The Scatter-Gather component is a routing event processor. It concurrently sends a request event to multiple targets, then collects the responses from all routes, and aggregates them into a single message.
 
@@ -8,6 +9,29 @@ Applications do not start if Scatter-Gather has been configured with less than t
 image::scatter-gather-concept-56ccc.png[]
 
 Scatter-Gather executes routes concurrently instead of sequentially. Parallel execution of routes greatly increases the efficiency of your application and provides more information than sequential processing.
+
+In Anypoint Studio, you can download and open the example project _Scatter-Gather Flow Control_ from Anypoint Exchange to learn more about how to use the Scatter-Gather component. This example shows the usage of the scatter-gather control flow to aggregate data in parallel and return the result in JSON.
+
+The example uses prepared data as input for two resources that should be aggregated. The data represents information about two contacts and has the following structure:
+
+|===
+Resource|`firstname`|`surname`|`phone`|`email`
+|contacts-1.csv
+|John
+|Doe
+|096548763
+|john.doe@texasComp.com
+
+|contacts-2.csv
+|Jane
+|Doe
+|091558780
+|jane.doe@texasComp.com
+|===
+
+DataWeave is used to aggregate the data. The information about the contacts is aggregated to a JSON structure that represents data from both resources.
+
+To download and open this example project while you are in Anypoint Studio, click the Exchange icon in the upper-left corner. Then, in the window that opens, log into Anypoint Exchange and search on the name of the project.
 
 == See Also
 

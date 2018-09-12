@@ -1,6 +1,29 @@
 = Anypoint Access Management Release Notes
 :keywords: release notes, access management, anypoint platform, permissions, entitlements, roles, users, administrator, gear icon
 
+== August 25, 2018
+*_Version 0.46.0_*
+
+Mulesoft supports using https://developer.salesforce.com/page/Identity[Salesforce Identity] as a SSO (single sign-on) provider with the https://openid.net/connect/[OpenID Connect] protocol. Salesforce is a https://openid.net/certification/[certified OpenID Provider].
+
+=== Deprecated Functionality
+
+* Deleted federated users are no longer able to sign in from the SSO login page. Organization administrators must re-enable deleted users before they can continue operations on Anypoint Platform.
+
+* You can't createa a Business Group name using special characters. Only the following characters are valid:
++
+** Letter
+** Number
+** Apostrophe
+** Space
+** Comma
+** Period
+** Hyphen
+** Underscore
+
++
+Existing Business Groups whose names contain special characters aren't affected.
+
 == November 18, 2017
 *_Version 0.29.0_*
 

@@ -3,8 +3,6 @@
 
 After logging into Anypoint Platform, navigate to API Manager, and on the Administration page, click Analytics to open the dashboard.  From the dashboard, you can navigate to the analytics about your APIs gathered by Anypoint Platform.
 
-*Note:* To view Analytics charts, users need View APIs Configuration permission. See link:/api-manager/v/2.x/environment-permission-task[To Set Permissions].
-
 API Analytics data is available for up to 90 days for chart related information and up to 30 days for the Report API.
 
 When you access the analytics for your APIs, by default you land on your Overview Dashboard that displays these charts:

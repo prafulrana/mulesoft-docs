@@ -1,5 +1,5 @@
-// authors: Marra, Wasinger can start after 1/18
 = Migrating to the JMS Connector
+// authors: Marra, Wasinger can start after 1/18
 
 // Explain generally how and why things changed between Mule 3 and Mule 4.
 The JMS transport was completely reshaped and evolved away from the Mule 3 transport model into an operation based connector with a simplified UX and fully DataSense enabled Message information.

@@ -357,7 +357,7 @@ Java-based integration runtime engine of MuleSoft's Anypoint Platform that uses 
 
 === Mule service registry
 
-A service-oriented architecture governance platform that allows you to control your infrastructure with SOA governance, registry, and repository features including lifecycle, dependency, and artifact management, as well as auto-discovery or services and reporting. The enterprise version of Mule  includes a service deployment repository, which allows for easy deployment and migration of services throughout an environment.
+A service-oriented architecture governance platform that allows you to control your infrastructure with SOA governance, registry, and repository features including lifecycle, dependency, and artifact management, as well as Autodiscovery or services and reporting. The enterprise version of Mule  includes a service deployment repository, which allows for easy deployment and migration of services throughout an environment.
 
 
 === MMC

@@ -158,6 +158,13 @@ Follow the link:/anypoint-studio/v/7.1/faq-default-browser-config[FAQ: Troublesh
 * Studio hangs when trying to open a big sample data file in DataWeave STUDIO-10523
 * When setting WSC, it does not trigger datasense and not update metadata tree automatically STUDIO-10523
 * Datasense/Runtime not working correctly through proxy on connectors using TCP/IP or connectors which don’t yet support it STUDIO-10377
+* Using the "Validate" option in your Mule configuration files is not supported. +
+In your Package Explorer view, when right-clicking your Mule configuration file and selecting *Validate*, Studio runs a non-supported validation inherited from Eclipse. It is not recommended to use this feature. +
+You can choose to disable these validators:
++
+** *At Workspace level*: By clicking *Preferences*, *Validation*, and disabling "Manual" and "Build" checkbox for *XML Schema Validator* and *XML Validator*.
+** *At Project level*: By righ-clicking on your project in your Package Explorer View, select *Properties*, *Validation*, and disabling "Manual" and "Build" checkbox for *XML Schema Validator* and *XML Validator*.
+
 
 
 === Enhancement Requests

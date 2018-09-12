@@ -1,22 +1,10 @@
-= To Download and Install Anypoint Studio
+= To Install Anypoint Studio
 
-Before downloading and launching Anypoint Studio, make sure you have the Java SE JDK 8 installed.
+It is not possible to download Anypoint Studio 6.4 or below.
 
-To install Anypoint Studio:
+It's recommended to download the latest Studio 6.x version. +
+Follow the instructions link:/anypoint-studio/v/6.5/download-and-launch-anypoint-studio[here].
 
-. Download the Anypoint Studio zip file from the download site and extract it
-::
-* *Windows*: It's important to extract Anypoint Studio into the 'C:\' root folder. Also, if you are using a Windows Anti-Virus application, ensure that the `plugin/` and `features/` directories are under the “trusted” category.
-+
-* *OS X*: If you're using OS version Sierra, it's important that you move your extracted app to the `/applications` folder before you launch it
-+
-* *Linux*: To support some of Studio Themes in Linux, it is recommended to have GTK version 2 installed.
-
-. Open the extracted Anypoint Studio.
-. Click OK to accept the default workspace.
-
-Anypoint Studio displays a welcome message when it loads for the first time. +
-Click Get Started to start using Anypoint Studio.
 
 
 == See Also

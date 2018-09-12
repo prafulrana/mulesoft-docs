@@ -228,7 +228,7 @@ Following is a complete list issues fixed specifically for Mule Enterprise Versi
 |Improvement |MULEHQ-179 |Mule HQ |Modify default Mule Availability metric collection interval to 1 min |3.5.0 |
 |Improvement |MULEHQ-180 |Mule HQ |Implement ability to mass change of metrics collection intervals of all mule services |3.5.0 |
 |Task |MULEHQ-182 |Mule HQ |Determine changes in HQ Agent between r84 and RC1 (see RC2 too) |3.5.0 |
-|Sub-task |MULEHQ-184 |Mule HQ |Can't bring resource back to the auto-discovery queue after it had been skipped |3.5.0 |
+|Sub-task |MULEHQ-184 |Mule HQ |Can't bring resource back to the Autodiscovery queue after it had been skipped |3.5.0 |
 |Sub-task |MULEHQ-187 |Mule HQ |Create auto update configuration for not approved server |3.5.0 |
 |Sub-task |MULEHQ-188 |Mule HQ |User friendly return message |3.5.0 |
 |Bug |MULEHQ-197 |Mule HQ |MuleHQ agents only works with Mule versions 1.3 CE/EE and 1.4 CE/EE |3.5.0 |
@@ -242,6 +242,5 @@ Following is a complete list issues fixed specifically for Mule Enterprise Versi
 |Bug |MULEHQ-219 |Mule HQ |MuleCenter doesn't list registered Mule servers |3.5.0 |
 |Bug |MULEHQ-220 |Mule HQ |Cold Start command should pass Mule's server ID as a parameter |3.5.0 |
 |Bug |MULEHQ-222 |Mule HQ |Show Log link isn't rendered for Mule 2 servers |3.5.0 |
-|Bug |MULEHQ-223 |Mule HQ |Config file value isn't properly auto-discovered for Mule 2 |3.5.0 |
+|Bug |MULEHQ-223 |Mule HQ |Config file value isn't properly autodiscovered for Mule 2 |3.5.0 |
 |===
-

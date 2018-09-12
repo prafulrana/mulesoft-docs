@@ -84,7 +84,7 @@ The following sections outline the Anypoint Platform features and bug fixes adde
 | 2.4.0 | Server Properties: Runtime Manager enables you to view additional information about a remote server, including: the server operating system, VM vendor, and license expiration date.
 | 2.4.3 | Flow Management: Adds Flow Management capabilities to Anypoint Platform Private Cloud Edition.
 | 2.5.0 | Increase application file size: The maximum application file size increased from 100MB to 200MB.
-| 2.6.0 | Auto-discovery of remote server properties: Enables Runtime Manager to display environment and system properties of remote servers and Mule runtimes. This feature is applicable to hybrid deployment scenarios only.
+| 2.6.0 | Autodiscovery of remote server properties: Enables Runtime Manager to display environment and system properties of remote servers and Mule runtimes. This feature is applicable to hybrid deployment scenarios only.
 | | Application properties: Enables you to set application properties from Runtime Manager during application deployment. This feature is applicable to hybrid deployment scenarios only.
 | | Schedule management: Adds support for polls to applications deployed in a hybrid deployment scenario. The feature is only supported on single-server environments. It is not supported on servers within server groups or clusters.
 | | Increased application size: Adds support for asynchronous uploads of files and increased the supported application file size from 100MB to 200MB.

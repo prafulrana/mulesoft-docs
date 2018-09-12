@@ -11,7 +11,16 @@ The Markdown editor also lets you add a link to a YouTube or Vimeo video to your
 . After you create a page, you can add additional pages, tags, terms and conditions, 
 and change versions for an asset or if describing an API, for versioning the API as well.
 
-== To Add an Image
+== Change an Asset Title
+
+. Position your mouse pointer in the asset's title and add the text you want the title to be.
+. Press the Enter (or Return) key on your keyboard.
++
+If you don't press the Enter (Return) key, the title reverts to its former text.
++
+If you edit the title and click out of the edit field rather than press Enter (Return), the title does not display your changes. Click back in the title field to see your changes. If you publish the page without pressing Enter, you don't see your changes. Your changes are only present in the field when you click in the title field again, but they are not made visible until you press Enter (Return).
+
+== Add an Image
 
 You can copy and paste an image directly into the Exchange page:
 
@@ -27,7 +36,7 @@ In Markdown, use this syntax to reference a web served image:
 
 `+![some alt text](http://www.example.com/image/png.png)+`
 
-== To Add Pages
+== Add Secondary Pages
 
 . Click an asset and click Edit.
 . In the left navigation area, click Add New Page and press the Return key on your keyboard to create the page. You can create as many pages as needed. In Exchange Portals, click Add Content Pages.
@@ -37,7 +46,7 @@ In Markdown, use this syntax to reference a web served image:
 
 In Edit mode, you can reorder pages by clicking the page name and dragging the page up or down in the left nav bar.
 
-== To Create Tags
+== Create Asset Tags
 
 Tags help users find your asset. Users can search in Exchange for a tag name to locate your asset.
 
@@ -48,7 +57,7 @@ Tags can only be lowercase. If you enter uppercase, Exchange converts the letter
 +
 . To verify, search for the asset using a tag you added.
 
-== To Specify Terms and Conditions
+== Specify Terms and Conditions
 
 . Click an asset and click Edit.
 . Click Add Terms and Conditions: image:ex2-terms.png[Terms and Conditions button]
@@ -58,7 +67,7 @@ Tags can only be lowercase. If you enter uppercase, Exchange converts the letter
 
 Note: Only available for APIs. Users are then prompted to accept the terms and conditions when requesting API access.
 
-== To Change the Version of an Asset
+== Change the Version of an Asset
 
 Exchange lets you version an API separately from an asset's version. 
 
@@ -82,7 +91,7 @@ clipboard. Then after you log back in, you can paste the content back into the p
 == Markdown Notes
 
 * Anypoint Exchange uses GitHub Markdown. Everything works in GitHub Markdown except for syntax highlighting, which is not supported in Exchange.
-* Raw HTML code is not supported.
+* Basic HTML 5 code elements are supported in Markdown, such as div, button, a, ul, ol, table, p, span, pre, and code.
 * Insert a link: `+[MuleSoft.com](http://www.mulesoft.com)+` or:
 +
 [source,xml,linenums]

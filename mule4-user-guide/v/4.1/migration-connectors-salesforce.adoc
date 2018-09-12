@@ -1,5 +1,5 @@
-// smes: nathan nam, bogdan illies, writer: sduke?
 = Migrating the Salesforce Connector
+// smes: nathan nam, bogdan illies, writer: sduke?
 
 ////
 Bogdan says, "all the operations from the old connector are in the new one."
