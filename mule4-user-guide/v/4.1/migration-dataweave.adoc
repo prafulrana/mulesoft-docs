@@ -88,7 +88,7 @@ The `:` was removed from the type references and are now all camel case, so `:st
 In DataWeave 1.0, selecting a key-value pair from an object required you to do something like this:
 
 .Mule 3 Example: DataWeave 1
-[source,linenums]
+[source,dataweave, linenums]
 ----
 %var payload = {a: 1, b:2}
 ---
@@ -101,7 +101,7 @@ In DataWeave 2.0, the coercion is removed, and a new selector (`&`) is introduce
 //TODO: To select a key-value pair from an object or something like that?
 
 .Mule 3 Example: DataWeave 2
-[source, linenums]
+[source, dataweave, linenums]
 ----
 var payload = {a: 1, b:2}
 ---
