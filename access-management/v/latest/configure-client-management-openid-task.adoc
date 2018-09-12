@@ -2,7 +2,7 @@
 
 // Includes oidc-dynamic-registration.patch
 
-MuleSoft verifies support in Anypoint Platform for :q, Okta and OpenAM v14 Dynamic Client Registration.
+MuleSoft verifies support in Anypoint Platform for Salesforce, Okta and OpenAM v14 Dynamic Client Registration.
 
 *Note:* Update and deletion of clients created through this integration are not currently supported.
 
