@@ -211,15 +211,30 @@ The attributes other than `path` are optional.
 
 === Use Design Center to Configure TLS
 
-You can configure TLS in Design Center. Set up TLS in the HTTP listener configuration in a flow design:
+You can configure TLS for your app in Design Center. For example, to configure TLS in HTTP Listener:
 
-image::design-center-tls-setup.png[]
+. Log into Design Center.
+. Open the project.
+. Open HTTP Listener.
+. In the Configuration tab, click **Edit**.
+. In the TLS tab, fill in the TLS Configuration fields as described above.
+. Optionally, fill in the **Enabled Protocols** and **Enabled Cipher Suites** fields as described in <<Optional: Specify Protocols and Cipher Suites,Optional: Specify Protocols and Cipher Suites>>.
+
+Save your configuration and test.
 
 === Use Anypoint Studio to Configure TLS 
 
-You can configure TLS in Anypoint Studio. Set up a global TLS configuration from a connector configuration, such as HTTP:
+You can configure TLS for your app in Anypoint Studio (Studio). For example, to configure TLS in HTTP Listener:
 
-image::studio-tls-setup.png[]
+. Open Studio Center.
+. Open the project.
+. Open HTTP Listener.
+. In the General tab, select an existing configuration or create a new one.
+. In the HTTP Listener config dialog, select the TLS tab.
+. In the TLS tab, choose the TLS Configuration type **Edit Inline**, and supply the values.
+. Optionally, fill in the **Enabled Protocols** and **Enabled Cipher Suites** fields in the Advanced section as described in <<Optional: Specify Protocols and Cipher Suites,Optional: Specify Protocols and Cipher Suites>>.
+
+Save your configuration and test.
 
 
 == Optional: Specify Protocols and Cipher Suites

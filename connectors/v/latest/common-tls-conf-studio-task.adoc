@@ -1,0 +1,4 @@
+= To Configure TLS (Studio)
+
+[NOTE]
+Information in this topic has moved to link:/mule4-user-guide/v/4.1/tls-configuration[Configure TLS with Keystores and Truststores]. Please update your bookmarks as this file will be removed after January 1, 2018.
