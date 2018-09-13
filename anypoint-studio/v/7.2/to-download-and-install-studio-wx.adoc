@@ -3,7 +3,7 @@
 == Prerequisites
 
 * If your environment requires JDK 8 to be installed somewhere other than your computer, write down the location, as you'll need it later. The installation is slightly different depending on the location of JDK 8.
-* You can't use a workspace created by Anypoint Studio 6.x or for Mule 3.x and earlier. If you choose to use an existing workspace once Studio is launched, the workspace must have been created using Anypoint Studio 7.0 or later, and can't be for Mule 3.x or earlier.
+* You can't use a workspace created by Anypoint Studio 6.x or for Mule 3.x and earlier. If you choose to use an existing workspace once Studio is launched, the workspace must have been created using Anypoint Studio 7.0 or later, and must be for Mule 4.x or later.
 
 == Install Anypoint Studio 7.2
 
