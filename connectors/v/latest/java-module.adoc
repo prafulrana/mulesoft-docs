@@ -6,7 +6,7 @@ The Java module in Mule 4 intends to:
 * Minimize the need for custom code.
 * Avoid the need for you to know or understand Java.
 
-However, there are some advanced uses cases that require integrating with custom Java code, for example:
+However, there are some advanced uses cases that require integrating with custom Java code, such as:
 
 * Need to reuse a tax calculation library.
 * Need to reuse a canonical object model that is standard in the organization.
