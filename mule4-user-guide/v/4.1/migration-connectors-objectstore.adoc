@@ -172,6 +172,9 @@ flag called `overwrite` that by default comes as false. On Mule 4 you have a fla
 called `failIfPresent` that by default comes as false. This means that now when using the store
 operation with an already used key, the default behavior is to overwrite the value.
 
+WARNING: In Mule 4, when the key already exists and the flag `failIfPresent` is set to true, the error
+OS:KEY_ALREADY_EXISTS will be thrown.
+
 When migrating pay close attention to how flags are configure, since the default behaviors
 are different.
 
