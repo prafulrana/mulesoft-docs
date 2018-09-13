@@ -213,4 +213,4 @@ For example, you can use:
 * link:ibm-mq-ack[Handling Message Acknowledgement]
 * link:ibm-mq-transactions[Handling Transactions in IBM MQ]
 * link:ibm-mq-performance[IBM MQ Tuning For Performance]
-* link:ibm-mq-documentation[IBM MQ Connector Technical Reference]
+* link:ibm-mq-xml-ref[IBM MQ Connector Technical Reference]

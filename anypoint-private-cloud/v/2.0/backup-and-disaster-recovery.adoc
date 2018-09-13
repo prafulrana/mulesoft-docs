@@ -1,0 +1,47 @@
+= Backup and Restore Anypoint Private Cloud
+
+This topic describes how to configure backups for Anypoint Private Cloud Edition. It also describes how to perform a system restore from a backup.
+
+== Prerequisites
+
+To preserve your data in case of system failure, ensure that your system is automatically backed up. Configure your backup to run at least once per day, although we recommend that you back up your system hourly. Your backup archive must be stored on external storage outside the Anypoint cluster.
+
+Anypoint Private Cloud requires you to install, configure, and manage an NFS server. Ensure that you configure and perform frequent backups of this server.
+
+== Create a Backup
+
+To create a backup, run the following command on any node in the cluster. You can run this command from any node in your cluster.
+
+----
+gravity backup /var/lib/gravity/planet/share/backup.tar.gz
+----
+
+This command creates an archive of the current system state in: `/var/lib/gravity/planet/share/backup.tar.gz`.
+
+== Perform a System Restore
+
+To restore a system from your backup, use the existing cluster or create a new cluster containing the same number of servers as the cluster being restored.
+
+[WARNING]
+You can not perform a backup between different versions of Anypoint Platform Private Cloud Edition. The new installation you create must be using the same version of Anypoint Platform Private Cloud Edition as your backup. 
+
+. Log in to one of the nodes in your cluster.
+
+. Move the compressed backup archive file to a folder in any of the nodes of the to-restore environment. You can transfer this file securely via the following command:
++
+----
+scp /backup-path/to-restore.tar.gz your_username@remotehost.edu:/var/lib/gravity/planet/share
+----
+
+. Restore the cluster from the backup archive:
++
+----
+sudo gravity restore /var/lib/gravity/planet/share/to-restore.tar.gz
+----
+
+This will take a few minutes.
+
+== See Also
+
+* link:install-workflow[Workflow: Install Anypoint Platform Private Cloud Edition]
+* link:upgrade[To Migrate to Anypoint Platform Private Cloud Edition, Version 2.0.0]

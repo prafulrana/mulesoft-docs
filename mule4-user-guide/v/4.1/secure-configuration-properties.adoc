@@ -141,7 +141,7 @@ This way, the value of the property `env` determines which file to use to load t
 <secure-properties:config key="${runtime.property}" file="${env}-properties.yaml" name="test"/>
 ----
 
-This way, the default value for the `env` property will be `"dev"`, which can still be overriden with a system or environment property. 
+This way, the default value for the `env` property will be `"dev"`, which can still be overriden with a system or environment property. Please note that this is *required* for metadata resolution in Anypoint Studio. If you do not define devault values for the properties that are passed through the command line you will receive an error while creating application model for all message processors that depend on them.
 
 === Working with More than One Configuration File
 
@@ -217,19 +217,13 @@ You can use this extension by adding it as a dependency in your Mule app.
 
 === Installing the Extension
 
-1. Open your Mule project in Anypoint Studio.
-  Add the extension as a dependency in the `pom.xml` file:
+. Open your Mule project in Anypoint Studio. 
 
-.Dependency for Mule App pom.xml
-[source,xml, linenums]
-----
-<dependency>
-  <groupId>com.mulesoft.modules</groupId>
-  <artifactId>mule-secure-configuration-property-module</artifactId>
-  <classifier>mule-plugin</classifier>
-  <version>1.0.0</version>
-</dependency>
-----
+. Go to the Mule Palette. 
+
+. Select *Search in Exchange*, and search for the *Mule Secure Configuration Property Extension*. 
+
+. Add the extension.
 
 === Adding Secure Configuration Properties to your App
 

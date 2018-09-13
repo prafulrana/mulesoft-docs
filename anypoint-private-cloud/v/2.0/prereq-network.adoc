@@ -1,0 +1,55 @@
+= Private Cloud Edition Network Requirements
+
+The this topic describes the network requirements for running Anypoint Platform Private Cloud Edition.
+
+== IP Forwarding and Bridging
+
+To ensure proper cluster load balancing and routing, you must enable and correctly configure the following:
+
+* Kernel IP forwarding: to enable internal Kubernetes load balancing you must enable IPv4 forwarding on all servers. 
+* Bridge-netfilter: enables the Linux kernel to translate packets to and from hosted containers.
+
+== Static IPs
+
+All servers in the cluster should have static private IPv4 assigned to them, these must persist after server restarts. If IP addresses are not persistent between reboots, the cluster may enter a failed state.
+
+== VXLAN
+
+The version of Kubernetes supported by Anypoint Platform Private Cloud Edition uses an overlay VXLAN and UDP transport to encapsulate traffic. There is direct communication between components of the cluster. The table below shows the ports used for inter-host communication. You must ensure that all of these ports are configured correctly.
+
+[%header%autowidth.spread]
+|===
+|Protocol |Port/Range |Purpose
+|TCP | 2379, 2380, 4001, 7001 | etcd distributed database
+|TCP | 4242 | Installer
+|TCP | 6060 | Health check
+|TCP | 6443 | Kubernetes API server
+|TCP | 7373 | Serf RPC agent
+|TCP | 8080 | Kubernetes API server
+|TCP | 10248, 10249, 10250, 10255 | Kubernetes Kubelet
+|TCP | 5000 | Docker registry
+|TCP | 3008-3010, 3022-3025, 3080, 7496, 7575| Cluster control plane
+|TCP | 7000, 7011, 7199, 9042, 9160 | Cassandra
+|TCP | 18080, 18443 | Object store cluster
+|TCP | 5431-5435, 5973 | Database cluster
+|TCP | 30000-32767 | Internal services port range
+|TCP | 61008-61010 | Installer port ranges (only used during install)
+|TCP | 61022-61024 | Installer port ranges (only used during install)
+|UDP | 8472 | Overlay VXLAN network
+|===
+
+
+== NAT Traffic Requirements
+
+In some situation, the Kubernetes overlay network uses NAT. NAT requires that servers be able to send and receive packages with a source and destination that is different from server’s internal IP.
+
+== SSL Certificate Requirements
+
+In order to use the Anypoint Platform Private Cloud Edition, you must provide SSL credentials. You can upload a certificate through the Anypoint Platform UI. This certificate must be trusted by every machine that is connected to the platform.
+
+[WARNING]
+You must register the same SSL certificate on every server containing Mule Runtimes managed by your installation.
+
+== SMTP Server Requirements
+
+Your network must include an SMTP server to manage e-mail alerts that are triggered by the platform.

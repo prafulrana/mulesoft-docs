@@ -56,13 +56,7 @@ For most cases, it's recommended that you use *asynchronous* logging, as it brin
 
 On the negative side of using asynchronous logging, you may find that after a system crash, some actions were performed but not logged, since log writing is performed on a separate thread that runs independently of other actions. You may also find that on occasion, you can't avoid the action of logging something in case you need to roll back a transaction. Check the <<Exception Handling With Asynchronous Logging>> section below to see how to mitigate these problems.
 
-Application logs may sometimes be required to be used as audit trails. In such cases, you can’t afford to loose any log message and thus you should configure your application to always use *synchronous* logging.
-
-To appreciate the impact in performance between synchronous and asynchronous logging, consider the test results shown below. We ran performance tests with an application that logs about one million messages, using an increasingly higher amount of threads on each run (these threads were responsible for generating messages; the more threads, the more concurrent messages).
-
-// image:logging-latency-vs-concurrency.png[logging-latency-vs-concurrency.png]
-
-The above chart shows how much latency increased as we added more concurrent messages. Notice that the results of logging asynchronously are significantly closer to those of not logging anything at all. Note that each transaction implied logging 1000 messages.
+Application logs may sometimes be required to be used as audit trails. In such cases, you can’t afford to lose any log message and thus you should configure your application to always use *synchronous* logging.
 
 == Configuring Custom Logging Settings
 

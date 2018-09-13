@@ -1,0 +1,13 @@
+= Workflow: Configure Anypoint Private Cloud
+
+. Setup a balancer as described in link:install-create-lb[To Setup a Load Balancer].
+
+. Perform additional installation tasks as described in link:install-add-tasks[To Perform Additional Installation Tasks].
+
+. Ensure that you have configured your system to perform regular backups. See link:backup-and-disaster-recovery[About Backup and Recovery].
+
+. Configure an external authentication provider. See link:install-config-ldap-pce[To Configure LDAP in Anypoint Platform Private Cloud]
+
+. (Optional) Delete the default Anypoint Platform user created during installation. See link:install-disable-local-user[To Delete the Local User after Installing Private Cloud Edition].
+
+After completing the steps in this workflow, you can deploy and manage applications, register APIs and use the API Exchange on an Anypoint Platform environment running on your own local network.

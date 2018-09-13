@@ -1,0 +1,123 @@
+= Upgrade to Anypoint Platform Private Cloud, Version 2.0
+
+This topic provides information about upgrading Anypoint Platform Private Cloud Edition to the most recent version. This version supports the following migration paths:
+
+[%header%autowidth.spread]
+|===
+| Base Version | Intermediate Versions | Target Version | Comments
+| 1.7.x | N/A | 2.0 | Direct upgrade is supported
+| 1.6.x | 1.7.1 | 2.0 | Must upgrade to version 1.7.1
+| 1.5.x | 1.6.1, 1.7.1 | 2.0 | Must upgrade to 1.6.1, then 1.7.1 before upgrading to 2.0.
+|===
+
+See link:/anypoint-private-cloud/v/1.6/upgrade[About Migrating Anypoint Platform Private Cloud Edition] for information on upgrading to version 1.6.1. See link:/anypoint-private-cloud/v/1.7/upgrade[About Migrating Anypoint Platform Private Cloud Edition] for information on upgrading to version 1.7.1.
+
+[WARNING]
+During the migration process, there will be some downtime as each node is updated. 
+
+== Application Upgrades
+
+The procedures in this topic describe how to migrate Anypoint Platform and the Anypoint Private Cloud edition infrastructure. You must also upgrade your applications to work with the new version of Anypoint Platform. Contact your customer success representative for more information.
+
+== Prerequisites
+
+Before migrating, ensure that you have performed and met the following prerequisites:
+
+* Perform a backup of your system as described in link:backup-and-disaster-recovery[About Backup and Recovery]. If you are upgrading from an older version that requires multiple intermediate upgrades you must backup each intermediate version before proceding to the next.
+
+* Anypoint Private Cloud, version 2.0 requires that you have an NFS server installed and configured. Ensure that this is installed before beginning the upgrade. See link:/anypoint-private-cloud/v/2.0/prereq-hardware[Private Cloud Edition Hardware Requirements]
+
+* Ensure that your environment meets all of the system and network requirements described in link:/anypoint-private-cloud/v/2.0/prereq-workflow[Workflow: Install and Verify Prerequisites for Physical Servers]
+
+* Enable TCP ports `53`, `3011`, `3012` intra-node to allow communication with the database cluster.
+
+* Ensure you have permission to run the `sudo` command on the node where you launch the migration tool.
+
+* Ensure the `kubectl` command is available in the node where you are performing the migration. To verify that `kubectl` is installed, run the following:
++
+----
+$ sudo gravity enter
+$ kubectl
+----
+
+== Procedure
+
+. Obtain a link to the installer from your customer success representative.
+
+. Use `ssh` to login to the master node of your cluster.
++
+In a 3-node environment, all nodes are master nodes. To find the master nodes in a 6-node environment, run the following command:
++
+----
+kubectl get node --show-labels | grep gravitational.io/k8s-role=master
+----
++
+By performing these procedures from the master node, the upgrade scripts are able to update the entire platform.
+
+. Uncompress the application archive.
++
+----
+tar -xvf anypoint-2.0.0-installer.tar.gz
+----
+
+. Navigate to the `anypoint-2.0.0` directory, then run the upload script.
++
+----
+cd anypoint-2.0.0
+sudo ./upgrade
+----
++
+This command updates the platform to the current version and restarts each pod in the cluster.
++
+----
+$ sudo ./upgrade
+----
++
+This command produces output similar to the following:
++
+----
+-> initializing upload
+-> uploading update package
+importing anypoint:2.0.0
+Thu Aug 23 09:36:30 UTC	Synchronizing application with Docker registry x.x.x.xxx:5000
+Thu Aug 23 09:44:27 UTC	Synchronizing application with Docker registry x.x.x.xxx:5000
+Thu Aug 23 09:51:29 UTC	Synchronizing application with Docker registry x.x.x.xxx:5000
+Thu Aug 23 09:58:23 UTC	Application has been uploaded
+updating anypoint from 1.7.1 to 2.0.0-xxxxxxxxxxxx
+update operation (d077277f-3c69-4336-82bf-bd8b428ae202) has been started
+the cluster is updating in background
+----
++
+Depending on your network configuration, this command may take a while to complete. Wait until the command finishes before proceeding to the next step.
+
+. Verify that the migration was successful by performing one of the following:
++
+* Run the following command from the node where you performed the upgrade:
++
+----
+$ sudo gravity enter
+$ kubectl get pods
+----
++
+* Login to the Ops Center at the following URL:
++
+----
+https://{platform-host}:9500
+----
++
+[WARNING]
+Before accessing Anypoint Platform, ensure that you configure your NSF server s described in the following step. Failure to configure NFS before accessing the platform may result in data loss.
+
+. Configure Anypoint Private Cloud to use your NFS server.
++
+After upgrading Anypoing Private Cloud, you configure it to use the required NFS server.
++
+.. From Anypoint Platform, select *Access Management*.
+.. Click *NFS Settings*.
+.. Enter the domain name of your NFS server.
+.. Enter the path to your NFS server.
+.. Click *Save*.
+.. Click *Test NFS Server* to test that your NFS server is configured correctly.
+
+
+

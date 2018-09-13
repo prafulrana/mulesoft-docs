@@ -91,7 +91,7 @@ clipboard. Then after you log back in, you can paste the content back into the p
 == Markdown Notes
 
 * Anypoint Exchange uses GitHub Markdown. Everything works in GitHub Markdown except for syntax highlighting, which is not supported in Exchange.
-* Raw HTML code is not supported.
+* Basic HTML 5 code elements are supported in Markdown, such as div, button, a, ul, ol, table, p, span, pre, and code.
 * Insert a link: `+[MuleSoft.com](http://www.mulesoft.com)+` or:
 +
 [source,xml,linenums]

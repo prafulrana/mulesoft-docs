@@ -1,34 +1,38 @@
 = Choice Router
+:imagesdir: ./_images
 
-The Choice flow control component dynamically routes execution based on the contents of its input. It adds conditional processing to a flow, similar to an `if`/`then`/`else` code block in most programming languages.
+The Choice router dynamically routes messages through a flow according to a set of DataWeave expressions that evaluate message content. Each expression is associated with a different routing option. The effect is to add conditional processing to a flow, similar to an `if`/`then`/`else` code block in most programming languages.
 
-A Choice flow control component uses expressions written in DataWeave language to evaluate the content of the input. It then routes to the first option that matches the expression (evaluates to `true`).
-
-* A When (`when`) block is executed when the input matches its condition.
-
-* The Otherwise (`otherwise`) block is executed by default if none of the conditions match the When block.
-
+.Schematic diagram of a Choice router with three options, one being the default option
 image::component-choice-schematic.png[Choice Router Schematic]
-
-Here, the top routing conditions are set by `when` blocks, while the default is set by an `otherwise` block.
 
 == Example
 
-In this simple example, the Choice router is returns a message in one of three languages depending on the value of a `language` variable in the Mule event.
+You can use Anypoint Studio to download the example project _Content-Based Routing_ from Anypoint Exchange. This project presents a working example of a flow that uses the Choice router.
 
-image::component-choice-example.png[Choice Router Example]
+When you run the project as a Mule application, the application performs the following actions:
 
-Note that you can provide a custom name to each condition, which only affects  what you see in the editor, not the behavior of the app.
+1. Listens for messages.
+1. Passes messages to a Set Variable component that sets the variable `language` to the language that is passed in the message by the parameter `language`.
+1. Uses a  Choice router to find out whether each message contains a `language` attribute. The presence and value of this attribute determine how the Choice router routes the message:
 
-The configuration for this router shows the DataWeave used for the conditional processing:
+  - If the value is `French`, the router routes the message to a Set Payload component that is named _Reply in French_. This latter component returns the message `Bonjour!` to the requester.
+  - If the value is `Spanish`, the router routes the message to a Set Payload component that is named _Reply in Spanish_. This latter component returns the message `Hola!` to the requester.
+  - If the message contains no `language` attribute, the router routes the message to the default path, which is a subflow that:
 
-* `#[vars.language == 'french']`
-* `#[vars.language == 'spanish']`
-* `Default` to reply in English.
+    1. Logs the message "No language specified. Using English as a default." to the console
+    1. Sets the value of `language` to `English`.
+    1. Returns the message `Hello!`.
 
-image::component-choice-config.png[Choice Router Configuration]
+The example project demonstrates that, when you are planning to route messages in a flow by using a Choice router, there are four aspects to planning that you need to consider:
 
-The components within the router set the value of the response. So, if the value of the `language` variable is `spanish`, the output might be `Hola!` instead of the French or English greetings.
+* The content that the Choice router evaluates to determine how it routes messages
+* The number of routes
+* The default routing option
+* The processing that the flow performs for each routing option
+
+To download and open this example project while you are in Anypoint Studio, click the Exchange icon in the upper-left corner. Then, in the window that opens, log into Anypoint Exchange and search on the name of the project.
+
 
 == See Also
 

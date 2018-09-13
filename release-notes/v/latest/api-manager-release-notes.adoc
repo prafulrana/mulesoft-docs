@@ -1,8 +1,6 @@
 = API Manager Release Notes
 :keywords: release notes, apis, anypoint platform for apis, anypoint platform
 
-*June 2018*
-
 API Manager release notes include information about changes, new features, improvements, and resolved issues in releases of API Manager.
 
 *Note:* Only API Manager 2.x can manage Mule 4 APIs.
@@ -14,6 +12,23 @@ Anypoint Platform supports the following browsers:
 * Firefox (latest version)
 * Chrome (latest version)
 * Internet Explorer 11 and newer
+
+== 2.2.5
+
+*August 30, 2018*
+
+This release provides this new feature:
+
+* User-defined ports for CloudHub deployments
+* Added "Manage Runtime Fabric" proxy link
+* Auto populate implementation URI from Exchange
+* Support for Analytics chart to every granular permission
+
+=== Fixed in This Release
+
+* Bug when users couldn't add tags
+* Bug when users with custom roles weren't receiving email notifications for API access 
+
 
 == 2.2.4
 

@@ -1,11 +1,21 @@
 = MongoDB Connector Release Notes
 :keywords: mongo db, release notes, connector
 
-*June 2018*
+*September 2018*
 
 _Select_
 
 Mule supports MongoDB integration by using the MongoDB Java Driver.
+
+== 5.2.0
+
+*September 4, 2018*
+
+=== New Features
+
+* Added the new operation 'Execute Generic Command' to run any MongoDB command using the connector.
+This command is supplied as a parameter in the form of a MongoDB document.
+* MongoDB Java Driver Update - The connector has been updated with the MongoDB Java Driver v3.8.0.
 
 == 5.1.1
 

@@ -909,6 +909,13 @@ globalConfiguration:
     password: "examplePassword"
 ----
 
+== Known Issues
+
+[%header,cols="15a,85a"]
+|===
+|Issue |Description
+| SE-8011 | Agent setup returning '407 Proxy Authentication Required' when passing proxy information during setup.
+|===
 
 == See Also
 

@@ -1,6 +1,36 @@
 = Java Module Release Notes for Mule 4
 :keywords: mule, Java, module, release notes
-// Product_Name Version number/date Release Notes
+
+== 1.2.0
+
+*September 6, 2018*
+
+=== New Features and Enhancements
+
+* It's now possible to configure the Output MimeType of the Invoke and Invoke Static
+Operations.
+* Improved error handling, the connector used to not show the real error that
+occurred when executing Java methods.
+* In the extreme case where two parameters have the same simple name, such as
+`some.Pojo` and `other.Pojo` the full qualifier name can be used to avoid issues.
+
+=== Fixed Issues
+
+[%header,cols="15a,85a"]
+|===
+|Issue |Description
+
+| https://www.mulesoft.org/jira/browse/MULE-15283[MULE-15283] |  JavaModule: Support output MimeType parameter for runtime inference
+| https://www.mulesoft.org/jira/browse/MULE-15540[MULE-15540] |  Java Module: Improve Error cause propagation
+| https://www.mulesoft.org/jira/browse/MULE-15262[MULE-15262] |  Java Module: does not propagate execution error
+| https://www.mulesoft.org/jira/browse/MULE-15461[MULE-15461] |  Java Module invokeStatic declares an error that is never thrown
+| https://www.mulesoft.org/jira/browse/MULE-15009[MULE-15009] |  JavaModule: Support full qualifier name for parameter types to identify methods
+| https://www.mulesoft.org/jira/browse/MULE-15076[MULE-15076] |  Migrate JavaModule tests to MTF
+| https://www.mulesoft.org/jira/browse/MULE-15263[MULE-15263] |  Java Module: improve method not found error message.
+| https://www.mulesoft.org/jira/browse/MULE-15538[MULE-15538] |  Java Module: 'new' operation does not declare INVOCATION error
+| https://www.mulesoft.org/jira/browse/MULE-15597[MULE-15597] |  Java Module: Fail to extract exception cause with default value
+|===
+
 == 1.1.1
 
 *May 11, 2018*

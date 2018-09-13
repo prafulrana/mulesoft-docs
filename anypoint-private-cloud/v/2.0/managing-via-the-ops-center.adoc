@@ -1,0 +1,232 @@
+= Manage Anypoint Platform Private Cloud Edition Using Ops Center
+
+This topic describes how to use the Ops Center to manage and monitor the Anypoint Platform Private Cloud Edition. The Ops Center is a web-base management tool that enables you to perform the following types of tasks:
+
+* Add and remove servers
+* View logs and configure log forwarding
+* Monitor system stability and performance
+
+== Accessing Ops Center
+
+. Go to the following URL:
++
+----
+https://{platform-host}:9500
+----
+
+. Enter email and password of the admin user that you created during installation.
+
+
+== Adding Additional Servers
+
+Adding servers enables you to scale up your cluster, even after the installation is complete.
+
+. Login to Ops Center.
+
+. Click the Servers tab, then click the Add Existing button.
+
+. Select the type of node you want to add. 
++
+The nodes available depend on the number of nodes in your installation.
+
+. Click Continue.
++
+Ops Center displays a command similar to the following:
++
+----
+curl -s --tlsv1.2 --insecure "https://172.31.48.9:3009/t/8402020736a8a04dda29bc81dfcd5211/node" | sudo bash
+----
++
+
+. Run this command on the machine where you are installing the new server.
++
+	* You must run this command from an account that has root access.
+	* You can only perform this installation on one server at a time.
++
+After performing this command, the server is displayed in a list in Ops Center. 
+
+. If necessary, specify the IP address and devices.
+
+. Select the server, then click Start Installation to begin installation of the new server.
+
+== Removing a Server
+
+You can remove individual servers from the cluster where the platform is installed. 
+
+[WARNING]
+Deleting a server also removes any applications that are deployed on the server.
+
+. Login to Ops Center.
+. Click the Servers tab
+. Click the IP address of the server you want to delete, then select Delete.
+. Confirm that you want to delete the server.
+
+== Configuring Log Forwarding
+
+Anypoint Platform Private Cloud Edition enables you to forward server-level log data. Log forwarding is designed to forward your logs to a local 3rd party log solution. Forwarding log data to a cloud-based service, like Splunk Cloud, is not supported.
+
+Anypoint Platform uses `rsyslog` to handle logging. To forward these logs to remote hosts perform following:
+
+. Login to Ops Center.
+
+. In the upper right-hand corner, click the admin user name.
++
+image:ops_center_settings.png[]
+
+. Choose Settings, then click the Logs tab.
+
+. Select the protocol you want to use.
+
+. Enter the Destination IP address and port, then click Add.
+
+== Monitoring Stability and Performance
+
+The Ops Center enables you to view data about the stability and performance of the platform.
+
+Metrics dashboards are available for the these application components:
+
+* Anypoint Services
+* Cluster
+* Object Store
+* Pods
+* PostgreSQL
+* Redis
+
+High-resolution metrics are stored for a default period of 30 days. Other metrics are retained from a period of 6 months up to 5 years.
+
+=== Viewing Metrics
+
+. Login to Ops Center.
+. Click the Monitoring tab.
++
+By default, Ops Center displays the Cluster dashboard.
+
+When viewing a dashboards, you can navigate through it by selecting from a series of dropdown menus at the top of the section. The options available depend on the selected dashboard. For example, in the *Pods* dashboard you can select a `namespace` and a `podname`.
+
+
+=== Changing the time scale displayed in the charts
+
+To change the time scale displayed in the charts:
+
+. Click the currently selected time scale on the top-right.
++
+. Select a quick option or provide start and end dates.
+
+
+=== Anypoint Services Dashboard
+
+The *Anypoint Services* dashboard displays metrics for the different sub-components of the platform, including exchange, API notebooks, or the home page. You can filter data by a specific microservice.
+
+This dashboard displays the following metrics:
+
+* Processor
+* Memory
+* Network
+* Filesystem
+
+Each of these metrics are displayed by service.
+
+=== Cluster Information Dashboard
+
+This dashboard shows metrics for the various nodes that make up your platform cluster. You can filter data by `nodename`.
+
+This dashboard displays the following metrics:
+
+* Overall CPU Usage
+* CPU Usage by Node
+* Individual CPU Usage
+* Memory Usage Usage by Node
+* Individual Memory Usage
+* Overall Cluster Network Usage
+* Network Usage by Node
+* Individual Node Network Usage
+* Overall Cluster Filesystem Usage
+* Filesystem Usage by Node
+* Individual Node Filesystem Usage
+
+These metrics have different scopes, depending on the context:
+
+* Overall metrics show an aggregate number for the entire set of nodes.
+* Metrics that are _by node_ display each node as a separate curve on the same chart.
+* Individual node metrics only display it for the node that you selected in the *nodename* dropdown at the top of the section.
+
+
+=== Object Store Dashboard
+
+The *Object Store* dashboard displays data about the different nodes that make up the object store. It includes the following metrics:
+
+* Node Status
+* Read/Write Requests (in requests per second)
+* Read/Write Latency
+* Active Connections
+* Unavailable Exceptions
+* Disk Space Used
+
+Metrics that deal with Read/Write values display read and write values as separate curves.
+
+=== Pod Dashboard
+
+The *Pod* dashboard displays data for the individual docker containers running different services of the platform. You can filter data by `namespace` or `podname`.
+
+This dashboard displays the following metrics:
+
+* Individual CPU Usage
+* Individual Memory Usage
+* Individual Network Usage
+* File system Usage
+
+All these metrics are displayed for the selected `namespace` and `podname`.
+
+
+=== PostgreSQL Dashboard
+
+The *PostgreSQL* dashboard displays data for the PostgreSQL server included in the platform. It displays the following metrics:
+
+* Activity per type
+* Cache Hit Ratio
+* Active Connections
+* Buffers
+* Conflicts/Deadlocks
+* PostrgreSQL Containers CPU Usage per Pod
+
+Activity per type displays different curves for rows fetched, returned, inserted, updated and deleted, at the level of time granularity that you choose.
+
+
+== Downloading Data
+
+To download the data displayed in this section as a JSON:
+
+. Click the gear icon at the top of the Ops Center.
+. Click *Export*
+
+image:managing-via-the-ops-center-f3b1c.png[]
+
+Alternatively, you can select *Save as...* to download this file with a custom name. You can also pick the *View JSON* option to view this data without downloading it.
+
+== Resetting Your Password
+
+To change the password required to log into the Ops Center:
+
+. Enter the gravity utility:
++
+This utility is added during the platform installation.
++
+----
+sudo gravity enter
+----
+
+. Reset the password using the following command:
++
+----
+gravity site --insecure reset-password
+----
++
+This command returns the administrator email and password, for example:
++
+----
+password for admin@example.com has been reset to: xxxxxxxxx
+----
+
+== See Also
+
+* link:/anypoint-private-cloud/v/2.0/prereq-workflow#device-requirements[Device Requirements]

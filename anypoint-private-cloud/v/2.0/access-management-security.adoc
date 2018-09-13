@@ -1,0 +1,34 @@
+= Configure Security for Anypoint Private Cloud
+
+Using Access Management, you can configure Anypoint Platform to use a certificate to ensure secure communication within the platform. You can also provide a custom cipher and DH groups for the key exchange method, if required. 
+
+When you replace or change the certificate, Anypoint Platform restarts the nginx server.
+
+image::on-prem-features-5f98d.png[]
+
+. Create a certificate.
++
+You can use a tool like OpenSSL to create your certificate. To work with Anypoint Platform, your certificate must be in an `nginx` compatible format. The certificate must contain the domain name of your installation as the CN (Common Name) and as the SAN (Subject Alternative Name).
+
+. From Anypoint Platform, select Access Management.
+. In the left navigation bar, click Security.
+. In the Certificate field, click Browse to select the certificate on your local system.
+. In the Key field, click Browse button to select the private key for your certificate.
+. Click the Save.
+. Optionally, you can upload your own cipher and Diffie-Hellman group file.
++
+This provides additional security for Anypoint Platform. However, this step is optional. In most environments you do not need to use this setting.
+
+.. Deselect *Use default ciphers and DH Group*.
+.. Enter a set of ciphers from the list of valid nginx ciphers. If you are using Open SSL, you can view this list by running the `openssl ciphers` command. The cipher you enter must be in an `nginx` compatible format as shown in the following example.
++
+ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384
+
+.. Generate `dhparam.pem` (the Diffie-Hellman group file) using the following `openssl` command:
++
+----
+openssl dhparam 2048 -out dhparam.pem
+----
+
+.. Upload the `dhparam.pem` file from your system.
+

@@ -1,14 +1,19 @@
 = HL7 EDI Connector Release Notes
 
-*January 2018*
+*August 2018*
 
-_Premium_  
+_Premium_
 
-== 4.0.0
+== 4.0.1
 
-*January 31, 2018*
+*August 30, 2018*
 
-This release adapts HL7 for use with Mule 4 and Studio 7.
+=== Fixed Issues
+
+* Added delimiter character configuration support
+* Corrected writer to use delimiters from configuration if not supplied in write data map
+* Fixed issue with write exceptions being lost
+* Corrected ACK schema to use list for repeating composite values where appropriate.
 
 === Compatibility
 
@@ -21,6 +26,16 @@ HL7 EDI Connector v4.0.0 is compatible with the following:
 |Anypoint Studio |7.1.0 and later
 |HL7 |v2.1, v2.2, v2.3.1, v2.3, v2.4, v2.5, v2.5.1, v2.6, 2.7, 2.7.1, 2.8, 2.8.1
 |===
+
+=== Known Issues
+
+* HL7 EDI Connector doesn't support Design Center.
+
+== 4.0.0
+
+*January 31, 2018*
+
+This release adapts HL7 for use with Mule 4 and Studio 7.
 
 === Known Issues
 

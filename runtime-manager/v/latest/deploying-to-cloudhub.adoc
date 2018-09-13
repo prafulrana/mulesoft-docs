@@ -159,7 +159,7 @@ There are worker sizes with different compute and memory capacities:
 |Worker Size |Heap Memory
 |0.1 vCores |500 MB
 |0.2 vCores |1 GB
-|1 vCores |1.5 GB
+|1 vCore |1.5 GB
 |2 vCores |3.5 GB
 |4 vCores |7.5 GB
 |8 vCores |15 GB
@@ -175,14 +175,16 @@ Workers running on fractional vCores (0.1 vCores and 0.2 vCores) have the abilit
 
 Applications with greater storage needs (verbose logging etc.) should use one of the larger worker sizes - 2 vCores or 4 vCores, which have additional storage as follows:
 
-* 1 vCores workers have an additional 4 GB of SSD storage mounted on /tmp
-* 2 vCores workers have an additional 32 GB of SSD storage mounted on /tmp
-* 4 vCores workers have an additional 80 GB of storage, mounted as two volumes on /tmp (40 GB), and /opt/storage (40 GB)
-* 8 vCores workers have an additional 160 GB of storage, mounted as two volumes on /tmp (80 GB), and /opt/storage (80 GB)
-* 16 vCores workers have an additional 320 GB of storage, mounted as two volumes on /tmp (160 GB), and /opt/storage (160 GB)
+* 1 vCore workers have an additional 4 GB of storage
+* 2 vCores workers have an additional 32 GB of storage
+* 4 vCores workers have an additional 80 GB of storage
+* 8 vCores workers have an additional 160 GB of storage
+* 16 vCores workers have an additional 320 GB of storage
 
 [IMPORTANT]
 The workers with additional storage as listed above are only available for Mule runtimes 3.6.2 or later, or API Gateway 2.0.2 or later.
+[NOTE]
+It is recommended to access the additional storage at /tmp.
 
 To select the worker size and amount of each, select options from the drop-down menu to configure the computing power you need:
 

@@ -259,7 +259,7 @@ You can use this connector in Anypoint Studio by adding it as a dependency in yo
 . Open your Mule project in Anypoint Studio.
 . Add the connector as a dependency in the pom.xml file:
 +
-[source, linenums]
+[source,xml,linenums]
 ----
 <dependency>
   <groupId>com.mulesoft.connectors</groupId>
@@ -395,7 +395,7 @@ SAS Tokens List: (Optional) The list of security tokens the connector needs to a
 
 SAS Tokens Provider: (Optional) An Spring bean reference implementing the `org.mule.modules.microsoftservicebus.connection.providers.SharedAccessSignatureProvider` interface. If you set an instance of a token provider here, it is your responsibility to provide a fresh token for each URI the connector requires access to (according to your security profiles). In this case each time a token has expired the connector requests for a new one, which is provided by your implementation, and reconnection to the target URI occurs seamlessly. 
 
-Max Connections: (Optional) Maximum number of connections to keep in pool in order to be reused by producer. If set to "-1" it creates a new connection everytime.
+Max Connections: (Optional) Maximum number of connections to keep in pool in order to be reused by producer. If set to "-1" it creates a new connection every time.
 
 NOTE: At least one of the optional settings shown above must be provided.
 
@@ -526,7 +526,7 @@ payload]]></ee:set-payload>
 </mule>
 ----
 
-== Use Case: Azure Serice Bus Management
+== Use Case: Azure Service Bus Management
 
 image:ms-service-bus-demo-2.png[Azure Management Studio 7 Flow]
 

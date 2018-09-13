@@ -1,0 +1,19 @@
+= About Anypoint Platform Private Cloud Edition
+
+This topic describes the Anypoint Platform Private Cloud Edition. The Anypoint Platform Private Cloud Edition provides the following application components available in the online version of Anypoint Platform:
+
+* Runtime Manager: enables you to track and manage your deployed Mule applications
+* API Manager: enables you to manager your registered APIs
+* Anypoint Exchange: enables your organization to share various assets that can be reused across integration projects.
+
+Anypoint Platform Private Cloud Edition enables you to run and manage Mule applications on your local servers, using the security policies your system requires. When running Anypoint Platform Private Cloud Edition, MuleSoft systems do not interact with your data. You configure and run the software and maintain all storage, processing and transmission of data.
+
+The Anypoint Platform Private Cloud Edition uses Docker and Kubernetes to provide built-in high availability and scalability. Although the installation wizard enables you to install the platform without understanding Docker or Kubernetes, you must understand how they work to manage and troubleshoot the platform.
+
+== See Also
+
+* link:/anypoint-private-cloud/v/2.0/prereq-workflow[Workflow: Install and Verify Prerequisites for Physical Servers]
+* link:prereq-workflow[Workflow: Install and Verify Prerequisites]
+* link:/runtime-manager/index[Runtime Manager]
+* link:/anypoint-exchange[Anypoint Exchange]
+* link:/api-manager/v/2.x/index[API Manager]

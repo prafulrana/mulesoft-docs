@@ -1,0 +1,37 @@
+= Workflow: Verify Prerequisites for Physical Servers
+
+This topic describes the workflow for verifying that your environment meets the minimum system requirements to install Anypoint Platform Private Cloud Edition on a physical server.
+
+. Contact your customer success representative to obtain a product license for Anypoint Platform Private Cloud Edition.
+
+. link:/anypoint-private-cloud/v/2.0/prereq-hardware[About Hardware and Device Requirements for Anypoint Private Cloud]
++
+Review the minimum hardware and device requirements for Anypoint Platform Private Cloud Edition.
++
+[WARNING] 
+If your system does not meet all of the minimum system requirements, you cannot install Anypoint Platform Private Cloud Edition.
+
+. link:/anypoint-private-cloud/v/2.0/prereq-network[About Private Cloud Edition Network Requirements]
++
+Review the minimum network requirements require to run Anypoint Platform Private Cloud Edition.
+
+. link:/anypoint-private-cloud/v/2.0/prereq-verify-disk[To Verify Hardware Requirements]
++
+Perform theses procedures to verify that your disk and network performance meets the minimum requirements.
+
+. link:/anypoint-private-cloud/v/2.0/prereq-gravity-check[To Verify System Requirements for Anypoint Private Cloud on a Physical Server]
++
+Run the `gravity check` script to verify that your system meets the minimum requirements required to install Anypoint Platform Private Cloud Edition.
+
+. (Optional) Create a Virtual Machine
++
+If you are installing Anypoint Private Cloud on a physical server, you must install and configure a virtual machine. Only VMware and Bare Metal running RHEL are supported. See the documentation from your vendor for more information.
+
+. link:./prereq-firewalld-forwarding[To Enable Forwarding When Using firewalld]
++
+If you are running Red Hat Enterprise Linux (RHEL), 7.3 using firewalld, you must enable forwarding.
+
+. Ensure that the clocks on all servers are synchronized. Unsynchronized clocks can cause problems with platform communications.
+
+
+After installing and verifying these prerequisites, you are ready to perform the installation. See link:install-workflow[About Anypoint Platform Private Cloud Edition Installation].

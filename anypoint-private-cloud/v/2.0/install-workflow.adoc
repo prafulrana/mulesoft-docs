@@ -1,0 +1,13 @@
+= Anypoint Private Cloud Installers
+
+Anypoint Platform Private Cloud Edition provides two installers.
+
+* GUI-based installer: Walks you through a set of wizard pages that enable you to specify configuration options.
+* Command line installer: Enables you to perform the install 
+
+== See Also
+
+* link:install-installer[To Run the Anypoint Platform Private Cloud Edition Installer]
+* link:install-auto-install[To Install Anypoint Platform Private Cloud Using the Automated Installer]
+
+

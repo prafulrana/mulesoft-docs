@@ -1,0 +1,35 @@
+= Mule Maven Plugin 3.1.7 Release Notes
+
+Mule Maven Plugin 3.1.7 is mainly focused in fixing bugs.
+
+== Hardware and Software Requirements
+
+Hardware and Software Requirements
+
+* Microsoft Windows 8+
+* Apple Mac OS X 10.10+
+* Linux (tested on Ubuntu 15)
+* Java 8
+* Maven 3.3.3, 3.3.9, 3.5.0
+
+== Compatibility
+
+* Mule 4.x
+* Anypoint Studio 7.x
+
+== Features and Functionality
+
+No new feature was introduced on this release.
+
+== Fixed Issues
+
+* MMP-411 - ARM deployment version verification fails to serverGroup
+
+== Enhancement Request
+
+* MMP-338 - Fail build when cloudhub/arm deployment has failed
+
+== Support
+
+* link:http://forums.mulesoft.com/[MuleSoft’s Forum].
+* link:http://www.mulesoft.com/support-login[MuleSoft’s Customer Portal].

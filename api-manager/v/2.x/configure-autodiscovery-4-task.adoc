@@ -18,6 +18,13 @@ image::api-id.png[align=center]
 
 This API ID is required by the Autodiscovery element to identify the API to which you want to pair your application.
 
+== Configuring API Manager
+
+This step is necessary to instruct API Manager to use your deployed Mule application as the API proxy itself.
+
+. For Managing type, select Basic Endpoint.
+. Add the Implementation URI that points to the deployed Mule application.
+. Select the checkmark `Check this box if you are managing this API in Mule 4 or above`.
 
 == Configuring Anypoint Platform Organization Credentials in Mule Runtime
 //_TODO: Remove this after DOCS-2581 is done.
@@ -59,6 +66,18 @@ wrapper.java.additional.<n>=-Danypoint.platform.client_secret=XXXXXXXX
 +
 In these arguments you can pass both organization, or environment credentials.
 
+==== Runtime Manager for your Deployed Application.
+
+. Navigate to Runtime Manager in Anypoint Platform.
+. Access the Properties section of the deployed application. If the application is being deployed for the first time, the Properties section will appear during the deployment configuration.
+. In the Properties section, add the following properties:
++
+[source,linenums]
+----
+anypoint.platform.client_id=XXXXXXXX
+anypoint.platform.client_secret=XXXXXXXX
+----
+
 ==== Anypoint Studio 7
 
 You can also pass these credentials in Anypoint Studio 7:
@@ -68,7 +87,6 @@ You can also pass these credentials in Anypoint Studio 7:
 . Type in the client ID and secret under Environment Credentials
 +
 image::configure-autodiscovert-4-studio.png[align=center]
-
 
 == Configuring the Autodiscovery Element in Your Mule Application
 

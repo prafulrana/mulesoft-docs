@@ -63,6 +63,8 @@
 *** link:/anypoint-studio/v/7.2/datasense-perceptive-flow-design-concept[About Perceptive Flow Design]
 *** link:/anypoint-studio/v/7.2/datasense-explorer[About DataSense Explorer]
 
+** link:/anypoint-studio/v/7.2/import-export-packages[Importing and Exporting Projects]
+*** link:/anypoint-studio/v/7.2/import-project-exchange[To Import a Mule Project from Exchange] 
 ** link:/anypoint-studio/v/7.2/import-api-def-dc[To Import an API Definition from Design Center]
 
 ** link:/anypoint-studio/v/7.2/transform-message-component-concept-studio[About Transform Message Component]

@@ -41,6 +41,7 @@
 *** link:/munit/v/2.1/verify-message-processor[About Verify Event Processor]
 *** link:/munit/v/2.1/spy-processor-concept[About the Spy Event Processor]
 
+** link:/munit/v/2.1/runtime-patching[Runtime Patching]
 // QQ: Utils??
 //** link:/munit/v/2.1/munit-utils[Utilities]
 //*** link:/munit/v/2.1/munit-database-server[Database Server]
