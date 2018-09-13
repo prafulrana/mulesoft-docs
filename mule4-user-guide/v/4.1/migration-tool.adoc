@@ -36,6 +36,7 @@ deliver a fully functional app. Some additional steps are required.
 Those steps include testing and can also include:
 
 * Manual migration of unsupported components.
+* Manual migration of complex MEL expressions to DataWeave.
 * Manual migration of complex DataWeave transformations.
 * Prior migration of the DataMapper with the _DataWeave_ Migration tool,
 _before_ running the Mule Migration tool.
@@ -87,12 +88,12 @@ time.
 
 The Mule Migration tool supports the following migrations:
 
-* Mule apps only (no domains or policies are supported)
+* Mule apps and domains only (no policies are supported)
 * MEL to DataWeave expressions (simple cases only)
 * DataWeave component to `ee:transform` (DataWeave 1.0 to DataWeave 2.0)
-* Connectors: HTTP, Database, Web Service Consumer
+* Connectors: HTTP, Database, Web Service Consumer, ObjectStore
 * Modules: Validations, Scripting (DSL only, no migration of the script itself)
-* Transports: HTTP, JMS, File, VM (request-reply not supported)
+* Transports: HTTP, JMS, File, VM
 * Components: Cache, Batch, For Each, Choice, Scatter-Gather, Poll
 * Error Handling, Transactional scope
 * Properties and secure properties
@@ -154,18 +155,12 @@ To manually migrate them, see link:migration-tool-procedure#migrating_unsupporte
 
 For future releases, we will also support these:
 
-* Attachments and multipart handling
-* DataWeave 1.0 CSV output
-* `<spring:import>` tags
-* CorrelationID handling in the JMS transport
 * Documentation on how to migrate DataMapper transformations
-* Object Stores
 * `<until-successful>`
 * `<first-successful>`
 * `<async>`
 * Security Module
 * Watermark
-* Domains
 * Email transport
 * Tracking component
 * Gzip transformers

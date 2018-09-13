@@ -50,7 +50,7 @@ for example:
 .Command-line Invocation
 [source,console,linenums]
 ----
-$ java -jar mule-migration-tool-runner-0.1.0.jar \
+$ java -jar mule-migration-tool-runner-0.2.0.jar \
  -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-project \
  -muleVersion 4.1.3 \
  -destinationProjectBasePath /Users/me/my-dir/my-migrated-project
@@ -117,6 +117,35 @@ This step includes removing Compatibility module components from the project XML
 . Run any migrated MUnit tests.
 +
 See <<munit, Testing the Migrated App>>.
+
+[[domains]]
+== Domains
+
+For domains and applications included in that domain, a migrator execution is needed for each artifact (the domain and each app).
+
+. For the migration of the domain, run the migrator as you would for an app:
++
+.Command-line Invocation
+[source,console,linenums]
+----
+$ java -jar mule-migration-tool-runner-0.2.0.jar \
+ -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-domain-project \
+ -muleVersion 4.1.3 \
+ -destinationProjectBasePath /Users/me/my-dir/my-migrated-domain-project
+----
++
+. For each application that belongs to that domain run the migrator with the additional parameter `parentDomainBasePath` pointing to the unmigrated parent domain:
++
+.Command-line Invocation
+[source,console,linenums]
+----
+$ java -jar mule-migration-tool-runner-0.2.0.jar \
+ -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-project \
+ -parentDomainBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-domain-project \
+ -muleVersion 4.1.3 \
+ -destinationProjectBasePath /Users/me/my-dir/my-migrated-project
+----
++
 
 [[options]]
 == Command-line Options

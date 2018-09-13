@@ -85,12 +85,6 @@ output application/xml
 </users>
 ----
 
-//.Definition
-
-[source]
-----
-String {cdata: true}
-----
 
 [[dw_type_dates]]
 == Date and Time (dw::Core Types)
