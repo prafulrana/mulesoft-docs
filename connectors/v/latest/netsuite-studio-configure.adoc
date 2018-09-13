@@ -1,4 +1,4 @@
-= To Configure the NetSuite Connecter in Studio 7
+= To Configure the NetSuite Connector in Studio 7
 :imagesdir: ./_images
 
 You can use this connector in Anypoint Studio by adding it as a dependency in your Mule application.
@@ -8,7 +8,7 @@ You can use this connector in Anypoint Studio by adding it as a dependency in yo
 . Open your Mule project in Anypoint Studio.
 . Add the connector as a dependency in the pom.xml file:
 +
-[source, linenums]
+[source,xml,linenums]
 ----
 <dependency>
   <groupId>org.mule.connectors</groupId>
@@ -245,4 +245,4 @@ image:netsuite-restlet-delete.png[Flow Processor 1]
 
 == See Also
 
-* Access the link:/connectors/netsuite-about[NetSuite connector].
+* Access the link:/connectors/netsuite-about[NetSuite connector]

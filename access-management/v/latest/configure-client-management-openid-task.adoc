@@ -2,7 +2,7 @@
 
 // Includes oidc-dynamic-registration.patch
 
-MuleSoft verifies support in Anypoint Platform for Okta and OpenAM v14 Dynamic Client Registration. 
+MuleSoft verifies support in Anypoint Platform for Salesforce, Okta and OpenAM v14 Dynamic Client Registration.
 
 *Note:* Update and deletion of clients created through this integration are not currently supported.
 
@@ -12,12 +12,12 @@ The following table contains examples of the URLs you need to provide, depending
 
 [%autowidth.spread]
 |===
-| URL Name | Okta Example URL | OpenAM Example URL 
-| Base | `+https://example.okta.com/oauth2/v1+` | `+https://example.com/openam/oauth2+` 
-| Client Registration | {BASE URL}/clients | {BASE URL}/connect/register 
-| Authorize | {BASE URL}/authorize | {BASE URL}/authorize 
-| Token | {BASE URL}/token | {BASE URL}/access_token 
-| Token Introspection | {BASE URL}/introspect | {BASE URL}/introspect 
+| URL Name | Okta Example URL | OpenAM Example URL | Salesforce Example URL
+| Base | `+https://example.okta.com/oauth2/v1+` | `+https://example.com/openam/oauth2+` | `+https://example.salesforce.com/services/oauth2+`
+| Client Registration | {BASE URL}/clients | {BASE URL}/connect/register | {BASE URL}/register
+| Authorize | {BASE URL}/authorize | {BASE URL}/authorize | {BASE URL}/authorize
+| Token | {BASE URL}/token | {BASE URL}/access_token | {BASE URL}/token
+| Token Introspection | {BASE URL}/introspect | {BASE URL}/introspect | {BASE URL}/introspect
 |===
 
 . Log into the master Organization in Anypoint Platform as Administrator.
@@ -40,7 +40,9 @@ The authorization header for dynamic client registration request. This is an opt
 +
 ** Okta: This value is `SSWS ${api_token}`, where `api_token` is an API token created through Okta.
 +
-** ForgeRock: This value is `Bearer ${api_token}`, where `api_token` is an API token created through ForgeRock. 
+** ForgeRock: This value is `Bearer ${api_token}`, where `api_token` is an API token created through ForgeRock.
++
+** Salesforce: This value is `Bearer ${api_token}`, where `api_token` is an API token created through Salesforce.
 +
 * Token Introspection Client: Client ID &amp; Client Secret
 +
@@ -49,6 +51,8 @@ The client ID and client secret for an existing client in your IdP capable of in
 ** Okta: This value should be a "Confidential" client.
 +
 ** ForgeRock: This value should be a "Confidential" client.
++
+** Salesforce: This value should be a "Confidential" client.
 +
 * Authorize URL
 +

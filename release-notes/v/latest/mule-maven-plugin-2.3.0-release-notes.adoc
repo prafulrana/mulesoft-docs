@@ -1,0 +1,53 @@
+= Mule Maven Plugin 2.3.0 Release Notes
+
+This release fixes several issues and major improvements for the deployment to the different environments of the platform.
+
+== Hardware and Software Requirements
+
+Hardware and Software Requirements
+
+* Microsoft Windows 8+
+* Apple Mac OS X 10.10+
+* Linux (tested on Ubuntu 15)
+* Java 8,7
+* Maven 3.3.3, 3.3.9, 3.5.0
+
+== Compatibility
+
+* Mule 3.x
+* Anypoint Studio 6.x
+
+== Features and Functionality
+
+No new feature was introduced on this release.
+
+== Fixed Issues
+
+* MMP-37 - mule-maven-plugin cloudhub redeployment fails when casing doesn't match
+* MMP-84 - Provide Support for IBM JDKs
+* MMP-101 - Deployment into CloudHub disables custom logging
+* MMP-118 - Wrong required property 'deploymentType'
+* MMP-183 - Mule Maven plugin configuration parameters not visible from IDE
+* MMP-199 - Cloudhub domain availability verifications occasionally fail
+* MMP-328 - Deployments on cloudhub through mule-maven-plugin giving error after Saturday 13 Release
+* MMP-351 - Plugin is causing that other plugins defined on app to not run
+* MMP-369 - NPE when invoking only mule:deploy goal
+* MMP-389 - File.renameTo() ocasionally fails on Windows
+
+== Enhancement Request
+
+* MMP-38 - Maven application is packaged from src dir instead of target
+* MMP-43 - As a system administrator I want to undeploy a Mule application so I can clean an environment.
+* MMP-81 - Upgrade maven api for maven plugin on mulesoft repo
+* MMP-93 - Add deployment check capabilities
+* MMP-112 - Refactor structure of org.mule.tools.maven.plugin.mule
+* MMP-117 - Revise support of Executions on the Maven lifecycle
+* MMP-196 - Create mojos related to packaging lifecycle for mule 3.x
+* MMP-333 - Migrate CH client to use V2 of the CH API
+* MMP-349 - Lib folder generation for 2.x
+* MMP-352 - Package mappings folder
+
+== Support
+
+* link:http://forums.mulesoft.com/[MuleSoft’s Forum].
+* link:http://www.mulesoft.com/support-login[MuleSoft’s Customer Portal].
