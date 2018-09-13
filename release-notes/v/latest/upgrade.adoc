@@ -62,7 +62,7 @@ NOTE: Do not store the environment name in the API Name or Version Name. After t
 
 == To Request Your Platform Upgrade
 
-The upgrade is triggered automatically at the time you schedule in the self-service portal. Access this portal from the green banner in the Anypoint Platform login. The estimated upgrade time is 15 minutes for each 50 APIs.
+The upgrade is triggered automatically at the time you schedule in the self-service portal. Access this portal from the green banner in the Anypoint Platform login. The estimated upgrade time is 15 minutes to upgrade 50 *API versions*.
 
 During this stage, API design projects and API portals are moved into their appropriate new home. API specifications and API portals are stored and versioned in Anypoint Exchange, and new projects are created for them in Anypoint Design Center. SOAP APIs or APIs without specifications are moved to Exchange only and not added to Design Center.
 
