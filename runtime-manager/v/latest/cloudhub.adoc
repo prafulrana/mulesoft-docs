@@ -15,7 +15,7 @@ Through the same link:/runtime-manager/[Runtime Manager] console that you can de
 
 
 
-== 1. Create Application for CloudHub
+== Create Application for CloudHub
 
 image:logo-app.png[app]
 
@@ -39,7 +39,7 @@ Learn what special considerations you need to keep in mind for Mule applications
 * link:/runtime-manager/developing-applications-for-cloudhub[Developing Applications for CloudHub] for a more in-depth view of these special considerations on CloudHub
 
 
-== 2. Deploy your Application to CloudHub
+== Deploy your Application to CloudHub
 
 image:logo-deploy.png[deploy]
 
@@ -74,10 +74,9 @@ The CloudHub link:/runtime-manager/virtual-private-cloud[Virtual Private Cloud (
 
 === CloudHub API
 
-If you need to automate tasks or build CloudHub into your deployment process, CloudHub has a link:https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-api[REST API] with which you can perform tasks such as manage and monitor your applications, scale your applications up or down, and more.
+To automate tasks or automatically deploy to CloudHub, use the link:https://anypoint.mulesoft.com/exchange/portals/anypoint-platform/f1e97bc6-315a-4490-82a7-23abe036327a.anypoint-platform/cloudhub-api[CloudHub REST API]. This enables you to perform tasks such as manage and monitor your applications, scale your applications, etc.
 
-
-== 3. Manage your Application
+== Manage your Application
 
 image:logo-manage.png[manage]
 
@@ -101,7 +100,7 @@ See:
 You can view the live status and detailed service history for the Runtime Manager console, platform services, and the CloudHub worker cloud on link:http://trust.mulesoft.com/[trust.mulesoft.com].
 
 
-== 4. Monitor your Application
+== Monitor your Application
 
 image:logo-monitor.png[monitor]
 
@@ -111,7 +110,7 @@ Through various tools, the Runtime Manager allows you to triage problems, view l
 
 
 
-== Other Resources
+== See Also
 
 
 * link:/runtime-manager/cloudhub-faq[CloudHub FAQ]

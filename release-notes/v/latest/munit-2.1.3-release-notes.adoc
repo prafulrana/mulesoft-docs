@@ -1,0 +1,60 @@
+= MUnit 2.1.3 Release Notes
+:keywords: munit, 2.1.3, release notes
+
+This release is focused on fixing bugs.
+
+== Hardware and Software Requirements
+
+* Microsoft Windows 8+
+* Apple Mac OS X 10.10+
+* Linux (tested on Ubuntu 15)
+* Java 8
+* Maven 3.3.3, 3.3.9, 3.5.0
+
+== Compatibility
+
+[%header%autowidth.spread]
+|===
+|Software |Version
+|Mule | Mule 4.1.2
+|Anypoint Studio | Anypoint Studio 7.1.2
+|===
+
+== Features and Functionality
+
+=== MUnit Runtime
+
+No new feature was introduced on this release.
+
+== Known Issues
+
+There are no known issues for this release.
+
+== Bug Fixes
+
+* MU-1413 - Errors in after-test are not marking test as failed
+* MU-1424 - Failure when using an expression in the ignore field
+* MU-1425 - NullPointer when expression is null, with matcher hasSize and equalTo
+* MU-1389 - No log4j configuration error message when running tests
+* MU-1392 - Spying processor inside spy produces StackOverflowError
+* MU-1419 - Spying on http request tries to create a new connection and fail
+* MU-1391 - CI not marking modules with failing MUnit tests as failed
+* MU-1440 - Mock processor does not work correctly when operation has a target output to a variable
+
+== Enhancements
+
+* MUSP-605 - Turn off offline mode when calling Remote Runner
+
+== Story
+
+There are no stories for this release.
+
+=== Anypoint Studio Plugin
+
+This release introduces MUnit Studio plugin 2.2.1.
+
+
+== Support
+
+* link:http://forums.mulesoft.com/[MuleSoft’s Forum].
+* link:http://www.mulesoft.com/support-login[MuleSoft’s Customer Portal].

@@ -37,7 +37,7 @@ Flow control changed somewhat in DataWeave 2.
 The `when otherwise` statement is replaced by `if else`, for example:
 
 .Mule 3 Example: DataWeave 1
-[source, linenums]
+[source, dataweave, linenums]
 ----
 {
     orderStatus: "complete" when flowVars.purchaseOrderStatus == "C" otherwise "incomplete"
@@ -45,7 +45,7 @@ The `when otherwise` statement is replaced by `if else`, for example:
 ----
 
 .Mule 4 Example: DataWeave 2
-[source, linenums]
+[source, dataweave, linenums]
 ----
 {
     orderStatus: if(vars.purchaseOrderStatus == "C") "complete" else "incomplete"
@@ -60,7 +60,7 @@ The `when otherwise` statement is replaced by `if else`, for example:
 Pattern matching changed in DataWeave 2. It adds the keyword `case` and `else` (instead of `default`). You also no longer separate cases with commas (`,`) since they are now explicitly separated by the `case` keyword.
 
 .Mule 3 Example: DataWeave 1
-[source, linenums]
+[source, dataweave, linenums]
 ----
 'world' match {
     :string -> true,
@@ -69,7 +69,7 @@ Pattern matching changed in DataWeave 2. It adds the keyword `case` and `else` (
 ----
 
 .Mule 4 Example: DataWeave 2
-[source, linenums]
+[source, dataweave, linenums]
 ----
 'world' match {
     case is String -> true
@@ -90,7 +90,7 @@ The `:` was removed from the type references and are now all camel case, so `:st
 In DataWeave 1.0, selecting a key-value pair from an object required you to do something like this:
 
 .Mule 3 Example: DataWeave 1
-[source,linenums]
+[source,dataweave, linenums]
 ----
 %var payload = {a: 1, b:2}
 ---
@@ -103,7 +103,7 @@ In DataWeave 2.0, the coercion is removed, and a new selector (`&`) is introduce
 //TODO: To select a key-value pair from an object or something like that?
 
 .Mule 3 Example: DataWeave 2
-[source, linenums]
+[source, dataweave, linenums]
 ----
 var payload = {a: 1, b:2}
 ---
@@ -118,7 +118,7 @@ This expression also returns `{a:1}`.
 In DataWeave 1.0, conditional key-value pairs are declared with the `when` keyword.
 
 .Mule 3 Example: DataWeave 1
-[source, linenums]
+[source, dataweave, linenums]
 ----
 {
     (a: 1) when payload.product == "Mule"
@@ -128,7 +128,7 @@ In DataWeave 1.0, conditional key-value pairs are declared with the `when` keywo
 In DataWeave 2.0, you use the `if` keyword.
 
 .Mule 4 Example: DataWeave 2
-[source, linenums]
+[source, dataweave, linenums]
 ----
 {
     (a: 1) if payload.product == "Mule"
