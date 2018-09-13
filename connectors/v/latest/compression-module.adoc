@@ -172,7 +172,7 @@ The resulting archive contains _three entries_, one named `summary.pdf` at root 
 
 ----
 
-Note that the slash (`/`) in the name of an entry indicates directory separation, so all names will be introspected to create directories inside the archive.
+Note that the slash (`/`) in the name of an entry (for example, `details/result_001.pdf`) indicates directory separation, so all names will be introspected to create directories inside the archive.
 
 ==== Archiving Errors
 
