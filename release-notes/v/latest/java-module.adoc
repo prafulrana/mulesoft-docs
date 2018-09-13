@@ -11,6 +11,7 @@
 Operations.
 * Improved error handling, the connector used to not show the real error that
 occurred when executing Java methods.
+* New functions `getRootCause` and `isCausedBy` are now available to introspect Throwables.
 * In the extreme case where two parameters have the same simple name, such as
 `some.Pojo` and `other.Pojo` the full qualifier name can be used to avoid issues.
 
