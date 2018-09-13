@@ -181,8 +181,10 @@ password="mulepassword"/>
 
 Optionally, specify the protocol and cipher suite to enable them:
 
-* 1enabledProtocols1: The protocols in the the global TLS configuration
-* 1enabledCipherSuites1: The cipher suites in global TLS configuration
+* `enabledProtocols`: The protocols in the the global TLS configuration
+* `enabledCipherSuites`: The cipher suites in global TLS configuration
+
+These values are used if there is nothing specified in the global TLS configuration, or if the values are enabled in a global TLS configuration, as described in <<Optional: Specify Protocols and Cipher Suites,Optional: Specify Protocols and Cipher Suites>>.
 
 ==== Attributes of the `trust-store` Element
 
@@ -220,9 +222,9 @@ You can configure TLS in Anypoint Studio. Set up a global TLS configuration from
 image::studio-tls-setup.png[]
 
 
-== (Optional) Specify Protocols and Cipher Suites
+== Optional: Specify Protocols and Cipher Suites
 
-When a TLS communication takes place between two systems, a negotiation determines which protocol and cipher suite are used. Optionally, administrators can specify the protocols and cipher suites to use, so that app developers can then specify which cipher suites and protocols to use in `tls:context`.
+When a TLS communication takes place between two systems, a negotiation determines which protocol and cipher suite are used. Optionally, administrators can specify the protocols and cipher suites to use, and then app developers can specify which cipher suites and protocols to use in `tls:context`.
 
 [NOTE]
 Protocols and cipher suites must be enabled in Mule Runtime and individual apps to be used. If the protocols and cipher suites aren't enabled in both places, the default Java environment protocol and cipher suites are used.
@@ -235,11 +237,11 @@ To configure protocols and cipher suites in the Mule Runtime:
 +
 ** `tls-fips140-2.conf` allows fine-tuning when Mule is running in FIPS security mode.
 +
-Open the relevant file and comment or uncomment items in the lists to manually configure the allowed cipher suites and TLS protocols. If you make no changes to these files, Mule allows the configured security manager to select cipher suites and protocols.
+Open the relevant file and comment or uncomment items in the lists to manually configure the allowed cipher suites and TLS protocols. If you make no changes to these files, Mule allows the configured security manager to select cipher suites and protocols for an app.
 
 . The list of protocols and cipher suites that the admin sets in these configuration files can then be constrained locally by what the app developer specifies in an individual `tls:context` element. The app developer specifies a subset of the configured or default values in the `tls:context` element for use by TLS. Configure the protocols and cipher suites in `enabledProtocols` and `enabledCipherSuites` in the `tls:context` element.
 
-In the `tls:context` element, you can only reference protocols or cipher suites that are included in the Mule global TLS configuration file or defaults. In `tls:context`, set `enabledProtocols` and `enabledCipherSuite` to the value `default`. After these values are set, TLS uses the following protocols and cipher suites:
+In the `tls:context` element, you can only reference protocols or cipher suites that are included in the Mule global TLS configuration file or defaults. In `tls:context`, set `enabledProtocols` and `enabledCipherSuite` for a Mule app to the value `default`. After these values are set, TLS uses the following protocols and cipher suites:
 
 * Those configured in your global TLS configuration if it exists
 * The defaults provided by your Java environment if a global TLS configuration does not exist
@@ -317,7 +319,7 @@ Do not use the `insecure` property in production environments.
 
 === Example: Adding Additional Cipher Suites and Protocol Restrictions
 
-This example enables a protocol and cipher suite.
+This example enables a protocol and cipher suite for an app, assuming a Mule admin has either specified nothing in the global TLS configuration or enabled the cipher suites and protocols being specified here.
 
 [source, xml, linenums]
 ----
