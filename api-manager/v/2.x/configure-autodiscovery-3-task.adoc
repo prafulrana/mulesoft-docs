@@ -63,7 +63,9 @@ wrapper.java.additional.<n>=-Danypoint.platform.client_id=XXXXXXXX
 wrapper.java.additional.<n>=-Danypoint.platform.client_secret=XXXXXXXX
 ----
 +
-In these arguments you can pass both organization, or environment credentials.
+You can pass either organization or business unit credentials. +
+You can also pass environment credentials, but remember that this is only valid if your organization is is a post November 2017 (API Manager 2.x) release.
+
 
 ==== Runtime Manager for your Deployed Application.
 
