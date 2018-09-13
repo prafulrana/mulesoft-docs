@@ -4,6 +4,11 @@
 The following examples will guide you through the migration of the different exception
 strategies of Mule 3 considering the new error handling components in Mule 4.
 
+IMPORTANT: Examples do not cover the migration of expressions used within the `when` attribute.
+See link:migration-mel[Migrating MEL to DataWeave] for a guide on expression migration
+and link:connectors/v/latest/java-throwable[Working With Throwables] to learn how to use the Java module
+to analyze exceptions.
+
 === Catch Exception Strategy
 
 //TODO: CLEAN UP, ELABORATE
