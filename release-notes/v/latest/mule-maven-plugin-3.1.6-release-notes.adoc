@@ -1,6 +1,6 @@
-= Mule Maven Plugin 3.1.2 Release Notes
+= Mule Maven Plugin 3.1.6 Release Notes
 
-Mule Maven Plugin 3.1.2 is mainly focused in fixing bugs.
+Mule Maven Plugin 3.1.6 is mainly focused in fixing bugs.
 
 == Hardware and Software Requirements
 
@@ -23,10 +23,7 @@ No new feature was introduced on this release.
 
 == Fixed Issues
 
-* MMP-366 - Plugin does not add manually exported resources from external jar.
-* MMP-363 - ArtifactNotFoundException: Could not find artifact org.mule.extensions:mule-core-modules-parent:pom:1.0.0 when deploying application.
-* MMP-356 - Duplicated versions of modules added to packaged application through transitive dependencies.
-* MMP-355 - Exported resources is being always auto generated.
+* MMP-408 - Cannot package an app using XML module
 
 == Enhancement Request
 
