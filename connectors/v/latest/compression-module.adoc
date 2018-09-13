@@ -1,29 +1,30 @@
-= About the Compression Module
+= Compression Module
 :keywords: compression, module, zip, gzip, tar, archive, compress, extract, unzip
 :toc:
 :toc-title:
 
-A file archiver is a computer program that combines a number of files together into one archive file  for easier transportation or storage and most archivers employ data compression in their archive formats to reduce the size of the final archive. But not all compression algorithms knows how to archive files, some of them only cares about single file data compression.
-The Compression module aims to support the most used archiver and compression formats, providing access to their functionalities as part of a Mule application.
+A file archiver is a computer program that combines a number of files together into one archive file for easier transportation or storage, and most archivers employ data compression in their archive formats to reduce the size of the final archive. However, not all compression algorithms know how to archive files. Some are limited to single-file data compression.
 
-The goal of this module is to provide the same experience to compress and decompress files for each of the available formats without losing any of the features that the format associated algorithm provides.
+The Compression module aims to support and provide access to the most-used archiver and compression formats through a Mule app. 
 
-To achieve this it will provide two pairs of operations, one for compressing/decompressing a single file, and another for archive/extract a bundle of files. Each of this operations can be configured with the compression or archiving strategies of choice.
+This module aims to compress and decompress files for each of the available formats without losing any of the features that the format associated algorithm provides.
+
+To achieve this, the module provides two pairs of operations, one for compressing and decompressing a single file, another for archiving and extracting a bundle of files. Each of these operations can be configured with the compression or archiving strategies of your choice.
 
 
 = Compressing and Decompressing a Single File
 
 == Content Compression
 
-Given an input stream, compresses it and returns a new compressed stream of bits so it can be stored in a file system or transferred to another system.
+Given an input stream, the module compresses the stream and returns a new compressed stream of bits so it can be stored in a file system or transferred to another system.
 
 === Compressor Strategies
 
-A *compressor* strategy knows how to compress a file or single entry archives.
+A Compressor strategy can compress a file or a single-entry archive.
 
 ==== GZip Compressor Strategy
 
-When used in an operations, declares that the content should be compressed with the *gzip* format.
+When used in an operation, this strategy declares that the content should be compressed with the `gzip` format.
 
 [source, xml, linenums]
 ----
@@ -32,7 +33,7 @@ When used in an operations, declares that the content should be compressed with 
 
 ==== Zip Compressor Strategy
 
-When used in an operations, declares that the content should be compressed with the *zip* format.
+When used in an operation, this strategy declares that the content should be compressed with the `zip` format.
 
 [source, xml, linenums]
 ----
@@ -52,27 +53,27 @@ When used in an operations, declares that the content should be compressed with 
 ----
 
 
-<1> The InputStream to be compressed, defaulting to _#[payload]_.
+<1> The `InputStream` to be compressed. Defaults to `#[payload]`.
 
 <2> Compressor strategy to be used.
 
 ==== Compression Errors
 
-If an error occur while compressing the content a `COMPRESSION:COULD_NOT_COMPRESS` error will be thrown.
+If an error occurs while compressing the content, a `COMPRESSION:COULD_NOT_COMPRESS` error will be thrown.
 
 
 
 == Content Decompression
 
-Decompresses a given single-entry compressed content which is assumed to be an archive in the specified compression format.
+Decompresses single-entry compressed content, which is assumed to be an archive in the specified compression format.
 
 === Decompressor Strategies
 
-A *compressor* strategy knows how to decompress a file or single entry archives.
+A Decompressor strategy knows how to decompress a file or a single-entry archive.
 
 ==== GZip Decompressor Strategy
 
-When used in an operations, declares that the content should be decompressed with the *gzip* format.
+When used in an operation, this strategy declares that the content should be decompressed with the `gzip` format.
 
 [source, xml, linenums]
 ----
@@ -81,7 +82,7 @@ When used in an operations, declares that the content should be decompressed wit
 
 ==== Zip Decompressor Strategy
 
-When used in an operations, declares that the content should be decompressed with the *zip* format.
+When used in an operation, this strategy declares that the content should be decompressed with the `zip` format.
 
 [source, xml, linenums]
 ----
@@ -101,14 +102,14 @@ When used in an operations, declares that the content should be decompressed wit
 ----
 
 
-<1> The InputStream to be decompressed, defaulting to _#[payload]_.
+<1> The `InputStream` to be decompressed. Defaults to `#[payload]`.
 <2> Decompressor strategy to be used.
 
 ==== Decompression Errors
 
-If the given content is does not match the formaat of the configured strategy a `COMPRESSION:INVALID_ARCHIVE` error will be thrown.
+If the given content does not match the format of the configured strategy, a `COMPRESSION:INVALID_ARCHIVE` error will be thrown.
 
-If the archive passed to be decompressed has more than one entry this operation will fail with a `COMPRESSION:TOO_MANY_ENTRIES` error, because it won't be able to choose only one entry to return, for that cases the user should use the *extract* operation.
+If the archive to be decompressed has more than one entry, this operation will fail with a `COMPRESSION:TOO_MANY_ENTRIES` error, because it will not be able to choose only one entry to return. For these cases, you should use the Extract operation.
 
 
 
@@ -119,15 +120,15 @@ If the archive passed to be decompressed has more than one entry this operation 
 
 == Archiving
 
-Given an Map of `<entryName,InputStream>`, compresses all the given entries into a new archive in the configured format.
+Given a Map of `<entryName,InputStream>`, the archiving process compresses all the given entries into a new archive in the configured format.
 
 === Archiver Strategies
 
-An *archiver* strategy is a compressor strategy that knows how to compress multiple entries into an archive.
+An Archiver strategy is for compressing multiple entries into an archive.
 
 ==== Zip Archiver Strategy
 
-When used in an operations, declares that the content should be compressed with the *zip* format.
+When used in an operation, the Zip Archiver strategy declares that the content should be compressed with the `zip` format.
 
 [source, xml, linenums]
 ----
@@ -136,7 +137,7 @@ When used in an operations, declares that the content should be compressed with 
 
 === Archive Operation
 
-Receives a map declaring the entries to be compressed and their values, then, each entry passed to this operation will be placed inside the compressed archive with the name provided by the user.
+This operation receives a Map that identifies the entries to be compressed and their values. Each entry passed to this operation is placed inside the compressed archive bearing the name you provide.
 
 [source, xml, linenums]
 ----
@@ -156,10 +157,10 @@ Receives a map declaring the entries to be compressed and their values, then, ea
 </compression:archive>
 ----
 
-<1> A DataWeave script defining each name of the entry to be compressed as key, and the content of that entry as value.
+<1> A DataWeave script defining each name of the entry to be compressed as a key and the content of that entry as its value.
 <2> The archiver strategy to be used.
 
-The resulting archive will contain *three entries* one named "summary.pdf" at root level and another two called "result_001.pdf", "result_002.pdf" inside a directory called "details":
+The resulting archive contains _three entries_, one named `summary.pdf` at root level, the others called `result_001.pdf` and `result_002.pdf`, inside a directory called `details`:
 
 [source]
 ----
@@ -171,11 +172,11 @@ The resulting archive will contain *three entries* one named "summary.pdf" at ro
 
 ----
 
-As you can see in the example, *the slash "/" in the name of an entry indicates directory separation*, so all names will be introspected to create dirs inside the archive.
+Note that the slash (`/`) in the name of an entry indicates directory separation, so all names will be introspected to create directories inside the archive.
 
 ==== Archiving Errors
 
-If a problem occur while compressing the content a `COMPRESSION:OULD_NOT_COMPRESS` error will be thrown.
+If a problem occur while compressing the content, a `COMPRESSION:COULD_NOT_COMPRESS` error will be thrown.
 
 
 
@@ -184,15 +185,15 @@ If a problem occur while compressing the content a `COMPRESSION:OULD_NOT_COMPRES
 
 == Extract
 
-Decompresses a given content that represents archive in some compression format.
+Decompresses content that represents an archive in some compression format.
 
 === Extractor Strategies
 
-An *extractor* strategy can decompress an archive with multiple entries that is compressed in some particular format.
+An Extractor strategy can decompress an archive with multiple entries that are compressed in a particular format.
 
 ==== Zip Strategy
 
-When used in an operations, declares that the content should be extracted with the *zip* format.
+When used in an operations, this strategy declares that the content should be extracted with the `zip` format.
 
 [source, xml, linenums]
 ----
@@ -212,8 +213,8 @@ When used in an operations, declares that the content should be extracted with t
 ----
 
 
-<1> The compressed content to be extracted, defaulting to `#[payload]`.
-<2> The entries of this archive will be returned as an object and each of them will be accessible by it's name. E.g. if an archive with three entries with the following structure is decompressed:
+<1> The compressed content to be extracted. Defaults to `#[payload]`.
+<2> The entries of this archive are returned as objects, each accessible by its name. For example, assume that an archive with three entries with the following structure is decompressed:
 
 [source]
 ----
@@ -224,18 +225,19 @@ When used in an operations, declares that the content should be extracted with t
    |  \- result_002.pdf
 ----
 
-Accessing the entries once the content is extract would be: `payload['summary.pdf']` or `payload.details['result_001.pdf']`
+In this case, you can access the extracted contents of the entries like this: `payload['summary.pdf']` or `payload.details['result_001.pdf']`
 
 ==== Extractor Errors
 
-If the given content is not in the configured format an `COMPRESSION:INVALID_ARCHIVE` error will be throw. For other errors while compressing the operation will throw a `COMPRESSION:COULD_NOT_DECOMPRESS` error.
+If the content is not in the configured format, a `COMPRESSION:INVALID_ARCHIVE` error will be thrown. For other errors that occur during the compression process, the operation will throw a `COMPRESSION:COULD_NOT_DECOMPRESS` error.
 
 
 == Common Use cases
 
 === Compressing a File
 
-Read a file, compress it and save it.
+This example reads a file, compresses it, and saves it.
+
 [source, xml, linenums]
 ----
 <file:read path="file.txt"/>
@@ -248,9 +250,9 @@ Read a file, compress it and save it.
 ----
 
 
-=== Decompress a Payload from a Remote Service
+=== Decompressing a Payload from a Remote Service
 
-Calls a server that returns a zip file as result and decompress it.
+This example calls a server that returns and decompresses a Zip file.
 
 [source, xml, linenums]
 ----
