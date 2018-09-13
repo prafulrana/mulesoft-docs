@@ -77,35 +77,38 @@ Below are the event types for each.
 
 === Conditions on CloudHub Deployed Applications
 
-On an application that's deployed to CloudHub, you can select any of these alert conditions:
+For applications deployed to CloudHub, you can choose any of the following alert conditions:
 
-* *CPU Usage* - refers to the CPU usage of the CloudHub worker(s) that run the app
+* CPU Usage: the CPU usage of the CloudHub worker(s) that run the app
 +
 image:cpu-usage.png[cpu]
 +
-You must then set up a few parameters for this condition to be enabled, these specify a duration and capacity threshold that triggers the alert.
+To enable this condition, you must specify the duration and capacity threshold that triggers the alert.
 
-* *Memory Usage* - the percentage of total memory allocated to the CloudHub worker(s) that run the app (includes the memory being consumed by jvm itself).
+* Memory Usage: the percentage of total memory allocated to the CloudHub worker(s) that run the app (includes the memory being consumed by jvm itself).
 +
 image:memory-usage.png[memo]
 +
-You must then set up a few parameters for this condition to be enabled, these specify a duration and capacity threshold that triggers the alert.
+To enable this condition, you must specify the duration and capacity threshold that triggers the alert.
 
 * *Custom Notification alert* – looks at custom notifications and alerts when one contains a certain text
 +
 image:custom-alert.png[custom]
 +
-You must set up a few parameters for this condition to be enabled, these reference the notifications that are the output of a *CloudHub connector* that must priorly exist in your application. An alert is raised when the text in one of the notifications matches or contains the string that you provide in the *Contains* field. See the link:/runtime-manager/custom-application-alerts[Custom Application Alerts] tutorial.
+To enable this condition, you must specify the notifications that are the output of a CloudHub connector. This connector must exist in your Mule application. An alert is raised when the text in one of the notifications matches or contains the string that you provide in the Contains field. See link:/runtime-manager/custom-application-alerts[Custom Application Alerts] for more information.
 +
-[TIP]
-On Custom Notification Alerts, you can access a set of <<Alert Properties>> that can be compiled into in the notification message to provide a better context.
+On Custom Notification Alerts, you can access a set of alert properties that can be compiled into in the notification message to provide a better context.
 
 
 * *Exceeds event traffic threshold*
 +
 image:alert-traffic.png[traffic]
 +
-You must then set up a few parameters for this condition to be enabled, these specify a duration and capacity threshold that triggers the alert.
+To enable this condition, you must specify the duration and capacity threshold that triggers the alert. This threshold applies to all events of any type. 
+If on a certain period you get more than N events, then you get an alert. 
+The meaning of it will really depend on the events that you are tracking on your application. 
+Please refer to this documentation piece for more information on event tracking: 
+http://docs.mulesoft.com/mule-user-guide/v/3.7/business-events[About Business Events]
 
 
 
