@@ -24,7 +24,7 @@
 *** link:amqp-listener[To Listen For New Messages]
 *** link:amqp-publish-consume[To Publish Messages]
 *** link:amqp-publish[To Listen For A Reply]
-*** link:amqp-transactions[Handling Transactions in AMQP]j
+*** link:amqp-transactions[Handling Transactions in AMQP]
 *** link:amqp-topography[How To Avoid Changing the AMQP Topography]
 ** link:anypoint-mq-connector[Anypoint MQ Connector]
 *** link:anypoint-mq-connector-reference[Anypoint MQ Connector Reference]
