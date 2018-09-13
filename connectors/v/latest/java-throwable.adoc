@@ -11,7 +11,7 @@ IMPORTANT: These functions are available since version 1.2.0
 
 == Checking for a Cause
 
-You can check whether a Throwable was caused by a certain type of Exception using the `causedBy` function.
+You can check whether a Throwable was caused by a certain type of Exception using the `isCausedBy` function.
 
 For example, if invoking our tax calculation method fails, we can check whether it was given an invalid argument
 (such as a negative value) or whether it was given a `null` one, assuming those are the respective failures the
