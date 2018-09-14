@@ -32,5 +32,5 @@ The output, a list of REST service users for example, appears in the browser.
 
 * link:/connectors/http-connector-xml-reference[HTTP Connector XML Reference]
 * link:https://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html[Oracle keytool documentation]
-* link:/connectors/common-workflow-conf-tls[Workflow: Configuring TLS]
+* link:/mule4-user-guide/v/4.1/tls-configuration[Configure TLS with Keystores and Truststores]
 * link:/connectors/http-consume-web-service[To Consume a REST Service]

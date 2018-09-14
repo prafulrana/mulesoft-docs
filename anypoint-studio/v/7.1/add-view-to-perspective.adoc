@@ -8,7 +8,7 @@ If your View does not appear on the list, click Other... to load an entire list 
 +
 [TIP]
 --
-Specific Mule views such as the Mule Palette, or the Mule Debugger View can be found in the Mulesoft folder.
+Specific Mule views such as the Mule Palette, or the Mule Debugger View can be found in the MuleSoft folder.
 --
 
 == See Also

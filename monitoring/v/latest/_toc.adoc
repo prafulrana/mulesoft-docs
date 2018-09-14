@@ -17,6 +17,8 @@
 *** link:alerts-config[Configuring Alerts]
 ** link:logs[Logs]
 *** link:logs-using[Using Logs]
+** link:raw-data[Raw Data]
+** link:tools[Tools]
 +
 //*** link:performance-issues[Finding Performance Issues]
 //*** link:runtime-exceptions-errors[Finding Exceptions and Errors]

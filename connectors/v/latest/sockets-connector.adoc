@@ -1,3 +1,4 @@
 = Sockets Connector
 
 link:/connectors/sockets-documentation[Sockets Connector Technical Reference]
+link:/mule4-user-guide/v/4.1/tls-configuration[Configure TLS with Keystores and Truststores]

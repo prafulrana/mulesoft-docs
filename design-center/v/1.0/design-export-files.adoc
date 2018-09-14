@@ -4,7 +4,7 @@ You can export your API-specification or API-fragment project as a `.zip` file, 
 
 [NOTE]
 ====
-When you export a API specification to an OAS .json file or .yaml file, the conversion follows the rules that are documented at  https://github.com/mulesoft/oas-raml-converter/blob/master/docs/RAML10-to-OAS20.md[_Export from RAML 1.0 to OAS 2.0_] in the documentation for Mulesoft's oas-raml-converter tool.
+When you export a API specification to an OAS .json file or .yaml file, the conversion follows the rules that are documented at  https://github.com/mulesoft/oas-raml-converter/blob/master/docs/RAML10-to-OAS20.md[_Export from RAML 1.0 to OAS 2.0_] in the documentation for MuleSoft's oas-raml-converter tool.
 ====
 
 == Procedure

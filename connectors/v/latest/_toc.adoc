@@ -24,7 +24,7 @@
 *** link:amqp-listener[To Listen For New Messages]
 *** link:amqp-publish-consume[To Publish Messages]
 *** link:amqp-publish[To Listen For A Reply]
-*** link:amqp-transactions[Handling Transactions in AMQP]j
+*** link:amqp-transactions[Handling Transactions in AMQP]
 *** link:amqp-topography[How To Avoid Changing the AMQP Topography]
 ** link:anypoint-mq-connector[Anypoint MQ Connector]
 *** link:anypoint-mq-connector-reference[Anypoint MQ Connector Reference]
@@ -221,14 +221,6 @@
 ** link:spring-module[Spring Module]
 ** link:tradacoms-edi-connector[TRADACOMS EDI Connector]
 *** link:tradacoms-edi-connector-reference[TRADACOMS EDI Connector Reference]
-+
-//** link:common-about-tls[About TLS]
-//*** link:common-workflow-conf-tls[Workflow: Configuring TLS]
-//**** link:common-create-keystore-task[To Create a JKS Key Store]
-//**** link:common-tls-conf-task[To Configure TLS (Design Center)]
-//**** link:common-tls-conf-studio-task[To Configure TLS (Studio)]
-//*** link:common-tls-conf-reference[TLS Configuration Reference]
-+
 ** link:twilio-connector[Twilio Connector]
 *** link:twilio-connector-reference[Twilio Connector Reference]
 ** link:validation-connector[Validation Module]
