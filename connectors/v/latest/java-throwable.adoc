@@ -37,7 +37,7 @@ For example, if invoking the tax calculation method example fails, it is possibl
 
 == Obtaining a Root Cause
 
-You can also obtain the root cause of a Throwable, going through all the possible wrapping, with the `getRootCause` function.
+You can also obtain the root cause of a Throwable, disregarding any exception wrapping, with the `getRootCause` function.
 
 In the following example, all tax calculation errors are handled by another class, which takes the root cause of the Throwable.
 
