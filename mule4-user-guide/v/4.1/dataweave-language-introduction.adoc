@@ -1,4 +1,4 @@
-= DataWeave Scripts
+= Add DataWeave to Your Integration
 :keywords: studio, anypoint, esb, transform, transformer, format, aggregate, rename, split, filter convert, xml, json, csv, pojo, java object, metadata, dataweave, data weave, datamapper, dwl, dfl, dw, output structure, input structure, map, mapping
 
 DataWeave is the primary data transformation language for Mule flows. You can write standalone DataWeave scripts in Transform Message components, or you can write inline DataWeave expressions to transform data _in-place_ and dynamically set the value of various properties, such as configuration fields in an event processor or global configuration element. Inline DataWeave expressions are enclosed in `&#35;[ ]` code blocks. For example, you can use a DataWeave expression to set conditions in a Choice router or to set the value of a Set Payload or Set Variable component.
@@ -295,7 +295,7 @@ link:dataweave-selectors[DataWeave Selectors]
 
 link:dw-functions[DataWeave Functions]
 
-link:dataweave-cookbook[DataWeave Cookbook]
+link:dataweave-cookbook[DataWeave Example]
 
 link:dataweave-formats[Data Formats Supported by DataWeave]
 

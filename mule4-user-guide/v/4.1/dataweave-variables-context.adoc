@@ -1,6 +1,9 @@
-= DataWeave Variables
+= DataWeave Variables for Mule Runtime Objects
 
-DataWeave expressions accept variables that can retrieve values from a variety of Mule Runtime objects. Commonly used variables include `attributes`, `payload`, and `vars`, the main parts of the Mule event.
+DataWeave expressions use variables that can retrieve values from a variety of Mule Runtime objects. Commonly used variables include `attributes`, `payload`, and `vars`, the main parts of the Mule event.
+
+[NOTE]
+You can also define variables of your own to use in DataWeave scripts, but the scope is limited to the script in which they are defined.
 
 [%header,cols="2s,3,4a"]
 |===

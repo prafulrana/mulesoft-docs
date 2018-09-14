@@ -98,7 +98,7 @@ include::_toc-migration.adoc[]
 **** link:agent-deploy-mule-application-mmp-reference[Mule Agent Deployment Reference (Mule Maven Plugin)]
 +
 ** link:dataweave[DataWeave 2.0]
-*** link:dw-language-guide[Language Guide]
+*** link:dataweave-language-guide[Language Overview]
 **** link:dataweave-quickstart[DataWeave Tutorial]
 **** link:dataweave-cookbook[DataWeave Examples]
 ***** link:dataweave-cookbook-extract-data[To Extract Data]

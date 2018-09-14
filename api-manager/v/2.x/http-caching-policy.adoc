@@ -40,7 +40,7 @@ The cache works as a dictionary where each response stored in the cache is assoc
 
 For example: `#[attributes.headers['key']]`
 
-For the DataWeave variables reference, see link:/mule4-user-guide/v/4.1/dataweave-variables-context[DataWeave Variables.
+For the DataWeave variables reference, see link:/mule4-user-guide/v/4.1/dataweave-variables-context[DataWeave Variables for Mule Runtime Objects].
 
 If the evaluation of the expression results in an error due to missing parameters or any other cause, this policy is not applied and passes the request to the next receptor in the policy chain.
 
@@ -161,7 +161,7 @@ This field holds a DataWeave expression that evaluates the response and returns 
 If the request matches the expression, the expression returns True and the policy stores the request in the cache.
 If the request takes any other value, the expression returns False and the cache won’t store the request.
 
-For the DataWeave variables reference, see link:/mule4-user-guide/v/4.1/dataweave-variables-context[DataWeave Variables].
+For the DataWeave variables reference, see link:/mule4-user-guide/v/4.1/dataweave-variables-context[DataWeave Variables for Mule Runtime Objects].
 
 This parameter is optional and its default value is:
 

@@ -1,4 +1,4 @@
-= DataWeave 2.0 Language Guide
+= DataWeave 2.0 Language Overview
 :keywords: studio, anypoint, transform, transformer, format, aggregate, rename, split, filter convert, xml, json, csv, pojo, java object, metadata, dataweave, data weave, datawave, datamapper, dwl, dfl, dw, output structure, input structure, map, mapping
  
 DataWeave expressions are stored in scripts or external files, or written directly in a component or element. They tansform data in a few different ways:
@@ -9,7 +9,10 @@ DataWeave expressions are stored in scripts or external files, or written direct
 
 == A Simple Example
 
-This example transforms `application/json` input to `application/xml` output, by defining keys in a JSON object from the message payload input (for example, `payload.title`), and then map the output values to a different structure.
+This example demonstrates a few important features of the DataWeave language:
+
+* Data transformation from one format to another. In this case, `application/json` input is transformed into `application/xml` output.
+* Data selectors that access fields within an input data structure. The script selects keys in a JSON object from the message payload input (for example, with `payload.title`) and then outputs their values.
 
 * Use a core DataWeave function on the value of an input field: `upper(payload.author)`.
 

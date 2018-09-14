@@ -1,32 +1,39 @@
-= DataWeave Functions
+= DataWeave Function Basics
 
-Mulesoft provides several kinds of functions:
+Mulesoft provides two kinds of functions: predefined functions that operate on the values in Mule 4 Runtime (Mule 4) objects, and those that you can create and whose scope is limited to the script that defines it. 
 
-* link:dw-core[Core Functions] that are always available in Mule Runtime 4, because they are in the Core module is included in Mule 4
-* link:dataweave-runtime-functions[Three Mule functions] that are always available in Mule Runtime
-* Functions that you import as part of a component, connector, or module such as Batch 
-* link:dataweave-defining-functions[Custom functions] that you define
+== Predefined Functions
+
+The functions that Mulesoft defines for you operate on data in Mule Runtime 4 (Mule 4) objects:
+
+* link:dw-core[Core functions] are always available in Mule 4, because they are in the Core function module which is included in Mule 4. These functions operate on data from Mule Runtime objects. 
++
+[NOTE]
+Although the two names are similar, the DataWeave Core function module isn't the same thing as the Core module in Anypoint Studio.
+* link:dataweave-runtime-functions[Three Mule functions] perform tasks at runtime. Like Core functions, they are always available in Mule 4
+* Other functions are bundled in separate function modules such as Batch or Crypto. You must specify the function module name when you call the function. 
 * link:dataweave-functions-lambda[Anonymous fucntions (lamdas)]
 
 These functions are all described in the link:dw-functions[DataWeave Function Reference]
 
-== Functions and Namespaces
+== Functions You Define
 
-These DataWeave functions don't require that you include a namespace when you call them:
+You define a function using the `fun` declaration in the header section. Like other programming languages, DataWeave functions allow you to refactor DataWeave expressions into reusable code blocks. In DataWeave, every code block is an expression that is immediately evaluated when it is called from the DataWeave body expression. Functions can define and use one or more arguments. For details, see link:dataweave-functions-lambdas[Working with Functions and Lambdas in DataWeave].
 
-* Core Functions
+== Functions and Function Module Names
+
+These DataWeave functions don't require that you include their function module name when you call them:
+
+* Core functions
 * The three Mule functions `p`, `lookup`, and `causedBy`
 * Custom functions that you create
 
-These functions require a namespace, which usually matches the component name:
-
-* Functions in a non-Core component that you've added to a Mule app, such as Batch or Runtime
-* Functions in a connector that you've added to a Mule app, such as HTTP Connector
-
-For example, in an app using Batch you can use the following expression: `#[Batch::isSuccessfulRecord()]`. 
+Functions in a non-Core function module require that you specify the function module name.
+For example, in an app you can use the following expression to specify a function in the Batch function module: `#[Batch::isSuccessfulRecord()]`. 
 
 == See Also
 
 * link:dataweave-lookup[Call External Flows with `lookup`]
 * link:dw-functions[DataWeave Reference]
 * link:dataweave-create-module[Creating Custom Modules and Mappings]
+* link:dataweave-functions-lambdas[Working with Functions and Lambdas in DataWeave]

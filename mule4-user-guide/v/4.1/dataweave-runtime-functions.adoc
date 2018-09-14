@@ -1,7 +1,7 @@
 = Mule Functions
 :keywords: lookup, properties, functions
 
-The `p`, `lookup`, and `causedBy` functions are always available in Mule 4 Runtime, although they are not part of the Core component.
+The `p`, `lookup`, and `causedBy` functions are always available in Mule 4 Runtime, although they are not part of the Core function module.
 You'll use these basic functions often in DataWeave expressions and scripts.
 
 == Accessing Properties (p Function)
