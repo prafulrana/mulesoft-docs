@@ -3,14 +3,13 @@
 :toc:
 :toc-title:
 
-The FTPS Connector the functionality of connecting to FTP Servers in the same way
-as the link:ftp-connector[FTP Connector], but adding the support for the link:/mule4-user-guide/v/4.1/tls-configuration[Transport Layer Security (TLS)].
+The FTPS connector connects to FTP servers the same way
+as the link:ftp-connector[FTP connector] but adds support for link:/mule4-user-guide/v/4.1/tls-configuration[Transport Layer Security (TLS)].
 
 == Configuration Creation
 
-To create a basic FTPS Connection is required the host, where the FTPS server
-is placed, additionally the Port, which defaults to 21, can be also configured.
-Lately if the server runs with some security, username and password can be placed.
+To create a basic FTPS Connection the `host` and `workingDir` (where the FTPS server
+is placed) are required. Additionally the `port`, which defaults to 21, can be also configured, and if the server runs with some security, you can specify a `username` and `password`.
 
 [source, xml, linenums]
 ----
@@ -28,23 +27,23 @@ Lately if the server runs with some security, username and password can be place
 * For more on other functionality provided by this connector, see link:ftp-connector[FTP Connector Documentation Reference].
 
 === FTPS Mode
-*Since 1.4.0*
+*Available Since 1.4.0*
 
 ==== Explicit
 
-The default way to connect to the FTP Server, which connects in a unprotected way
-to the server and later the client can negotiate TLS for either the command or data
+The default way to connect to the FTP Server, which connects in an unprotected way
+to the server. The client can negotiate TLS for either the command or data
 channel.
 
 ===== Data Channel Protection Level (PROT)
 
-In the FTPS Connector two protection levels can be configured:
+In the FTPS Connector, two protection levels are configurable:
 
  * *Clear* (Default) : The default protection level if no other level is specified is
  Clear. The Clear protection level indicates that the data channel will carry
  the raw data of the file transfer, with no security applied.
- * *Private*: The Private protection level indicates that the data will be
- integrity and confidentiality protected.
+ * *Private*: The Private protection level indicates that the integrity of the data 
+ and confidentiality will be protected.
 
 
 [source, xml, linenums]
@@ -66,9 +65,7 @@ image:ftps-prot-setting.png[FTPS Data Channel Protection Level]
 
 ==== Implicit
 
-FTPS Implicit mode assumes that a secure connection, a SSL/TLS Handshake must be
-done before any FTP command is sent, this makes that the entire FTP session
-will be encrypted.
+FTPS Implicit mode assumes that a secure connection through an SSL/TLS handshake must take place before any FTP command is sent. This ensures that the entire FTP session is encrypted.
 
 [source, xml, linenums]
 ----
