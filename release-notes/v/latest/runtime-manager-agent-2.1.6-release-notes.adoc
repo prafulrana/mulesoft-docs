@@ -1,0 +1,32 @@
+= Runtime Manager Agent 2.1.6 Release Notes
+
+_September 13, 2018_
+
+This document describes new features and enhancements, known limitations, issues, and fixes in Anypoint Runtime Manager Agent, version 2.1.6.
+
+== New Features and Enhancements
+
+This release contains no new features or enhancements:
+
+== Changes in This Release
+
+This release contains no changes to existing functionality.
+
+== Fixed Issues
+
+This release contains the following issue fixes:
+
+* Upgrade version of several dependency libraries.
+* Fix in Insights feature.
+
+== Known Limitations and Workarounds
+
+There are no known limitations or workarounds in this release.
+
+== Upgrade Requirements
+
+There are no upgrade requirements for this release.
+
+== Compatibility Notes
+
+There are no compatibility notes for this release.
