@@ -300,6 +300,14 @@ You can add links like this:
 [MyCompany's](https://www.mycompany.com/us/en-us.html)
 ----
 
+Also note that any URL is automatically converted into a link.
+
+.Markdown: Example that Gets Converted to a Link
+[source,Markdown,linenums]
+----
+http://www.github.com/
+----
+
 === Inline Code in Markdown
 
 You surround inline code in backticks.
@@ -351,13 +359,9 @@ You can create tables by assembling a list of words and dividing them with hyphe
 |       |       |       |       |
 ----
 
-=== Automatic Linking for URLs in Markdown
-
-Any URL (such as `http://www.github.com/``) is automatically converted into a clickable link.
-
 === Strikethrough in Markdown
 
-Any word wrapped with two tildes (like `~~this~~`) will appear crossed-out.
+Any word wrapped with two tildes (like `&#126;&#126;this&#126;&#126;`) will appear crossed-out.
 
 === Blockquotes in Markdown
 

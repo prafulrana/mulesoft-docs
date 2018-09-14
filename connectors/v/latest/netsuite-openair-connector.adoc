@@ -110,7 +110,7 @@ Ensure your Maven dependency is set:
 . Open your Mule project in Anypoint Studio.
 . Add the connector as a dependency in the pom.xml file:
 +
-[source, linenums]
+[source,xml,linenums]
 ----
 <dependency>
   <groupId>com.mulesoft.connectors</groupId>
@@ -141,7 +141,7 @@ To enable the automatic reconnection feature:
 
 == Use Case: Add OpenAir Object
 
-image:netsuite-openair-flow-add.png[openair use case flow]
+image:netsuite-openair-flow-add.png[OpenAir use case flow]
 
 . Create a new Mule Application in Studio and select an HTTP Listener as a Source in the new flow.
 . Drag and drop an HTTP Listener onto the canvas and configure it to listen at Port 8081.
@@ -248,7 +248,7 @@ http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 
 == See Also
 
-* http://www.openair.com/download/NetSuiteOpenAirSOAPAPIGuide.pdf[NetSuite OpenAir SOAP API Guide]
+* link:http://www.openair.com/download/NetSuiteOpenAirSOAPAPIGuide.pdf[NetSuite OpenAir SOAP API Guide]
 
 
 

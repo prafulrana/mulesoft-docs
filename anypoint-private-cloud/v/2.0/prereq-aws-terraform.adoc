@@ -66,7 +66,7 @@ You can also include the following set of optional environment variables:
 | TF_VAR_monitoring=<true or false> | If true it will create basic instance alarms in Cloudwatch.
 | TF_VAR_use_bastion=<true or false> | If true it will create a small instance (using an ASG) in a public subnet as a jumpbox and associate a public IP address, and launch the cluster instances in the private subnets.
 | TF_VAR_internal=<true or false> | If true the cluster instances will be launched in private subnets and will not have public ips associated with them. The provisioned load balancer will be internal only.
-| TF_VAR_vpc_id=<VPC_ID> | Specifies an existing VPC. It should already have an internet gateway attached to it. Subnets will still be provisioned within the existing VPC.
+| AWS_VPC_ID=<VPC_ID> | Specifies an existing VPC. It should already have an internet gateway attached to it. Subnets will still be provisioned within the existing VPC.
 | TF_VAR_vpc_cidr=<VPC_CIDR> | You can pass a preferred CIDR for the new VPC that will be provisioned.
 | TF_VAR_subnets=<PRIVATE_SUBNETS_CIDRs> | You can pass the preferred CIDRs blocks for the new subnets that will be provisioned. You must pass exactly the minimum num	ber between the number of AZs of the region and the number of nodes you selected for your cluster
 | TF_VAR_public_subnets=<PUBLIC_SUBNETS_CIDRs> | You can pass the preferred CIDRs blocks for the new subnets that will be provisioned. You must pass exactly min(length(var.azs), var.node_count)

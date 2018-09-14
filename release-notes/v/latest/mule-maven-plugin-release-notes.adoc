@@ -1,10 +1,16 @@
 = Mule Maven Plugin Release Notes
 :keywords: maven, maven plugin, maven release notes, plugin
 
+* link:/release-notes/mule-maven-plugin-3.1.7-release-notes[Mule Maven Plugin 3.1.7 Release Notes]
+* link:/release-notes/mule-maven-plugin-3.1.6-release-notes[Mule Maven Plugin 3.1.6 Release Notes]
+* link:/release-notes/mule-maven-plugin-3.1.5-release-notes[Mule Maven Plugin 3.1.5 Release Notes]
+* link:/release-notes/mule-maven-plugin-3.1.4-release-notes[Mule Maven Plugin 3.1.4 Release Notes]
+* link:/release-notes/mule-maven-plugin-3.1.3-release-notes[Mule Maven Plugin 3.1.3 Release Notes]
 * link:/release-notes/mule-maven-plugin-3.1.2-release-notes[Mule Maven Plugin 3.1.2 Release Notes]
 * link:/release-notes/mule-maven-plugin-3.1.1-release-notes[Mule Maven Plugin 3.1.1 Release Notes]
 * link:/release-notes/mule-maven-plugin-3.1.0-release-notes[Mule Maven Plugin 3.1.0 Release Notes]
 * link:/release-notes/mule-maven-plugin-3.0.0-release-notes[Mule Maven Plugin 3.0.0 Release Notes]
+* link:/release-notes/mule-maven-plugin-2.3.0-release-notes[Mule Maven Plugin 2.3.0 Release Notes]
 * link:/release-notes/mule-maven-plugin-2.2.1-release-notes[Mule Maven Plugin 2.2.1 Release Notes]
 * link:/release-notes/mule-maven-plugin-2.2-release-notes[Mule Maven Plugin 2.2 Release Notes]
 * link:/release-notes/mule-maven-plugin-2.1.2-release-notes[Mule Maven Plugin 2.1.2 Release Notes]

@@ -62,7 +62,7 @@ NOTE: Do not store the environment name in the API Name or Version Name. After t
 
 == To Request Your Platform Upgrade
 
-The upgrade is triggered automatically at the time you schedule in the self-service portal. Access this portal from the green banner in the Anypoint Platform login. The estimated upgrade time is 15 minutes for each 50 APIs.
+The upgrade is triggered automatically at the time you schedule in the self-service portal. Access this portal from the green banner in the Anypoint Platform login. The estimated upgrade time is 15 minutes to upgrade 50 *API versions*.
 
 During this stage, API design projects and API portals are moved into their appropriate new home. API specifications and API portals are stored and versioned in Anypoint Exchange, and new projects are created for them in Anypoint Design Center. SOAP APIs or APIs without specifications are moved to Exchange only and not added to Design Center.
 
@@ -132,6 +132,10 @@ No.
 After the migration completes, all APIs appear in the Unclassified Environment. All APIs that haven’t been classified into a real environment can be managed from here. This environment has the same user interface and permissions model as the pre-upgrade API Manager.
 
 All APIs in the Unclassified environment can be classified into a real environment by following the process described in this document. If API grouping information was provided before the migration, that information is used as the API name and version of the API being classified in the target environment.
+
+*Is API classification mandatory before deploying to existing applications?*
+
+No, you can continue to work in the unclassified environment and deploy to existing applications.
 
 *Is there a rollback available?*
 

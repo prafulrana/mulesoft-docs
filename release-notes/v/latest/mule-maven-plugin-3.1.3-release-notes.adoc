@@ -1,0 +1,40 @@
+= Mule Maven Plugin 3.1.3 Release Notes
+
+Mule Maven Plugin 3.1.3 is mainly focused in fixing bugs.
+
+== Hardware and Software Requirements
+
+Hardware and Software Requirements
+
+* Microsoft Windows 8+
+* Apple Mac OS X 10.10+
+* Linux (tested on Ubuntu 15)
+* Java 8
+* Maven 3.3.3, 3.3.9, 3.5.0
+
+== Compatibility
+
+* Mule 4.x
+* Anypoint Studio 7.x
+
+== Features and Functionality
+
+No new feature was introduced on this release.
+
+== Fixed Issues
+
+* MMP-360 - Error resolving effective POM properties when deploying application
+* MMP-362 - NPE when deploying and setting a distribution management in POM
+* MMP-369 - NPE when invoking only mule:deploy goal
+* MMP-395 - Packager will export resources and packages out of the box if leaved empty in the mule-artifact.json
+* MMP-394 - Create lifecycle mapping using deprecated implementations
+
+== Enhancement Request
+
+* MMP-386 - Add support for security settings
+* MMP-368 - exportedResources should be resolved from resources set in pom
+
+== Support
+
+* link:http://forums.mulesoft.com/[MuleSoft’s Forum].
+* link:http://www.mulesoft.com/support-login[MuleSoft’s Customer Portal].
