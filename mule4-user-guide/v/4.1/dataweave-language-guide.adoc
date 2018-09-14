@@ -111,6 +111,6 @@ You can create simple or complex data manipulation and transformations with thes
 * link:about-mule-event[About the Mule Event]
 * link:dataweave-formats[Supported Formats]
 * link:dataweave-selectors[DataWeave Selectors]
-* link:dataweave-language-introduction[Add DataWeave to Your Integration]
+* link:dataweave-language-introduction[Using DataWeave]
 * link:about-components[About Components for Mule Apps]
 * link:/connectors/index[Connectors and Modules]

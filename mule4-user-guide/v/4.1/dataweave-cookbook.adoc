@@ -118,6 +118,6 @@ THESE DON'T WORK
 * To step through basic DataWeave use cases and exercises in actual Mule applications, see the link:dataweave-quickstart[DataWeave Quickstart Guide].
 ////
 * link:dataweave[DataWeave Language]
-* link:dataweave-language-introduction[Add DataWeave to Your Integration]
+* link:dataweave-language-introduction[Using DataWeave]
 * link:dw-functions[DataWeave Functions]
 * link:mule-concepts[Mule Concepts]

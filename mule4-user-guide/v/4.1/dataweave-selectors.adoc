@@ -951,5 +951,5 @@ output application/json
 == See Also
 
 * link:dataweave-cookbook-extract-data[Dataweave cookbook: Extract Data]
-* link:dataweave-language-introduction[Add DataWeave to Your Integration]
+* link:dataweave-language-introduction[Using DataWeave]
 // * link:dw-functions-core[DataWeave Core Functions]
