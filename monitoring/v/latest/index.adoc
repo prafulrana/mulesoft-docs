@@ -90,6 +90,17 @@ For complete details about subscriptions, contact your customer support represen
 
 // TODO: GovCloud support is coming as part of FedRAMP in 2019
 
+== Raw Data Downloads
+
+You can download warehoused log data on a Mule app, for example, to help investigate  security, compliance, or other issues that logs can reveal.
+
+See link:raw-data[Raw Data].
+
+== Tools for Monitoring Integrations
+
+You can link to connectors that help deliver Anypoint Monitoring notifications to external systems.
+
+See link:tools[Tools].
 
 == API Functional Monitoring
 
