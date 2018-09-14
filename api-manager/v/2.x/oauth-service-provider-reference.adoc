@@ -1,5 +1,16 @@
 = Reviewing OAuth 2.0 Service Provider concepts
 
+This file is obsolete
+
+== See Also
+
+* link:/api-manager/v/2.x/mule-oauth-provider-landing-page[Mule oAuth 2.0 Provider]
+
+////
+
+All concepts here need to be technically reviewed in the context of Mule 4.
+
+
 Mule provides two elements that enable you to configure a service provider capable of completing the tasks listed above.
 
 * Global OAuth Element `<oauth2-provider:config />`
@@ -586,3 +597,6 @@ A validation flow must contain an OAuth provider module*message processor which 
 
 
 * link:/mule-user-guide/v/3.8/configuring-the-spring-security-manager[Spring Security documentation] 
+
+
+////

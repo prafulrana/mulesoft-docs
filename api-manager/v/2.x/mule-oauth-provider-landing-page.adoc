@@ -9,23 +9,14 @@
 :meta-product: API Manager, Studio, Mule
 :meta-applies-to:
 
-Using a PingFederate, OpenAM, Open ID Connect or a Dynamic Client Registration-compliant provider is recommended. If you don't want to contract with such a provider, you need to build a Mule OAuth provider. Instead of building the provider from the ground up, you can download and import a custom Mule OAuth provider, developed by MuleSoft Consulting, into Anypoint Studio. The following topics cover the tasks involved in building a Mule OAuth Provider:
+Mule OAuth 2.0 Provider is an OAuth 2.0 provider alternative developed by MuleSoft Consulting that can be used in any organization.
 
-*** link:/api-manager/v/2.x/to-use-authentication[Authenticating using the Mule OAuth 2.0 Provider]
-*** link:/api-manager/v/2.x/oauth-build-provider-prerequisites-about[Reviewing Mule OAuth 2.0 Provider Prerequisites]
-*** link:/api-manager/v/2.x/building-an-external-oauth-2.0-provider-application[Building the Mule OAuth 2.0 Provider]
-*** link:/api-manager/v/2.x/to-deploy-provider[Deploying the Mule OAuth 2.0 Provider]
-*** link:/api-manager/v/2.x/to-test-local-provider[Testing a Local Mule OAuth 2.0 Provider]
-*** link:/api-manager/v/2.x/to-test-remote-provider[Testing a Remote Mule OAuth 2.0 Provider]
-*** link:/api-manager/v/2.x/oauth-dance-about[Reviewing OAuth 2.0 Dance concepts]
-*** link:/api-manager/v/2.x/about-configure-api-for-oauth[Reviewing OAuth 2.0 Policy Prerequisites]
-*** link:/api-manager/v/2.x/oauth-service-provider-reference[Reviewing OAuth 2.0 Service Provider concepts]
-*** link:/api-manager/v/2.x/oauth-grant-types-about[Reviewing OAuth 2.0 Grant Types]
-*** link:/api-manager/v/2.x/oauth-persist-obj-store-about[Reviewing OAuth Tokens 2.0 persistence mechanism]
-*** link:/api-manager/v/2.x/oauth2-provider-configuration[Reviewing Mule OAuth 2.0 Provider Configuration concepts]
+In addition to Mule OAuth 2.0 Provider, Mulesoft offers out-of-the-box integration with PingFederate, OpenAM and Open ID Connect OAuth 2.0 Providers.
 
 == See Also
-
-* link:https://openid.net/specs/openid-connect-registration-1_0.html[OpenID Connect Client Registration 1.0 incorporating errata set 1]
-* link:/api-manager/v/2.x/external-oauth-2.0-token-validation-policy[Reviewing Mule OAuth 2.0 Access Token Policy usage]
-* link:/access-management/external-identity[SAML 2.0 and OpenID Connect providers]
+*** link:/api-manager/v/2.x/oauth2-provider-configuration[Reviewing Mule OAuth 2.0 Provider Configuration concepts]
+*** link:/api-manager/v/2.x/about-configure-api-for-oauth[Reviewing OAuth 2.0 Policy Prerequisites]
+*** link:/api-manager/v/2.x/oauth-dance-about[Reviewing OAuth 2.0 Dance concepts]
+*** link:/api-manager/v/2.x/oauth-grant-types-about[Reviewing OAuth 2.0 Grant Types]
+*** link:/api-manager/v/2.x/external-oauth-2.0-token-validation-policy[Reviewing Mule OAuth 2.0 Access Token Policy usage]
+*** link:/api-manager/v/2.x/about-configure-api-for-oauth[Reviewing OAuth 2.0 Policy Prerequisites]

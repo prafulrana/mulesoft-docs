@@ -1,5 +1,12 @@
 = Reviewing Mule OAuth 2.0 Provider Prerequisites
 
+This file is obsolete
+
+== See Also
+
+* link:/api-manager/v/2.x/mule-oauth-provider-landing-page[Mule oAuth 2.0 Provider]
+
+////
 You need one of the following installations to build a Mule OAuth provider:
 
 * Mule 3.8.0 runtime or later
@@ -22,3 +29,4 @@ To test the provider, you need tools that support `curl`.
 = See also
 
 * link:/api-manager/v/2.x/mule-oauth-provider-landing-page[Mule oAuth 2.0 Provider]
+////
