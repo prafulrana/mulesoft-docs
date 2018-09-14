@@ -21,6 +21,7 @@ now packaged as a JAR and have a different structure. You can use the Mule Maven
 |Your Mule XML code.|
 |===
 
+[[app_descriptor]]
 == Application Descriptor
 Mule 4 applications include a `mule-artifact.json` file in `META-INF/mule-artifact/`. This describes your app, configuration settings, the required Mule version, and the class loader configuration.
 
