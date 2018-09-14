@@ -1,6 +1,15 @@
 = Testing a Remote Mule OAuth 2.0 Provider
 :keywords: oauth, raml, token, validation, policy
 
+This file is obsolete
+
+== See Also
+
+* link:/api-manager/v/2.x/mule-oauth-provider-landing-page[Mule oAuth 2.0 Provider]
+
+////
+
+
 To test the remote provider, use the same curl command that you used for testing the provider you ran locally, except change localhost:8082 to the CloudHub URL `+https://auth-provider-testing.cloudhub.io+` for the provider, and of course, substitute your own base64-encoded credentials for `NmJl...RDYK1`.
 
 To test the provider, Windows users need to download tools that support `curl`. 
@@ -18,3 +27,5 @@ The output includes the access token and the expiration time in seconds:
 == Next
 
 link:/api-manager/v/2.x/to-use-authentication[Authenticating using the Mule OAuth 2.0 Provider].
+
+////

@@ -11,7 +11,13 @@
 :meta-product: API Manager, Studio, Mule
 :meta-applies-to: PingFederate, OpenAM
 
+This file is obsolete
 
+== See Also
+
+* link:/api-manager/v/2.x/mule-oauth-provider-landing-page[Mule oAuth 2.0 Provider]
+
+////
 
 To build a provider from MuleSoft Consulting on Mule Runtime 3.8.x, perform this task.
 
@@ -79,3 +85,4 @@ ${MULE_HOME}/bin/mule -M-Danypoint.platform.client_id=client_ID -M-Danypoint.pla
 * link:/api-manager/v/2.x/aes-oauth-faq#about-oauth-provider-models[About the External OAuth 2.0 provider]
 * link:/access-management/external-identity[External Identity (setting up PingFederate and OpenAM providers)]
 * link:/access-management/organization#client-id-and-client-secret[Access the client ID and client secret]
+////
