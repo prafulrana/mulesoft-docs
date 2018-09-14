@@ -11,7 +11,7 @@ To download raw data:
 
 . Select the *Environment* and *Resource*.
 +
-The resource is a Mule app runs in CloudHub.
+The resource is a Mule app that runs in CloudHub.
 +
 . Provide the date for the data you want to download, for example: `08/31/2018`.
 . Locate and download log data that you want to examine.
