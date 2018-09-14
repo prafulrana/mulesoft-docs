@@ -1,7 +1,21 @@
 = Authenticating using the Mule OAuth 2.0 Provider
 :keywords: oauth, raml, token, validation, policy
 
-You need to obtain the access token before attempting to send requests to the API protected by the OAuth 2.0 Access Token Enforcement Using External Provider policy. Include the token in all requests sent to the API using a query parameter or an authorization header as shown in the Postman example in the next procedure. The following table summarizes this usage:
+This file is obsolete
+
+== See Also
+
+* link:/api-manager/v/2.x/mule-oauth-provider-landing-page[Mule oAuth 2.0 Provider]
+
+////
+Prerequisites for using an OAuth 2.0 policy are:
+
+* Applying the policy to the API instance so the associated resource is protected
+* Having a client application created and registered to the API instance
+* Having an OAuth 2.0 Provider to issue a token and capable of validating it
+* A Security Scheme if the API is RAML-based and you want to use API Console with OAuth dance capabilities.
+
+If a resource is protected by an OAuth token enforcement policy, an OAuth token will be required to be specified in all requests sent to the protected resource either as a query parameter or an authorization header. The following table summarizes this usage:
 
 [%header,cols="3*a"]
 |===
@@ -11,7 +25,69 @@ You need to obtain the access token before attempting to send requests to the AP
  `"Bearer" + <space> + <token, for example, 123>`
 |===
 
+
+
+
+If the API is a RAML based one, declare the protected resources as protected by OAuth in order for the API Console to be aware of the policy being applied.
+
+IMPORTANT: Declaring the resource to be protected by the OAuth Token Enforcement policy in your RAML definition, does not imply that the policy is actually applied.
+
+[source,yaml,linenums]
+----
+#%RAML 1.0
+title: Interop Testing
+version: v1.0
+baseUri: http://127.0.0.1:8081/api
+...
+securitySchemes:
+  oauth_2_0:
+        description: |
+            Mule OAuth 2.0.
+        type: OAuth 2.0
+        describedBy:
+            headers:
+                Authorization:
+                    description: |
+                      Used to send a valid OAuth 2 access token. Do not use
+                      with the "access_token" query string parameter.
+                    type: string
+            queryParameters:
+                access_token:
+                    description: |
+                      Used to send a valid OAuth 2 access token. Do not use together with
+                      the "Authorization" header
+                    type: string
+            responses:
+                401:
+                    description: |
+                        Bad or expired token.
+                403:
+                    description: |
+                        Bad OAuth request.
+        settings:
+          authorizationUri: http://0.0.0.0:8081/authorize
+          accessTokenUri: http://0.0.0.0:8081/access-token
+          authorizationGrants: [authorization_code, password, client_credentials, implicit]
+...
+/users:
+  get:
+    securedBy: [oauth_2_0]
+----
+
+The following table maps the RAML grant types to the grant type names in the OAuth 2.0 policy configuration. 
+
+[%header,cols="3*a"]
+|===
+|Authorization Grant Types Defined in RAML Definition |Equivalent Authorization Grant Type to Enable in the OAuth Provider Policy |Supported in embedded APIkit Console?
+|`[implicit]` |Implicit |Yes
+|`[client_credentials]` |Client Credentials |No
+|`[password]` |Resource Owner Password Credentials |No
+|`[authorization_code]` |Authorization Code |Yes
+|===
+
+== Reviewing steps
 When a request is received, the OAuth 2.0 Access Token Enforcement Using External Provider policy sends a request to the `/validate` URL of the OAuth provider to ensure the validity of the token.
+
 
 *To use and test authentication:*
 
@@ -100,6 +176,9 @@ The call succeeds and the API returns the list of JSONPlaceholder users.
 +
 image::building-an-external-oauth-2.0-provider-application-1da90.png[building-an-external-oauth-2.0-provider-application-1da90]
 
+////
 == See Also
 
+* link:/api-manager/v/2.x/mule-oauth-provider-landing-page[Mule oAuth 2.0 Provider]
+* link:/api-manager/v/2.x/oauth-dance-about[Reviewing OAuth 2.0 Dance concepts]
 * link:/anypoint-exchange/about-portals[About Public Portals]
