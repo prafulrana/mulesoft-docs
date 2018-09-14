@@ -1,6 +1,6 @@
 = Define a Custom Function
 
-Define your own DataWeave functions (custom functions) using the `fun` declaration in the header of a DataWeave script. For example, this a simple DataWeave function accepts a single String argument that outputs `"HELLO"`:
+Define your own DataWeave functions (custom functions) using the `fun` declaration in the header of a DataWeave script. For example, this a simple DataWeave function that accepts a single String argument that outputs `"HELLO"`:
 
 [source,DataWeave, linenums]
 ----
@@ -22,7 +22,7 @@ fun toUpper(aString) = upper(aString)
 toUpper("h" ++ "el" ++ lower("LO") )
 ----
 
-To test the type of the argument passed into your function, you can link:dataweave-pattern-matching[match patterns] with the built-in `match` operation.
+To test the type of the argument passed into your function, you can link:dataweave-pattern-matching[match patterns] with the built-in `match` operator.
 
 .Example: Function that Uses Pattern Matching
 [source,DataWeave, linenums]
