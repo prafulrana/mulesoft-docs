@@ -32,7 +32,7 @@ Verify that you have the following:
 
 * Anypoint Platform user account with APM access
 +
-NOTE: If you are unable to access APM, see your Mulesoft account administrator for assistance.
+NOTE: If you are unable to access APM, see your MuleSoft account administrator for assistance.
 
 * Anypoint Studio with Mule 3.8.4 and the following connectors:
 ** Partner Manager 6.5.0

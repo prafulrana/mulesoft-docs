@@ -160,7 +160,7 @@ ns ns0 http://namespaces.soaplite.com/perl
     oaBase: {
       oaCustomer: {
         name: "James Bond",
-              company: "Mulesoft"
+              company: "MuleSoft"
       },
       oaCustomer: {
         name: "John Doe",
