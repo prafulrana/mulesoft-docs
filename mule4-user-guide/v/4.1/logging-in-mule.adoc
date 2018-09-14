@@ -66,16 +66,16 @@ If you need to use synchronized logging, adjust the logging level or define cust
 
 In Anypoint Studio, `log4j2.xml` appears in the `src/main/resources` path.
 
-The default config defines the standard loggers exactly as Mule did before the introduction of asynchronous logging. The only difference is that the new config defines all loggers (including the root one) as asynchronous.
+The default configuration defines the standard loggers exactly as Mule did before the introduction of asynchronous logging. The only difference is that the new configuration defines all loggers (including the root one) as asynchronous.
 
-You can override this config at the domain or application level. You can create a custom file at a custom folder location and point to it in the link:/mule-user-guide/v/4.1/intro-packaging#app_descriptor[application descriptor]. To do this, open the application's `mule-artifact.json` file in the root of the project and add a `logConfigFile` property with this location specified in it. The path to the file can be either relative to the Working Directory (the folder where the runtime was started from) or an absolute path.
+You can override this configuration at the domain or application level. You can create a custom file at a custom folder location and point to it in the link:intro-packaging#app_descriptor[application descriptor]. To do this, open the application's `mule-artifact.json` file in the root of the project and add a `logConfigFile` property with this location specified in it. The path to the file can be either relative to the working directory (the folder where the runtime was started from) or an absolute path.
 
 [source]
 ----
 "logConfigFile": "myCustomFolder/myCustomlog4j2.xml"
 ----
 
-If this deployment property isn't set, when an application is deployed, Mule looks for a config file following a child-first pattern, as listed below:
+If this deployment property isn't set, when an application is deployed, Mule looks for a configuration file following a child-first pattern, as listed below:
 
 * Look for a file called `log4j2-test.xml` in the application classpath
 * Look for a file called `log4j2.xml` in the application classpath
@@ -240,7 +240,7 @@ It's highly encouraged that you implement slf4j as your logging mechanism, as th
 
 == Configuration Reloading
 
-By default, Mule polls modified config files every 60 seconds to check for changes. If any of those files have changed, the logger config is modified on the fly. You can customize this interval by setting the `monitorInterval` attribute in the root element (check link:https://logging.apache.org/log4j/2.x/manual/[log4j 2 manual] for further reference).
+By default, Mule polls modified configuration files every 60 seconds to check for changes. If any of those files have changed, the logger configuration is modified on the fly. You can customize this interval by setting the `monitorInterval` attribute in the root element (check link:https://logging.apache.org/log4j/2.x/manual/[log4j 2 manual] for further reference).
 
 == Making the HTTP Connector More Verbose
 
