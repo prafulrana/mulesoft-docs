@@ -7,15 +7,13 @@ toc::[]
 
 The Java module exposes useful functions to deal with Throwable instances.
 
-IMPORTANT: These functions are available since version 1.2.0
+IMPORTANT: These functions have been available since version 1.2.0.
 
 == Checking for a Cause
 
 You can check whether a Throwable was caused by a certain type of Exception using the `isCausedBy` function.
 
-For example, if invoking our tax calculation method fails, we can check whether it was given an invalid argument
-(such as a negative value) or whether it was given a `null` one, assuming those are the respective failures the
-method declares.
+For example, if invoking the tax calculation method example fails, it is possible to check whether it was given an invalid argument (such as a negative value) or whether it was given a `null` one, assuming those are failures the method declares.
 
 [source, xml, linenums]
 ----
@@ -39,9 +37,9 @@ method declares.
 
 == Obtaining a Root Cause
 
-We can also obtain the root cause of a Throwable, going through all the possible wrapping, with the `getRootCause` function.
+You can also obtain the root cause of a Throwable, going through all the possible wrapping, with the `getRootCause` function.
 
-In the following example, all tax calculation errors are handled by another class which takes the root cause of the Throwable.
+In the following example, all tax calculation errors are handled by another class, which takes the root cause of the Throwable.
 
 [source, xml, linenums]
 ----
@@ -64,4 +62,4 @@ In the following example, all tax calculation errors are handled by another clas
 
 == See also
 
-link:mule4-user-guide/v/4.1/mule-error-concept[About the Mule Error]
+link:/mule4-user-guide/v/4.1/mule-error-concept[About the Mule Error]
