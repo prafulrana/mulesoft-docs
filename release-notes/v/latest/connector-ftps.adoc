@@ -7,8 +7,8 @@
 
 === New Features and Enhancements
 
-* The Connector now lets the user define between a FTPS Implicit and Explicit
-connection, in the later also define between a CLEAR or PRIVATE Data Channel
+* The FTPS connector now lets you define FTPS Implicit or Explicit
+connections. In the latter, you can also define a CLEAR or PRIVATE Data Channel
 Protection level.
 
 == 1.3.1
