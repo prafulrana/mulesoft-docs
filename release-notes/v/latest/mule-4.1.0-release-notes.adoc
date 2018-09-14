@@ -158,7 +158,7 @@ In this version, the focus is resilience, security, and troubleshooting ease.
 | MULE-14198 | flow-ref is missing target attribute
 | MULE-14194 | HTTP connector fails to close streaming content connection from HEAD request
 | MULE-14193 | Wrong ArtifactType in SpringXmlConfigurationBuilder
-// | MULE-14186 | Support Entitlement for Mulesoft Premium connectors
+// | MULE-14186 | Support Entitlement for MuleSoft Premium connectors
 // | MULE-14182 | Flaky test failing with java.lang.NoClassDefFoundError: org.mule.test.AbstractIntegrationTestCase
 | MULE-14179 | HTTP connector does not dispose listeners, causing a memory leak
 | MULE-14176 | When melDefault property is set to true, dw: prefix in expressions is ignored

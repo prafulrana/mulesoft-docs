@@ -57,7 +57,7 @@ image:dw-quickstart-add-db1.png[]
 . Now that the Database connector is in the Mule Palette, you can see its operations. Drag the Select operation into the flow.
 +
 image:dw-quickstart-add-db2.png[]
-. Let's configure the Database operation to listen for responses from the Mulesoft sample MySQL database. Click the Select operator to display its properties tab, and click the add button (green cross) to open the Database Config dialog. 
+. Let's configure the Database operation to listen for responses from the MuleSoft sample MySQL database. Click the Select operator to display its properties tab, and click the add button (green cross) to open the Database Config dialog. 
 . Select or type Mule's sample database values in the dialog:
 +
 ** Connection: `MySQL Connection`

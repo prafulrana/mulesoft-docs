@@ -5,7 +5,7 @@ Use the Anypoint Platform to build an application network, a structured set of i
 
 == Explore the Platform with Exchange
 
-link:https://www.anypoint.mulesoft.com/exchange/[Exchange] hosts elements created by Mulesoft and others that you can use to build your own integration apps (Mule apps) and APIs. The site includes connectors with examples and templates. Most connectors also have helpful links where you can explore reference guides and user guides. RAML fragments, custom packages, videos, and other items are available here.
+link:https://www.anypoint.mulesoft.com/exchange/[Exchange] hosts elements created by MuleSoft and others that you can use to build your own integration apps (Mule apps) and APIs. The site includes connectors with examples and templates. Most connectors also have helpful links where you can explore reference guides and user guides. RAML fragments, custom packages, videos, and other items are available here.
 
 == Design and Build Integration Apps and APIs
 
@@ -58,7 +58,7 @@ You can test and run the Mule apps and APIs you build from Studio or the Design 
 == More Resources
 
 * link:/release-notes/[Release Notes]
-* link:http://developer.mulesoft.com[Mulesoft developer site]
+* link:http://developer.mulesoft.com[MuleSoft developer site]
 * link:https://training.mulesoft.com/[Training]
 
 '''

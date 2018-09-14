@@ -1,6 +1,6 @@
 = API Specification for MuleSoft Connectivity Ecosystem
 
-If you are an independent software vendor (ISV), you can participate in the MuleSoft Connectivity Ecosystem by auto-generating a connector from a REST API specification. These steps explain how to prepare your API specification in Anypoint Platform and how to work with your Mulesoft BD counterpart to do the rest.
+If you are an independent software vendor (ISV), you can participate in the MuleSoft Connectivity Ecosystem by auto-generating a connector from a REST API specification. These steps explain how to prepare your API specification in Anypoint Platform and how to work with your MuleSoft BD counterpart to do the rest.
 
 . In Anypoint Platform, follow these steps to prepare your API specification:
 .. Sign up for Anypoint Platform:
@@ -31,7 +31,7 @@ The results of the test of the method appear on the right side of the screen und
 
 . After your API specification is ready, save it in a git-compatible repository, such as GitHub or Bitbucket.
 
-. Contact your Mulesoft BD counterpart and follow these steps:
+. Contact your MuleSoft BD counterpart and follow these steps:
 .. Sign the Technology Partner Agreement (provided by your MuleSoft BD counterpart)
 .. Ask for an extension to the expiration date of your trial of Anypoint Platform.
 .. Ask for an invitation to the Connectivity Assets Manager tool, a self-service certification tool for connectivity assets, and create a new Anypoint Platform account based on the invitation.
