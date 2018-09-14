@@ -22,7 +22,7 @@ fun toUpper(aString) = upper(aString)
 toUpper("h" ++ "el" ++ lower("LO") )
 ----
 
-To test the type of the argument passed into your function, you can link:dataweave-pattern-matching[match patterns] with the built-in `match` operator.
+To test the type of the argument passed into your function, you can link:dataweave-pattern-matching[match patterns] with the built-in `match` function.
 
 .Example: Function that Uses Pattern Matching
 [source,DataWeave, linenums]
