@@ -10,6 +10,32 @@ _Select_
 MuleSoft provides OAuth 2.0 Connection and Username-Password access to the Microsoft Dynamics 365 server.
 
 
+== 1.0.5
+
+=== Compatibility
+
+[width="100%", cols="50a,50a", options="header"]
+|===
+|Software |Version
+|Mule Runtime | Mule Runtime Enterprise Edition 3.6.0 and newer
+|Microsoft Dynamics 365 | 1.0.5
+|===
+
+=== Features
+
+* No new features added
+
+=== Fixed in this Release
+
+* An issue was reported that when using a payload with Czech characters in the connector, an error is returned even if the Mule message
+is set to use __UTF-8__ encoding.
+It was fixed by using the correct __UTF-8__ encoding in the requests to the Dynamics 365 service.
+
+=== Known Issues
+
+* No known issues
+
+
 == 1.0.4
 
 *July 24, 2018*
