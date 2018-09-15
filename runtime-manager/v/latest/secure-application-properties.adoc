@@ -187,7 +187,7 @@ But a problem arises when an operator needs to update an encrypted value. The Ru
 But there is a way for a Mule application to be designed to allow operations staff to safely override encrypted properties. 
 If encrypted property names are also listed in the Mule application's 'secureProperties' entry in 'mule-artifact.json', then once the application is deployed, the value of this encrypted property will also be hidden in the Runtime Manager Properties tab, just like decrypted properties, and just like other properties, the decrypted value is only stored in the Mule worker's memory and securely stored in the CloudHub database for your user account, and is never stored in any CloudHub worker's files, nor is it ever passed between any other machines (including the Runtime Manager Console). 
 
-So for any encrypted property that is also marked as safely hidden in the Mule application's `secureProperties` entry, you can safely replace any encrypted property with a clear-text value, which will be securely stored in the CloudHub properties database, and securely passed in to the Mule application ever time the Mule application is started. 
+So for any encrypted property that is also marked as safely hidden in the Mule application's `secureProperties` entry, you can safely replace any encrypted property with a clear-text value, which will be securely stored in the CloudHub properties database, and securely passed in to the Mule application every time the Mule application is started. 
 
 The new value is also hidden once the application is deployed and can never be viewed again.
 
