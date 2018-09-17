@@ -12,7 +12,7 @@ To support Exchange 2.0 properly, the feature ID of Anypoint MQ Connector has ch
 
 == 2.0.2
 
-*September 18, 2018*
+*September 17, 2018*
 
 This release of the Anypoint MQ Connector implements retry logic with exponential backoff.
 
