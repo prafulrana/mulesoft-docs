@@ -1,0 +1,6 @@
+= SLA Tiers
+:keywords: api, sla, contract
+
+*** link:/api-manager/v/2.x/defining-sla-tiers[Reviewing SLA Tiers concepts on API Manager]
+*** link:/api-manager/v/2.x/delete-sla-tier-task[Removing SLA Tiers on API Manager]
+*** link:/api-manager/v/2.x/access-developer-portal-task[Accessing the Developer Portal]
