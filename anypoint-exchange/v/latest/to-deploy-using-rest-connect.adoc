@@ -10,7 +10,7 @@ image:rest-connect-publish-to-exchange.png[Publish to Exchange Button]
 
 == Accessing Generated Connectors
 
-After publishing an API Spec from Design Center > API Designer, a REST API asset appears in Anypoint Exchange. Mule 3 and Mule 4 connectors are also created for the RAML specification and listed on the REST API asset as a link. (Note: This feature is only available in the European Union. In all other regions, REST Connect generates a separate asset for the Mule 3 connector)
+After publishing an API Spec from Design Center > API Designer, a REST API asset appears in Anypoint Exchange. Mule 3 and Mule 4 connectors are also created for the RAML specification and listed on the REST API asset as a link.
 
 In Exchange, you can download the Mule 3 or Mule 4 connector from the Download menu:
 
