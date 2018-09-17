@@ -1,9 +1,9 @@
 // TOC File
 * link:/api-manager/v/2.x/index[API Manager]
+** link:/api-manager/v/2.x/latest-overview-concept[Reviewing API Manager concepts]
 +
 // API Manager general
 ** link:/api-manager/v/2.x/api-instance-landing-page[API Instance]
-*** link:/api-manager/v/2.x/latest-overview-concept[Reviewing API Manager concepts]
 *** link:/api-manager/v/2.x/environments-concept[Reviewing environment concepts]
 *** link:/api-manager/v/2.x/switch-environment-task[Switching environments]
 *** link:/api-manager/v/2.x/environment-permission-task[Granting Permission to Access an environment]
