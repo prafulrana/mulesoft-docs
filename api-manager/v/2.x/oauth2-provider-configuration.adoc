@@ -1,6 +1,4 @@
-= Reviewing Mule OAuth 2.0 Provider Configuration concepts
-
-== Mule OAuth 2.0 Provider and runtime configuration
+= Mule OAuth 2.0 Provider Configuration
 
 For running the Mule OAuth Provider in conjunction with the OAuth 2.0 Access Token Enforcement Using External Provider policy, you have to deploy it in a runtime with API Gateway capabilities (ie Mule runtime v3.8.0 or later or API Gateway v2.x.x) with the corresponding organization credentials correctly specified.
 

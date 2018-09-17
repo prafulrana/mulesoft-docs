@@ -127,6 +127,14 @@
 *** link:/api-manager/v/2.x/analytics-event-api[Reviewing Analytics Event API]
 *** link:/api-manager/v/2.x/analytics-event-forward[Reviewing Analytics Event Forwarding]
 +
+// Mule OAuth 2.0 provider
+** link:/api-manager/v/2.x/mule-oauth-provider-landing-page[Mule oAuth 2.0 Provider]
+*** link:/api-manager/v/2.x/oauth2-provider-configuration[Mule OAuth 2.0 Provider Configuration]
+*** link:/api-manager/v/2.x/about-configure-api-for-oauth[OAuth 2.0 Policy Prerequisites]
+*** link:/api-manager/v/2.x/external-oauth-2.0-token-validation-policy[Mule OAuth 2.0 Access Token Policy usage]
+*** link:/api-manager/v/2.x/oauth-dance-about[OAuth 2.0 Dance]
+*** link:/api-manager/v/2.x/oauth-grant-types-about[OAuth 2.0 Grant Types]
++
 // Alerts
 ** link:/api-manager/v/2.x/alerts-landing-page[Alerts]
 *** link:/api-manager/v/2.x/using-api-alerts[Reviewing Alerts concepts]
@@ -134,3 +142,5 @@
 *** link:/api-manager/v/2.x/test-alert-task[Testing an API Alert]
 *** link:/api-manager/v/2.x/view-delete-alerts-task[Viewing and Deleting API Alerts]
 *** link:/api-manager/v/2.x/edit-enable-disable-alerts-task[Editing, Enabling, or Disabling API Alerts]
++
+
