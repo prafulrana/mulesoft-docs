@@ -1,12 +1,10 @@
 = About the FTPS Connector
 :keywords: FTPS, connector
-:toc:
-:toc-title:
 
 The FTPS connector connects to FTP servers the same way
 as the link:ftp-connector[FTP connector] but adds support for link:/mule4-user-guide/v/4.1/tls-configuration[Transport Layer Security (TLS)].
 
-== Configuration Creation
+== Creating a Connection
 
 To create a basic FTPS Connection the `host` and `workingDir` (where the FTPS server
 is placed) are required. Additionally the `port`, which defaults to 21, can be also configured, and if the server runs with some security, you can specify a `username` and `password`.
@@ -27,7 +25,8 @@ is placed) are required. Additionally the `port`, which defaults to 21, can be a
 * For more on other functionality provided by this connector, see link:ftp-connector[FTP Connector Documentation Reference].
 
 === FTPS Mode
-*Available Since 1.4.0*
+
+Available in version 1.4.0 and later.
 
 ==== Explicit
 
@@ -39,11 +38,11 @@ channel.
 
 In the FTPS Connector, two protection levels are configurable:
 
- * *Clear* (Default) : The default protection level if no other level is specified is
- Clear. The Clear protection level indicates that the data channel will carry
+ * *Clear* (Default): The default protection level if no other level is specified is
+ Clear. The Clear protection level indicates that the data channel carries
  the raw data of the file transfer, with no security applied.
  * *Private*: The Private protection level indicates that the integrity of the data 
- and confidentiality will be protected.
+ and confidentiality are protected.
 
 
 [source, xml, linenums]
@@ -84,19 +83,19 @@ FTPS Implicit mode assumes that a secure connection through an SSL/TLS handshake
 
 == Installing the Connector
 
-To use the FTPS module, you simply add it to your Mule app through the Studio or Flow Designer UI, or you can add the following dependency in your `pom.xml` file:
+To use the FTPS module, add it to your Mule app in Studio or in Design Center, or you can add the following dependency in your `pom.xml` file:
 
 [source,XML,linenums]
 ----
 <dependency>
     <groupId>com.mulesoft.connectors</groupId>
     <artifactId>mule-ftps-connector</artifactId>
-    <version>1.4.0</version> <!-- or newer -->
+    <version>1.4.0</version> <!-- or later -->
     <classifier>mule-plugin</classifier>
 </dependency>
 ----
 
-== TLS Configuration with Keystores and Truststores
+== Configuring TLS with Keystores and Truststores
 
 You can use Transport Layer Security (TLS) and configure FTPS by providing a key store with your certificate. You can also enable 2-way authentication by providing a trust store. For details, see link:/mule4-user-guide/v/4.1/tls-configuration[Configure TLS with Keystores and Truststores].
 
@@ -104,4 +103,4 @@ You can use Transport Layer Security (TLS) and configure FTPS by providing a key
 == See Also
 
 * link:ftp-connector[FTP Connector Documentation]
-* link:ftps-documentation[FTPS Connector Technical Reference]
+* link:ftps-documentation[FTPS Connector Reference]
