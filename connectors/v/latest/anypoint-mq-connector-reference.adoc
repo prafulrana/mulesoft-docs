@@ -73,7 +73,7 @@ Executes an acknowledgment for an AnypointMQMessageContext indicating that the m
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | |x
-| Message Context a| <<AnypointMQMessageContext>> |  AnypointMQMessageContext that represents the received message. |  |x
+| Message Context a| AnypointMQMessageContext |  AnypointMQMessageContext that represents the received message. |  |x
 | Reconnection Strategy a| * <<reconnect>>
 * <<reconnect-forever>> |  A retry strategy in case of connectivity errors. |  |
 |===
@@ -123,7 +123,7 @@ Executes an acknowledgment for an AnypointMQMessageContext indicating that the m
 [%autowidth.spread]
 |===
 | Type a| Binary
-| Attributes Type a| <<AnypointMQMessageContext>>
+| Attributes Type a| AnypointMQMessageContext
 |===
 
 === For Configurations
@@ -150,7 +150,7 @@ Executes a Not Acknowledgment over a given AnypointMQMessageContext and changes 
 |===
 | Name | Type | Description | Default Value | Required
 | Configuration | String | The name of the configuration to use. | |x
-| Message Context a| <<AnypointMQMessageContext>> |  AnypointMQMessageContext that represents the received message. |  |x
+| Message Context a| AnypointMQMessageContext |  AnypointMQMessageContext that represents the received message. |  |x
 | Reconnection Strategy a| * <<reconnect>>
 * <<reconnect-forever>> |  A retry strategy in case of connectivity errors. |  |
 |===
@@ -240,7 +240,7 @@ Anypoint MQ Subscriber Message Source, retrieves messages from the given destina
 [%autowidth.spread]
 |===
 | Type a| Binary
-| Attributes Type a| <<AnypointMQMessageContext>>
+| Attributes Type a| AnypointMQMessageContext
 |===
 
 === For Configurations
