@@ -19,7 +19,7 @@ If a resource is protected by an OAuth token enforcement policy, an OAuth token 
  `"Bearer" + <space> + <token, for example, 123>`
 |===
 
-If the API instance is RAML-based, declare the protected resources as protected by OAuth in order for the API Console to be aware of the policy being applied.
+If the API instance is hgfRAML-based, declare the protected resources as protected by OAuth in order for the API Console to be aware of the policy being applied.
 
 IMPORTANT: Declaring the resource to be protected by the OAuth Token Enforcement policy in your RAML definition, does not imply that the policy is actually applied.
 
