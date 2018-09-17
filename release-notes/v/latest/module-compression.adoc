@@ -1,15 +1,36 @@
 = Compression Module Release Notes for Mule 4
 :keywords: mule, compression, module, release notes
 
+*September 2018* 
+
+== 2.0.0
+
+=== New Features and Enhancements
+
+In order to provide a better experience using this module we added a new API to support archiver compression 
+formats with a new set of operations, but also providing the same experience to compress and decompress files for each of the available formats without losing any of the features that the format associated algorithm provides. 
+
+This change enables the posibility of addition of more compression formats in a simple maner.
+
+This version now supports the most widely used compression format: ZIP. 
+
+The Gzip format is still supported.
+
+=== Fixed Issues
+
+[%header,cols="15a,85a"]
+|===
+|Issue |Description
+| https://www.mulesoft.org/jira/browse/MULE-15082[MULE-15082] | Upgrade commons-lang3 to 3.7
+|===
+
 *May 2018*
 
 == 1.0.0
 
-*May 15, 2018*
-
 === New Features and Enhancements
 
-This module provides functionality for compressing and uncompressing data.
+This module provides functionality for compressing and uncompressing data in the gzip format.
 
 == See Also
 
