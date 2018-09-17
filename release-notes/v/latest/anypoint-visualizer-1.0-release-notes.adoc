@@ -2,6 +2,23 @@
 
 This document describes new features and enhancements, known limitations, issues, and fixes for Anypoint Visualizer. See link:/anypoint-visualizer[Anypoint Visualizer] for more information.
 
+== September 28, 2018
+Version: 1.3.0
+
+=== New Features and Enhancements
+* Side Panel
+** API/Application monitoring metrics for selected node
+** New embedded chart from Anypoint Monitoring for selected node
+* View
+** In-line metrics in nodes
+** Drop-down to choose metric and time frame
+** Improved color themes
+* Permissions
+** Visualizer viewer permission has been removed. Instead, CloudHub Application Read permission is used by Anypoint Visualizer to show which applications should be shown.
+
+=== Fixed Issues
+* Environments with legacy Id value are now shown in the environment selector
+
 == August 21, 2018
 Version: 1.1.0
 
@@ -39,6 +56,7 @@ There are no known limitations or workarounds in this release.
 
 == June 30, 2018
 Version: 1.0.0
+
 === New Features and Enhancements
 
 This is the initial release of Anypoint Visualizer. Anypoint Visualizer provides a graphical representation of the APIs, and Mule applications, and third-party systems within your application network.
