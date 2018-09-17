@@ -1,23 +1,22 @@
 = Anypoint MQ Connector Release Notes
 :keywords: mq, connector, release, notes
 
-*November 2017*
+*September 2018*
 
 _Select_
 
-*Note:* Anypoint MQ version 2.0 and later only works with Mule 4 and Studio 7. For the Mule 3 Anypoint MQ Connector Release Notes, see link:/release-notes/mq-connector-release-notes[Anypoint MQ Connector Release Notes].
+*Note:* Anypoint MQ version 2.x only works with Mule 4 and Studio 7. For the Mule 3 Anypoint MQ Connector Release Notes, see link:/release-notes/mq-connector-release-notes[Anypoint MQ Connector Release Notes].
 
+Anypoint MQ Connector lets you add messaging access to Anypoint MQ queues and exchanges from Anypoint Studio applications.
 To support Exchange 2.0 properly, the feature ID of Anypoint MQ Connector has changed. Before you download MQ v1.2.0 and later from Exchange 2.0, uninstall the existing version of this connector in Studio.
 
-This release of the Anypoint MQ Connector lets you add messaging access to Anypoint MQ queues and exchanges from Anypoint Studio applications.
+== 2.0.2
 
-== 2.0.0
+*September 18, 2018*
 
-*November 17, 2017*
+This release of the Anypoint MQ Connector implements retry logic with exponential backoff.
 
-The Anypoint MQ connector now adds support for Mule 4 and Studio 7. 
-
-== Compatibility
+=== Compatibility
 
 [%header%autowidth.spread]
 |===
@@ -26,7 +25,43 @@ The Anypoint MQ connector now adds support for Mule 4 and Studio 7.
 |Anypoint Studio |7.0.0
 |===
 
-== Known Issues
+=== Fixed in This Release
+
+* Improved logger precision to avoid issues during transaction tracing.
+* Allows MQ Subscriber prefetch to be disabled for predictability on API calls (see Known Issues).
+
+=== Known Issues
+
+Using Prefetch can result in the loss of predictability of API calls. If prefetch is used, the connector aggressively tries to fetch messages, which results in increased API calls. If predictability and control on API requests is important, use the following steps to disable prefetch and strictly follow the polling time.
+
+IMPORTANT: Only disable Prefetch if predictability on API calls is more important than performance. Maximum possible performance is only available when prefetch is enabled.
+
+To disable Prefetch:
+
+. Access a new or existing connector configuration of the MQ Subscriber component.
+. Navigate to the Prefetch tab.
+. Specify a Fetch size of 0. This disables the Prefetch.
+. In the Studio General tab, specify a *Polling time* in milliseconds. This time interval is strictly adhered to when making API calls. Polling time defaults to 10 seconds if an explicit configuration is not present.
++
+If there are no messages in the queue, each poll that a subscriber makes waits for the duration of exactly half of the *Polling time* specified in the General tab. Polling time has a maximum value of 20000 milliseconds.
+
+
+== 2.0.0
+
+*November 17, 2017*
+
+The Anypoint MQ connector now adds support for Mule 4 and Studio 7. This release of the Anypoint MQ Connector lets you add messaging access to Anypoint MQ queues and exchanges from Anypoint Studio applications.
+
+=== Compatibility
+
+[%header%autowidth.spread]
+|===
+|Software|Version
+|Mule Runtime |4.0.0 and newer
+|Anypoint Studio |7.0.0
+|===
+
+=== Known Issues
 
 * The Anypoint MQ connector doesn't support tracking.
 +
