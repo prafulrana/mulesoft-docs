@@ -2,28 +2,23 @@
 :imagesdir: ./_images
 
 The Client ID Enforcement policy checks that all requests are made by a valid client application.
-This policy allows only authorized applications to access the deployed API implementation.
-Each application that wants to access to said API must configured with credentials: client_id and client_secret.
+This policy allows only link:/api-manager/v/2.x/api-contracts-landing-page[Authorized Applications] to access the deployed API implementation.
+Each application that would like to access said API must configured with credentials: client ID and Secret.
 
-At runtime, applications must provide the credentials with each request to the API implementation.
+At runtime, applications must provide credentials with each request to the API implementation.
 The credentials obtained from the request are compared with the authorized client applications.
-If the credentials are valid, the policy grants access to the deployed API implementation, otherwise, the policy denies access.
+If the credentials are valid, the policy grants access to the deployed API implementation, otherwise, the policy denies access returning a HTTP status code of 401 Unauthorized.
 
 As Authorized credential data is obtained from API Manager, each Mule Runtime keeps a persistent cache, which updates periodically.
 This cache is useful for performance, and in the event of a sudden loss of connectivity to the platform.
 The enforcement is applied regardless of the state of the management plane.
-
-If you are using a RAML API, to prevent user requests from being rejected, create a trait in the RAML root and then reference this trait in every operation of your API.
-In the list of policies on the API's API Administration dashboard, the RAML snippet link contains the RAML code you need to add to the RAML.
-
-image::raml-snippet.png[]
 
 == Configuring Client Id Enforcement Policy
 
 image::ApplyClientIdEnforcement.png[]
 
 The client ID Enforcement Policy configuration is for indicating the runtime where to obtain the credentials from.
-If the option *HTTP Basic Authentication Header* is set, it will look for the credentials there;
+If the option *HTTP Basic Authentication Header* is set, it will look for the credentials in the _Authentication_ header;
 If *Custom Expression* is set, you can provide an expression for obtaining the client id and secret.
 
 *Mule Runtime 3.x*
@@ -33,11 +28,10 @@ If *Custom Expression* is set, you can provide an expression for obtaining the c
 
 *Mule Runtime 4.x*
 
-* Client ID Expression: DataWeave expression for the client ID.
-* Client Secret Expression: DataWeave expression for the client Secret.
+* Client ID Expression: DataWeave 2.0 expression for the client ID.
+* Client Secret Expression: DataWeave 2.0 expression for the client Secret.
 
 If the Client Secret Expression is left empty the policy will only verify the client ID and ignore the client Secret.
 
 == See Also
-
 * link:/api-manager/v/2.x/api-contracts-landing-page[Contracts And Client Applications]
