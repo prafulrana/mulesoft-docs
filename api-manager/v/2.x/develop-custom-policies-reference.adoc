@@ -103,6 +103,7 @@ configuration: []
 ## Unauthorized 401 during Policy Deployment
 
 This error happens due to one of the following reasons:
+
 * settings.xml does not contain the appropriate credentials.
 * GroupId holding the Anypoint Organization Id is not correctly set up.
 * GroupId is not the same on both `pom.xml` and `mule-artifact.json`.
