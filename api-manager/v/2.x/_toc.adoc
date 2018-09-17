@@ -63,8 +63,6 @@
 **** link:/api-manager/v/2.x/available-policies[Reviewing Provided Policies]
 **** link:/api-manager/v/2.x/mule4-policy-reference[Reviewing Mule Runtime 4.x Policy concepts]
 **** link:/api-manager/v/2.x/cors-policy[CORS]
-**** link:/api-manager/v/2.x/cors-mule4[Reviewing CORS Policy on Mule 4]
-**** link:/api-manager/v/2.x/cors-reference[Reviewing CORS concepts]
 **** link:/api-manager/v/2.x/client-id-based-policies[Reviewing Client ID-Based Policies concepts]
 **** link:/api-manager/v/2.x/http-basic-authentication-policy[HTTP Basic Authentication]
 **** link:/api-manager/v/2.x/ldap-security-manager[LDAP Security Manager]
