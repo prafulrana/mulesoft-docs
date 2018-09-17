@@ -145,21 +145,21 @@ This error is encountered when then pom.xml and mule-artifact.json have differen
 <groupId>4b8bdc4a-8b72-41c8-b08a-663004389f72</groupId>
 <artifactId>my-policy</artifactId>
 <version>1.0.0</version>
-<packaging>mule-policy</packaging>
+<packaging>mule-application</packaging>
 
 <name>my-policy</name>
 ----
 OR
 ----
 <plugin>
-				<groupId>org.mule.tools.maven</groupId>
-				<artifactId>mule-maven-plugin</artifactId>
-				<version>${mule.maven.plugin.version}</version>
-				<extensions>true</extensions>
-				<configuration>
-				<classifier>mule-application-template</classifier>
-                </configuration>
-			</plugin>
+	<groupId>org.mule.tools.maven</groupId>
+	<artifactId>mule-maven-plugin</artifactId>
+	<version>${mule.maven.plugin.version}</version>
+	<extensions>true</extensions>
+	<configuration>
+		<classifier>mule-application-template</classifier>
+	</configuration>
+</plugin>
 ----
 
 ## A policy template artifact cannot export packages
