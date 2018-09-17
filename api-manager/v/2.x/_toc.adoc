@@ -26,13 +26,15 @@
 *** link:/api-manager/v/2.x/delete-sla-tier-task[Removing SLA Tiers on API Manager]
 *** link:/api-manager/v/2.x/access-developer-portal-task[Accessing the Developer Portal]
 +
-// Analytics
-** link:/api-manager/v/2.x/analytics-landing-page[Analytics]
-*** link:/api-manager/v/2.x/viewing-api-analytics[Reviewing Analytics usage]
-*** link:/api-manager/v/2.x/analytics-concept[Reviewing Analytics FAQ]
-*** link:/api-manager/v/2.x/analytics-chart[Reviewing API Manager Analytics charts usage]
-*** link:/api-manager/v/2.x/analytics-event-api[Reviewing Analytics Event API]
-*** link:/api-manager/v/2.x/analytics-event-forward[Reviewing Analytics Event Forwarding]
+// API Proxy
+** link:/api-manager/v/2.x/api-proxy-landing-page[API Proxy]
+*** link:/api-manager/v/2.x/proxy-advantages[Reviewing API Proxy concepts]
+*** link:/api-manager/v/2.x/wsdl-raml-http-proxy-reference[Handling API Proxy status codes]
+*** link:/api-manager/v/2.x/https-reference[Configuring an HTTPS Endpoint]
+*** link:/api-manager/v/2.x/proxy-latest-concept[Deploying an API Proxy]
+*** link:/api-manager/v/2.x/proxy-deploy-cloudhub-latest-task[Deploying an API Proxy to CloudHub]
+*** link:/api-manager/v/2.x/proxy-deploy-hybrid-latest-task[Deploying an API Proxy to Hybrid]
+*** link:/api-manager/v/2.x/download-proxy-task[Downloading an API Proxy]
 +
 // Policies
 ** link:/api-manager/v/2.x/policies-landing-page[Policies]
@@ -96,22 +98,22 @@
 **** link:/api-manager/v/2.x/offline-policy-task[Applying Offline Custom Policies]
 **** link:/api-manager/v/2.x/offline-remove-task[Removing Offline Custom Policies]
 +
-// API Proxy
-** link:/api-manager/v/2.x/api-proxy-landing-page[API Proxy]
-*** link:/api-manager/v/2.x/proxy-advantages[Reviewing API Proxy concepts]
-*** link:/api-manager/v/2.x/wsdl-raml-http-proxy-reference[Handling API Proxy status codes]
-*** link:/api-manager/v/2.x/https-reference[Configuring an HTTPS Endpoint]
-*** link:/api-manager/v/2.x/proxy-latest-concept[Deploying an API Proxy]
-*** link:/api-manager/v/2.x/proxy-deploy-cloudhub-latest-task[Deploying an API Proxy to CloudHub]
-*** link:/api-manager/v/2.x/proxy-deploy-hybrid-latest-task[Deploying an API Proxy to Hybrid]
-*** link:/api-manager/v/2.x/download-proxy-task[Downloading an API Proxy]
+// Runtime
+** link:/api-manager/v/2.x/runtime-agw-landing-page[Runtime]
+*** link:/api-manager/v/2.x/api-gateway-capabilities-mule4[Reviewing API Gateway capabilities]
+*** link:/api-manager/v/2.x/gatekeeper[Reviewing API Gateway Gatekeeper Enhanced Security Reference]
+*** link:/api-manager/v/2.x/gatekeeper-task[Enabling API Gateway Gatekeeper]
+*** link:/api-manager/v/2.x/api-auto-discovery-new-concept[Reviewing API Gateway API Autodiscovery concepts]
+*** link:/api-manager/v/2.x/configure-autodiscovery-4-task[Configuring API Gateway API Autodiscovery in a Mule 4 Application]
+*** link:/api-manager/v/2.x/configure-autodiscovery-3-task[Configuring API Gateway API Autodiscovery in a Mule 3 Application]
 +
-// Mule oAuth 2.0 provider
-** link:/api-manager/v/2.x/mule-oauth-provider-landing-page[Mule oAuth 2.0 Provider]
-*** link:/api-manager/v/2.x/oauth-dance-about[Reviewing OAuth 2.0 Dance concepts]
-*** link:/api-manager/v/2.x/about-configure-api-for-oauth[Reviewing OAuth 2.0 Policy Prerequisites]
-*** link:/api-manager/v/2.x/oauth-grant-types-about[Reviewing OAuth 2.0 Grant Types]
-*** link:/api-manager/v/2.x/oauth2-provider-configuration[Reviewing Mule OAuth 2.0 Provider Configuration concepts]
+// Analytics
+** link:/api-manager/v/2.x/analytics-landing-page[Analytics]
+*** link:/api-manager/v/2.x/viewing-api-analytics[Reviewing Analytics usage]
+*** link:/api-manager/v/2.x/analytics-concept[Reviewing Analytics FAQ]
+*** link:/api-manager/v/2.x/analytics-chart[Reviewing API Manager Analytics charts usage]
+*** link:/api-manager/v/2.x/analytics-event-api[Reviewing Analytics Event API]
+*** link:/api-manager/v/2.x/analytics-event-forward[Reviewing Analytics Event Forwarding]
 +
 // Alerts
 ** link:/api-manager/v/2.x/alerts-landing-page[Alerts]
@@ -121,11 +123,9 @@
 *** link:/api-manager/v/2.x/view-delete-alerts-task[Viewing and Deleting API Alerts]
 *** link:/api-manager/v/2.x/edit-enable-disable-alerts-task[Editing, Enabling, or Disabling API Alerts]
 +
-// Runtime
-** link:/api-manager/v/2.x/runtime-agw-landing-page[Runtime]
-*** link:/api-manager/v/2.x/api-gateway-capabilities-mule4[Reviewing API Gateway capabilities]
-*** link:/api-manager/v/2.x/gatekeeper[Reviewing API Gateway Gatekeeper Enhanced Security Reference]
-*** link:/api-manager/v/2.x/gatekeeper-task[Enabling API Gateway Gatekeeper]
-*** link:/api-manager/v/2.x/api-auto-discovery-new-concept[Reviewing API Gateway API Autodiscovery concepts]
-*** link:/api-manager/v/2.x/configure-autodiscovery-4-task[Configuring API Gateway API Autodiscovery in a Mule 4 Application]
-*** link:/api-manager/v/2.x/configure-autodiscovery-3-task[Configuring API Gateway API Autodiscovery in a Mule 3 Application]
+// Mule oAuth 2.0 provider
+** link:/api-manager/v/2.x/mule-oauth-provider-landing-page[Mule oAuth 2.0 Provider]
+*** link:/api-manager/v/2.x/oauth-dance-about[Reviewing OAuth 2.0 Dance concepts]
+*** link:/api-manager/v/2.x/about-configure-api-for-oauth[Reviewing OAuth 2.0 Policy Prerequisites]
+*** link:/api-manager/v/2.x/oauth-grant-types-about[Reviewing OAuth 2.0 Grant Types]
+*** link:/api-manager/v/2.x/oauth2-provider-configuration[Reviewing Mule OAuth 2.0 Provider Configuration concepts]
