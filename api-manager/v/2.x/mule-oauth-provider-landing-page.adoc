@@ -14,9 +14,8 @@ Mule OAuth 2.0 Provider is an OAuth 2.0 provider alternative developed by MuleSo
 In addition to Mule OAuth 2.0 Provider, Mulesoft offers out-of-the-box integration with PingFederate, OpenAM and Open ID Connect OAuth 2.0 Providers.
 
 == See Also
-*** link:/api-manager/v/2.x/oauth2-provider-configuration[Reviewing Mule OAuth 2.0 Provider Configuration concepts]
-*** link:/api-manager/v/2.x/about-configure-api-for-oauth[Reviewing OAuth 2.0 Policy Prerequisites]
-*** link:/api-manager/v/2.x/oauth-dance-about[Reviewing OAuth 2.0 Dance concepts]
-*** link:/api-manager/v/2.x/oauth-grant-types-about[Reviewing OAuth 2.0 Grant Types]
-*** link:/api-manager/v/2.x/external-oauth-2.0-token-validation-policy[Reviewing Mule OAuth 2.0 Access Token Policy usage]
-*** link:/api-manager/v/2.x/about-configure-api-for-oauth[Reviewing OAuth 2.0 Policy Prerequisites]
+*** link:/api-manager/v/2.x/oauth2-provider-configuration[Mule OAuth 2.0 Provider Configuration]
+*** link:/api-manager/v/2.x/about-configure-api-for-oauth[OAuth 2.0 Policy Prerequisites]
+*** link:/api-manager/v/2.x/external-oauth-2.0-token-validation-policy[Mule OAuth 2.0 Access Token Policy usage]
+*** link:/api-manager/v/2.x/oauth-dance-about[OAuth 2.0 Dance]
+*** link:/api-manager/v/2.x/oauth-grant-types-about[OAuth 2.0 Grant Types]

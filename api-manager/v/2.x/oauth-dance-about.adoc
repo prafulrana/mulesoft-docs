@@ -1,4 +1,4 @@
-= Reviewing OAuth 2.0 Dance concepts
+= OAuth 2.0 Dance
 
 The authentication process performed by the Mule OAuth 2.0 provider, API, and client application conforms to RFC 6749. This process is called the OAuth Dance.
 
@@ -32,6 +32,4 @@ curl "http://localhost:8081/simple/?access_token=<access token>" -vvv
 == See Also
 
 * link:/api-manager/v/2.x/mule-oauth-provider-landing-page[Mule oAuth 2.0 Provider]
-* link:/api-manager/v/2.x/to-use-authentication[Authenticating using the Mule OAuth 2.0 Provider]
-* link:/api-manager/v/2.x/to-test-remote-provider[Testing a Remote Mule OAuth 2.0 Provider]
 
