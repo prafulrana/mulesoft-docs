@@ -100,7 +100,7 @@ configuration: []
 
 == Common errors
 
-## Unauthorized 401 during Policy Deployment
+### Unauthorized 401 during Policy Deployment
 
 This error happens due to one of the following reasons:
 
@@ -108,11 +108,11 @@ This error happens due to one of the following reasons:
 * GroupId holding the Anypoint Organization Id is not correctly set up.
 * GroupId is not the same on both `pom.xml` and `mule-artifact.json`.
 
-## Artifact descriptor does not exists
+### Artifact descriptor does not exists
 
 This error is encountered when then pom.xml and mule-artifact.json have different classifiers defining the project.
 
-### Sample mule-artifact.json
+#### Sample mule-artifact.json
 ----
 {
 	"configs": [
@@ -140,7 +140,7 @@ This error is encountered when then pom.xml and mule-artifact.json have differen
 }
 ----
 
-#### Sample pom.xml
+##### Sample pom.xml
 ----
 <groupId>4b8bdc4a-8b72-41c8-b08a-663004389f72</groupId>
 <artifactId>my-policy</artifactId>
@@ -162,10 +162,10 @@ OR
 </plugin>
 ----
 
-## A policy template artifact cannot export packages
+### A policy template artifact cannot export packages
 
 This error is encountered when custom Java/Groovy code is used in the Policy.
 
-### Solution
+#### Solution
 
 Package required libraries and the code into an SDK module and reference the module in a custom policy.
