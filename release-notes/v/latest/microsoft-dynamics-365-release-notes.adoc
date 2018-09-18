@@ -9,6 +9,30 @@ _Select_
 
 MuleSoft provides OAuth 2.0 Connection and Username-Password access to the Microsoft Dynamics 365 server.
 
+== 1.0.6
+=== Compatibility
+
+[width="100%", cols="50a,50a", options="header"]
+|===
+|Software |Version
+|Mule Runtime | Mule Runtime Enterprise Edition 3.6.0 and newer
+|Microsoft Dynamics 365 | 1.0.6
+|===
+
+=== Version 1.0.6 - Features
+
+* No new features added
+
+=== Version 1.0.6 - Fixed in this Release
+
+* Dynamics 365 Connector stops making calls after max number of connections (maxHttpConnections). Even if no value is set, it stops when 100 (default value) is reached. 
+The issue was fixed by removing the HTTP request from the request pool.
+* Under certain scenarios, connections were being kept open after performing requests. This was fixed.
+
+=== Version 1.0.6 - Known Issues
+
+* No known issues
+
 
 == 1.0.5
 
