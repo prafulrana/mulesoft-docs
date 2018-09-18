@@ -23,13 +23,21 @@ If *Custom Expression* is set, you can provide an expression for obtaining the c
 
 *Mule Runtime 3.x*
 
-* Client ID Expression: MEL expression for the client ID.
-* Client Secret Expression: MEL expression for the client Secret.
+* Client ID Expression: MEL expression for the client ID. Eg:
+[source, xml]
+#[message.inboundProperties['http.query.params']['client_id']]
+* Client Secret Expression: MEL expression for the client Secret. Eg:
+[source, xml]
+#[message.inboundProperties['http.query.params']['client_secret']]
 
 *Mule Runtime 4.x*
 
-* Client ID Expression: DataWeave 2.0 expression for the client ID.
-* Client Secret Expression: DataWeave 2.0 expression for the client Secret.
+* Client ID Expression: DataWeave 2.0 expression for the client ID. Eg:
+[source, xml]
+#[attributes.headers['client_id']]
+* Client Secret Expression: DataWeave 2.0 expression for the client Secret. Eg:
+[source, xml]
+#[attributes.headers['client_secret']]
 
 If the Client Secret Expression is left empty the policy will only verify the client ID and ignore the client Secret.
 
