@@ -168,9 +168,9 @@ This is the phone number you received from Twilio.
 output application/json
 ---
 {
-    body: "You are now subscribed!",
-    from: "${fromNumber}",
-    to: "+" ++ inboundProperties.'http.uri.params'.toNumber
+    Body: "You are now subscribed!",
+    From: "${fromNumber}",
+    To: "+" ++ inboundProperties.'http.uri.params'.toNumber
 
 }
 ----
@@ -191,9 +191,9 @@ output application/json
 output application/json
 ---
 {
-    body: "",
-    from: payload.from,
-    to: payload.'to'
+    Body: "",
+    From: payload.from,
+    To: payload.'to'
 }
 ----
 +
