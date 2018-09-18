@@ -1,5 +1,13 @@
 = Configuring the Proxy Connection to an OAuth Provider
 
+This file is obsolete
+
+== See Also
+
+* link:/api-manager/v/2.x/policies-landing-page[Policies]
+
+////
+
 In Mule 3.8.x, you optionally enable or disable the proxy network connection between the API and External Authentication Provider by setting the following parameter:
 
 `external_authentication_provider_enable_proxy_setting`
@@ -19,7 +27,7 @@ wrapper.java.additional.<n>=-Danypoint.platform.proxy_host=localhost
 wrapper.java.additional.<n>=-Danypoint.platform.proxy_port=8080
 ----
 
-////
+
 In Mule 3.7.x, use the parameter in the wrapper configuration file. For example:
 
 `anypoint.platform.ping_federate_enable_proxy_setting`
