@@ -1,4 +1,4 @@
-= Reviewing Mule Runtime 4.x Policy concepts
+= Mule Runtime 4.x Policy concepts
 
 Rate limited APIs running under Mule 4 can use the following flags that APIs running under earlier releases cannot: 
 

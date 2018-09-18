@@ -1,4 +1,4 @@
-= HTTP Basic Authentication Policy 
+= HTTP Basic Authentication
 :keywords: http, authentication
 
 This file is obsolete

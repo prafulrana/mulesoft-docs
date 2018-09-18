@@ -1,6 +1,14 @@
-= Reviewing Header Injection and Removal Policy
+= Header Injection and Removal
 
-Supported runtimes: Mule Runtime 4.1.0 and later.
+[width="100%", cols="5,15"]
+|==========================
+>s| Policy Name | Header injection/Header removal
+>s|Summary      | Adds/removes headers to a request or a response
+>s|Category |
+>s| Since Mule Version | 4.1.0
+.1+>.^s| Returned Status Codes
+|
+|==========================
 
 The Header Injection policy adds headers to the request/response of the message. The Header Removal policy removes all listed headers.
 

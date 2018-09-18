@@ -1,4 +1,4 @@
-= PingFederate OAuth 2.0 Token Enforcement Policy
+= PingFederate OAuth 2.0 Token Enforcement
 
 [width="100%", cols="5,15"]
 |==========================

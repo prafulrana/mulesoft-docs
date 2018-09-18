@@ -1,4 +1,4 @@
-= OpenAM OAuth 2.0 Token Enforcement Policy
+= OpenAM OAuth 2.0 Token Enforcement
 
 [width="100%", cols="5,15"]
 |==========================

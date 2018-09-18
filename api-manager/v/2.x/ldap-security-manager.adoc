@@ -1,4 +1,4 @@
-= Reviewing LDAP Security Manager Policy
+= LDAP Security Manager
 :keywords: ldap, api, gateway, authentication, http, security
 
 The LDAP Security Manager policy establishes the configuration details for an Open LDAP or Active Directory LDAP that you have set up for your enterprise. To enforce an LDAP Security Manager policy, you also need to create and apply an HTTP Basic Authentication policy, which prompts the agent to enforce credentialed access using the configuration established in your LDAP policy.

@@ -1,4 +1,4 @@
-= Reviewing API Versions and Instances concepts on API Manager
+= API Versions and Instances
 
 After you create an API in Design Center for example, you set a version name and publish it to Exchange. In this release, the version resides in Exchange, not API Manager. You then set up API Manager to manage the version. 
 

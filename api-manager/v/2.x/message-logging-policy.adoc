@@ -1,4 +1,4 @@
-= Reviewing Message Logging Policy Policy
+= Message Logging
 :imagesdir: ./_images
 
 This policy logs a custom message with the information available between policies, proxy, or backend at any point of the execution. This policy works with both log4j and log4j2.

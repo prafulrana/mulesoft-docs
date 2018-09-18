@@ -1,5 +1,15 @@
-= Mule OAuth 2.0 Access Token Policy usage
+= Mule OAuth 2.0 Access Token enforcement
 :keywords: oauth, raml, token, validation, policy
+
+[width="100%", cols="5,15"]
+|==========================
+>s| Policy Name | Mule OAuth 2.0 Access Token enforcement
+>s|Summary      | Allows access to an API for valid OAuth tokens
+>s|Category |
+>s| Since Mule Version | 3.8.0
+.1+>.^s| Returned Status Codes
+|
+|==========================
 
 To secure an API in Anypoint Platform using OAuth, we recommend using one of the following policies: 
 

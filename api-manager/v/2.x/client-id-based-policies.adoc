@@ -1,4 +1,4 @@
-= Reviewing Client ID-Based Policies concepts
+= Client ID-Based Policies concepts
 :imagesdir: ./_images
 
 You can apply the Client ID Enforcement policy to govern your API version at runtime. This policy allows only authorized applications to access the deployed API implementation. Each authorized application is configured with credentials: client_id and client_secret. At runtime, authorized applications provide the credentials with each request to the API implementation. 
