@@ -1,6 +1,15 @@
 = Reviewing JSON and XML Threat Protection Policies
 :keywords: XML, policy, validation
 
+This file is obsolete
+
+== See Also
+
+***** link:/api-manager/v/2.x/apply-configure-json-threat-task[JSON Threat Protection]
+***** link:/api-manager/v/2.x/apply-configure-xml-threat-task[XML Threat Protection]
+
+////
+
 JSON and XML are prone to the same types of malicious injections, often characterized by unusual inflation of elements and nesting levels. Attackers use recursive techniques to consume memory resources. Dramatic swings in the size of the application data often signal a security problem. The JSON and XML threat protection policies help protect your applications from such intrusions.
 
 In the event Mule Runtime fails to detect an attack, you need to monitor and design your services architecture with layers of protection in addition to these policies.
@@ -19,10 +28,4 @@ Message successfully sent.
 +
 Any request that violates the configured limits causes a Bad Request error.
 
-== See Also
-
-***** link:/api-manager/v/2.x/apply-configure-json-threat-task[Applying JSON Threat Protection Policy]
-***** link:/api-manager/v/2.x/apply-configure-xml-threat-task[Applying XML Threat Protection Policy]
-
-
-
+////

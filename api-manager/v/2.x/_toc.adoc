@@ -71,7 +71,6 @@
 **** link:/api-manager/v/2.x/basic-authentication-ldap-concept[Reviewing Basic Authentication: LDAP Policy (Mule 4)]
 **** link:/api-manager/v/2.x/ip-blacklist[IP Blacklist]
 **** link:/api-manager/v/2.x/ip-whitelist[IP Whitelist]
-**** link:/api-manager/v/2.x/json-xml-threat-policy[Reviewing JSON and XML Threat Protection Policies]
 **** link:/api-manager/v/2.x/apply-configure-json-threat-task[JSON Threat Protection]
 **** link:/api-manager/v/2.x/apply-configure-xml-threat-task[XML Threat Protection]
 **** link:/api-manager/v/2.x/throttling-rate-limit-concept[Reviewing Throttling and Rate Limiting concepts]
