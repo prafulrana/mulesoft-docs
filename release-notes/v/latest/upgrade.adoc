@@ -70,7 +70,11 @@ After this process completes, the user who scheduled the upgrade receives an ema
 
 == Post-Upgrade: To Classify APIs into Environments
 
-After the upgrade, all APIs are listed in an environment called the Unclassified environment. From here, you can classify APIs into your appropriate environments. Even though API Manager supports tracking APIs by both organization and environment credentials, MuleSoft recommends using environment credentials as the permissions associated to them are more restrictive. But, you need to restart Mule Runtime after changing credentials, which can cause downtime.
+After the upgrade, all APIs are listed in an environment called the Unclassified environment. From here, you can classify APIs into your appropriate environments. 
+
+For the environments you classify APIs into, there is a new access control which is explained here: link:/api-manager/v/2.x/environment-permission-task[To Grant Permission to Access Environments]. Existing API Manager roles/permissions continue to work in the Unclassified environment, and the APIs section in Access Management is applicable to unclassified APIs. 
+
+Even though API Manager supports tracking APIs by both organization and environment credentials, MuleSoft recommends using environment credentials as the permissions associated to them are more restrictive. But, you need to restart Mule Runtime after changing credentials, which can cause downtime.
 
 NOTE: The names of APIs you see in the Unclassified environment reflect the original API names you had prior to grouping your APIs. This is so that you can easily determine the environment for each API.
 
