@@ -75,8 +75,12 @@ image::getting-started-proxy-deployment-config.png[getting-started-proxy-deploym
 
 Once you see the following pop-up, then your API proxy is successfully running in a CloudHub instance.
 
-image::getting-started-proxy-success-deployment.png[getting-started-proxy-success-deployment, scaledwidth="66%"]
+image::getting-started-proxy-success-deployment.png[getting-started-proxy-success-deployment, width=66%]
 
 Congratulations! You’ve just set up your first managed API.
 
+== Next steps
+**** link:/api-manager/v/2.x/policies-landing-page[Learn about applying Policies to an API]
+**** link:/api-manager/v/2.x/api-contracts-landing-page[Learn about granting access to an API]
+**** link:/api-manager/v/2.x/api-proxy-landing-page[More on API proxies]
 

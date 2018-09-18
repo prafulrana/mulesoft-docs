@@ -1,6 +1,7 @@
 // TOC File
 * link:/api-manager/v/2.x/index[API Manager]
 ** link:/api-manager/v/2.x/latest-overview-concept[Reviewing API Manager concepts]
+** link:/api-manager/v/2.x/getting-started-proxy[Getting started: Manage an API and set up a proxy for it]
 +
 // API Manager general
 // API instance
