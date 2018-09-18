@@ -15,9 +15,9 @@ image::getting-started-proxy-new-asset-button.png[getting-started-proxy-new-asse
 3. In `Publish New Asset` view, choose the asset type and an asset name. In case the asset type is RAML, OAS or WSDL, the
 corresponding associated file has to also be specified.
 +
-image::getting-started-proxy-new-asset-view.png[getting-started-proxy-new-asset-view]
+image::getting-started-proxy-new-asset-view.png[getting-started-proxy-new-asset-view, width=66%]
 +
-4. Click in `Publish button`
+4. Click on `Publish button`
 
 Now, we have successfully created an API asset in Exchange.
 
@@ -34,7 +34,7 @@ image::getting-started-proxy-manage-api-from-exchange.png[manage-api-from-exchan
 +
 2. In the next screen, you have to complete the following fields:
 +
-image::getting-started-proxy-editing-api.png[editing-api]
+image::getting-started-proxy-editing-api.png[editing-api, width=75%]
 +
 - *API Name*: Type the first characters of the API name (The same name you chose when you created your asset in Exchange), and
 then API Manager displays APIs to choose from. Select the API one that was recently created in Exchange.
