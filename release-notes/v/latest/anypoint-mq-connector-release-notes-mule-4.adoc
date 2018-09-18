@@ -10,6 +10,23 @@ _Select_
 Anypoint MQ Connector lets you add messaging access to Anypoint MQ queues and exchanges from Anypoint Studio applications.
 To support Exchange 2.0 properly, the feature ID of Anypoint MQ Connector has changed. Before you download MQ v1.2.0 and later from Exchange 2.0, uninstall the existing version of this connector in Studio.
 
+== 2.0.3
+
+*September 18, 2018*
+
+This release of the Anypoint MQ Connector fixes an issue in v2.0.2.
+
+*Important:* Do not use MQ Connector version 2.0.2. If installed, delete, and download v2.0.3 from Anypoint Exchange.
+
+=== Compatibility
+
+[%header%autowidth.spread]
+|===
+|Software|Version
+|Mule Runtime |4.0.0 and newer
+|Anypoint Studio |7.0.0
+|===
+
 == 2.0.2
 
 *September 17, 2018*
