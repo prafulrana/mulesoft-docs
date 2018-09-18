@@ -7,6 +7,8 @@
 
 REST Connect quickly converts a RAML 1.0 API specification to a connector, which you can use in a Mule application in the Design Center feature of Anypoint Platform.
 
+*Note:* Information on the September 2018 update to Exchange's use of REST Connect is available at https://docs.mulesoft.com/release-notes/anypoint-exchange-release-notes[Anypoint Exchange Release Notes].
+
 == 1.7.0
 
 *August 24, 2018*
