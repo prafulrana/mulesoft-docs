@@ -58,7 +58,7 @@ When a token is successfully validated by the OAuth provider, the provider sends
 
 Token validation response example from the authorization server:
 
-[source, code]
+[source, code, json]
 ----
 {
     "uid":"john.doe",
