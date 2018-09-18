@@ -1,7 +1,18 @@
 = Anypoint Exchange Release Notes
 :keywords: release notes, exchange
 
-*April 2018*
+*September 2018*
+
+== 2.2.2
+
+*September 2018*
+
+=== New Features
+
+* REST Connect combines Mule 3 and Mule 4 connectors into one Exchange asset. As a result, all previous 
+Mule 3 and Mule 4 RAML REST API Exchange assets now appear on a single REST API Exchange asset for the RAML specification. For more information, see https://docs.mulesoft.com/anypoint-exchange/to-deploy-using-rest-connect[Converting a RAML to a Connector Using REST Connect].
+* Categories are available. Search lets you search for Categories. You can set Category values in the Settings menu in the left navigation area. See https://docs.mulesoft.com/anypoint-exchange/to-manage-categories[To Manage Categories].
+* The Markdown editor supports HTML 5 tags. See https://docs.mulesoft.com/anypoint-exchange/to-describe-an-asset#markdown-notes[Markdown Notes].
 
 == 2.2.1
 
