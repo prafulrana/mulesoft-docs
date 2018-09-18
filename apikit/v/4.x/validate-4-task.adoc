@@ -15,5 +15,5 @@ image::validation-configuration.png[]
 +
 . In Query Parameters Strict Validations, select True to limit parameters to those defined in the RAML.
 . In Headers Strict Validations, select True to limit headers to those defined in the RAML.
-. Reverse the procedures by selecting False to inhibit the respective validation, or set Disable Validations to False to inhibit both validations.
+. Reverse the procedures by selecting False to inhibit the respective validation, or set Disable Validations to True to inhibit both validations.
 
