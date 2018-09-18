@@ -1,47 +1,46 @@
 = Microsoft Dynamics 365 Release Notes
 :keywords: microsoft, dynamics, 365, crm, release notes
 
-*July 2018*
+*September 2018*
 
 _Select_
 
-*Guide:* link:/mule-user-guide/v/3.8/microsoft-dynamics-365-connector[Microsoft Dynamics 365  Connector]
+*Guide:* link:/mule-user-guide/v/3.9/microsoft-dynamics-365-connector[Microsoft Dynamics 365  Connector]
 
 MuleSoft provides OAuth 2.0 Connection and Username-Password access to the Microsoft Dynamics 365 server.
 
 == 1.0.6
+
 === Compatibility
 
-[width="100%", cols="50a,50a", options="header"]
+[%header%autowidth.spread]
 |===
 |Software |Version
-|Mule Runtime | Mule Runtime Enterprise Edition 3.6.0 and newer
+|Mule Runtime | Mule Runtime Enterprise Edition 3.6.0 and later
 |Microsoft Dynamics 365 | 1.0.6
 |===
 
-=== Version 1.0.6 - Features
+=== Features
 
-* No new features added
+* No new features added.
 
-=== Version 1.0.6 - Fixed in this Release
+=== Fixed in this Release
 
-* Dynamics 365 Connector stops making calls after max number of connections (maxHttpConnections). Even if no value is set, it stops when 100 (default value) is reached. 
-The issue was fixed by removing the HTTP request from the request pool.
+* Dynamics 365 Connector stops making calls after the maximum number of connections (maxHttpConnections). Even if no value is set, it stops when 100 (default value) is reached. The issue is fixed by removing the HTTP request from the request pool.
 * Under certain scenarios, connections were being kept open after performing requests. This was fixed.
 
-=== Version 1.0.6 - Known Issues
+=== Known Issues
 
-* No known issues
-
+* No known issues.
 
 == 1.0.5
 
 === Compatibility
 
-[width="100%", cols="50a,50a", options="header"]
+[%header%autowidth.spread]
 |===
 |Software |Version
-|Mule Runtime | Mule Runtime Enterprise Edition 3.6.0 and newer
+|Mule Runtime | Mule Runtime Enterprise Edition 3.6.0 and later
 |Microsoft Dynamics 365 | 1.0.5
 |===
 
@@ -51,14 +50,11 @@ The issue was fixed by removing the HTTP request from the request pool.
 
 === Fixed in this Release
 
-* An issue was reported that when using a payload with Czech characters in the connector, an error is returned even if the Mule message
-is set to use __UTF-8__ encoding.
-It was fixed by using the correct __UTF-8__ encoding in the requests to the Dynamics 365 service.
+* An issue was reported that when using a payload with Czech characters in the connector, an error is returned even if the Mule message is set to use UTF-8 encoding. This was fixed by using the correct UTF-8 encoding in the requests to the Dynamics 365 service.
 
 === Known Issues
 
-* No known issues
-
+* No known issues.
 
 == 1.0.4
 
