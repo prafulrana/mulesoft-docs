@@ -17,5 +17,5 @@ In addition to Mule OAuth 2.0 Provider, Mulesoft offers out-of-the-box integrati
 *** link:/api-manager/v/2.x/oauth2-provider-configuration[Mule OAuth 2.0 Provider Configuration]
 *** link:/api-manager/v/2.x/about-configure-api-for-oauth[OAuth 2.0 Policy Prerequisites]
 *** link:/api-manager/v/2.x/external-oauth-2.0-token-validation-policy[Mule OAuth 2.0 Access Token Policy usage]
-*** link:/api-manager/v/2.x/oauth-dance-about[OAuth 2.0 Dance]
+*** link:/api-manager/v/2.x/oauth-dance-about[OAuth 2.0 Dance and OAuth 2.0 Access Token Enforcement]
 *** link:/api-manager/v/2.x/oauth-grant-types-about[OAuth 2.0 Grant Types]

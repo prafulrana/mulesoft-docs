@@ -3,6 +3,7 @@
 
 Prerequisites for using an OAuth 2.0 policy are:
 
+* Having the necessary permissions for creating or managing APIs
 * Applying the policy to the API instance so the associated resource is protected
 * Having a client application created in API Platform and registered to the API instance
 * Having an OAuth 2.0 Provider to issue a token based on the client application credentials and capable of validating it
@@ -19,7 +20,7 @@ If a resource is protected by an OAuth token enforcement policy, an OAuth token 
  `"Bearer" + <space> + <token, for example, 123>`
 |===
 
-If the API instance is hgfRAML-based, declare the protected resources as protected by OAuth in order for the API Console to be aware of the policy being applied.
+If the API instance is RAML-based, declare the protected resources as protected by OAuth in order for the API Console to be aware of the policy being applied.
 
 IMPORTANT: Declaring the resource to be protected by the OAuth Token Enforcement policy in your RAML definition, does not imply that the policy is actually applied.
 

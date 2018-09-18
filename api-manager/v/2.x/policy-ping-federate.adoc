@@ -1,8 +1,8 @@
-= OpenAM OAuth 2.0 Token Enforcement Policy
+= PingFederate OAuth 2.0 Token Enforcement Policy
 
 [width="100%", cols="5,15"]
 |==========================
->s| Policy Name | OpenAM OAuth 2.0 Token Enforcement
+>s| Policy Name | PingFederate OAuth 2.0 Token Enforcement
 >s|Summary      | Allows access only to authorized client applications
 >s|Category | Security
 >s| Since Mule Version | 3.8.0
@@ -13,10 +13,10 @@
 |500 - Bad response from authorization server, or WSDL SOAP Fault error.
 |==========================
 
-IMPORTANT: This policy is only available in a Federated organization configured to use OpenAM as Client Management solution.
+IMPORTANT: This policy is only available in a Federated organization configured to use PingFederate as Client Management solution.
 
-The OpenAM OAuth 2.0 Token Enforcement Policy restricts access to a protected resource, by only allowing HTTP requests if the token provided in such request is a valid one and, optionally, the required OAuth scopes are fulfilled.
-The policy validates the token, by connecting to an OpenAM authorization server. The token is obtained specifying the credentials of an link:/api-manager/v/2.x/api-contracts-landing-page[authorized client application] when performing the link:/api-manager/v/2.x/oauth-dance-about[OAuth dance].
+The PingFederate OAuth 2.0 Token Enforcement Policy restricts access to a protected resource, by only allowing HTTP requests if the token provided in such request is a valid one and, optionally, the required OAuth scopes are fulfilled.
+The policy validates the token, by connecting to a PingFederate authorization server. The token is obtained specifying the credentials of an link:/api-manager/v/2.x/api-contracts-landing-page[authorized client application] when performing the link:/api-manager/v/2.x/oauth-dance-about[OAuth dance].
 
 Before applying this policy, make sure that you are familiar with its link:/api-manager/v/2.x/about-configure-api-for-oauth[prerequisites]
 
@@ -25,18 +25,8 @@ OAuth 2.0 scopes are a way to further limit access to a resource protected by OA
 
 == Supported Grant Types
 
-OpenAM supports two types of OAuth clients:
-
-* A Confidential Client keeps its credentials confidential and includes the following grant types:
-** Client Credentials
-** Implicit
-** Resource Owner
-* A Public Client shares its credentials with other parties and includes the following grant types:
-** Authorization Code
-** Implicit
-** Resource Owner
-
-Each type of client supports three of the four OAuth grant types defined by the RFC. For this reason, when configuring the OpenAM client, you can select only three of the four grant types. The other grant type is unavailable because it belongs to the other client. You determine the public or confidential property of the OpenAM client depending on the grant types you select.
+A client application created on a PingFederate Federated organization allows any combination of link:/api-manager/v/2.x/oauth-grant-types-about[OAuth grant types]: Implicit, Client Credentials, Resource Owner Password Credentials, and Authorization Code.
+On PingFederate side, you can enable or disable any combination of grant types. For the OAuth dance to be successful, the grant type to be used should be enabled in both, PingFederate and client application.
 
 == Performance
 
@@ -49,7 +39,7 @@ anypoint.platform.max_federation_expiration_time=<a number equal or greater than
 
 == Communicating to the OAuth provider through a proxy
 
-To enable the OpenAM OAuth 2.0 Token Enforcement Policy to use the Gateway proxy settings, specify the following property:
+To enable the PingFederate OAuth 2.0 Token Enforcement Policy to use the Gateway proxy settings, specify the following property:
 
 [source, code]
 anypoint.platform.external_authentication_provider_enable_proxy_settings=<true|false(default)>
@@ -98,8 +88,10 @@ TIP: You can use the extra information to further tune your business logic.
 * link:/api-manager/v/2.x/oauth-dance-about[OAuth 2.0 Dance and OAuth 2.0 Access Token Enforcement]
 * link:/api-manager/v/2.x/apply-oauth-token-policy-task[Applying an OAuth 2.0 Token Validation Policy]
 * link:/api-manager/v/2.x/using-policies[Applying a Policy]
-* link:https://forgerock.org/openam/[OpenAM] identity provider
+* link:https://www.pingidentity.com/en/products/pingfederate.html[PingFederate] identity provider
 * link:/access-management/external-identity#instructions-for-saml-configuration[SAML 2.0]
 * link:/mule-user-guide/v/3.8/mule-expression-language-mel[MEL expressions]
 * link:/api-manager/v/2.x/configure-autodiscovery-4-task[Configuring API Gateway API Autodiscovery in a Mule 4 Application]
 * link:/api-manager/v/2.x/configure-autodiscovery-3-task[Configuring API Gateway API Autodiscovery in a Mule 3 Application]
+
+
