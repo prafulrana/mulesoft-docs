@@ -8,23 +8,24 @@ _Select_
 The Anypoint Connector for Salesforce Analytics Cloud lets you connect to the Salesforce Analytics Cloud application using Salesforce External Data API. The connector exposes convenient methods for creating and populating data sets into Salesforce Analytics Cloud system.
 
 == 3.1.0
+
 *September 18, 2018*
 
 === Compatibility
 
 The Salesforce Analytics Cloud connector is compatible with:
 
-[%header%autowidth]
-|======================
+[%header%autowidth.spread]
+|===
 |Application/Service |Version
-|Mule Runtime|Mule Enterprise Edition 4.0.0 and newer
-|Anypoint Studio|Only works with Studio 7.0.0 and newer
+|Mule Runtime|Mule Enterprise Edition 4.0.0 and later
+|Anypoint Studio|Only works with Studio 7.0.0 and later
 |External Data API | v43.0
-|======================
+|===
 
-==== Features
+=== Features
 
-* Added support for *Salesforce Analytics Cloud V43*.
+* Added support for Salesforce Analytics Cloud V43.
 
 == 3.0.0
 
@@ -50,5 +51,5 @@ The Salesforce Analytics Cloud connector is compatible with:
 
 == See Also
 
-* https://developer.salesforce.com/docs/atlas.en-us.bi_dev_guide_ext_data.meta/bi_dev_guide_ext_data/[Salesforce External Data API]
+* https://developer.salesforce.com/docs/atlas.en-us.bi_dev_guide_ext_data.meta/bi_dev_guide_ext_data/bi_ext_data_overview.htm[Salesforce External Data API]
 * https://developer.salesforce.com/docs/atlas.en-us.bi_dev_guide_ext_data.meta/bi_dev_guide_ext_data/bi_ext_data_add_data.htm[Add the Data]
