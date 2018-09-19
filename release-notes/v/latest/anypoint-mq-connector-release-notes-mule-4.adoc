@@ -14,21 +14,6 @@ To support Exchange 2.0 properly, the feature ID of Anypoint MQ Connector has ch
 
 *September 19, 2018*
 
-This release of the Anypoint MQ Connector fixes an issue in v2.0.2.
-
-=== Compatibility
-
-[%header%autowidth.spread]
-|===
-|Software|Version
-|Mule Runtime |4.0.0 and newer
-|Anypoint Studio |7.0.0
-|===
-
-== 2.0.2
-
-*September 17, 2018*
-
 This release of the Anypoint MQ Connector implements retry logic with exponential backoff.
 
 === Compatibility
@@ -60,6 +45,7 @@ To disable Prefetch:
 +
 If there are no messages in the queue, each poll that a subscriber makes waits for the duration of exactly half of the *Polling time* specified in the General tab. Polling time has a maximum value of 20000 milliseconds.
 
+Versions 2.0.1 - 2.0.3 were internal only without user interface changes or user functionality.
 
 == 2.0.0
 
