@@ -1,6 +1,6 @@
 = Anypoint MQ Connector Reference
 
-Anypoint MQ Connector v2.0.2
+Anypoint MQ Connector v2.0.4
 
 Anypoint MQ is a multi tenant cloud messaging service that enables customers to perform advanced asynchronous messaging scenarios between their applications.
 
