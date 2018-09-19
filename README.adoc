@@ -7,242 +7,132 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
-This is the repository for MuleSoft's documentation and contains the source content for the link:https://docs.mulesoft.com/[docs site].
+To support changes to the documentation site required for Mule4 Get Well, we are releasing a new documentation site on *September 20, 2018*.
 
-== Community Contributions
+== What this means to you:
 
-MuleSoft welcomes contributions from the community! You can contribute or provide feedback for our documentation in the following ways:
+The current documentation GitHub repository (mulesoft/mulesoft-docs) will be split into multiple repositories. Starting September 20, 2018, we will no longer accept any changes to the mulesoft/mulesoft-docs repository.
 
-* Fork this repository, make edits, and submit a pull request. We respond to your request as quickly as possible.
-* File an issue. Be as specific as possible about the changes you'd like to see.
-* While viewing a page on our link:https://docs.mulesoft.com/[docs site], you can rate a specific topic and include comments for fixes, suggestions, or general feedback.
-* Send mail to the docs team: documentation@mulesoft.com
-* See the <<MuleSoft Docs Style Guide>> for writing tips.
+=== New Repositories
 
-=== Accepting the Contributor's Agreement
+To begin using the new repository, you must determine what repository you need to edit. Refer to following table which maps from the directory of the old repo to the new repository/branch you need to clone:
 
-Before you can contribute to our documentation, you need to complete two steps to acknowledge that you've read and accepted our Contributor's Agreement:
-
-. Review the agreement, which is link:http://www.mulesoft.org/legal/contributor-agreement.html[available here].
-. After you've read and agree to the agreement, you need to fill out the https://api-notebook.anypoint.mulesoft.com/notebooks/#380297ed0e474010ff43[MuleSoft Contributor's Agreement] form and submit it to us. This form exists as an API notebook and does two things:
-* Identifies you using your GitHub account, and
-* Records your name as a contributor
-
-After you've submitted the form, you are asked to authenticate to GitHub and accept our Contributor's Agreement. When the script  completes, an Issue is created in our contributor's project with your name.
-
-That's it! You're now able to make contributions to our documentation. Ready to get started?
-
-=== Making a Contribution
-
-After you accept our Contributor's Agreement, you can simply fork our documentation repository and make changes, then submit a pull request.
-
-Alternatively, you can click the *Edit on GitHub* link at the top of a page, click the pencil icon, and make your change.
-
-The pull request is reviewed by our team as soon as possible.
-
-=== Building the Site for Local Preview
-
-This repository includes a Gradle build script that you can use to build the documentation site for local preview.
-The script automates all aspects of the build.
-All you need on your machine to execute the build is a Java Development Kit (aka java and javac).
-
-Begin by cloning the documentation repository:
-
- $ git clone git@github.com:mulesoft/mulesoft-docs.git
-
-*Note:* If you're not interested in the entire history, and you want to reduce the size of the clone, add the `--depth` flag to execute a shallow clone:
-
- $ git clone --depth 1 git@github.com:mulesoft/mulesoft-docs.git
-
-
-Next, switch to the directory into which you cloned the repository:
-
- $ cd mulesoft-docs
-
-Finally, use the `gradlew` command to launch Gradle and execute the site builder:
-
- $ ./gradlew
-
-Running `gradlew` with no arguments executes the default task, which is named build.
-It's equivalent to the following:
-
- $ ./gradlew build
-
-(The build task may take several minutes to complete).
-
-Once you've built the site, you can once again use Gradle to serve the site using a local, in-memory web server:
-
- $ ./gradlew serve
-
-You can now access the site from your browser at the location `+http://localhost:8000+`.
-
-*Note:* Currently, not all links work in the local preview since the preview server doesn't implement the rewrite rules used in production.
-If you encounter a 404 when clicking on a link in the site navigation, try adding ".html" to the URL in the location bar.
-
-When you want to stop the preview server, simply press kbd:[Ctrl+c].
-
-To run a full build and launch the preview server in one shot, combine the `build` and `serve` tasks:
-
- $ ./gradlew build serve
- 
-=== Building a Page for Local Preview
-
-This repository includes a Gradle build script that you can use to build a documentation page for local preview.
-
-----
-./gradlew buildHtmlSingle -Pfile=<asciidoc-filepath>
-----
-
-
-=== Building the Site for Staging
-
-The Gradle build script is also capable of building the site for staging and syncing the output to the staging server.
-The extra tasks and configuration needed for these operations are added when the `profile` property has the value `staging`.
-You can set this property by passing the flag `-Pprofile=staging` to the `gradlew` launch command.
-
-To instruct Gradle to clean, build, and publish the staging site, execute the following command:
-
- $ ./gradlew clean publish -Pprofile=staging
-
-*Note:* The staging site combines the assets from the staging branch of mule-docs-site-assets with the content from the master branch of mule-docs.
-
-=== Building the Site for Production
-
-The Gradle build script is also capable of building the site for production and publishing it to git.
-The extra tasks and configuration needed for these operations are added when the `profile` property has the value `prod`.
-You can set this property by passing the flag `-Pprofile=prod` to the `gradlew` launch command.
-
-To instruct Gradle to clean, build, and publish the production site, execute the following command:
-
- $ ./gradlew clean publish -Pprofile=prod
-
-*Notes:* 
-
-* The first time you execute this command, it may run for a very long time (depending on connection speed) since it must clone the publish (aka build output) repository anew.
-* To prevent the publish task from pushing the new commit to the remote repository, pass the flag `-PdryRun` to the `gradlew` launch command.
-
-== MuleSoft Docs Style Guide
-
-The following sections describe the MuleSoft Docs publishing style.
-
-=== Content
-
-[%header%autowidth.spread]
-|===
-|Style |Correct Example |Incorrect Example
-|Use active text instead of "will", "you'll", "won't", or "we'll". |This feature initializes and merges your code. |This feature will initialize and merge your code.
-|Obfuscate login credentials in illustrations and code |The client secret is 4242424242424242-ABADDOG |My password is foobar123
-|Only use RFC-1918 IP addresses, for example, IPv4 addresses: +
-10.0.0.0  - 10.255.255.255  (10/8 prefix) +
-172.16.0.0 - 172.31.255.255  (172.16/12 prefix) +
-192.168.0.0 - 192.168.255.255 (192.168/16 prefix)
-|Set the server address to 10.1.1.42 |For example, set the address to 42.42.42.42.
-|Use the example.com domain |For example, mydomain@example.com |myname@mycompany.com
-|Omit "please" |Contact MuleSoft Customer Support. |Please contact MuleSoft Customer Support.
-|Separate options with > and don't cast the string in bold |File > New > Mule Project | *File -> New -> Mule Project*
-|Replace "in order to" with "to" |To start the procedure, |In order to start the procedure
-|Omit "then" |Click this and that |Click this, and then click that
-|Refer to variables in inline text as string literals | `replayID` | "replayID", *replayID*
-|Omit button ellipses |Click Test Connections. |Click *Test Connections...*.
-|Omit "on" with click |Click Test Connections. |Click on *Test Connections*.
-|Init-cap words in headings |Default Value Setting |Default value setting
-|Spell out i.e. and e.g. |Create a connector, for example, for Salesforce |Create a connector, e.g. for Salesforce
-|Don't put code examples in a screenshot |Put code in a source block |screenshot
-|Put a period outside a quote string |Don't say "will". |Don't say "will."
-|Use the Oxford comma |a, b, and c |a, b and c
-|Omit the trademark symbol |Anypoint Platform |Anypoint™ Platform™
+[%header%autowidth.spread,cols="a,a,a,a,a,a"]
 |===
 
-=== AsciiDoc Conventions
+| Original Repo | Directory | Version | New Repo | Branch | GitHub Link
 
-* Only start tables with [%header%autowidth.spread] -- this sets the table and column widths automatically.
-* Start and end tables with `|===` -- adding extra equal signs only makes more complex source and adds unnecessary characters to files.
-* Don't use the `[tabs]` notation. Provide separate sections for To Configure Using the Visual Editor and To Configure Using the XML Editor or Standalone.
+| mulesoft/mulesoft-docs |access-management |n/a |mulesoft/docs-access-management |latest |https://github.com/mulesoft/docs-access-management/tree/latest
 
-////
-* The width of a table is 100% by default, so only specify a width (as a percentage value) if you want it to be 95% or less.
-* To specify the number of equal-width columns for a table, set the `cols` attribute to a number followed by an asterisk, such as `[cols="3*"]`.
-+
-*Note:* The value of the `cols` attribute should _never_ be a string of repeating commas (such as, `cols=",,,"`).
-+
-The only acceptable formats for the `cols` attribute value are (a) a single number followed by an asterisk (such as, `3*`) or (b) a comma-separated list of column specs (such as, `1h,^2,>1`).
-+
-* To allow the column widths of a table to be automatically sized by the browser to fit the contents, add the `autowidth` option, such as `[%autowidth,cols="3*"]`.
-  - By default, adding the `autowidth` option makes the width of the table only as wide as the browser needs it to be.
-  - To force the width of a table with auto-width columns to span the whole page, add the `spread` role, such as `[%autowidth.spread,cols="3*"]`.
-+
-*Note:* Until further notice, the width attribute on a table is ignored when the `autowidth` option is used.
-* To apply explicit relative widths to a table's columns, set the `cols` attribute to a comma-separated list of ratio values, such as `[cols="1,2,1"]` (which resolves to `[cols="25%,50%,25%"]`).
-  - The column width percentages are calculated with a precision of up to 4 decimal places.
-* To apply a style to a column, add the letter corresponding to that style after the ratio value, such as `[cols="1h,2,1"]`.
-* Only apply the `a` style to a column if it has complex content, such as lists or source blocks.
-For example, `[cols="1,1a"]`.
-  - If an isolated table cell has complex content (and not the whole column), add the `a` style directly to the cell, such as `a|content here`.
-* To give a table a header row, add the `header` option to the table, such as `[%header,cols="3*"]`.
-  - Option values are additive, so you can specify both the `autowidth` and `header` option using `%header%autowidth`.
-  - A header row is implied if you put a blank line under the first row of the table in the AsciiDoc source.
-* The shorthand syntax for options (for example, `%autowidth`), roles (for example, `.spread`), and IDs (for example, `#anchor`) must always be placed in the first positional argument of the block attribute line, such as `[%header%autowidth.spread,cols="3*"]`.
-* Only add the `source` style to a listing block if you also specify a language (and want it to be syntax highlighted), such as `[source,java]`.
-////
+| mulesoft/mulesoft-docs |anypoint-b2b |n/a |mulesoft/docs-partner-manager |latest |https://github.com/mulesoft/docs-partner-manager/tree/latest
 
-* Omit `linenums` option on 1-line code examples.
-* Put multi-word examples in a source block instead of a long tick marked string.
-* Only XML or XML procedures can be in an XML tab. It's illogical to put a screenshot in the XML tab.
-* Restrict tables to 2 or 3 columns - multi-column tables can be very difficult to read.
-* Wrap code example lines at spaces, or for Java after a dot. Code lines should be less than 60 characters, especially if you use the `// <n>` notation for callouts
-* Don't reference code examples by line numbers.
-Instead, use `// <n>` in the code example and reference the notation in the text below the code example.
-* Lists in the AsciiDoc source that use a bullet glyph (U+2022) as the marker are recognized as lists.
+.5+| mulesoft/mulesoft-docs .5+|anypoint-connector-devkit | 3.9 .5+| mulesoft/docs-connector-devkit | v3.9 | https://github.com/mulesoft/docs-connector-devkit/tree/v3.9
 
-=== Lists
+| 3.8 |v3.8 |https://github.com/mulesoft/docs-connector-devkit/tree/v3.8
 
-[%header%autowidth.spread]
-|===
-|Rule |Description |Example
-|Imperative before lists |Before starting a list, provide a starting sentence that starts with "to"
-that describes the task you want people to provide. Also, don't start a bullet or numbered list after a heading without a starting sentence. |To set the values:
-|Insert a period at the end of a sentence or bullet list item |Perform these tasks. |Perform these tasks
-|Start each item in a bullet list or numbered list with a capital letter |Start list items that are not reserved words with an init cap
-|* Ensure all required fields are set.
-|Start number list items with an action |Number list items only start with an action such as Click, Set, etc. |1. Click the plus
-sign to the right of *Connector Configuration*.
-|===
+| 3.7 |v3.7 |https://github.com/mulesoft/docs-connector-devkit/tree/v3.7
 
-=== Font Changes
+| 3.6 |v3.6 |https://github.com/mulesoft/docs-connector-devkit/tree/v3.6
 
-Don't use font changes except for *Note:*. If referencing a field, initial capitalize each letter of each word regardless of how shown in the UI. For example, instead of using *Connector Configuration*, use Connector Configuration.
+| 3.5 |v3.5 |https://github.com/mulesoft/docs-connector-devkit/tree/v3.5
 
-////
-[%header%autowidth.spread]
-|===
-|Font |Description |Example
-|Bold |A button or field name |Click *Test Connections*.
-|`tick marks` |Reserved words or code examples, such as a MEL expression |`#[payload]`
-|Italics |Emphasis |_Ensure the checkbox is set_
-|Bold italics |Mule Enterprise license requirements. |*_Enterprise_*
-|Bold links |Important links like Skip to Code | \*\<\<Skip to Code>>*
-|Quotes |Displayed items
-|===
-////
 
-=== Headings
+| mulesoft/mulesoft-docs |anypoint-data-gateway |n/a |mulesoft/docs-data-gateway |latest |https://github.com/mulesoft/docs-data-gateway/tree/latest
 
-* Sections describing procedural content must start with To, such as To Configure the Connector.
-* Sections describing concepts must start with About, such as About the Connector.
-* No special characters in headings.
-* Init-cap each word in a heading.
-* Don't put a colon at the end of a heading.
-* Ensure headings are in order, h1 > h2 > h3 > h4. Don't skip levels such as h2 > h5.
-* Only one H1 per doc at the top of the file.
-* Don't number headings.
+| mulesoft/mulesoft-docs |anypoint-exchange |n/a |mulesoft/docs-exchange |latest |https://github.com/mulesoft/docs-exchange/tree/latest
 
-=== Word Choices
+| mulesoft/mulesoft-docs |anypoint-mq |n/a |mulesoft/docs-mq |latest |https://github.com/mulesoft/docs-mq/tree/latest
 
-* JSON not Json
-* POJO not pojo or Pojo
-* MOJO not mojo or Mojo
-* ID not id or Id
-* Java not JAVA
-* Anypoint Studio not Mule Studio
 
-Don't spell out common acronyms such as POJO, JSON, MOJO, REST, SOAP, MQ, UI, IT, IP, TCP/IP
+.2+| mulesoft/mulesoft-docs .2+|anypoint-platform-pcf |1.6 .2+|mulesoft/docs-anypoint-platform-pcf |v1.6 |https://github.com/mulesoft/docs-anypoint-platform-pcf/tree/v1.6
+|1.5 |v1.5 |https://github.com/mulesoft/docs-anypoint-platform-pcf/tree/v1.5
+
+.5+| mulesoft/mulesoft-docs .5+|anypoint-private-cloud |2.0 .5+|mulesoft/docs-private-cloud |v2.0 |https://github.com/mulesoft/docs-private-cloud/tree/v2.0
+|1.7 |v1.7 |https://github.com/mulesoft/docs-private-cloud/tree/v1.7
+|1.6 |v1.6 |https://github.com/mulesoft/docs-private-cloud/tree/v1.6
+|1.5 |v1.5 |https://github.com/mulesoft/docs-private-cloud/tree/v1.5
+|1.1.0 |v1.1 |https://github.com/mulesoft/docs-private-cloud/tree/v1.1
+
+| mulesoft/mulesoft-docs |anypoint-runtime-fabric |1.0 |mulesoft/docs-runtime-fabric |v1.0 |https://github.com/mulesoft/docs-runtime-fabric/tree/v1.0
+
+.5+| mulesoft/mulesoft-docs .5+|anypoint-studio |7.2 .5+|mulesoft/docs-studio |v7.2 |https://github.com/mulesoft/docs-studio/tree/v7.2
+|7.1 |v7.1 |https://github.com/mulesoft/docs-studio/tree/v7.1
+|6.5 |v6.5 |https://github.com/mulesoft/docs-studio/tree/v6.5
+|6.0 |v6.0 |https://github.com/mulesoft/docs-studio/tree/v6.0
+|5.0 |v5.0 |https://github.com/mulesoft/docs-studio/tree/v5.0
+
+| mulesoft/mulesoft-docs |anypoint-visualizer |n/a |mulesoft/docs-visualizer |latest |https://github.com/mulesoft/docs-visualizer/tree/latest
+
+| mulesoft/mulesoft-docs |api-functional-monitoring |n/a |mulesoft/docs-functional-monitoring |latest |https://github.com/mulesoft/docs-functional-monitoring/tree/latest
+
+.2+| mulesoft/mulesoft-docs .2+|api-manager |2.x .2+|mulesoft/docs-api-manager |v2.x |https://github.com/mulesoft/docs-api-manager/tree/v2.x
+|1.x |v1.x |https://github.com/mulesoft/docs-api-manager/tree/v1.x
+
+.2+| mulesoft/mulesoft-docs .2+|apikit |4.x .2+|mulesoft/docs-apikit |v4.x |https://github.com/mulesoft/docs-apikit/tree/v4.x
+|3.x |v3.x |https://github.com/mulesoft/docs-apikit/tree/v3.x
+
+
+| mulesoft/mulesoft-docs |connectors |n/a |mulesoft/docs-connectors |latest |https://github.com/mulesoft/docs-connectors/tree/latest
+
+| mulesoft/mulesoft-docs |design-center |1.0 |mulesoft/docs-design-center |latest |https://github.com/mulesoft/docs-design-center/tree/latest
+
+| mulesoft/mulesoft-docs |eu-control-plane |n/a |mulesoft/docs-eu-cloud |latest |https://github.com/mulesoft/docs-eu-cloud/tree/latest
+
+| mulesoft/mulesoft-docs |getting-started |n/a |mulesoft/docs-general |latest |https://github.com/mulesoft/docs-general/tree/latest
+
+.3+| mulesoft/mulesoft-docs .3+|healthcare-toolkit |3.1 .3+|mulesoft/docs-healthcare-toolkit |v3.1 |https://github.com/mulesoft/docs-healthcare-toolkit/tree/v3.1
+|3.0 |v3.0 |https://github.com/mulesoft/docs-healthcare-toolkit/tree/v3.0
+|2.0 |v2.0 |https://github.com/mulesoft/docs-healthcare-toolkit/tree/v2.0
+
+| mulesoft/mulesoft-docs |monitoring |n/a |mulesoft/docs-monitoring |latest |https://github.com/mulesoft/docs-monitoring/tree/latest
+
+| mulesoft/mulesoft-docs |mule-management-console |3.8 |mulesoft/docs-mule-management-console |v3.8 |https://github.com/mulesoft/docs-mule-
+management-console/tree/v3.8
+
+.2+| mulesoft/mulesoft-docs .2+|mule-sdk | 1.1 .2+|mulesoft/docs-mule-sdk | v1.1 |https://github.com/mulesoft/docs-mule-sdk/tree/v1.1
+|1.0 |v1.0 |https://github.com/mulesoft/docs-mule-sdk/tree/v1.0
+
+.5+| mulesoft/mulesoft-docs .5+|mule-user-guide |3.9 .5+|mulesoft/docs-mule-runtime |v3.9 |https://github.com/mulesoft/docs-mule-runtime/tree/v3.9
+|3.8 |v3.8 |https://github.com/mulesoft/docs-mule-runtime/tree/v3.8
+|3.7 |v3.7 |https://github.com/mulesoft/docs-mule-runtime/tree/v3.7
+|3.6 |v3.6 |https://github.com/mulesoft/docs-mule-runtime/tree/v3.6
+|3.5 |v3.5 |https://github.com/mulesoft/docs-mule-runtime/tree/v3.5
+
+| mulesoft/mulesoft-docs |mule4-user-guide |4.1 |mulesoft/docs-mule-runtime |v4.1 |https://github.com/mulesoft/docs-mule-runtime/tree/v4.1
+
+.3+| mulesoft/mulesoft-docs .3+|munit |2.1 .3+|mulesoft/docs-munit |v2.1 |https://github.com/mulesoft/docs-munit/tree/v2.1
+|2.0 |v2.0 |https://github.com/mulesoft/docs-munit/tree/v2.0
+|1.3 |v1.3 |https://github.com/mulesoft/docs-munit/tree/v1.3
+
+| mulesoft/mulesoft-docs |object-store |n/a |mulesoft/docs-object-store |latest |https://github.com/mulesoft/docs-object-store/tree/latest
+
+| mulesoft/mulesoft-docs |release-notes |n/a |mulesoft/docs-release-notes |latest |https://github.com/mulesoft/docs-release-notes/tree/latest
+
+| mulesoft/mulesoft-docs |runtime-manager |latest |mulesoft/docs-runtime-manager |latest |https://github.com/mulesoft/docs-runtime-manager/tree/latest
+
+| mulesoft/mulesoft-docs |tcat-server |7.1.0 |mulesoft/docs-tcat-server |v7.1 | https://github.com/mulesoft/docs-tcat-server/tree/v7.1
+
+
+=== New Content Structure
+
+The structure of the content repos has changed:
+
+* Content (.adoc) files are located in the modules/ROOT/pages directory.
+* Navigation (TOC) files are located in modules/ROOT/nav.adoc.
+
+The release note (mulesoft/docs-release-notes) and connectors (mulesoft/docs-connectors) repos have been divided into subfolder to make finding and editing them easier.
+
+=== Pending PRs and Branches
+
+The documentation team will migrate any pending PRs into the new structure. Contributors do not have to do anything.
+
+If you have any outstanding branches that you are currently editing, please contact the documentation team (documentation@mulesoft.com) to determine how to move your content into the new repository structure.
+
+== Benefits of Having Multiple Doc Repos
+
+The advantages of the new repository structure include:
+
+* More granular control of the content we build.
+* Ability to control versions using branches
+* More modular source file reduces conflicts and overlap
+* Future ability to generate documentation from source repositories
