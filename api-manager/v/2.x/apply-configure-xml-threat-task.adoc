@@ -8,7 +8,7 @@
 >s|Summary|Protects against malicious XML in API requests
 >s|Category|Security
 >s|Since Mule Version|3.8.0
->s|Returned Status Codes|400 - (Bad Request)
+>s|Returned Status Codes|400 - Bad Request
 |===
 
 == Purpose
