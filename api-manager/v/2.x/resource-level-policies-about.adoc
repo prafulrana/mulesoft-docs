@@ -19,7 +19,7 @@ The uses for resource level policies are limited mainly by your imagination. Her
 
 If you have a RAML spec attached to your API, click Preview Resource Matching to check which resources your filters affect.
 
-= Concepts
+== Concepts
 
 Example API:
 
@@ -48,7 +48,7 @@ To apply a policy to only the permissions resources `/api/users/{userId/permissi
 /api/users/.*/permissions.*
 ----
 
-== Securing a Subset of the API
+=== Securing a Subset of the API
 
 You can add security to create, update, and delete operations, leaving read-only operations unsecured. For example, you want to apply an HTTP basic authentication policy to specific methods and resources. Select POST, PUT, PATCH and DELETE methods and use the following expression to cover every resource URI of the API:
 
@@ -56,7 +56,7 @@ You can add security to create, update, and delete operations, leaving read-only
 
 This expression enforces security on write operations, leaving GET (read-only) unsecured. Use a more specific expression to covering just a subset of the resources.
 
-== Setting Different Limits on Resources
+=== Setting Different Limits on Resources
 
 You can enforce rate limiting to user-specific operations with different limits depending on the user action. You can apply rate limiting, for example, multiple times, limiting requests to a greater extent for some resources than others. For example, you can set different limits for read, create, and delete operations per user on the following nodes:
 
