@@ -45,7 +45,28 @@ To disable Prefetch:
 +
 If there are no messages in the queue, each poll that a subscriber makes waits for the duration of exactly half of the *Polling time* specified in the General tab. Polling time has a maximum value of 20000 milliseconds.
 
-Versions 2.0.1 - 2.0.3 were internal only without user interface changes or user functionality.
+Versions 2.0.2 - 2.0.3 were internal only without user interface changes or user functionality.
+
+== 2.0.1
+
+*June 29, 2018*
+
+This release enables use of cached connections.
+
+=== Compatibility
+
+[%header%autowidth.spread]
+|===
+|Software|Version
+|Mule Runtime |4.0.0 and newer
+|Anypoint Studio |7.0.0
+|===
+
+=== Fixed in This Release
+
+* AMQ Connector now uses Cached connections. Anypoint MQ formerly spawned a new thread for 
+each connection, but didn't correctly shut down created threads. The cached connections feature 
+fixes this issue. (AMQC-31)
 
 == 2.0.0
 
