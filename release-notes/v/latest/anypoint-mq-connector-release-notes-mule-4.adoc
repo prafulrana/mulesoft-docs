@@ -21,8 +21,8 @@ This release of the Anypoint MQ Connector implements retry logic with exponentia
 [%header%autowidth.spread]
 |===
 |Software|Version
-|Mule Runtime |4.0.0 and newer
-|Anypoint Studio |7.0.0
+|Mule Runtime |4.0.0 and later
+|Anypoint Studio |7.0.0 and later
 |===
 
 === Fixed in This Release
@@ -58,8 +58,8 @@ This release enables use of cached connections.
 [%header%autowidth.spread]
 |===
 |Software|Version
-|Mule Runtime |4.0.0 and newer
-|Anypoint Studio |7.0.0
+|Mule Runtime |4.0.0 and later
+|Anypoint Studio |7.0.0 and later
 |===
 
 === Fixed in This Release
@@ -79,8 +79,8 @@ The Anypoint MQ connector now adds support for Mule 4 and Studio 7. This release
 [%header%autowidth.spread]
 |===
 |Software|Version
-|Mule Runtime |4.0.0 and newer
-|Anypoint Studio |7.0.0
+|Mule Runtime |4.0.0 and later
+|Anypoint Studio |7.0.0 and later
 |===
 
 === Known Issues
