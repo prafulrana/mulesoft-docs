@@ -7,7 +7,7 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
-To support changes to the documentation site required for Mule4 Get Well, we are releasing a new documentation site on *September 20, 2018*.
+To support changes to the new documentation site, we are releasing a new documentation site on *September 20, 2018*.
 
 == What this means to you:
 
@@ -121,18 +121,3 @@ The structure of the content repos has changed:
 * Navigation (TOC) files are located in modules/ROOT/nav.adoc.
 
 The release note (mulesoft/docs-release-notes) and connectors (mulesoft/docs-connectors) repos have been divided into subfolder to make finding and editing them easier.
-
-=== Pending PRs and Branches
-
-The documentation team will migrate any pending PRs into the new structure. Contributors do not have to do anything.
-
-If you have any outstanding branches that you are currently editing, please contact the documentation team (documentation@mulesoft.com) to determine how to move your content into the new repository structure.
-
-== Benefits of Having Multiple Doc Repos
-
-The advantages of the new repository structure include:
-
-* More granular control of the content we build.
-* Ability to control versions using branches
-* More modular source file reduces conflicts and overlap
-* Future ability to generate documentation from source repositories
