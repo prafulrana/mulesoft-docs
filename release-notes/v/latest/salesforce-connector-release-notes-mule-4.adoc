@@ -1,9 +1,27 @@
 = Salesforce Connector Release Notes
 :keywords: release notes, salesforce, connector
 
-*August 2018*
+*September 2018*
 
 _Select_
+
+== 9.3.3
+
+*September 19, 2018*
+
+[%header%autowidth.spread]
+|===
+|Application/Service |Version
+|Mule Runtime |Mule Enterprise Edition 4.1.1 and later
+|Anypoint Studio |Only works with Studio 7.1.0 and later
+|Salesforce |v37.0, v38.0, v39.0, v40.0, v41.0, v42.0 
+|===
+
+=== Fixed in this Release
+
+* Get updated objects failed with UNKNOWN error when no records were retrieved. This is no longer the case.
+
+* CustomObjectTranslation was not working for the Read Metadata operation. This was fixed.
 
 == 9.3.2
 
