@@ -60,13 +60,13 @@ When this value is set, the default security level is Strict. This value is avai
 
 ==== Strict
 
-When this value is set, Gatekeeper security is set on in its maximum security level.
+When this value is established, Gatekeeper security is set on its maximum security level.
 
 When the Mule Runtime is (re)started, the API is blocked and returns a 503 HTTP status code, until policies for each tracked resource are correctly downloaded and applied. If connectivity with API Platform is lost when Gatekeeper is engaged, the tracked resource will be blocked at least, until connection is re-established.
 
 ==== Flexible
 
-When this value is set, Gatekeeper security is set on in its intermediate security level.
+When this value is established, Gatekeeper security is set on its intermediate security level.
 
 When the Mule Runtime is (re)started, the API is blocked and returns a 503 HTTP status code, until policies for each tracked resource are correctly downloaded and applied. If connectivity with API Platform is lost when Gatekeeper is engaged, a local cache is used to get policies while connectivity is lost. The tracked resource will be blocked at least, until connection is re-established, if no cached policy is stored locally.
 
