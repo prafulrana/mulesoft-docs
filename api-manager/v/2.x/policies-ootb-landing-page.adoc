@@ -1,8 +1,6 @@
 = Provided Policies
 :keywords: policy, ootb, offline, provided
 
-*** link:/api-manager/v/2.x/available-policies[Provided Policies]
-*** link:/api-manager/v/2.x/mule4-policy-reference[Mule Runtime 4.x Policy concepts]
 *** link:/api-manager/v/2.x/basic-authentication-simple-concept[Basic Authentication: Simple (Mule 4)]
 *** link:/api-manager/v/2.x/basic-authentication-ldap-concept[Basic Authentication: LDAP (Mule 4)]
 *** link:/api-manager/v/2.x/http-basic-authentication-policy[Basic Authentication]

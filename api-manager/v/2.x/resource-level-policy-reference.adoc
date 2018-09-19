@@ -1,5 +1,12 @@
 = Reviewing Resource Level Policy concepts
 
+This file is obsolete
+
+== See Also
+
+* link:/api-manager/v/2.x/policies-landing-page[Policies]
+
+////
 This reference covers applying policies to resources and methods using an example API. The simulation of the example API appears as follows: 
 
 image::users-api-cropped.png[API Console displays resources and methods,height=329,width=732]
@@ -63,3 +70,5 @@ Finally, you can apply the rate limiting policy again to specific methods and re
 == See Also
 
 * link:/api-manager/v/2.x/tutorial-manage-an-api[Applying a Policy and SLA Tier]
+
+////

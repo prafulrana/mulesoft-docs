@@ -1,5 +1,13 @@
 = Reviewing policies basic tasks
 
+This file is obsolete
+
+== See Also
+
+* link:/api-manager/v/2.x/policies-landing-page[Policies]
+
+////
+
 *** link:/api-manager/v/2.x/tutorial-manage-an-api[To Apply a Policy and SLA Tier]
 *** link:/api-manager/v/2.x/prepare-raml-task[To Prepare RAML for Policies]
 *** link:/api-manager/v/2.x/delete-sla-tier-task[To Delete an SLA Tier]
@@ -8,3 +16,5 @@
 *** link:/api-manager/v/2.x/offline-remove-task[To Remove an Offline Policy]
 *** link:/api-manager/v/2.x/upload-policy-exchange-task[To Upload a Policy to Exchange]
 *** link:/api-manager/v/2.x/re-order-policies-task[To Re-Order Policies]
+
+////

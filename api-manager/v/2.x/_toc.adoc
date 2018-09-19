@@ -49,20 +49,18 @@
 +
 // Policies
 ** link:/api-manager/v/2.x/policies-landing-page[Policies]
-*** link:/api-manager/v/2.x/policy-scope-size-concept[Reviewing Policy Packaging, Scope, and Size concepts]
-*** link:/api-manager/v/2.x/basic-policy-tasks-index[Reviewing policies basic tasks]
-*** link:/api-manager/v/2.x/disable-edit-remove-task[Disabling, Editing, or Removing a Policy]
-*** link:/api-manager/v/2.x/re-order-policies-task[Re-ordering Policies]
+**** link:/api-manager/v/2.x/mule4-policy-reference[Mule Runtime 4.x Policy concepts]
+*** link:/api-manager/v/2.x/available-policies[Categories]
 *** link:/api-manager/v/2.x/using-policies[Applying a Policy]
+*** link:/api-manager/v/2.x/re-order-policies-task[Re-ordering Policies]
 *** link:/api-manager/v/2.x/tutorial-manage-an-api[Applying a Policy and SLA Tier]
-*** link:/api-manager/v/2.x/resource-level-policies-about[Reviewing Resource Level Policies]
-*** link:/api-manager/v/2.x/resource-level-policy-reference[Reviewing Resource Level Policy concepts]
-*** link:/api-manager/v/2.x/prepare-raml-task[Reviewing Traits & policies concepts of RAML based APIs]
+*** link:/api-manager/v/2.x/resource-level-policies-about[Resource Level Policies]
+*** link:/api-manager/v/2.x/policy-scope-size-concept[Policy Packaging, Scope, and Size]
+*** link:/api-manager/v/2.x/disable-edit-remove-task[Disabling, Editing, or Removing a Policy]
+*** link:/api-manager/v/2.x/prepare-raml-task[Traits & policies concepts of RAML based APIs]
 +
 // Policies: OOTB
 *** link:/api-manager/v/2.x/policies-ootb-landing-page[Provided Policies]
-**** link:/api-manager/v/2.x/available-policies[Provided Policies]
-**** link:/api-manager/v/2.x/mule4-policy-reference[Mule Runtime 4.x Policy concepts]
 **** link:/api-manager/v/2.x/basic-authentication-simple-concept[Basic Authentication: Simple (Mule 4)]
 **** link:/api-manager/v/2.x/basic-authentication-ldap-concept[Basic Authentication: LDAP (Mule 4)]
 **** link:/api-manager/v/2.x/http-basic-authentication-policy[Basic Authentication]

@@ -1,4 +1,4 @@
-= Reviewing Policy Packaging, Scope, and Size concepts
+= Policy Packaging, Scope, and Size
 
 A policy consists of the following things:
 

@@ -1,8 +1,6 @@
-= Provided Policies
-:keywords: policy, available policies
+= Categories
+:keywords: policy, category, fulfill, security, compliance, troubleshooting, qos, transformation
 :imagesdir: ./_images
-
-The _Policies_ link contains a list of policies you can to the API.
 
 If a policy is already applied, or if the protection it provides is already fulfilled by a policy you applied, the policy appears unavailable. You can filter the list by policy categories:
 
