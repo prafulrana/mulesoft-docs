@@ -3,6 +3,20 @@
 
 In addition to these release notes, see the complete link:/anypoint-runtime-fabric/v/1.0[Anypoint Runtime Fabric] documentation.
 
+== 1.1.54 - September 19, 2018
+
+This release includes the following fixes and enhancements:
+
+* Added: Monitoring dashboard in Ops Center to provide more visibility on the health of the inbound traffic controller and Mule applications.
+* Added: Support for directing outbound traffic of Runtime Fabric services through an HTTP and TCP proxy.
+* Added: Support for running Runtime Fabric services with an existing user and group ID.
+
+* Fixed: Ingress resources were not removed when inbound traffic is disabled.
+* Fixed: Some environments were not visible as a filter in Ops Center monitoring dashboard.
+* Fixed: Inbound traffic controller health probes occasionally reported unhealthy under high CPU load.
+* Fixed: The last mile security setting was not correctly applied in some cases.
+* Fixed: Application updates can cause disruption of inbound traffic in certain cases.
+
 == 1.0.1 - August 13, 2018
 
 This release marks the general availability of Anypoint Runtime Fabric.
