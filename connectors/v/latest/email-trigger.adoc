@@ -1,0 +1,52 @@
+= To Trigger a Flow for each Email in a  Mailbox Folder
+
+The Email connector provides a listener (called On New Email in Studio and Flow Designer UI) that polls an email folder from a mailbox for all the emails in it, generating a new message for each email that is found.
+
+The key part of this functionality is how to determine that a file is new. There are three strategies for making this determination:
+
+Setting the autoDelete parameter to true. This setting deletes each file after it has been processed so that all files found in the next poll will be new.
+
+Setting moveToDirectory parameter to move each processed file to a different directory after it has been processed. This produces the same effect as autoDelete but without losing the file.
+
+Using the watermark parameter to only pick files that have been created or updated after the last poll was executed.
+
+Using a matcher to filter the files.
+
+Listener
+Listeners function similarly for the FTP, SFTP, and File connectors. However, the XML element used for them is different:
+
+
+.Example: Email Listener (On New Email Trigger)
+[source, xml, linenums]
+----
+<flow name="onNewFile">
+    <file:listener config-ref="file" directory="test-data/in" autoDelete="true">
+      <scheduling-strategy>
+        <fixed-frequency frequency="1000"/>
+      </scheduling-strategy>
+    </file:listener>
+
+    <flow-ref name="processFile" />
+</flow>
+Watermarking
+For the File connector, the watermarking strategy can be used in two different modes: CREATION_TIMESTAMP or MODIFIED_TIMESTAMP. The strategy depends on whether you want to filter files based on their creation or modification time.
+
+Example: Watermarking with the File Listener
+1
+2
+3
+4
+5
+6
+7
+<file:listener doc:name="On New File"
+  config-ref="File_Config1"
+  watermarkMode="CREATED_TIMESTAMP">
+    <scheduling-strategy >
+      <fixed-frequency />
+    </scheduling-strategy>
+</file:listener>
+Streaming
+The List operation makes use of the repeatable streams functionality introduced in Mule 4. The operation returns a List of Messages, where each message represents a file in the list and holds a stream to the file. That stream is repeatable by default.
+
+For more information on this topic, see About Streaming in Mule 4.0.

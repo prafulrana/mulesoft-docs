@@ -55,6 +55,7 @@
 *** link:email-documentation[Email Connector Technical Reference]
 *** link:email-send[Sending Emails]
 *** link:email-list[Listing Emails]
+*** link:email-trigger[To Trigger a Flow when a New Email is received]
 *** link:email-gmail[Connecting to Gmail]
 ** link:file-connector[File Connector]
 *** link:file-read[To Read a File]
