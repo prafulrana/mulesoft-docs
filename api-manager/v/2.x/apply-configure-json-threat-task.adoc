@@ -4,11 +4,11 @@
 
 [width="100%", cols="1,3"]
 |===
-s|Policy Name|JSON Threat Protection
-s|Summary|Protects against malicious JSON in API requests
-s|Category|Security
-s|Since Mule Version|3.8.0
-s|Returned Status Codes|400 - (Bad Request)
+>s|Policy Name|JSON Threat Protection
+>s|Summary|Protects against malicious JSON in API requests
+>s|Category|Security
+>s|Since Mule Version|3.8.0
+>s|Returned Status Codes|400 - (Bad Request)
 |===
 
 == Purpose
@@ -22,16 +22,16 @@ In the event Mule Runtime fails to detect an attack, you need to monitor and des
 [width="100%", cols="2,6,1,1"]
 |===
 s|Field s|Description s|Default s|Required
-|Maximum Container Depth|Specifies the maximum allowed nested depth. JSON allows you to nest the containers (object and array) in any order to any depth|0|false
-|Maximum String Value Length|Specifies the maximum length allowed for a string value|0|false
-|Maximum Object Entry Name Length|Specifies the maximum string length allowed for an object's entry name|0|false
-|Maximum Object Entry Count|Specifies the maximum number of entries allowed in an object|0|false
-|Maximum Array Element Count|Specifies the maximum number of elements allowed in an array|0|false
+|Maximum Container Depth|Specifies the maximum allowed nested depth. JSON allows you to nest the containers (object and array) in any order to any depth ^|0 ^|false
+|Maximum String Value Length|Specifies the maximum length allowed for a string value ^|0 ^|false
+|Maximum Object Entry Name Length|Specifies the maximum string length allowed for an object's entry name ^|0 ^|false
+|Maximum Object Entry Count|Specifies the maximum number of entries allowed in an object ^|0 ^|false
+|Maximum Array Element Count|Specifies the maximum number of elements allowed in an array ^|0 ^|false
 |===
 
-*Note*: Configuring a value of -1 means unlimited.
+NOTE: Configuring a value of -1 means unlimited.
 
-==== Example
+== Example
 
 image:json-threat-policy.png[json-threat-policy]
 
