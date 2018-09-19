@@ -49,7 +49,6 @@
 +
 // Policies
 ** link:/api-manager/v/2.x/policies-landing-page[Policies]
-**** link:/api-manager/v/2.x/mule4-policy-reference[Mule Runtime 4.x Policy concepts]
 *** link:/api-manager/v/2.x/available-policies[Categories]
 *** link:/api-manager/v/2.x/using-policies[Applying a Policy]
 *** link:/api-manager/v/2.x/re-order-policies-task[Re-ordering Policies]

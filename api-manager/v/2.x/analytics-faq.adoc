@@ -15,7 +15,7 @@ You can also enable DEBUG or TRACE level for Analytics in the ../src/main/resour
 
 Check your logs for one or both of these messages, which can indicate that the events were successfully set to the Analytics API:
 
-[source,code,linenums]
+[source,code]
 ----
 "Sent [n] events to analytics ingest."
 "[n] policy violation events were sent to analytics ingest"
@@ -23,10 +23,10 @@ Check your logs for one or both of these messages, which can indicate that the e
 
 If these messages are not present, check the application's log to see that you see both of the following messages:
 
-[source,code,linenums]
+[source,code]
 ----
 "New message received notification..."
-"New message response notification.. "
+"New message response notification... "
 ----
 
 In previous versions of Anypoint Data Gateway, an issue prevented RAML type proxies from working correctly. Ensure that you have the latest software where this issue has been fixed.

@@ -32,8 +32,10 @@ If you upgrade APIs from the Jul 2017 to Nov 2017, the security manager setup in
 * Header propagation no longer occurs by default. You can configure header propagation for token enforcement and rate limiting policies by checking the Expose Headers checkbox.
 * You can configure the rate limiting policy to share the quota among the cluster nodes (default) or not.
 
-// Policies
-*** link:/api-manager/v/2.x/mule4-policy-reference[Mule Runtime 4.x Policy concepts]
+NOTE: For additional information on changes introduced by Mule 4 you can refer to the link:/api-manager/v/2.x/mule4-policy-reference[documentation].
+
+=== Basic tasks and concepts
+
 *** link:/api-manager/v/2.x/available-policies[Categories]
 *** link:/api-manager/v/2.x/using-policies[Applying a Policy]
 *** link:/api-manager/v/2.x/re-order-policies-task[Re-ordering Policies]
