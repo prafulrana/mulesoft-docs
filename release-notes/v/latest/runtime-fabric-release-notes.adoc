@@ -15,7 +15,7 @@ This release includes the following fixes and enhancements:
 * Fixed: Some environments were not visible as a filter in Ops Center monitoring dashboard.
 * Fixed: Inbound traffic controller occasionally restarts under high CPU load.
 * Fixed: The last mile security setting was not correctly applied in some cases.
-* Fixed: Application updates can cause disruption of inbound traffic in some cases.
+* Fixed: Application updates can cause disruption of inbound traffic in certain cases.
 
 == 1.0.1 - August 13, 2018
 
