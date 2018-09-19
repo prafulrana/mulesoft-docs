@@ -5,10 +5,10 @@
 |==========================
 >s| Policy Name | IP Whitelist
 >s|Summary      | Allows request only from a list or range of IP addresses
->s|Category |
+>s|Category | Security
 >s| Since Mule Version | 3.8.0
 .1+>.^s| Returned Status Codes
-|
+| 403 - IP is rejected
 |==========================
 
 
