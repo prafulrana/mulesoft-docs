@@ -1,52 +1,109 @@
-= To Trigger a Flow for each Email in a  Mailbox Folder
+= To Trigger a Flow for When a new Email is Received
 
-The Email connector provides a listener (called On New Email in Studio and Flow Designer UI) that polls an email folder from a mailbox for all the emails in it, generating a new message for each email that is found.
+The Email connector provides a listener (called On New Email in Studio and Flow Designer UI) that polls an email folder from a mailbox for all the unread emails in it, generating a new message for each email that is found.
 
-The key part of this functionality is how to determine that a file is new. There are three strategies for making this determination:
+The key part of this functionality is how to determine that an email is new. There are three strategies for making this determination:
 
-Setting the autoDelete parameter to true. This setting deletes each file after it has been processed so that all files found in the next poll will be new.
+* Setting the `deleteAfterRetrieve` parameter to true. This setting deletes each email from the mailbox folder after it has been processed so that all emails found in the next poll will be new.
+* Using a matcher to filter the polled emails.
+* The IMAP protocol also can take advantage of the `watermark` parameter to only pick emails that have been received after the last poll was executed.
 
-Setting moveToDirectory parameter to move each processed file to a different directory after it has been processed. This produces the same effect as autoDelete but without losing the file.
+== Listener
 
-Using the watermark parameter to only pick files that have been created or updated after the last poll was executed.
+The Email Connector provides two listeners that function similarly for the IMAP and POP3 protocols. However, the XML element used for them has differents names:
 
-Using a matcher to filter the files.
+* `listener-imap`
+* `listener-pop3`
 
-Listener
-Listeners function similarly for the FTP, SFTP, and File connectors. However, the XML element used for them is different:
+A `scheduling-strategy` can be configured to the listener to change the polling frequency of the components.
 
-
-.Example: Email Listener (On New Email Trigger)
+.Example: IMAP Email Listener (On New Email Trigger)
 [source, xml, linenums]
 ----
-<flow name="onNewFile">
-    <file:listener config-ref="file" directory="test-data/in" autoDelete="true">
-      <scheduling-strategy>
-        <fixed-frequency frequency="1000"/>
-      </scheduling-strategy>
-    </file:listener>
-
-    <flow-ref name="processFile" />
+<flow name="OnNewEmail">
+    <email:listener-imap config-ref="imap-config">
+        <scheduling-strategy>
+            <fixed-frequency frequency="2000"/>
+        </scheduling-strategy>
+    </email:listener-imap>
+    <flow-ref name="processEmail"/>
 </flow>
-Watermarking
-For the File connector, the watermarking strategy can be used in two different modes: CREATION_TIMESTAMP or MODIFIED_TIMESTAMP. The strategy depends on whether you want to filter files based on their creation or modification time.
+----
 
-Example: Watermarking with the File Listener
-1
-2
-3
-4
-5
-6
-7
-<file:listener doc:name="On New File"
-  config-ref="File_Config1"
-  watermarkMode="CREATED_TIMESTAMP">
-    <scheduling-strategy >
-      <fixed-frequency />
-    </scheduling-strategy>
-</file:listener>
-Streaming
-The List operation makes use of the repeatable streams functionality introduced in Mule 4. The operation returns a List of Messages, where each message represents a file in the list and holds a stream to the file. That stream is repeatable by default.
+.Example: POP3 Email Listener (On New Email Trigger)
+[source, xml, linenums]
+----
+<flow name="OnNewEmail">
+    <email:listener-pop3 config-ref="pop3-config">
+        <scheduling-strategy>
+            <fixed-frequency frequency="2000"/>
+        </scheduling-strategy>
+    </email:listener-pop3>
+    <flow-ref name="processEmail"/>
+</flow>
+----
 
-For more information on this topic, see About Streaming in Mule 4.0.
+=== Delete after retrieve 
+
+ Both POP3 and IMAP listener can set the `deleteAfterRetrieve` parameter to true enabling the deletion of the polled emails after being processed. This feature is disabled by default to avoid deleting emails by mistake.
+
+ .Example: Delete After Retrieve
+[source, xml, linenums]
+----
+<flow name="OnNewEmailDeleteAfterProcessed">
+    <email:listener-pop3 config-ref="pop3-config" deleteAfterRetrieve="true">
+        <scheduling-strategy>
+            <fixed-frequency/>
+        </scheduling-strategy>
+    </email:listener-pop3>
+    <flow-ref name="processEmail"/>
+</flow>
+----
+
+This is commonly used with the POP3 protocol since there is no watermark support on it, by deleting processed emails the user makes sure that the next processed emails will be new.
+
+Is important to know that this feature *WILL DELETE* the emails from the configured Mailbox Folder.
+
+== Watermarking
+
+The Email connector has the capability to watermark emails when using the IMAP protocol, filtering emails based on their received date.
+
+To enable watermark using the `listener-imap` trigger just set the watermark parameter to true, this way dispatched messages will only contain emails that were received after the last poll was executed.
+
+.Example: IMAP Watermark Email Listener
+[source, xml, linenums]
+----
+<flow name="OnNewEmailWatermark">
+    <email:listener-imap config-ref="imap-config" watermark="true">
+        <scheduling-strategy>
+            <fixed-frequency/>
+        </scheduling-strategy>
+    </email:listener-imap>
+    <flow-ref name="processEmail"/>
+</flow>
+----
+
+== Matchers
+
+Another posibility to filter the dispatched messages is by configuring a custom matcher. 
+
+Both POP3 and IMAP listener have their own matchers that can filter emails by dates, addresses, subject and flags (SEEN, ANSWERED, etc).
+
+For example:
+
+.Example: Email Listener with Matcher 
+[source, xml, linenums]
+----
+<flow name="OnNewEmailWatermark">
+    <email:listener-imap config-ref="imap-config">
+        <scheduling-strategy>
+            <fixed-frequency/>
+        </scheduling-strategy>
+        <email:imap-matcher subjectRegex="IMPORTANT"/>
+    </email:listener-imap>
+    <flow-ref name="processEmail"/>
+</flow>
+----
+
+The example above will only dispatch email messages that contains the word "IMPORTANT" in their subject.
+
