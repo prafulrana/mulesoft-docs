@@ -111,7 +111,7 @@ management-console/tree/v3.8
 | mulesoft/mulesoft-docs |runtime-manager |latest |mulesoft/docs-runtime-manager |latest |https://github.com/mulesoft/docs-runtime-manager/tree/latest
 
 | mulesoft/mulesoft-docs |tcat-server |7.1.0 |mulesoft/docs-tcat-server |v7.1 | https://github.com/mulesoft/docs-tcat-server/tree/v7.1
-
+|===
 
 === New Content Structure
 
