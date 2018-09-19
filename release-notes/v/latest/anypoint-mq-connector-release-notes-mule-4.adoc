@@ -12,11 +12,9 @@ To support Exchange 2.0 properly, the feature ID of Anypoint MQ Connector has ch
 
 == 2.0.4
 
-*September 18, 2018*
+*September 19, 2018*
 
 This release of the Anypoint MQ Connector fixes an issue in v2.0.2.
-
-*Important:* Do not use MQ Connector version 2.0.2. If installed, delete, and download v2.0.4 from Anypoint Exchange.
 
 === Compatibility
 
