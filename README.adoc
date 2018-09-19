@@ -119,5 +119,4 @@ The structure of the content repos has changed:
 
 * Content (.adoc) files are located in the modules/ROOT/pages directory.
 * Navigation (TOC) files are located in modules/ROOT/nav.adoc.
-
-The release note (mulesoft/docs-release-notes) and connectors (mulesoft/docs-connectors) repos have been divided into subfolder to make finding and editing them easier.
+* The release note (mulesoft/docs-release-notes) and connectors (mulesoft/docs-connectors) repos have been divided into subfolder to make finding and editing them easier.
