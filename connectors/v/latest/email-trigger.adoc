@@ -45,7 +45,7 @@ A `scheduling-strategy` can be configured to the listener to change the polling 
 
 === Delete after retrieve 
 
- Both POP3 and IMAP listener can set the `deleteAfterRetrieve` parameter to true enabling the deletion of the polled emails after being processed. This feature is disabled by default to avoid deleting emails by mistake.
+Both POP3 and IMAP listener can set the `deleteAfterRetrieve` parameter to true enabling the deletion of the polled emails after being processed. This feature is disabled by default to avoid deleting emails by mistake.
 
  .Example: Delete After Retrieve
 [source, xml, linenums]
