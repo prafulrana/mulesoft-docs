@@ -10,9 +10,9 @@ _Select_
 Anypoint MQ Connector lets you add messaging access to Anypoint MQ queues and exchanges from Anypoint Studio applications.
 To support Exchange 2.0 properly, the feature ID of Anypoint MQ Connector has changed. Before you download MQ v1.2.0 and later from Exchange 2.0, uninstall the existing version of this connector in Studio.
 
-== 2.0.2
+== 2.0.4
 
-*September 17, 2018*
+*September 19, 2018*
 
 This release of the Anypoint MQ Connector implements retry logic with exponential backoff.
 
@@ -21,8 +21,8 @@ This release of the Anypoint MQ Connector implements retry logic with exponentia
 [%header%autowidth.spread]
 |===
 |Software|Version
-|Mule Runtime |4.0.0 and newer
-|Anypoint Studio |7.0.0
+|Mule Runtime |4.0.0 and later
+|Anypoint Studio |7.0.0 and later
 |===
 
 === Fixed in This Release
@@ -45,6 +45,28 @@ To disable Prefetch:
 +
 If there are no messages in the queue, each poll that a subscriber makes waits for the duration of exactly half of the *Polling time* specified in the General tab. Polling time has a maximum value of 20000 milliseconds.
 
+Versions 2.0.2 - 2.0.3 were internal only without user interface changes or user functionality.
+
+== 2.0.1
+
+*June 29, 2018*
+
+This release enables use of cached connections.
+
+=== Compatibility
+
+[%header%autowidth.spread]
+|===
+|Software|Version
+|Mule Runtime |4.0.0 and later
+|Anypoint Studio |7.0.0 and later
+|===
+
+=== Fixed in This Release
+
+* AMQ Connector now uses Cached connections. Anypoint MQ formerly spawned a new thread for 
+each connection, but didn't correctly shut down created threads. The cached connections feature 
+fixes this issue. (AMQC-31)
 
 == 2.0.0
 
@@ -57,8 +79,8 @@ The Anypoint MQ connector now adds support for Mule 4 and Studio 7. This release
 [%header%autowidth.spread]
 |===
 |Software|Version
-|Mule Runtime |4.0.0 and newer
-|Anypoint Studio |7.0.0
+|Mule Runtime |4.0.0 and later
+|Anypoint Studio |7.0.0 and later
 |===
 
 === Known Issues
