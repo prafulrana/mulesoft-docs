@@ -28,7 +28,7 @@ N/A
 
 == Known Issues
 
-N/A
+* Agent 1.10.0 released with this Runtime is not compatible with JDK1.7, to run on JDK1.7 upgrade the Agent to 1.11.0.
 
 == Issues Impacting Migration
 
