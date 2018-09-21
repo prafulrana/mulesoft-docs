@@ -7,6 +7,24 @@ _Select_
 
 The Salesforce Marketing Cloud connector allows you to connect to the Salesforce Marketing Cloud web services using Exact Target API. The connector exposes convenient methods for managing objects and calling services provided by Exact Target API, also known as Salesforce Marketing Cloud.
 
+== 2.1.0
+
+=== Compatibility
+
+The Salesforce Marketing Cloud connector is compatible with:
+
+[%header%autowidth]
+|======================
+|Application/Service |Version
+|Mule Runtime|Mule Enterprise Edition 4.1.1 and newer
+|Anypoint Studio| Works with Studio 7.0.0 and newer
+|Fuel SDK| v1.2.2
+|======================
+
+=== Features
+
+* * Support with Salesforce Marketing Cloud API v43 based on Fuel SDK v1.2.2
+
 == 2.0.0
 
 *January 19, 2018*
