@@ -24,7 +24,7 @@ as part of the policy.
 +
 * The mule-artifact.json descriptor
 +
-Specify the classifier as `mule-policy`. Policies can not export resources nor packages.
+Policies can not export resources nor packages.
 
 == Basic XML structure
 Basic structure of a policy config is as follows:
