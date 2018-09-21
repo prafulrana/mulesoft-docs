@@ -12,6 +12,18 @@ The Workday connector requires an Enterprise license.
 [IMPORTANT]
 Depending on the connectivity conditions while using Workday connector in Anypoint Studio, there can be a timeout while obtaning Workday metadata. See link:/connectors/workday-studio#to-increase-timeout-in-studio[To Increase Timeout in Studio].
 
+== 10.0.0
+
+[%header%autowidth]
+|===
+|Software |Version
+|Mule Runtime |4.0.0
+|Workday API |v28.0, v29.0, v30.0
+|===
+
+=== Features
+- This Connector supports different Workday API.
+
 == 9.2.0
 
 *March 15, 2018*
