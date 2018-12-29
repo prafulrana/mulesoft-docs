@@ -1,0 +1,7 @@
+PCE 2.0.2 Release Notes
+
+* Kubernetes security patch for CVE-2018-1002105
+* Avoid Cassandra replicas to start in the same node
+* Exchange migrations are run with higher privileges and then permissions are downgraded.
+* Password autocomplete disabled on login page
+* Config API healtchecks fix to ignore old pods
